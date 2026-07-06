@@ -1,46 +1,176 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Brand Name Changes — the studio behind Cadence</title>
-<meta name="description" content="Brand Name Changes is an independent software studio. Home of Cadence, the songwriter's workspace.">
-<style>
-  :root { --bg:#0b0b0d; --panel:#141418; --text:#f2f2f4; --dim:#9a9aa3; --accent:#c8cdd6; }
-  * { margin:0; box-sizing:border-box; }
-  body { background:var(--bg); color:var(--text); font:17px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; -webkit-font-smoothing:antialiased; }
-  main { max-width:680px; margin:0 auto; padding:96px 24px 64px; }
-  h1 { font-size:44px; line-height:1.15; letter-spacing:-0.02em; }
-  .dim { color:var(--dim); }
-  .card { background:var(--panel); border:1px solid #22222a; border-radius:20px; padding:28px; margin-top:48px; }
-  .card h2 { font-size:22px; margin-bottom:8px; }
-  a { color:var(--accent); text-decoration:none; border-bottom:1px solid #33333d; }
-  a:hover { border-color:var(--accent); }
-  footer { margin-top:72px; font-size:14px; color:var(--dim); display:flex; gap:20px; flex-wrap:wrap; }
-  .badge { display:inline-block; font-size:13px; letter-spacing:.14em; text-transform:uppercase; color:var(--dim); margin-bottom:20px; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Brand Name Changes — a studio for creative software</title>
+  <meta name="description" content="Brand Name Changes is an independent studio building focused tools for people who make things. Maker of Cadence, the songwriter's workspace." />
+  <meta name="theme-color" content="#08090c" />
+  <meta property="og:title" content="Brand Name Changes" />
+  <meta property="og:description" content="An independent studio building focused creative tools. Maker of Cadence." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://brandnamechanges.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='4' y='12' width='4' height='8' rx='2' fill='%23f5b942'/%3E%3Crect x='12' y='6' width='4' height='20' rx='2' fill='%23f5b942'/%3E%3Crect x='20' y='10' width='4' height='12' rx='2' fill='%23ff8a63'/%3E%3C/svg%3E" />
 </head>
 <body>
-<main>
-  <span class="badge">Brand Name Changes</span>
-  <h1>An independent software&nbsp;studio.</h1>
-  <p class="dim" style="margin-top:16px">We design and build focused creative tools.</p>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand" href="/" aria-label="Brand Name Changes home">
+        <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="3"  y="13" width="4" height="6"  rx="2" fill="#f5b942"/>
+          <rect x="11" y="7"  width="4" height="18" rx="2" fill="#f5b942"/>
+          <rect x="19" y="10" width="4" height="12" rx="2" fill="#ff8a63"/>
+          <rect x="27" y="14" width="3" height="4"  rx="1.5" fill="#ff8a63"/>
+        </svg>
+        <span>Brand&nbsp;Name&nbsp;Changes</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="/cadence">Cadence</a>
+        <a href="#studio">Studio</a>
+        <a href="/support">Support</a>
+        <a class="btn btn-ghost nav-cta" href="/cadence">Get Cadence</a>
+      </nav>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
 
-  <div class="card">
-    <h2>Cadence</h2>
-    <p class="dim">The songwriter's workspace — live rhyme highlighting in twelve languages, beat-synced writing, and a recorder that keeps every take on your phone.</p>
-  </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Independent software studio</span>
+        <h1 class="display">Tools that get out of<br><span class="grad-text">the way of the work.</span></h1>
+        <p class="lede">Brand Name Changes builds focused software for people who make things — fast, quiet, and designed to disappear so the idea can take over.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="/cadence">Meet Cadence →</a>
+          <a class="btn btn-ghost" href="#studio">About the studio</a>
+        </div>
+        <div class="meta">
+          <span><b>Cadence</b> · flagship app</span>
+          <span><b>iOS</b> · iPhone &amp; iPad</span>
+          <span><b>Offline-first</b> · your work, on your device</span>
+        </div>
+      </div>
+      <div class="visual reveal" aria-hidden="true">
+        <div class="eq">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="tag"><span>CADENCE · take 01</span><span class="dot"></span></div>
+      </div>
+    </div>
+  </section>
 
-  <div class="card">
-    <h2>Contact</h2>
-    <p class="dim">Support and everything else: <a href="mailto:hello@brandnamechanges.com">hello@brandnamechanges.com</a></p>
-  </div>
+  <!-- CADENCE SPOTLIGHT -->
+  <section id="cadence">
+    <div class="wrap">
+      <div class="spotlight">
+        <div class="reveal">
+          <span class="eyebrow">The flagship</span>
+          <h2 style="margin:16px 0 14px;">Cadence — the songwriter's workspace.</h2>
+          <p class="lede" style="margin-bottom:26px;">Live rhyme highlighting, word suggestions as you write, and two-take mic recording — in one editor that never breaks your flow. Your lyrics sync across devices; your recordings stay on yours.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="/cadence">Explore Cadence →</a>
+          </div>
+        </div>
+        <div class="card reveal">
+          <span class="pill">What it does</span>
+          <ul style="list-style:none; margin-top:18px; display:grid; gap:14px;">
+            <li><strong>Rhyme engine</strong><br><span style="color:var(--muted)">Perfect, near, and multisyllabic matches in real time — offline, no AI subscription.</span></li>
+            <li><strong>Mic A/B recording</strong><br><span style="color:var(--muted)">Capture two takes side by side, right inside the song.</span></li>
+            <li><strong>Cloud sync (Pro)</strong><br><span style="color:var(--muted)">Start a verse on your phone, finish the chorus on your iPad.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    <a href="/support">Support</a>
-    <a href="/privacy">Privacy</a>
-    <span>© 2026 Brand Name Changes</span>
+  <!-- STUDIO / PRINCIPLES -->
+  <section id="studio">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">The studio</span>
+        <h2>Small studio. Sharp tools.</h2>
+        <p class="lede">We make a few things and try to make them properly. No dark patterns, no data resale, no feature bloat — software you'd actually want to keep open.</p>
+      </div>
+      <div class="features cols-3">
+        <div class="feature reveal">
+          <div class="ic">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8v8M19 8v8"/></svg>
+          </div>
+          <div><h3>Focus over features</h3><p>Every screen earns its place. The fastest path from idea to done.</p></div>
+        </div>
+        <div class="feature reveal">
+          <div class="ic">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div><h3>Your data is yours</h3><p>Offline-first by design. We never sell data or load ad SDKs. Recordings stay on your device.</p></div>
+        </div>
+        <div class="feature reveal">
+          <div class="ic">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
+          </div>
+          <div><h3>Built to feel fast</h3><p>Native, responsive, quiet. Tools that respond at the speed of thought.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-band">
+    <div class="wrap">
+      <div class="inner reveal">
+        <span class="eyebrow" style="justify-content:center;">Get started</span>
+        <h2 style="margin-top:16px;">Start writing in Cadence.</h2>
+        <p class="lede" style="margin-inline:auto;">Free to use, with Cadence Pro for cross-device sync. On iPhone and iPad.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="/cadence">Explore Cadence →</a>
+          <a class="btn btn-ghost" href="/support">Get support</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="cols">
+        <div>
+          <a class="brand" href="/" style="margin-bottom:14px;">
+            <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
+              <rect x="3" y="13" width="4" height="6" rx="2" fill="#f5b942"/>
+              <rect x="11" y="7" width="4" height="18" rx="2" fill="#f5b942"/>
+              <rect x="19" y="10" width="4" height="12" rx="2" fill="#ff8a63"/>
+              <rect x="27" y="14" width="3" height="4" rx="1.5" fill="#ff8a63"/>
+            </svg>
+            <span>Brand Name Changes</span>
+          </a>
+          <p style="max-width:36ch; font-size:0.92rem;">An independent studio building focused creative tools.</p>
+        </div>
+        <div>
+          <h4>Products</h4>
+          <a href="/cadence">Cadence</a>
+          <a href="/cadence#pro">Cadence Pro</a>
+        </div>
+        <div>
+          <h4>Company</h4>
+          <a href="/support">Support</a>
+          <a href="/privacy">Privacy</a>
+          <a href="/terms">Terms</a>
+          <a href="mailto:hello@brandnamechanges.com">Contact</a>
+        </div>
+      </div>
+      <div class="legal">
+        <!-- CONFIRM: legal entity name + company no. + registered office must match your DUNS / Apple enrolment -->
+        <span>© <span data-year>2026</span> Brand Name Changes Ltd. All rights reserved.</span>
+        <span>Made for people who make things.</span>
+      </div>
+    </div>
   </footer>
-</main>
+
+  <script src="site.js" defer></script>
 </body>
 </html>
