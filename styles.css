@@ -6,10 +6,10 @@
 
 :root {
   /* Ink scale */
-  --ink:    #08090c;
-  --ink-2:  #0d0f14;
-  --ink-3:  #14171e;
-  --ink-4:  #1c2027;
+  --ink:    #0c0c10;
+  --ink-2:  #111117;
+  --ink-3:  #16161d;
+  --ink-4:  #1e1e26;
   --line:   rgba(255, 255, 255, 0.08);
   --line-2: rgba(255, 255, 255, 0.14);
 
@@ -19,9 +19,9 @@
   --faint:  #6b727d;
 
   /* Accent — warm amber → rose (Cadence Sunset/Rose themes) */
-  --accent:    #f5b942;
-  --accent-2:  #ff8a63;
-  --accent-ink:#1a1206;
+  --accent:    #ff2d78;
+  --accent-2:  #7a2bff;
+  --accent-ink:#ffffff;
   --grad: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
 
   /* Type */
