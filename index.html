@@ -5,120 +5,150 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Brand Name Changes — a studio for creative software</title>
   <meta name="description" content="Brand Name Changes is a software studio building focused tools for people who make things. Maker of Cadence, the songwriter's workspace." />
-  <meta name="theme-color" content="#0c0c10" />
+  <meta name="theme-color" content="#0a0a0a" />
   <meta property="og:title" content="Brand Name Changes" />
   <meta property="og:description" content="A software studio building focused creative tools. Maker of Cadence." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://brandnamechanges.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23FF2D78'/%3E%3Cstop offset='1' stop-color='%237A2BFF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='1.5' y='1.5' width='29' height='29' rx='8' fill='%230C0C10' stroke='%232A2A33' stroke-width='1.5'/%3E%3Cpath d='M6 16 L10 16 L13 8.5 L17 23.5 L20 12 L22.5 16 L26 16' fill='none' stroke='url(%23g)' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="tactile.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0A0A'/%3E%3Cpath d='M20.5 7 L11.5 25' stroke='%23F4F1EA' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <script>
+    (function(){var d=document.documentElement;d.classList.add('js');
+      if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)d.classList.add('no-motion');})();
+  </script>
 </head>
 <body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="cursor" aria-hidden="true"><div class="cursor-dot"></div><div class="cursor-ring"></div></div>
+
   <!-- NAV -->
   <header class="nav">
     <div class="wrap">
       <a class="brand" href="/" aria-label="Brand Name Changes home">
-        <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
-          <defs><linearGradient id="sig" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#FF2D78"/><stop offset="1" stop-color="#7A2BFF"/>
-          </linearGradient></defs>
-          <rect x="1.5" y="1.5" width="29" height="29" rx="8" fill="none" stroke="#2A2A33" stroke-width="1.5"/>
-          <path d="M6 16 L10 16 L13 8.5 L17 23.5 L20 12 L22.5 16 L26 16" fill="none" stroke="url(#sig)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span>Brand&nbsp;Name&nbsp;Changes</span>
+        <span class="logotype">BNC<span class="slash">⁄</span></span>
       </a>
       <nav class="nav-links" aria-label="Primary">
-        <a href="/cadence">Cadence</a>
         <a href="#studio">Studio</a>
+        <a href="#products">Products</a>
         <a href="/support">Support</a>
-        <a class="btn btn-ghost nav-cta" href="/cadence">Get Cadence</a>
+        <a class="btn btn-primary nav-cta magnetic" href="/cadence">Get Cadence</a>
       </nav>
       <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
     </div>
   </header>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <span class="eyebrow">Software studio · London</span>
-        <h1 class="display">Tools that get out of<br><span class="grad-text">the way of the work.</span></h1>
-        <p class="lede">Brand Name Changes builds focused software for people who make things — fast, quiet, and designed to disappear so the idea can take over.</p>
-        <div class="actions">
-          <a class="btn btn-primary" href="/cadence">Meet Cadence →</a>
-          <a class="btn btn-ghost" href="#studio">About the studio</a>
-        </div>
-        <div class="meta">
-          <span><b>Cadence</b> · flagship app</span>
-          <span><b>iOS</b> · iPhone &amp; iPad</span>
-          <span><b>Offline-first</b> · your work, on your device</span>
-        </div>
-      </div>
-      <div class="visual reveal" aria-hidden="true">
-        <div class="eq">
-          <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-          <span></span><span></span><span></span><span></span><span></span><span></span>
-        </div>
-        <div class="tag"><span>CADENCE · take 01</span><span class="dot"></span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CADENCE SPOTLIGHT -->
-  <section id="cadence">
+  <section class="hero home" id="top">
     <div class="wrap">
-      <div class="spotlight">
-        <div class="reveal">
-          <span class="eyebrow">The flagship</span>
-          <h2 style="margin:16px 0 14px;">Cadence — the songwriter's workspace.</h2>
-          <p class="lede" style="margin-bottom:26px;">Live rhyme highlighting, word suggestions as you write, and two-take mic recording — in one editor that never breaks your flow. Your lyrics sync across devices; your recordings stay on yours.</p>
-          <div class="actions">
-            <a class="btn btn-primary" href="/cadence">Explore Cadence →</a>
-          </div>
+      <div class="hero-inner">
+        <div class="hero-top anim-in">
+          <span class="eyebrow">Software studio — London</span>
+          <span class="eyebrow">Est. 2026</span>
         </div>
-        <div class="card reveal" style="padding:0; overflow:hidden;">
-          <img src="assets/cadence-editor.png" alt="Cadence editor with live rhyme highlighting — rhyming words grouped by colour" style="display:block; width:100%; height:auto;" loading="lazy" />
+        <h1 class="wordmark" aria-label="Brand Name Changes"><span class="wm-inner" aria-hidden="true">Cadence</span></h1>
+        <div class="wm-rule anim-in"></div>
+        <p class="hero-sub anim-in">A studio for creative software. We build a few focused tools for people who make things — <em>fast, quiet, and designed to disappear</em> so the idea can take over.</p>
+        <div class="actions anim-in">
+          <a class="btn btn-primary magnetic" href="/cadence">Meet Cadence</a>
+          <a class="btn btn-ghost magnetic" href="#products">See the work</a>
         </div>
       </div>
-      <div class="spotlight" style="margin-top:28px;">
-        <div class="card reveal">
-          <span class="pill">What it does</span>
-          <ul style="list-style:none; margin-top:18px; display:grid; gap:14px;">
-            <li><strong>Rhyme engine</strong><br><span style="color:var(--muted)">Perfect, near, and multisyllabic matches in real time — offline, no AI subscription.</span></li>
-            <li><strong>Mic A/B recording</strong><br><span style="color:var(--muted)">Capture two takes side by side, right inside the song.</span></li>
-            <li><strong>Cloud sync (Pro)</strong><br><span style="color:var(--muted)">Start a verse on your phone, finish the chorus on your iPad.</span></li>
-          </ul>
-        </div>
+    </div>
+    <!-- roster ticker (the products, on quiet rotation) -->
+    <div class="ticker anim-in" aria-hidden="true">
+      <div class="ticker-track">
+        <span class="lead">Currently building</span><i>—</i><span>Cadence</span><i>·</i><span>SolarReach</span><i>·</i><span>Loom</span><i>·</i><span>Quantdesk</span><i>·</i><span>Propintel</span><i>·</i><span>Narrative Studio</span><i>·</i>
+        <span class="lead">Currently building</span><i>—</i><span>Cadence</span><i>·</i><span>SolarReach</span><i>·</i><span>Loom</span><i>·</i><span>Quantdesk</span><i>·</i><span>Propintel</span><i>·</i><span>Narrative Studio</span><i>·</i>
       </div>
     </div>
   </section>
 
-  <!-- STUDIO / PRINCIPLES -->
+  <!-- (01) THE STUDIO -->
   <section id="studio">
     <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">The studio</span>
-        <h2>Sharp tools, studio discipline.</h2>
-        <p class="lede">We make a few things and try to make them properly. No dark patterns, no data resale, no feature bloat — software you'd actually want to keep open.</p>
+      <div class="index-head reveal">
+        <span class="num">(01)</span>
+        <span class="lbl">The studio</span>
+      </div>
+      <div class="statement-grid">
+        <p class="statement reveal">We make a few things and try to make them <em>properly</em>. <span class="dim">No dark patterns, no data resale, no feature bloat.</span></p>
+        <p class="statement-note reveal">Brand Name Changes is an independent software studio. We work across music, markets, property and story — a handful of products, each built to feel fast and to get out of the way of the work.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- (02) PRODUCTS -->
+  <section id="products">
+    <div class="wrap">
+      <div class="index-head reveal">
+        <span class="num">(02)</span>
+        <span class="lbl">Products</span>
+      </div>
+      <!-- Only Cadence is live/linked. Others are in development — confirm the one-line descriptors. -->
+      <div class="products reveal">
+        <a class="product-row live" href="/cadence">
+          <span class="p-num">01</span>
+          <span class="p-name">Cadence</span>
+          <span class="p-desc">The songwriter's workspace — rhymes, structure and recording in one editor.</span>
+          <span class="p-status">Live · iOS</span>
+          <span class="p-arrow" aria-hidden="true">→</span>
+        </a>
+        <div class="product-row">
+          <span class="p-num">02</span>
+          <span class="p-name">Quantdesk</span>
+          <span class="p-desc">Systematic trading, risk-first.</span>
+          <span class="p-status">In development</span>
+        </div>
+        <div class="product-row">
+          <span class="p-num">03</span>
+          <span class="p-name">Propintel</span>
+          <span class="p-desc">Property intelligence and market data.</span>
+          <span class="p-status">In development</span>
+        </div>
+        <div class="product-row">
+          <span class="p-num">04</span>
+          <span class="p-name">Narrative Studio</span>
+          <span class="p-desc">Tools for storytellers and long-form writing.</span>
+          <span class="p-status">In development</span>
+        </div>
+        <div class="product-row">
+          <span class="p-num">05</span>
+          <span class="p-name">SolarReach</span>
+          <span class="p-desc">Software for the clean-energy transition.</span>
+          <span class="p-status">In development</span>
+        </div>
+        <div class="product-row">
+          <span class="p-num">06</span>
+          <span class="p-name">Loom</span>
+          <span class="p-desc">Quiet creative software.</span>
+          <span class="p-status">In development</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- (03) PRACTICE -->
+  <section id="practice">
+    <div class="wrap">
+      <div class="index-head reveal">
+        <span class="num">(03)</span>
+        <span class="lbl">Practice</span>
       </div>
       <div class="features cols-3">
-        <div class="feature reveal">
-          <div class="ic">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 8v8M19 8v8"/></svg>
-          </div>
+        <div class="feature reveal tilt">
+          <div class="ic">✳</div>
           <div><h3>Focus over features</h3><p>Every screen earns its place. The fastest path from idea to done.</p></div>
         </div>
-        <div class="feature reveal">
-          <div class="ic">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div><h3>Your data is yours</h3><p>Offline-first by design. We never sell data or load ad SDKs. Recordings stay on your device.</p></div>
+        <div class="feature reveal tilt">
+          <div class="ic">◇</div>
+          <div><h3>Your data is yours</h3><p>Offline-first by design. We never sell data or load ad SDKs. Your work stays on your device.</p></div>
         </div>
-        <div class="feature reveal">
-          <div class="ic">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg>
-          </div>
+        <div class="feature reveal tilt">
+          <div class="ic">↯</div>
           <div><h3>Built to feel fast</h3><p>Native, responsive, quiet. Tools that respond at the speed of thought.</p></div>
         </div>
       </div>
@@ -130,11 +160,11 @@
     <div class="wrap">
       <div class="inner reveal">
         <span class="eyebrow" style="justify-content:center;">Get started</span>
-        <h2 style="margin-top:16px;">Start writing in Cadence.</h2>
-        <p class="lede" style="margin-inline:auto;">Free to use, with Cadence Pro for cross-device sync. On iPhone and iPad.</p>
+        <h2 style="margin-top:18px;">Start writing in Cadence.</h2>
+        <p class="lede">Free to use, with Cadence Pro for cross-device sync. On iPhone and iPad.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="/cadence">Explore Cadence →</a>
-          <a class="btn btn-ghost" href="/support">Get support</a>
+          <a class="btn btn-primary magnetic" href="/cadence">Explore Cadence</a>
+          <a class="btn btn-ghost magnetic" href="/support">Get support</a>
         </div>
       </div>
     </div>
@@ -145,39 +175,33 @@
     <div class="wrap">
       <div class="cols">
         <div>
-          <a class="brand" href="/" style="margin-bottom:14px;">
-            <svg class="mark" viewBox="0 0 32 32" aria-hidden="true">
-          <defs><linearGradient id="sig" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#FF2D78"/><stop offset="1" stop-color="#7A2BFF"/>
-          </linearGradient></defs>
-          <rect x="1.5" y="1.5" width="29" height="29" rx="8" fill="none" stroke="#2A2A33" stroke-width="1.5"/>
-          <path d="M6 16 L10 16 L13 8.5 L17 23.5 L20 12 L22.5 16 L26 16" fill="none" stroke="url(#sig)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-            <span>Brand Name Changes</span>
+          <a class="brand" href="/" aria-label="Brand Name Changes home">
+            <span class="logotype">Brand Name Changes</span>
           </a>
-          <p style="max-width:36ch; font-size:0.92rem;">A software studio building focused creative tools.</p>
+          <p style="max-width:38ch; font-size:0.92rem; margin-top:14px;">An independent software studio. The name keeps changing — the craft doesn't.</p>
         </div>
         <div>
           <h4>Products</h4>
           <a href="/cadence">Cadence</a>
           <a href="/cadence#pro">Cadence Pro</a>
+          <a href="#products">All products</a>
         </div>
         <div>
           <h4>Company</h4>
           <a href="/support">Support</a>
           <a href="/privacy">Privacy</a>
           <a href="/terms">Terms</a>
+          <a href="/delete-account">Delete account</a>
           <a href="mailto:hello@brandnamechanges.com">Contact</a>
         </div>
       </div>
       <div class="legal">
-        <!-- CONFIRM: legal entity name + company no. + registered office must match your DUNS / Apple enrolment -->
         <span>© <span data-year>2026</span> Brand Name Changes Ltd. All rights reserved.</span>
         <span>Made for people who make things.</span>
       </div>
     </div>
   </footer>
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js" defer></script>
   <script src="site.js" defer></script>
 </body>
 </html>
