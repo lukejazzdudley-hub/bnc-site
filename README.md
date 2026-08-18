@@ -1,7 +1,8 @@
 # Brand Name Changes — website
 
 Static marketing + legal site for **Brand Name Changes Ltd** and its app **Cadence**.
-Zero build step — plain HTML/CSS/JS. Deploys to **Cloudflare Pages**.
+Zero build step — plain HTML/CSS/JS. The production site is served by
+**GitHub Pages** from this repository.
 
 ```
 index.html      → /            BNC company landing (= App Store Marketing URL)
@@ -13,7 +14,7 @@ support.html    → /support     Support + FAQ    (App Store: required)
 styles.css, site.js
 ```
 
-Cloudflare Pages serves clean URLs automatically (`privacy.html` → `/privacy`).
+GitHub Pages serves the production clean URLs (`privacy.html` → `/privacy`).
 
 ---
 
@@ -21,53 +22,31 @@ Cloudflare Pages serves clean URLs automatically (`privacy.html` → `/privacy`)
 ```bash
 cd ~/Developer/bnc-site
 python3 -m http.server 8000      # then open http://localhost:8000
-# (locally use /privacy.html etc.; clean URLs work once on Cloudflare Pages)
+# (locally use /privacy.html etc.; production uses the clean GitHub Pages URLs)
 ```
 
-## 2. Register the domain — brandnamechanges.com
-Easiest path (registrar + DNS + host all in Cloudflare):
-1. Create a free account at https://dash.cloudflare.com
-2. **Domain Registration → Register Domains** → search `brandnamechanges.com` → buy (~£8–10/yr, at cost).
-   - If you'd rather use Porkbun/Namecheap, that's fine — you'll just point the domain's
-     nameservers at Cloudflare when prompted in step 4.
+## 2. Deploy
 
-## 3. Deploy to Cloudflare Pages
-**Option A — direct upload (fastest, no git):**
-1. Cloudflare dashboard → **Workers & Pages → Create → Pages → Upload assets**.
-2. Drag the whole `bnc-site` folder in. Name the project `bnc-site`. Deploy.
+Push a reviewed commit to `master`. GitHub Pages publishes the static files at
+`brandnamechanges.com`; there is no package install or build command. Confirm the
+custom-domain and HTTPS settings remain enabled in the repository's Pages
+settings, then verify:
 
-**Option B — git (auto-deploys on every push):**
-1. Push this folder to a GitHub repo (see step 6).
-2. Cloudflare → **Pages → Connect to Git** → pick the repo.
-3. Build command: *(none)*. Build output directory: `/`. Deploy.
+1. `https://brandnamechanges.com/cadence`
+2. `https://brandnamechanges.com/privacy`
+3. `https://brandnamechanges.com/terms`
+4. `https://brandnamechanges.com/support`
 
-You'll get a free `bnc-site.pages.dev` URL immediately to test.
+The live response should identify GitHub Pages and return HTTP 200 for each URL.
 
-## 4. Attach the custom domain
-1. In the Pages project → **Custom domains → Set up a domain** → `brandnamechanges.com`
-   (and `www.brandnamechanges.com`).
-2. If the domain is registered in Cloudflare, DNS is configured automatically.
-   Otherwise, add the CNAME records Cloudflare shows you at your registrar.
-3. SSL is automatic. Within minutes:
-   - https://brandnamechanges.com/privacy
-   - https://brandnamechanges.com/terms
-   - https://brandnamechanges.com/support  ← these are what App Store review needs.
+## 3. Store-console URLs
 
-## 5. Point App Store Connect at the live URLs
-In App Store Connect → your app → **App Information** / version page:
-- **Privacy Policy URL:** `https://brandnamechanges.com/privacy`
-- **Support URL:** `https://brandnamechanges.com/support`
-- **Marketing URL (optional):** `https://brandnamechanges.com`
+Keep these exact URLs in both store consoles:
 
-These already match what's baked into the app metadata, so nothing in the app changes.
-
-## 6. (Optional) put it in git
-```bash
-cd ~/Developer/bnc-site
-git init && git add -A && git commit -m "feat: Brand Name Changes site + Cadence pages"
-# create a repo on GitHub, then:
-# git remote add origin git@github.com:<you>/bnc-site.git && git push -u origin main
-```
+- https://brandnamechanges.com/privacy
+- https://brandnamechanges.com/terms
+- https://brandnamechanges.com/support  ← these are what App Store review needs.
+- https://brandnamechanges.com/delete-account
 
 ---
 
@@ -76,10 +55,12 @@ Grep the project for `CONFIRM` and `TODO`:
 - **Legal entity:** the footer/privacy/terms say *Brand Name Changes Ltd*. Replace with your
   exact registered name + company number + registered office to match your DUNS / Apple
   enrolment. (Search: `CONFIRM`)
-- **App Store link:** the “Download” buttons on `cadence.html` point at `#`. Replace with your
-  App Store URL once the app is live. (Search: `TODO`)
-- **Screenshots:** `cadence.html` has 3 placeholder device frames — drop in real App Store
-  screenshots (portrait PNG/JPG) when ready.
+- **Store links:** `cadence.html` currently links to the public TestFlight beta and
+  Google Play testing enrolment. Replace them with the public store listings only
+  after each listing is live.
+- **Product media:** the current gallery uses authentic app captures. Replace it
+  with the final signed-candidate screenshot set after physical acceptance; never
+  substitute invented interface artwork.
 - **Governing law:** `terms.html` assumes England & Wales — adjust if your entity is elsewhere.
 ```bash
 grep -rn "CONFIRM\|TODO" .

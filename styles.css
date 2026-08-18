@@ -72,10 +72,10 @@ body::before {
 .eyebrow::before { content: ""; width: 20px; height: 1px; background: var(--muted); opacity: 0.5; }
 
 /* ── Type scale ── */
-h1, h2, h3 { font-family: var(--serif); font-weight: 400; letter-spacing: -0.015em; line-height: 1.02; }
+h1, h2 { font-family: var(--serif); font-weight: 400; letter-spacing: -0.015em; line-height: 1.02; }
 .display { font-size: clamp(2.8rem, 7vw, 5.2rem); line-height: 1.0; letter-spacing: -0.02em; }
 h2 { font-size: clamp(2rem, 4.4vw, 3.4rem); }
-h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); letter-spacing: 0; }
+h3 { font-family: var(--sans); font-weight: 500; font-size: clamp(1.1rem, 1.8vw, 1.32rem); letter-spacing: -0.01em; line-height: 1.28; }
 .lede { font-family: var(--sans); font-size: clamp(1.05rem, 1.6vw, 1.25rem); color: var(--muted); max-width: 60ch; line-height: 1.62; }
 /* Former gradient text → editorial serif-italic accent */
 .grad-text { font-style: italic; color: var(--muted); }
@@ -93,8 +93,8 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); letter-spacing: 0; }
 .btn-ghost { border-color: var(--line-2); color: var(--text); background: transparent; }
 .btn-ghost:hover { border-color: rgba(244,241,234,0.45); transform: translateY(-1px); }
 /* Onyx — the one sanctioned accent, tied to Cadence's Onyx theme */
-.btn-onyx { background: #17141f; color: var(--text); border: 1px solid rgba(138,96,255,0.42); }
-.btn-onyx:hover { background: #1e1a2c; border-color: rgba(138,96,255,0.85); box-shadow: 0 10px 34px rgba(122,43,255,0.28); transform: translateY(-1px); }
+.btn-onyx { background: #16141c; color: var(--text); border: 1px solid rgba(120,96,170,0.32); }
+.btn-onyx:hover { background: #1c1926; border-color: rgba(120,96,170,0.60); box-shadow: 0 10px 30px rgba(90,60,150,0.20); transform: translateY(-1px); }
 
 /* ── Typographic logo (no icon box) ── */
 .brand { display: inline-flex; align-items: baseline; gap: 0; }
@@ -116,6 +116,48 @@ h3 { font-size: clamp(1.2rem, 2vw, 1.5rem); letter-spacing: 0; }
 .nav-links a:hover { color: var(--text); }
 .nav-cta { margin-left: 6px; }
 .nav-toggle { display: none; background: none; border: 0; color: var(--text); font-size: 1.4rem; cursor: pointer; padding: 6px; }
+
+/* ── Cadence product page ──────────────────────────────────────────────── */
+.cadence-hero { overflow: hidden; }
+.cadence-hero .hero-grid { grid-template-columns: minmax(0, 1.12fr) minmax(280px, .72fr); }
+.btn-platform { min-width: 210px; flex-direction: column; align-items: flex-start; gap: 1px; }
+.btn-platform small { font-family: var(--mono); font-size: 0.67rem; font-weight: 400; letter-spacing: .04em; opacity: .65; }
+.beta-note { margin-top: 14px; max-width: 58ch; color: var(--faint); font-size: .8rem; }
+.product-hero { max-width: 390px; justify-self: end; padding: 10px 10px 0; border-radius: 28px; }
+.product-hero img { border-radius: 20px 20px 0 0; }
+.product-hero figcaption { position: absolute; inset: auto 10px 0; padding: 40px 22px 18px; background: linear-gradient(transparent, rgba(10,10,10,.94)); font-family: var(--mono); font-size: .72rem; letter-spacing: .04em; }
+
+.workflow-section { border-block: 1px solid var(--line); background: var(--ink-2); }
+.workflow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); list-style: none; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+.workflow-step { min-height: 260px; padding: 26px; border-right: 1px solid var(--line); display: flex; flex-direction: column; }
+.workflow-step:last-child { border-right: 0; }
+.workflow-number { margin-bottom: auto; font-family: var(--mono); font-size: .73rem; color: var(--faint); letter-spacing: .12em; }
+.workflow-step h3 { margin: 38px 0 10px; }
+.workflow-step p { color: var(--muted); font-size: .92rem; line-height: 1.58; }
+
+.feature-mark { width: 44px; height: 44px; display: grid; place-items: center; color: var(--text); }
+.feature-mark svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.45; stroke-linecap: round; stroke-linejoin: round; }
+
+.product-tour { background: var(--ink-2); border-block: 1px solid var(--line); }
+.product-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(18px, 3vw, 34px); align-items: start; }
+.product-shot { margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 20px; background: var(--ink); }
+.product-shot img { width: 100%; height: auto; aspect-ratio: 640 / 1140; object-fit: cover; object-position: top; }
+.product-shot figcaption { display: grid; gap: 3px; padding: 18px 20px 20px; border-top: 1px solid var(--line); }
+.product-shot figcaption strong { font-size: .95rem; font-weight: 600; }
+.product-shot figcaption span { color: var(--muted); font-size: .84rem; }
+
+.pro-spotlight h2 { margin: 16px 0 14px; }
+.benefit-list { margin-top: 28px; list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 22px; }
+.benefit-list li { color: var(--muted); font-size: .92rem; padding-left: 22px; position: relative; }
+.benefit-list li::before { content: ""; position: absolute; left: 0; top: .7em; width: 10px; height: 1px; background: var(--text); }
+.plan-card h3 { margin: 20px 0 9px; }
+.plan-card > p { color: var(--muted); font-size: .92rem; }
+.plan-list { margin-top: 24px; border-top: 1px solid var(--line); }
+.plan-list > div { display: grid; gap: 2px; padding: 17px 0; border-bottom: 1px solid var(--line); }
+.plan-list strong { font-size: .95rem; font-weight: 600; }
+.plan-list span { color: var(--faint); font-size: .8rem; }
+.text-link { display: inline-block; margin-top: 20px; color: var(--muted); font-size: .87rem; border-bottom: 1px solid var(--line-2); }
+.text-link:hover { color: var(--text); border-bottom-color: var(--text); }
 
 /* ── Hero (generic two-column, used by /cadence) ── */
 .hero { position: relative; padding: clamp(56px, 10vw, 120px) 0 clamp(40px, 7vw, 88px); }
@@ -204,6 +246,13 @@ section { padding: clamp(64px, 9vw, 120px) 0; }
 /* ── Responsive ── */
 @media (max-width: 860px) {
   .hero-grid, .spotlight { grid-template-columns: 1fr; }
+  .cadence-hero .hero-grid { grid-template-columns: 1fr; }
+  .product-hero { justify-self: center; }
+  .workflow { grid-template-columns: 1fr 1fr; }
+  .workflow-step:nth-child(2) { border-right: 0; }
+  .workflow-step:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+  .product-gallery { grid-template-columns: repeat(3, minmax(220px, 1fr)); overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 10px; }
+  .product-shot { scroll-snap-align: start; }
   .visual { max-width: 420px; margin-inline: auto; }
   .footer .cols { grid-template-columns: 1fr 1fr; }
 }
@@ -211,7 +260,16 @@ section { padding: clamp(64px, 9vw, 120px) 0; }
   .nav-links { position: fixed; inset: 68px 0 auto 0; flex-direction: column; gap: 0; background: var(--ink-2); border-bottom: 1px solid var(--line); padding: 8px var(--gut) 18px; transform: translateY(-135%); transition: transform .3s ease; }
   .nav-links.open { transform: none; }
   .nav-links a { width: 100%; padding: 14px 0; border-bottom: 1px solid var(--line); }
-  .nav-cta { margin: 10px 0 0; }
-  .nav-toggle { display: block; }
+  .nav-cta { margin: 10px 0 0; width: 100%; justify-content: center; }
+  .nav-cta.btn-onyx { background: var(--ink-3); border-color: var(--line-2); box-shadow: none; }
+  .nav-toggle { display: block; min-width: 44px; min-height: 44px; font-family: var(--mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+  .cadence-hero { padding-top: 52px; }
+  .cadence-hero .display { font-size: clamp(2.65rem, 13vw, 4rem); }
+  .cadence-hero .actions, .btn-platform { width: 100%; }
+  .workflow { grid-template-columns: 1fr; }
+  .workflow-step { min-height: 210px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .workflow-step:nth-child(3) { border-bottom: 1px solid var(--line); }
+  .workflow-step:last-child { border-bottom: 0; }
+  .benefit-list { grid-template-columns: 1fr; }
   .footer .cols { grid-template-columns: 1fr; }
 }
