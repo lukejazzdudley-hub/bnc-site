@@ -30,7 +30,7 @@ for pair in "$@"; do
 
   ffmpeg -y -loglevel error -framerate 30 -start_number 1 -i "$frame_dir/frame-%04d.png" \
     -f lavfi -i color=c=black:s=480x900:r=30 \
-    -filter_complex "[1:v][0:v]overlay=0:0:format=auto:shortest=1,format=yuv420p" \
+    -filter_complex "[0:v]colorkey=0x050507:0.025:0.012[fg];[1:v][fg]overlay=0:0:format=auto:shortest=1,format=yuv420p" \
     -frames:v "$frames" -an -c:v libx264 -preset slow -crf 20 -movflags +faststart \
     -g 6 -keyint_min 6 -sc_threshold 0 "$output"
   ffmpeg -y -loglevel error -sseof -0.04 -i "$output" -frames:v 1 -c:v libwebp -q:v 88 "$poster"

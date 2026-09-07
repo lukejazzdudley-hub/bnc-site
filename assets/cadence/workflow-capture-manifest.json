@@ -18,7 +18,7 @@
       "control_state": "search-signal-grid-current",
       "captured_after_build": "2026-09-07T23:19:24+01:00",
       "status_chrome": false,
-      "derivative_sha256": "f9a3eaec435c2595988992fc2b6863ab16490dd69c286873da3d552920934617"
+      "derivative_sha256": "08f945d7b796d366940d71e9bf66883a4abc0b560ae326f0cf642f7ea4441086"
     },
     {
       "name": "transcribe",
@@ -30,7 +30,7 @@
       "control_state": "hook-01-menu-to-transcription-current",
       "captured_after_build": "2026-09-07T18:00:33+01:00",
       "status_chrome": "removed-by-encoder",
-      "derivative_sha256": "a197911e46a06a7f723678a17cbbf6c76d6195ec12b171779d9bcc7977c8c9f6"
+      "derivative_sha256": "6ab4b21784a69d0cd8c82dd67842c08a6e573d2fa335a81898d0778d097718b0"
     },
     {
       "name": "rhyme-families",
@@ -42,7 +42,7 @@
       "control_state": "told-perfect-to-assonance-current",
       "captured_after_build": "2026-09-07T18:00:30+01:00",
       "status_chrome": "removed-by-encoder",
-      "derivative_sha256": "1f98854d01311177b3b4b279c79a6b342d6006abc23b30128ecdc5e00f6b854b"
+      "derivative_sha256": "6ed87ab54e79fd18eac8865dfe67c5239dc4a250cbe60ba7eee104bcf2eee4e9"
     },
     {
       "name": "arrange-to-daw",
@@ -54,7 +54,7 @@
       "control_state": "play-beat-to-open-daw-current",
       "captured_after_build": "2026-09-07T18:02:16+01:00",
       "status_chrome": "removed-by-encoder",
-      "derivative_sha256": "d6a16efd84bb719218d7fe627cf925aefe0eaad10550fa857a8f46c53c62d55d"
+      "derivative_sha256": "9e0a36f5ed1d3540629ddee576b794bdd0d9ae0ffff2060bb7e9afb4f59e9b3f"
     },
     {
       "name": "dry-wet",
@@ -66,7 +66,7 @@
       "control_state": "mixer-dry-to-wet-current",
       "captured_after_build": "2026-09-07T18:00:34+01:00",
       "status_chrome": "removed-by-encoder",
-      "derivative_sha256": "cea157b4522a8d7cf9173cc6231e08f377d644f2b34112f0ce84461cbf17721e"
+      "derivative_sha256": "348b2114d2ca63eaf386b113bf457daea737f5f8f1a5f6b4963d91d26eb6987b"
     }
   ]
 }

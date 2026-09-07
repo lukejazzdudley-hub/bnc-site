@@ -1,11 +1,13 @@
 from html.parser import HTMLParser
 from pathlib import Path
+import re
 import unittest
 
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGE = ROOT / "cadence" / "feedback" / "index.html"
 SCRIPT = ROOT / "cadence" / "feedback" / "feedback.js"
+STYLES = ROOT / "cadence" / "feedback" / "feedback.css"
 
 
 class PageParser(HTMLParser):
@@ -98,6 +100,13 @@ class FeedbackPageContractTest(unittest.TestCase):
         self.assertIn('class="feedback-product"', self.html)
         self.assertIn("feedback-handset.mp4", self.html)
         self.assertIn("feedback-handset.webp", self.html)
+
+        css = STYLES.read_text(encoding="utf-8")
+        media_rule = re.search(r"\.feedback-product video\s*\{(?P<body>[^}]*)\}", css)
+        self.assertIsNotNone(media_rule)
+        assert media_rule is not None
+        self.assertNotIn("mix-blend-mode", media_rule.group("body"))
+        self.assertNotIn("mask-image", media_rule.group("body"))
         self.assertIn("data-scrub-video", self.html)
         self.assertIn('src="../media-policy.js"', self.html)
         self.assertNotIn("assets/cadence-editor.png", self.html)
