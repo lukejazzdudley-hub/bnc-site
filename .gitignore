@@ -2,3 +2,10 @@
 node_modules/
 .wrangler/
 .gstack/
+.worktrees/
+.env
+.env.*
+!.env.example
+feedback-exports/
+supabase/.temp/
+.supabase/
