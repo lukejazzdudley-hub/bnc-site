@@ -81,7 +81,7 @@ scene.camera.rotation_euler = (math.radians(88.7), 0.0, 0.0)
 scene.frame_start = 1
 scene.frame_end = frame_count
 scene.render.engine = "BLENDER_EEVEE"
-scene.render.resolution_x = 720
+scene.render.resolution_x = 480
 scene.render.resolution_y = 900
 scene.render.resolution_percentage = 100
 frame_directory.mkdir(parents=True, exist_ok=True)

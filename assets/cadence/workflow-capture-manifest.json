@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "capture_session": "2026-09-07",
+  "source_build": "702219cb586dd155e558d8438698b8617b031e0f",
+  "platform": "ios-simulator",
+  "device": "Cadence Launch Repro 20260820",
+  "device_udid": "1E92176D-206A-4EAB-AD1F-4B7A06105187",
+  "account": "populated-demo",
+  "source_root": "/Users/lukedudley/Developer/cadence-marketing-source/workflow",
+  "captures": [
+    {
+      "name": "hero-device",
+      "source_basename": "library-current.mp4",
+      "source_sha256": "aebbf68793cff21f79c47921e52b36a3bce72fc257c5f86ad19ba263b0131e30",
+      "source_dimensions": [1206, 2448],
+      "screen": "library-filtered-signal",
+      "project": "Signal in the Gold",
+      "control_state": "search-signal-grid-current",
+      "captured_after_build": "2026-09-07T23:19:24+01:00",
+      "status_chrome": false,
+      "derivative_sha256": "f9a3eaec435c2595988992fc2b6863ab16490dd69c286873da3d552920934617"
+    },
+    {
+      "name": "transcribe",
+      "source_basename": "transcribe.mp4",
+      "source_sha256": "8fac8aca6470cf2a34be7f38b5eb51cf30f8cf042bb38b51a580a652821cd278",
+      "source_dimensions": [620, 1348],
+      "screen": "take-actions-to-transcription",
+      "project": "DAW",
+      "control_state": "hook-01-menu-to-transcription-current",
+      "captured_after_build": "2026-09-07T18:00:33+01:00",
+      "status_chrome": "removed-by-encoder",
+      "derivative_sha256": "a197911e46a06a7f723678a17cbbf6c76d6195ec12b171779d9bcc7977c8c9f6"
+    },
+    {
+      "name": "rhyme-families",
+      "source_basename": "rhyme-families.mp4",
+      "source_sha256": "d0034c81f2256660eb3122c032626986388c034e3805c2d4c3d8a2e26e584cba",
+      "source_dimensions": [620, 1348],
+      "screen": "rhyme-inspector",
+      "project": "Signal in the Gold",
+      "control_state": "told-perfect-to-assonance-current",
+      "captured_after_build": "2026-09-07T18:00:30+01:00",
+      "status_chrome": "removed-by-encoder",
+      "derivative_sha256": "1f98854d01311177b3b4b279c79a6b342d6006abc23b30128ecdc5e00f6b854b"
+    },
+    {
+      "name": "arrange-to-daw",
+      "source_basename": "arrange-to-daw.mp4",
+      "source_sha256": "c39b4dbd2200f612e317ad5d3bea32171804dd0948d53ca0d7fe1c8bed4f3c72",
+      "source_dimensions": [620, 1348],
+      "screen": "arrangement-to-multitrack-daw",
+      "project": "Springtime Showers",
+      "control_state": "play-beat-to-open-daw-current",
+      "captured_after_build": "2026-09-07T18:02:16+01:00",
+      "status_chrome": "removed-by-encoder",
+      "derivative_sha256": "d6a16efd84bb719218d7fe627cf925aefe0eaad10550fa857a8f46c53c62d55d"
+    },
+    {
+      "name": "dry-wet",
+      "source_basename": "dry-wet.mp4",
+      "source_sha256": "4d332bd70e0bb90363261dfe3a780df062c85b5bb60d81f62225aebcbf7ee971",
+      "source_dimensions": [620, 1348],
+      "screen": "multitrack-daw-to-vocal-fx",
+      "project": "Springtime Showers",
+      "control_state": "mixer-dry-to-wet-current",
+      "captured_after_build": "2026-09-07T18:00:34+01:00",
+      "status_chrome": "removed-by-encoder",
+      "derivative_sha256": "cea157b4522a8d7cf9173cc6231e08f377d644f2b34112f0ce84461cbf17721e"
+    }
+  ]
+}

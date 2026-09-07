@@ -154,6 +154,20 @@ class SiteContentContractTest(unittest.TestCase):
         self.assertRegex(rule.group("body"), r"background:\s*transparent")
         self.assertRegex(css, r"\.cadence-media-stage::before,\s*\.cadence-media-stage::after\s*\{[^}]*content:\s*none")
 
+    def test_product_video_layers_do_not_escape_their_mobile_layout(self) -> None:
+        css = (ROOT / "cadence" / "cadence.css").read_text(encoding="utf-8")
+        hero_rule = re.search(r"\.cadence-hero-object video\s*\{(?P<body>[^}]*)\}", css)
+        phone_rule = re.search(r"\.cadence-phone video,\s*\.cadence-phone img\s*\{(?P<body>[^}]*)\}", css)
+
+        self.assertIsNotNone(hero_rule)
+        self.assertIsNotNone(phone_rule)
+        assert hero_rule is not None
+        assert phone_rule is not None
+        combined = hero_rule.group("body") + phone_rule.group("body")
+        self.assertNotIn("mix-blend-mode", combined)
+        self.assertNotIn("mask-image", combined)
+        self.assertNotIn("filter:", combined)
+
     def test_cadence_media_references_are_local_and_resolve(self) -> None:
         page = ROOT / "cadence" / "index.html"
         parser = CadenceExperienceParser()
@@ -187,12 +201,17 @@ class SiteContentContractTest(unittest.TestCase):
         self.assertIn("data-animated-mark", nav)
         self.assertNotIn("app-icon.webp", nav)
 
-    def test_mobile_beta_cta_has_a_44_pixel_touch_target(self) -> None:
+    def test_beta_store_ctas_have_a_44_pixel_touch_target(self) -> None:
         css = (ROOT / "cadence" / "cadence.css").read_text(encoding="utf-8")
-        rules = re.findall(r"\.cadence-mobile-cta a\s*\{(?P<body>[^}]*)\}", css)
+        rules = re.findall(r"\.cadence-store-button\s*\{(?P<body>[^}]*)\}", css)
 
         self.assertTrue(rules)
-        self.assertTrue(any(re.search(r"min-height:\s*44px", rule) for rule in rules))
+        self.assertTrue(any(re.search(r"min-height:\s*(?:4[4-9]|[5-9]\d)px", rule) for rule in rules))
+
+    def test_mobile_page_has_no_fixed_cta_over_product_proof(self) -> None:
+        html = (ROOT / "cadence" / "index.html").read_text(encoding="utf-8")
+
+        self.assertNotIn("cadence-mobile-cta", html)
 
     def test_locked_mark_assets_are_local(self) -> None:
         for name in ("cadence-mark.webp", "cadence-mark-static.webp"):

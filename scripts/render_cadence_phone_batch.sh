@@ -29,7 +29,7 @@ for pair in "$@"; do
   test -s "$frame_dir/frame-0001.png"
 
   ffmpeg -y -loglevel error -framerate 30 -start_number 1 -i "$frame_dir/frame-%04d.png" \
-    -f lavfi -i color=c=0x08090c:s=720x900:r=30 \
+    -f lavfi -i color=c=black:s=480x900:r=30 \
     -filter_complex "[1:v][0:v]overlay=0:0:format=auto:shortest=1,format=yuv420p" \
     -frames:v "$frames" -an -c:v libx264 -preset slow -crf 20 -movflags +faststart \
     -g 6 -keyint_min 6 -sc_threshold 0 "$output"

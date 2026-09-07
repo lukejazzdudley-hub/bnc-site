@@ -14,6 +14,9 @@ from scripts.cadence_capture_manifest import (
 )
 
 
+ROOT = Path(__file__).resolve().parents[1]
+
+
 def write_png(path: Path, width: int, height: int) -> None:
     def chunk(name: bytes, payload: bytes) -> bytes:
         body = name + payload
@@ -114,6 +117,24 @@ class CaptureManifestTest(unittest.TestCase):
 
         with self.assertRaisesRegex(ValueError, "checksum"):
             validate_manifest(manifest, {"arctic", "neon", "crimson"}, self.root)
+
+    def test_workflow_manifest_locks_current_build_sources_and_derivatives(self) -> None:
+        manifest = json.loads(
+            (ROOT / "assets" / "cadence" / "workflow-capture-manifest.json").read_text(encoding="utf-8")
+        )
+        captures = manifest["captures"]
+
+        self.assertEqual(manifest["source_build"], "702219cb586dd155e558d8438698b8617b031e0f")
+        self.assertEqual(
+            {capture["name"] for capture in captures},
+            {"hero-device", "transcribe", "rhyme-families", "arrange-to-daw", "dry-wet"},
+        )
+        for capture in captures:
+            derivative = ROOT / "assets" / "cadence" / f"{capture['name']}.mp4"
+            self.assertEqual(hashlib.sha256(derivative.read_bytes()).hexdigest(), capture["derivative_sha256"])
+            self.assertTrue(capture["screen"])
+            self.assertTrue(capture["control_state"])
+            self.assertTrue(capture["captured_after_build"])
 
 
 if __name__ == "__main__":
