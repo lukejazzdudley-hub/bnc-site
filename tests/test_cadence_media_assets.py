@@ -5,7 +5,7 @@ import unittest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MEDIA_NAMES = ("hero-device", "transcribe", "rhyme-families", "arrange-to-daw", "dry-wet", "theme-scroll", "feedback-handset")
+MEDIA_NAMES = ("hero-device", "transcribe", "rhyme-families", "arrange-to-daw", "dry-wet", "theme-scroll")
 
 
 def ffprobe_json(*arguments: str) -> dict:
@@ -48,8 +48,10 @@ class CadenceMediaAssetTest(unittest.TestCase):
             self.assertTrue(poster.is_file(), name)
             self.assertGreater(poster.stat().st_size, 0, name)
 
-    def test_feedback_handset_uses_the_compact_mobile_canvas(self) -> None:
-        path = ROOT / "assets" / "cadence" / "feedback-handset.mp4"
+    def test_feedback_handset_cutout_has_retina_dimensions_and_alpha(self) -> None:
+        path = ROOT / "assets" / "cadence" / "feedback-handset-cutout.webp"
+        self.assertTrue(path.is_file())
         stream = ffprobe_json("-select_streams", "v:0", "-show_streams", str(path))["streams"][0]
 
-        self.assertEqual((stream["width"], stream["height"]), (300, 220))
+        self.assertEqual((stream["width"], stream["height"]), (480, 840))
+        self.assertIn("a", stream["pix_fmt"])

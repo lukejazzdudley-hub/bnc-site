@@ -38,16 +38,17 @@ for frame, location, rotation, scale in poses:
 scene.camera = bpy.data.objects["WEB-HERO-camera"]
 scene.camera.location = (0.0, -5.45, 0.06)
 scene.camera.rotation_euler = (math.radians(88.7), 0.0, 0.0)
-scene.frame_start = 1
+scene.frame_start = 90
 scene.frame_end = 90
 scene.render.fps = 30
-scene.render.resolution_x = 480
-scene.render.resolution_y = 560
+scene.render.resolution_x = 960
+scene.render.resolution_y = 1120
 scene.render.resolution_percentage = 100
 scene.render.image_settings.file_format = "PNG"
 scene.render.image_settings.color_mode = "RGBA"
 scene.render.image_settings.color_depth = "8"
 scene.render.film_transparent = True
-scene.render.filepath = str(output_directory / "frame-")
+scene.render.filepath = str(output_directory / "feedback-handset-cutout-source.png")
 bpy.ops.wm.save_as_mainfile(filepath=str(output_directory / "cadence-feedback-derived.blend"))
-bpy.ops.render.render(animation=True)
+scene.frame_set(90)
+bpy.ops.render.render(write_still=True)

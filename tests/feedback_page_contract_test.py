@@ -96,18 +96,22 @@ class FeedbackPageContractTest(unittest.TestCase):
         self.assertTrue(all(image.get("alt", "").strip() for image in self.parser.images))
         self.assertTrue(all(video.get("aria-label", "").strip() for video in self.parser.videos))
 
-    def test_feedback_intro_uses_mobile_visible_scrubbed_3d_scene(self) -> None:
+    def test_feedback_intro_uses_a_transparent_scroll_linked_handset_cutout(self) -> None:
         self.assertIn('class="feedback-product"', self.html)
-        self.assertIn("feedback-handset.mp4", self.html)
-        self.assertIn("feedback-handset.webp", self.html)
+        self.assertIn("feedback-handset-cutout.webp", self.html)
+        self.assertNotIn("feedback-handset.mp4", self.html)
+        self.assertIn("data-scroll-scene", self.html)
+        self.assertIn('data-scroll-driver=".feedback-layout"', self.html)
 
         css = STYLES.read_text(encoding="utf-8")
-        media_rule = re.search(r"\.feedback-product video\s*\{(?P<body>[^}]*)\}", css)
+        media_rule = re.search(r"\.feedback-product img\s*\{(?P<body>[^}]*)\}", css)
         self.assertIsNotNone(media_rule)
         assert media_rule is not None
         self.assertNotIn("mix-blend-mode", media_rule.group("body"))
         self.assertNotIn("mask-image", media_rule.group("body"))
-        self.assertIn("data-scrub-video", self.html)
+        self.assertRegex(media_rule.group("body"), r"transform:\s*translate3d")
+        self.assertIn("var(--scene-progress, .5) * 200px", media_rule.group("body"))
+        self.assertIn("var(--scene-progress, .5) * 20deg", media_rule.group("body"))
         self.assertIn('src="../media-policy.js"', self.html)
         self.assertNotIn("assets/cadence-editor.png", self.html)
 

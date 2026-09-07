@@ -167,7 +167,10 @@ function sceneController() {
   const updateScenes = () => {
     frameRequested = false;
     for (const scene of scrollScenes) {
-      const bounds = scene.getBoundingClientRect();
+      const driver = scene.dataset.scrollDriver
+        ? scene.closest(scene.dataset.scrollDriver)
+        : scene;
+      const bounds = (driver || scene).getBoundingClientRect();
       const progress = normalizedScrollProgress({
         start: -bounds.height,
         end: window.innerHeight,
