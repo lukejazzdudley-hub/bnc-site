@@ -22,7 +22,10 @@
   <header class="nav cadence-nav">
     <div class="wrap">
       <a class="cadence-brand" href="/" aria-label="Brand Name Changes home">
-        <img src="../assets/cadence/app-icon.webp" alt="" width="34" height="34" />
+        <picture class="cadence-mark" aria-hidden="true">
+          <source media="(prefers-reduced-motion: reduce)" srcset="../assets/cadence/cadence-mark-static.webp" />
+          <img src="../assets/cadence/cadence-mark.webp" data-animated-mark data-static-src="../assets/cadence/cadence-mark-static.webp" alt="" width="34" height="34" />
+        </picture>
         <span>Cadence</span>
         <small>by BNC</small>
       </a>

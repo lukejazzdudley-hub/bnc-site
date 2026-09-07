@@ -2,6 +2,7 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 
 import {
+  ANIMATED_MARK_DURATION_MS,
   canScrubMedia,
   mediaTimeForProgress,
   normalizedScrollProgress,
@@ -11,6 +12,10 @@ import {
   selectActiveScene,
   shouldPlayMedia,
 } from '../cadence/media-policy.js';
+
+test('the native brand animation settles after exactly one cycle', () => {
+  assert.equal(ANIMATED_MARK_DURATION_MS, 1120);
+});
 
 test('reduced motion and data saving select the composed poster experience', () => {
   assert.equal(resolveMediaMode({ reducedMotion: true, saveData: false }), 'static');

@@ -327,11 +327,11 @@ spawnSync(browserBin, [
 ], { stdio: 'inherit' });
 ```
 
-Encode with:
+Encode with the WebP reference tools available in the local runtime:
 
 ```bash
-ffmpeg -y -framerate 30 -i cadence-mark-%03d.png -loop 0 -c:v libwebp_anim -lossless 1 -q:v 90 assets/cadence/cadence-mark.webp
-ffmpeg -y -i cadence-mark-033.png -c:v libwebp -lossless 1 assets/cadence/cadence-mark-static.webp
+img2webp -loop 0 -min_size $(for frame in cadence-mark-*.png; do printf -- '-d 33 -lossless -exact %q ' "$frame"; done) -o assets/cadence/cadence-mark.webp
+cwebp -quiet -lossless -exact cadence-mark-034.png -o assets/cadence/cadence-mark-static.webp
 ```
 
 Resolve Chrome from `BROWSER_BIN`, falling back to `/Applications/Google Chrome.app/Contents/MacOS/Google Chrome` on macOS and `/usr/bin/google-chrome` on Clevo. Assert the extracted native values equal 760, -16, 310 and 800 before rendering. The generated animation may contain a single animation cycle in the file; JavaScript swaps to the static image after 1.12 seconds so the visible mark never loops.

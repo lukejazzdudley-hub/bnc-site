@@ -60,8 +60,21 @@
   letter-spacing: -0.025em;
 }
 
-.cadence-brand img {
-  border-radius: 9px;
+.cadence-mark {
+  display: block;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+}
+
+.cadence-mark img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .cadence-brand small {

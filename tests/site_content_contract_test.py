@@ -144,6 +144,20 @@ class SiteContentContractTest(unittest.TestCase):
         assert rule is not None
         self.assertRegex(rule.group("body"), r"height:\s*auto")
 
+    def test_cadence_navigation_uses_locked_mark_not_square_app_icon(self) -> None:
+        html = (ROOT / "cadence" / "index.html").read_text(encoding="utf-8")
+        nav = html.split('<header class="nav cadence-nav">', 1)[1].split("</header>", 1)[0]
+
+        self.assertIn('class="cadence-mark"', nav)
+        self.assertIn("cadence-mark.webp", nav)
+        self.assertIn("cadence-mark-static.webp", nav)
+        self.assertIn("data-animated-mark", nav)
+        self.assertNotIn("app-icon.webp", nav)
+
+    def test_locked_mark_assets_are_local(self) -> None:
+        for name in ("cadence-mark.webp", "cadence-mark-static.webp"):
+            self.assertTrue((ROOT / "assets" / "cadence" / name).is_file(), name)
+
     def test_support_copy_handles_both_platforms_and_the_in_app_delete_route(self) -> None:
         html = (ROOT / "support.html").read_text(encoding="utf-8").lower()
         self.assertIn("operating-system version", html)

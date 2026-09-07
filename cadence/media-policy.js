@@ -12,6 +12,7 @@ export function shouldPlayMedia({
 }
 
 const MIN_ACTIVE_RATIO = 0.35;
+export const ANIMATED_MARK_DURATION_MS = 1120;
 
 export function selectActiveMedia(candidates) {
   let selected = null;
@@ -289,8 +290,35 @@ function scrubController() {
   requestUpdate();
 }
 
+function markController() {
+  const marks = [...document.querySelectorAll('img[data-animated-mark]')];
+  if (!marks.length) return;
+
+  const visitorMode = resolveMediaMode(visitorPreferences());
+  for (const mark of marks) {
+    const staticSource = mark.dataset.staticSrc;
+    if (!staticSource) continue;
+    if (visitorMode === 'static') {
+      mark.src = staticSource;
+      continue;
+    }
+
+    const settle = () => {
+      if (mark.dataset.settleScheduled === 'true') return;
+      mark.dataset.settleScheduled = 'true';
+      window.setTimeout(() => {
+        mark.src = staticSource;
+      }, ANIMATED_MARK_DURATION_MS);
+    };
+
+    if (mark.complete) settle();
+    else mark.addEventListener('load', settle, { once: true });
+  }
+}
+
 if (typeof window !== 'undefined' && typeof document !== 'undefined') {
   mediaController();
   sceneController();
   scrubController();
+  markController();
 }
