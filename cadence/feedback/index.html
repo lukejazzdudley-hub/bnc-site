@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cadence beta feedback — Brand Name Changes</title>
+  <meta name="description" content="Tell us how Cadence fits your songwriting workflow and help shape what we build next." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="feedback.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0A0A'/%3E%3Cpath d='M20.5 7 L11.5 25' stroke='%23F4F1EA' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E" />
+</head>
+<body class="feedback-page">
+  <a class="skip-link" href="#feedback-form">Skip to the feedback form</a>
+
+  <header class="feedback-nav">
+    <div class="wrap feedback-nav__inner">
+      <a class="brand" href="/" aria-label="Brand Name Changes home"><span class="logotype">BNC</span></a>
+      <a class="feedback-nav__back" href="/cadence">Back to Cadence</a>
+    </div>
+  </header>
+
+  <main class="feedback-main">
+    <div class="wrap feedback-layout">
+      <aside class="feedback-intro" aria-labelledby="feedback-title">
+        <span class="eyebrow">Private beta research</span>
+        <h1 id="feedback-title">Help shape<br><em>Cadence.</em></h1>
+        <p class="feedback-intro__lede">Tell us what happened when you tried Cadence in a real songwriting session—not what you think we want to hear.</p>
+        <dl class="feedback-facts">
+          <div>
+            <dt>Time</dt>
+            <dd>About 8–12 minutes</dd>
+          </div>
+          <div>
+            <dt>Evidence</dt>
+            <dd>Optional and kept private</dd>
+          </div>
+          <div>
+            <dt>Progress</dt>
+            <dd>Saved on this device as you go</dd>
+          </div>
+        </dl>
+        <figure class="feedback-product">
+          <img src="../../assets/cadence-editor.png" alt="Cadence song editor showing structured lyrics and colour-grouped rhyme highlights" />
+          <figcaption>One song. Lyrics, rhymes, notes and recordings in the same workspace.</figcaption>
+        </figure>
+      </aside>
+
+      <section class="feedback-form-shell" aria-label="Cadence beta feedback form">
+        <div class="feedback-progress">
+          <div class="feedback-progress__copy">
+            <span id="step-status">Step 1 of 4</span>
+            <span id="save-status" aria-live="polite">Not saved yet</span>
+          </div>
+          <progress id="feedback-progress" max="4" value="1">1 of 4</progress>
+        </div>
+
+        <div id="error-summary" class="error-summary" role="alert" tabindex="-1" hidden>
+          <h2>Check the highlighted answers</h2>
+          <ul id="error-list"></ul>
+        </div>
+
+        <form id="feedback-form" action="" method="post" novalidate>
+          <div class="feedback-trap" aria-hidden="true" hidden>
+            <label for="company">Company</label>
+            <input id="company" name="company" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <fieldset data-step="0">
+            <legend id="step-title">First, tell us about you.</legend>
+            <p class="step-intro">This helps us understand whose workflow the feedback represents.</p>
+
+            <div class="field-grid field-grid--two">
+              <div class="field" data-field="name">
+                <label for="name">Name <span aria-hidden="true">*</span></label>
+                <input id="name" name="name" type="text" autocomplete="name" required maxlength="160" />
+                <p class="field-error" id="name-error"></p>
+              </div>
+              <div class="field" data-field="email">
+                <label for="email">Email <span aria-hidden="true">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" required maxlength="320" />
+                <p class="field-error" id="email-error"></p>
+              </div>
+            </div>
+
+            <div class="field" data-field="wantsLifetimeAccess">
+              <span class="field-label" id="lifetime-label">Did you ask to test Cadence for lifetime access? <span aria-hidden="true">*</span></span>
+              <div class="choice-row" role="radiogroup" aria-labelledby="lifetime-label">
+                <label for="lifetime-yes"><input id="lifetime-yes" name="wantsLifetimeAccess" type="radio" value="yes" required /> Yes</label>
+                <label for="lifetime-no"><input id="lifetime-no" name="wantsLifetimeAccess" type="radio" value="no" /> No</label>
+              </div>
+              <p class="field-error" id="wantsLifetimeAccess-error"></p>
+            </div>
+
+            <div class="field-grid field-grid--two">
+              <div class="field" data-field="platform">
+                <label for="platform">What did you test on? <span aria-hidden="true">*</span></label>
+                <select id="platform" name="platform" required>
+                  <option value="">Select a platform</option>
+                  <option value="iPhone">iPhone</option>
+                  <option value="Android">Android</option>
+                  <option value="Both">Both</option>
+                  <option value="Other">Other</option>
+                </select>
+                <p class="field-error" id="platform-error"></p>
+              </div>
+              <div class="field" data-field="language">
+                <label for="language">Language used in Cadence <span aria-hidden="true">*</span></label>
+                <select id="language" name="language" required>
+                  <option value="">Select a language</option>
+                  <option value="English">English</option>
+                  <option value="Hindi">Hindi</option>
+                  <option value="English and Hindi">English and Hindi</option>
+                  <option value="Other">Another language</option>
+                </select>
+                <p class="field-error" id="language-error"></p>
+              </div>
+            </div>
+
+            <div class="field" data-field="musicalIdentity">
+              <label for="musicalIdentity">How would you describe yourself musically? <span aria-hidden="true">*</span></label>
+              <textarea id="musicalIdentity" name="musicalIdentity" rows="3" maxlength="500" required placeholder="For example: singer-songwriter, producer, rapper, hobbyist, professional…"></textarea>
+              <p class="field-error" id="musicalIdentity-error"></p>
+            </div>
+          </fieldset>
+
+          <fieldset data-step="1" hidden>
+            <legend>Your workflow before Cadence.</legend>
+            <p class="step-intro">We want the real process—including the messy parts and app switching.</p>
+
+            <div class="field" data-field="currentProcess">
+              <label for="currentProcess">Walk us through how you normally take a song from first idea to finished draft. <span aria-hidden="true">*</span></label>
+              <textarea id="currentProcess" name="currentProcess" rows="6" maxlength="8000" required placeholder="Where does the idea start? Where do lyrics, beats, voice notes and recordings live?"></textarea>
+              <p class="field-error" id="currentProcess-error"></p>
+            </div>
+
+            <div class="field-grid field-grid--two">
+              <div class="field">
+                <label for="creationFrequency">How often do you write or develop songs?</label>
+                <select id="creationFrequency" name="creationFrequency">
+                  <option value="">Select one</option>
+                  <option>Most days</option>
+                  <option>A few times a week</option>
+                  <option>A few times a month</option>
+                  <option>Occasionally</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="creationLocation">Where do you usually work on songs?</label>
+                <input id="creationLocation" name="creationLocation" type="text" maxlength="8000" placeholder="Studio, bedroom, commute, sessions…" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="locationRestrictions">Does your location or situation change what you can capture?</label>
+              <textarea id="locationRestrictions" name="locationRestrictions" rows="3" maxlength="8000" placeholder="For example: no headphones, no signal, cannot make noise, only one hand free…"></textarea>
+            </div>
+
+            <div class="field" data-field="currentTools">
+              <label for="currentTools">Which apps or tools do you currently use, and what is each one for? <span aria-hidden="true">*</span></label>
+              <textarea id="currentTools" name="currentTools" rows="4" maxlength="8000" required placeholder="For example: Notes for lyrics, Voice Memos for melodies, YouTube for beats…"></textarea>
+              <p class="field-error" id="currentTools-error"></p>
+            </div>
+          </fieldset>
+
+          <fieldset data-step="2" hidden>
+            <legend>What happened in Cadence?</legend>
+            <p class="step-intro">Please answer from one specific session while it is still fresh.</p>
+
+            <div class="field" data-field="cadenceSession">
+              <label for="cadenceSession">What were you trying to create, and what did you do in the app? <span aria-hidden="true">*</span></label>
+              <textarea id="cadenceSession" name="cadenceSession" rows="5" maxlength="8000" required></textarea>
+              <p class="field-error" id="cadenceSession-error"></p>
+            </div>
+
+            <div class="field" data-field="workflowImpact">
+              <label for="workflowImpact">Where did Cadence improve—or interrupt—your normal workflow? <span aria-hidden="true">*</span></label>
+              <textarea id="workflowImpact" name="workflowImpact" rows="4" maxlength="8000" required></textarea>
+              <p class="field-error" id="workflowImpact-error"></p>
+            </div>
+
+            <div class="field" data-field="friction">
+              <label for="friction">What felt confusing, slow, broken or unnecessary? <span aria-hidden="true">*</span></label>
+              <textarea id="friction" name="friction" rows="4" maxlength="8000" required placeholder="Small annoyances are useful—tell us exactly where you were and what you expected."></textarea>
+              <p class="field-error" id="friction-error"></p>
+            </div>
+
+            <div class="field" data-field="likedFeatures">
+              <label for="likedFeatures">Which features were genuinely useful, and why? <span aria-hidden="true">*</span></label>
+              <textarea id="likedFeatures" name="likedFeatures" rows="4" maxlength="8000" required></textarea>
+              <p class="field-error" id="likedFeatures-error"></p>
+            </div>
+
+            <div class="field-grid field-grid--two">
+              <div class="field">
+                <label for="loopingFeedback">How did looping sections or audio feel?</label>
+                <textarea id="loopingFeedback" name="loopingFeedback" rows="3" maxlength="8000"></textarea>
+              </div>
+              <div class="field">
+                <label for="rhymeFeedback">How did rhyme highlighting and suggestions feel?</label>
+                <textarea id="rhymeFeedback" name="rhymeFeedback" rows="3" maxlength="8000"></textarea>
+              </div>
+            </div>
+
+            <div class="field-grid field-grid--two">
+              <div class="field">
+                <label for="dislikedFeatures">Anything you would remove or change?</label>
+                <textarea id="dislikedFeatures" name="dislikedFeatures" rows="3" maxlength="8000"></textarea>
+              </div>
+              <div class="field">
+                <label for="missingFeatures">What did you expect to find but could not?</label>
+                <textarea id="missingFeatures" name="missingFeatures" rows="3" maxlength="8000"></textarea>
+              </div>
+            </div>
+
+            <div class="field" data-field="navigationScore">
+              <div class="range-label">
+                <label for="navigationScore">How easy was Cadence to navigate? <span aria-hidden="true">*</span></label>
+                <output id="navigation-output" for="navigationScore">5 / 10</output>
+              </div>
+              <input id="navigationScore" name="navigationScore" type="range" min="1" max="10" step="1" value="5" required />
+              <div class="range-ends" aria-hidden="true"><span>Hard</span><span>Effortless</span></div>
+              <p class="field-error" id="navigationScore-error"></p>
+            </div>
+
+            <div class="field-grid field-grid--two">
+              <div class="field">
+                <label for="navigationReason">What made navigation feel that way?</label>
+                <textarea id="navigationReason" name="navigationReason" rows="3" maxlength="8000"></textarea>
+              </div>
+              <div class="field">
+                <label for="bugs">Did you hit a bug? What happened just before it?</label>
+                <textarea id="bugs" name="bugs" rows="3" maxlength="8000"></textarea>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset data-step="3" hidden>
+            <legend>Would it earn a place in your workflow?</legend>
+            <p class="step-intro">This is where candour matters most. “No” is useful data.</p>
+
+            <div class="field" data-field="retentionTrigger">
+              <label for="retentionTrigger">What would make you come back to Cadence for your next song? <span aria-hidden="true">*</span></label>
+              <textarea id="retentionTrigger" name="retentionTrigger" rows="4" maxlength="8000" required></textarea>
+              <p class="field-error" id="retentionTrigger-error"></p>
+            </div>
+
+            <div class="field">
+              <label for="replacementPotential">Could Cadence replace any part of your current setup? Why or why not?</label>
+              <textarea id="replacementPotential" name="replacementPotential" rows="4" maxlength="8000"></textarea>
+            </div>
+
+            <div class="field-grid field-grid--two">
+              <div class="field" data-field="recommendationTrigger">
+                <label for="recommendationTrigger">What would make you recommend Cadence to another songwriter? <span aria-hidden="true">*</span></label>
+                <textarea id="recommendationTrigger" name="recommendationTrigger" rows="4" maxlength="8000" required></textarea>
+                <p class="field-error" id="recommendationTrigger-error"></p>
+              </div>
+              <div class="field">
+                <label for="recommendationBlocker">What would stop you recommending it?</label>
+                <textarea id="recommendationBlocker" name="recommendationBlocker" rows="4" maxlength="8000"></textarea>
+              </div>
+            </div>
+
+            <div class="pricing-question">
+              <div>
+                <span class="field-label">What would feel fair for Cadence Pro?</span>
+                <p>Optional. Use your own currency; we are testing value, not presenting an offer.</p>
+              </div>
+              <div class="field-grid field-grid--four">
+                <div class="field">
+                  <label for="pricingCurrency">Currency</label>
+                  <input id="pricingCurrency" name="pricingCurrency" type="text" maxlength="8000" inputmode="text" placeholder="GBP" />
+                </div>
+                <div class="field">
+                  <label for="pricingMonthly">Monthly</label>
+                  <input id="pricingMonthly" name="pricingMonthly" type="text" maxlength="8000" inputmode="decimal" placeholder="£" />
+                </div>
+                <div class="field">
+                  <label for="pricingAnnual">Annual</label>
+                  <input id="pricingAnnual" name="pricingAnnual" type="text" maxlength="8000" inputmode="decimal" placeholder="£" />
+                </div>
+                <div class="field">
+                  <label for="pricingLifetime">Lifetime</label>
+                  <input id="pricingLifetime" name="pricingLifetime" type="text" maxlength="8000" inputmode="decimal" placeholder="£" />
+                </div>
+              </div>
+            </div>
+
+            <div class="field evidence-field" data-field="evidence">
+              <label for="evidence">Add screenshots or a screen recording <span class="optional">Optional</span></label>
+              <p class="field-help">Up to 3 PNG, JPEG, WebP, HEIC, MP4, MOV or WebM files. Maximum 100 MB each and 200 MB total.</p>
+              <input id="evidence" name="evidence" type="file" accept="image/png,image/jpeg,image/webp,image/heic,image/heif,video/mp4,video/quicktime,video/webm" multiple />
+              <ul id="evidence-list" class="evidence-list" aria-live="polite"></ul>
+              <p class="field-error" id="evidence-error"></p>
+            </div>
+
+            <div class="privacy-notice">
+              <h2>Your feedback stays private.</h2>
+              <p>Brand Name Changes Ltd is the data controller. Your answers and any optional evidence are stored privately with Supabase, our data processor, so we can research and improve Cadence. Evidence is <strong>not used publicly or in advertising</strong> without asking you separately.</p>
+              <p>We keep research responses while they remain useful to product development. You can ask to access or delete yours at <a href="mailto:hello@brandnamechanges.com">hello@brandnamechanges.com</a>.</p>
+            </div>
+
+            <div class="field consent-field" data-field="consentResearch">
+              <label for="consentResearch">
+                <input id="consentResearch" name="consentResearch" type="checkbox" required />
+                <span>I agree to Brand Name Changes using this response for private Cadence product research. <span aria-hidden="true">*</span></span>
+              </label>
+              <p class="field-error" id="consentResearch-error"></p>
+            </div>
+
+            <div class="field consent-field">
+              <label for="consentFollowup">
+                <input id="consentFollowup" name="consentFollowup" type="checkbox" />
+                <span>You may email me with a follow-up question about this feedback.</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="form-actions">
+            <button id="back-button" class="btn btn-ghost" type="button" hidden>Back</button>
+            <button id="next-button" class="btn btn-primary" type="button">Continue</button>
+            <button id="submit-button" class="btn btn-primary" type="submit" hidden>Send private feedback</button>
+          </div>
+          <p id="submit-status" class="submit-status" aria-live="polite"></p>
+        </form>
+
+        <section id="success-panel" class="success-panel" tabindex="-1" hidden>
+          <span class="eyebrow">Response received</span>
+          <h2>Thank you for being direct.</h2>
+          <p>Your feedback is safely recorded and will be read by the Cadence team.</p>
+          <p id="success-reference" class="success-reference"></p>
+          <a class="btn btn-primary" href="/cadence">Return to Cadence</a>
+        </section>
+
+        <noscript>
+          <div class="noscript-notice">This private form needs JavaScript for validation and secure evidence uploads. Enable JavaScript and reload, or email your feedback to <a href="mailto:hello@brandnamechanges.com">hello@brandnamechanges.com</a>.</div>
+        </noscript>
+      </section>
+    </div>
+  </main>
+
+  <footer class="feedback-footer">
+    <div class="wrap">
+      <span>© <span data-year>2026</span> Brand Name Changes Ltd.</span>
+      <nav aria-label="Legal"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/support">Support</a></nav>
+    </div>
+  </footer>
+
+  <script type="module" src="feedback.js"></script>
+</body>
+</html>
