@@ -62,6 +62,7 @@ create table if not exists public.cadence_beta_feedback_uploads (
   id uuid primary key default gen_random_uuid(),
   response_id uuid not null
     references public.cadence_beta_feedback_responses (id) on delete cascade,
+  client_id text not null check (client_id ~ '^[A-Za-z0-9_-]{1,64}$'),
   original_filename text not null
     check (char_length(original_filename) between 1 and 255),
   storage_path text not null check (char_length(storage_path) between 10 and 500),
@@ -81,6 +82,7 @@ create table if not exists public.cadence_beta_feedback_uploads (
   storage_etag text check (storage_etag is null or char_length(storage_etag) <= 255),
   created_at timestamptz not null default now(),
   uploaded_at timestamptz,
+  unique (response_id, client_id),
   unique (response_id, storage_path)
 );
 

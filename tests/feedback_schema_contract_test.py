@@ -50,6 +50,8 @@ class FeedbackSchemaContractTest(unittest.TestCase):
         self.assertRegex(self.sql, r"legacy_row_hash\s+text\s+unique")
 
     def test_upload_rows_are_bounded_and_cascade_with_the_response(self) -> None:
+        self.assertRegex(self.sql, r"client_id\s+text\s+not null")
+        self.assertIn("unique (response_id, client_id)", self.sql)
         self.assertIn("file_size_bytes between 1 and 104857600", self.sql)
         self.assertRegex(
             self.sql,
