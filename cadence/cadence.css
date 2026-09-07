@@ -99,18 +99,6 @@
     linear-gradient(180deg, #08090c 0%, #0b0c0f 100%);
 }
 
-.cadence-stage::before {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.023) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.023) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,.8), transparent 82%);
-  content: "";
-  pointer-events: none;
-}
-
 .cadence-stage-grid {
   position: relative;
   z-index: 1;
@@ -271,53 +259,7 @@
   transform: perspective(1400px) rotateY(calc(var(--pointer-x) * 2.2deg)) rotateX(calc(var(--pointer-y) * -1.8deg));
   transition: transform 180ms ease-out;
   filter: drop-shadow(0 42px 45px rgba(0,0,0,.72));
-}
-
-.cadence-hero-object figcaption {
-  position: absolute;
-  inset: auto 0 7% auto;
-  display: grid;
-  gap: 2px;
-  padding-left: 20px;
-  border-left: 1px solid var(--cadence-amber);
-  font-size: 0.82rem;
-}
-
-.cadence-hero-object figcaption strong {
-  font-weight: 650;
-}
-
-.cadence-hero-object figcaption span {
-  color: var(--cadence-muted);
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.media-toggle {
-  position: absolute;
-  z-index: 4;
-  right: 14px;
-  bottom: 14px;
-  min-width: 54px;
-  min-height: 32px;
-  border: 1px solid rgba(245, 244, 239, .18);
-  border-radius: 999px;
-  background: rgba(8, 9, 12, .78);
-  color: #f5f4ef;
-  font-family: var(--mono);
-  font-size: .58rem;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  cursor: pointer;
-  backdrop-filter: blur(12px);
-}
-
-.cadence-hero-object > .media-toggle {
-  right: auto;
-  bottom: 7%;
-  left: 0;
+  mask-image: radial-gradient(ellipse 72% 76% at 50% 50%, #000 64%, transparent 100%);
 }
 
 .cadence-proof-bar {
@@ -557,96 +499,27 @@
 .cadence-media-stage {
   position: relative;
   min-inline-size: 0;
-  min-height: 720px;
-  overflow: hidden;
+  min-height: clamp(520px, 70vw, 820px);
+  overflow: visible;
   display: grid;
   place-items: center;
-  border: 1px solid var(--cadence-line);
-  border-radius: 34px;
-  isolation: isolate;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
+.cadence-media-stage::before,
 .cadence-media-stage::after {
-  position: absolute;
-  inset: auto 0 0;
-  z-index: -1;
-  height: 26%;
-  background: linear-gradient(transparent, rgba(0,0,0,.42));
-  content: "";
-}
-
-.cadence-media-stage--studio {
-  background:
-    radial-gradient(circle at 62% 44%, rgba(245, 178, 90, .25), transparent 33%),
-    #141217;
-}
-
-.cadence-media-stage--studio::before {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-image: linear-gradient(rgba(245,178,90,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(245,178,90,.04) 1px, transparent 1px);
-  background-size: 44px 44px;
-  content: "";
-}
-
-.cadence-studio-word {
-  position: absolute;
-  left: -0.04em;
-  bottom: -.15em;
-  z-index: -1;
-  color: rgba(245, 178, 90, .08);
-  font-size: clamp(5rem, 10vw, 10rem);
-  font-weight: 750;
-  letter-spacing: -.07em;
-}
-
-.cadence-media-stage--rhyme {
-  align-items: end;
-  padding-bottom: 44px;
-  background:
-    linear-gradient(118deg, rgba(216,122,112,.11), rgba(114,183,160,.07) 45%, rgba(154,114,216,.12)),
-    #111217;
-}
-
-.cadence-media-stage--timeline {
-  background: #111216;
-}
-
-.cadence-media-stage--timeline::before {
-  position: absolute;
-  inset: 14% -8% auto;
-  z-index: -1;
-  height: 84px;
-  background:
-    linear-gradient(90deg, transparent, rgba(245,178,90,.3), transparent),
-    repeating-linear-gradient(90deg, transparent 0 7px, rgba(245,178,90,.35) 7px 8px);
-  mask-image: linear-gradient(to bottom, transparent, #000 35%, #000 65%, transparent);
-  content: "";
-}
-
-.cadence-media-stage--mix {
-  background: #d9dde1;
-}
-
-.cadence-media-stage--mix::before {
-  position: absolute;
-  inset: 40px;
-  z-index: -1;
-  border: 1px solid rgba(8,9,12,.14);
-  border-radius: 24px;
-  content: "";
+  content: none;
 }
 
 .cadence-phone {
-  position: relative;
-  width: min(354px, 55%);
-  margin: 0;
-  padding: 7px;
-  border: 1px solid rgba(255, 255, 255, .28);
-  border-radius: 46px;
-  background: #050507;
-  box-shadow: 0 36px 70px rgba(0,0,0,.48), inset 0 0 0 2px rgba(255,255,255,.055);
+  position: sticky;
+  top: clamp(88px, 12vh, 136px);
+  width: min(100%, 430px);
+  margin: 0 auto;
+  transform: translate3d(0, calc((.5 - var(--scene-progress, .5)) * 22px), 0);
+  filter: drop-shadow(0 42px 52px rgba(0,0,0,.48));
 }
 
 .cadence-phone video,
@@ -654,93 +527,25 @@
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 39px;
+  border-radius: 0;
   background: #08090c;
 }
 
+.cadence-phone video {
+  mix-blend-mode: screen;
+  mask-image: radial-gradient(ellipse 66% 72% at 50% 50%, #000 66%, transparent 100%);
+}
+
 .cadence-phone--lean-left {
-  transform: perspective(1400px) rotateY(7deg) rotateZ(-2.6deg);
+  transform: translate3d(0, calc((.5 - var(--scene-progress, .5)) * 22px), 0);
 }
 
 .cadence-phone--lean-right {
-  transform: perspective(1400px) rotateY(-7deg) rotateZ(2.6deg);
+  transform: translate3d(0, calc((.5 - var(--scene-progress, .5)) * 22px), 0);
 }
 
 .cadence-phone--upright {
-  transform: translateY(28px);
-}
-
-.rhyme-key {
-  position: absolute;
-  z-index: 2;
-  top: 26px;
-  left: 26px;
-  right: 26px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.rhyme-key span {
-  padding: 7px 10px;
-  border: 1px solid color-mix(in srgb, var(--rhyme), transparent 30%);
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--rhyme), transparent 82%);
-  color: #ebe7e1;
-  font-family: var(--mono);
-  font-size: .56rem;
-  letter-spacing: .04em;
-}
-
-.waveform-legend {
-  display: grid;
-  grid-template-columns: 44px minmax(0, 1fr) 42px;
-  align-items: center;
-  gap: 8px 14px;
-  margin-top: 30px;
-  padding: 19px;
-  border: 1px solid var(--cadence-line);
-  border-radius: 13px;
-  color: #8c8b90;
-  font-family: var(--mono);
-  font-size: .62rem;
-  text-transform: uppercase;
-}
-
-.waveform-legend i {
-  height: 20px;
-  background: repeating-linear-gradient(90deg, var(--cadence-amber) 0 1px, transparent 1px 7px);
-  mask-image: linear-gradient(to bottom, transparent, #000 25%, #000 75%, transparent);
-}
-
-.waveform-legend b {
-  color: #d9d6ce;
-  font-weight: 500;
-}
-
-.mix-annotation {
-  position: absolute;
-  z-index: 3;
-  right: 28px;
-  bottom: 30px;
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  color: #17181b;
-  font-family: var(--mono);
-  font-size: .65rem;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-}
-
-.mix-annotation i {
-  width: 74px;
-  height: 2px;
-  background: linear-gradient(90deg, #747980, #16171a);
-}
-
-.mix-annotation strong {
-  font-weight: 700;
+  transform: translate3d(0, calc((.5 - var(--scene-progress, .5)) * 22px), 0);
 }
 
 .cadence-themes {
@@ -989,7 +794,7 @@
   }
 
   .cadence-phone {
-    width: min(310px, 58%);
+    width: min(100%, 380px);
   }
 
   .cadence-themes-grid {
@@ -1065,7 +870,12 @@
   }
 
   .cadence-media-stage {
-    min-height: 690px;
+    min-height: clamp(440px, 132vw, 640px);
+  }
+
+  .cadence-phone {
+    position: relative;
+    top: auto;
   }
 
   .cadence-themes-copy {
@@ -1113,14 +923,6 @@
     margin-left: -16px;
   }
 
-  .cadence-hero-object figcaption {
-    right: 16px;
-  }
-
-  .cadence-hero-object > .media-toggle {
-    left: 16px;
-  }
-
   .cadence-proof-bar p {
     padding: 17px 12px;
   }
@@ -1150,37 +952,20 @@
   }
 
   .cadence-media-stage {
-    min-height: 570px;
-    border-radius: 24px;
-  }
-
-  .cadence-media-stage--mix::before {
-    inset: 22px;
+    min-height: clamp(440px, 132vw, 570px);
   }
 
   .cadence-phone {
-    width: min(278px, 70%);
-    border-radius: 37px;
+    width: min(100%, 330px);
   }
 
   .cadence-phone video,
   .cadence-phone img {
-    border-radius: 31px;
+    border-radius: 0;
   }
 
   .cadence-points--inline {
     grid-template-columns: 1fr;
-  }
-
-  .rhyme-key {
-    top: 18px;
-    left: 18px;
-    right: 18px;
-  }
-
-  .mix-annotation {
-    right: 20px;
-    bottom: 22px;
   }
 
   .theme-fan {
@@ -1255,8 +1040,4 @@
     transform: none;
     transition: none;
   }
-}
-
-.cadence-page.is-static .media-toggle {
-  display: none;
 }

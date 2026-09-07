@@ -40,7 +40,7 @@ class CadenceExperienceParser(HTMLParser):
         if tag == "video":
             self.videos.append(values)
         if tag in {"img", "source", "video"}:
-            for source in (values.get("src"), values.get("poster")):
+            for source in (values.get("src"), values.get("data-src"), values.get("poster")):
                 if source and not urlsplit(source).scheme and not source.startswith("data:"):
                     self.local_media.append(source)
 
@@ -120,9 +120,39 @@ class SiteContentContractTest(unittest.TestCase):
         for video in parser.videos:
             self.assertIn("muted", video)
             self.assertIn("playsinline", video)
-            self.assertEqual(video.get("preload"), "metadata")
+            self.assertEqual(video.get("preload"), "none")
             self.assertTrue(video.get("poster"))
             self.assertTrue(video.get("aria-label"))
+
+    def test_cadence_product_videos_are_scroll_scrubbed_not_looped(self) -> None:
+        parser = CadenceExperienceParser()
+        parser.feed((ROOT / "cadence" / "index.html").read_text(encoding="utf-8"))
+
+        for video in parser.videos:
+            self.assertIn("data-scrub-video", video)
+            self.assertIn("data-src", video)
+            self.assertNotIn("src", video)
+            self.assertNotIn("loop", video)
+            self.assertNotIn("data-autoplay", video)
+
+    def test_product_media_has_no_fake_controls_or_overlay_caption(self) -> None:
+        html = (ROOT / "cadence" / "index.html").read_text(encoding="utf-8")
+        self.assertNotIn("data-media-toggle", html)
+        self.assertNotIn("Springtime Showers</strong><span>13 songs", html)
+        self.assertNotIn("cadence-studio-word", html)
+        self.assertNotIn("rhyme-key", html)
+        self.assertNotIn("mix-annotation", html)
+
+    def test_product_media_is_integrated_without_a_decorative_box(self) -> None:
+        css = (ROOT / "cadence" / "cadence.css").read_text(encoding="utf-8")
+        rule = re.search(r"\.cadence-media-stage\s*\{(?P<body>[^}]*)\}", css)
+
+        self.assertIsNotNone(rule)
+        assert rule is not None
+        self.assertRegex(rule.group("body"), r"border:\s*0")
+        self.assertRegex(rule.group("body"), r"border-radius:\s*0")
+        self.assertRegex(rule.group("body"), r"background:\s*transparent")
+        self.assertRegex(css, r"\.cadence-media-stage::before,\s*\.cadence-media-stage::after\s*\{[^}]*content:\s*none")
 
     def test_cadence_media_references_are_local_and_resolve(self) -> None:
         page = ROOT / "cadence" / "index.html"
