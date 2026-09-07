@@ -375,6 +375,10 @@ git commit -m "feat(cadence): use the locked animated brand mark"
 - Modify: `cadence/cadence.css`
 - Modify: `tests/site_content_contract_test.py`
 - Create: `scripts/encode_cadence_scrub_media.sh`
+- Create: `scripts/inspect_cadence_blender_scene.py`
+- Create: `scripts/render_cadence_phone_diagnostic.py`
+- Create: `scripts/render_cadence_phone_video.py`
+- Create: `scripts/render_cadence_phone_batch.sh`
 - Create: `tests/test_cadence_media_assets.py`
 - Replace encodes: `assets/cadence/hero-device.mp4`, `transcribe.mp4`, `rhyme-families.mp4`, `arrange-to-daw.mp4`, `dry-wet.mp4`
 - Replace posters: matching `.webp` files.
@@ -427,9 +431,11 @@ ffmpeg -y -sseof -0.04 -i "$output" -frames:v 1 -c:v libwebp -q:v 88 "$poster"
 
 The Python asset test must call `ffprobe -show_streams -show_format -of json` and `ffprobe -skip_frame nokey -show_frames`; assert `codec_name == "h264"`, `pix_fmt == "yuv420p"`, no audio stream, dimensions no larger than 1280, duration positive and maximum adjacent keyframe distance no greater than 0.21 seconds.
 
-- [ ] **Step 4: Re-encode existing approved product demonstrations on Clevo**
+- [ ] **Step 4: Render all approved product demonstrations inside the verified handset on Clevo**
 
-Copy the encoder and current inputs to `/home/luke/blender-cad-motion/cadence-website-v2/input/`, run the encoder for all five clips into `/home/luke/blender-cad-motion/cadence-website-v2/output/`, inspect text at 200%, then copy only the optimised MP4/WebP pairs back to `assets/cadence/`.
+Use `inspect_cadence_blender_scene.py` to lock the existing `CTRL-F03V5-b01-v8-library` handset, `GEO-Cadence-real-screen-F03V5-b01-v8-library` display and `MAT-F03V5-screen-b01-v8-library` material. Render one diagnostic first and reject it if any floor, plinth, random stage or square render boundary remains. Crop simulator status chrome from the approved recordings, then run `render_cadence_phone_batch.sh` sequentially with distinct `hero`, `capture`, `rhyme`, `arrange` and `finish` motion profiles. Blender writes bounded RGBA frame sequences; Clevo FFmpeg composites them onto the exact page background and emits the H.264/WebP pairs. Copy only the final derivatives back to `assets/cadence/`.
+
+The hero uses the populated library capture from the same controlled product library. A raw or floating screen recording is a failed output even when its pixels are accurate.
 
 Run locally: `python3 -m unittest tests.test_cadence_media_assets -v`
 
@@ -480,7 +486,7 @@ Expected: all PASS.
 - [ ] **Step 8: Commit the unboxed demonstrations**
 
 ```bash
-git add scripts/encode_cadence_scrub_media.sh tests/test_cadence_media_assets.py tests/site_content_contract_test.py cadence/index.html cadence/cadence.css cadence/media-policy.js assets/cadence/hero-device.mp4 assets/cadence/hero-device.webp assets/cadence/transcribe.mp4 assets/cadence/transcribe.webp assets/cadence/rhyme-families.mp4 assets/cadence/rhyme-families.webp assets/cadence/arrange-to-daw.mp4 assets/cadence/arrange-to-daw.webp assets/cadence/dry-wet.mp4 assets/cadence/dry-wet.webp
+git add scripts/encode_cadence_scrub_media.sh scripts/inspect_cadence_blender_scene.py scripts/render_cadence_phone_diagnostic.py scripts/render_cadence_phone_video.py scripts/render_cadence_phone_batch.sh tests/test_cadence_media_assets.py tests/site_content_contract_test.py cadence/index.html cadence/cadence.css cadence/media-policy.js assets/cadence/hero-device.mp4 assets/cadence/hero-device.webp assets/cadence/transcribe.mp4 assets/cadence/transcribe.webp assets/cadence/rhyme-families.mp4 assets/cadence/rhyme-families.webp assets/cadence/arrange-to-daw.mp4 assets/cadence/arrange-to-daw.webp assets/cadence/dry-wet.mp4 assets/cadence/dry-wet.webp
 git commit -m "feat(cadence): integrate unboxed scroll product scenes"
 ```
 

@@ -8,7 +8,7 @@ The public website for **Brand Name Changes Ltd** and **Cadence**. The frontend 
 index.html                         Company landing page
 cadence/index.html                 Cadence product page
 cadence/cadence.css                Cadence product-page art direction and responsive layout
-cadence/media-policy.js            Visibility, motion-preference and playback policy
+cadence/media-policy.js            Lazy loading and deterministic scroll-scrub policy
 cadence/feedback/index.html        Four-step private beta feedback form
 cadence/feedback/*.js              Validation, recovery and resumable upload client
 cadence/feedback/feedback.css      Feedback-page presentation
@@ -19,7 +19,7 @@ delete-account.html                Account-deletion instructions
 supabase/migrations/               Private feedback schema and Storage bucket
 supabase/functions/                Feedback intake and upload verification
 scripts/                           Private import/export operator tools
-assets/cadence/                    Optimised product captures and Blender hero media
+assets/cadence/                    Verified capture manifest and web-ready Blender media
 tests/                             Frontend, backend, schema and data-tool contracts
 ```
 
@@ -71,7 +71,28 @@ Keep these exact URLs in both store consoles:
 - https://brandnamechanges.com/support  ← these are what App Store review needs.
 - https://brandnamechanges.com/delete-account
 
-The browser acceptance pass covers 375, 768 and 1440 pixel viewports, the four-stage journey, error-summary focus, broken media, internal links and horizontal overflow.
+The browser acceptance pass covers 320, 375, 390, 430, 768, 1024 and 1440 pixel viewports, forward and reverse scrubbing, the four-stage feedback journey, error-summary focus, broken media, internal links and horizontal overflow.
+
+## Cadence media provenance
+
+Feature media must resolve to the populated demo account and the capture metadata in `assets/cadence/source-capture-manifest.json`. Validate the locked Arctic, Neon and Crimson captures before rendering:
+
+```bash
+python3 scripts/cadence_capture_manifest.py validate \
+  --manifest assets/cadence/source-capture-manifest.json \
+  --source-root /path/to/locked-captures \
+  --require-themes Arctic Neon Crimson
+```
+
+The navigation mark is generated from the native component, not redrawn by eye:
+
+```bash
+node scripts/render_cadence_mark.mjs \
+  /path/to/cadence/apps/mobile/src/components/CadenceLogo.tsx \
+  assets/cadence
+```
+
+Every product video uses `data-src` plus `data-scrub-video`. The browser leaves the clip paused and maps scroll progress to `currentTime`; reduced-motion and data-saving visitors receive the poster without downloading the MP4.
 
 ## Feedback service deployment
 
