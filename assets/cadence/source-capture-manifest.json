@@ -1,0 +1,53 @@
+{
+  "captures": [
+    {
+      "account": "cadence-demo-seeded",
+      "build": "702219cb586dd155e558d8438698b8617b031e0f",
+      "control_state": "current-large-beat-play",
+      "crop": "0,177,1206,2445",
+      "height": 2445,
+      "platform": "ios",
+      "project": "signal-in-the-gold",
+      "screen": "editor",
+      "sha256": "0a1de6d4e3c547c47234e6d21df82a474c1bf6fb76c6b5322ac697f11fd949f1",
+      "source_basename": "theme-arctic.png",
+      "status_chrome": false,
+      "theme": "arctic",
+      "viewport": "402x874",
+      "width": 1206
+    },
+    {
+      "account": "cadence-demo-seeded",
+      "build": "702219cb586dd155e558d8438698b8617b031e0f",
+      "control_state": "current-large-beat-play",
+      "crop": "0,177,1206,2445",
+      "height": 2445,
+      "platform": "ios",
+      "project": "signal-in-the-gold",
+      "screen": "editor",
+      "sha256": "ba1d3c056d232f95eb74fc283f0aed9e9ee76ca4451e4d8f39246bf8a1daf76d",
+      "source_basename": "theme-crimson.png",
+      "status_chrome": false,
+      "theme": "crimson",
+      "viewport": "402x874",
+      "width": 1206
+    },
+    {
+      "account": "cadence-demo-seeded",
+      "build": "702219cb586dd155e558d8438698b8617b031e0f",
+      "control_state": "current-large-beat-play",
+      "crop": "0,177,1206,2445",
+      "height": 2445,
+      "platform": "ios",
+      "project": "signal-in-the-gold",
+      "screen": "editor",
+      "sha256": "b3f2d5791922d64037a69bdc764d83762a8cb0b22a60ca5deaf2d161e1950c5f",
+      "source_basename": "theme-neon.png",
+      "status_chrome": false,
+      "theme": "neon",
+      "viewport": "402x874",
+      "width": 1206
+    }
+  ],
+  "schema_version": 1
+}

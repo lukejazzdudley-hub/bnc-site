@@ -59,7 +59,7 @@
 - Create during capture: `assets/cadence/source-capture-manifest.json`
 
 **Interfaces:**
-- Produces CLI `python3 scripts/cadence_capture_manifest.py record --manifest PATH --file PATH --build SHA --platform ios --viewport 390x844 --account cadence-demo --project signal-in-the-gold --screen editor --theme THEME --control-state current --crop 0,59,1170,2473`.
+- Produces CLI `python3 scripts/cadence_capture_manifest.py record --manifest PATH --file PATH --build SHA --platform ios --viewport 402x874 --account cadence-demo-seeded --project signal-in-the-gold --screen editor --theme THEME --control-state current-large-beat-play --crop 0,177,1206,2445`.
 - Produces CLI `python3 scripts/cadence_capture_manifest.py validate --manifest PATH --require-themes arctic neon crimson`.
 - Produces manifest entries with `source_basename`, `sha256`, `width`, `height`, `build`, `platform`, `viewport`, `account`, `project`, `screen`, `theme`, `control_state`, `crop`, and `status_chrome`; it never commits an operator-specific absolute path.
 - Later tasks consume a validation exit code of zero and capture files whose manifest entries differ only by `theme`, `file` and `sha256`.
@@ -85,7 +85,7 @@ class CaptureManifestTest(unittest.TestCase):
     def test_record_uses_real_dimensions_and_sha256(self):
         entry = build_entry(self.capture, metadata(theme="arctic"))
         self.assertEqual(entry["sha256"], hashlib.sha256(self.capture.read_bytes()).hexdigest())
-        self.assertEqual((entry["width"], entry["height"]), (1170, 2414))
+        self.assertEqual((entry["width"], entry["height"]), (1206, 2445))
 ```
 
 - [ ] **Step 2: Run the focused tests and prove RED**
@@ -142,13 +142,13 @@ Expected: all capture-manifest tests PASS.
 
 Boot the intended iPhone simulator, build/install the current production-candidate commit, sign into the populated demo account, open `Signal in the Gold`, and set the canonical editor state. Capture Arctic, Neon and Crimson without leaving the editor. Crop each with the same rectangle so the exported images contain app content only.
 
-Record each source with the exact current app commit dynamically:
+Record each source against the simulator-installed release-candidate commit verified by `src/build-info.ts` and the release checkpoint:
 
 ```bash
-APP_BUILD=$(git -C /Users/lukedudley/Developer/cadence rev-parse HEAD)
-python3 scripts/cadence_capture_manifest.py record --manifest assets/cadence/source-capture-manifest.json --file /Users/lukedudley/Developer/cadence-marketing-source/theme-arctic.png --build "$APP_BUILD" --platform ios --viewport 390x844 --account cadence-demo --project signal-in-the-gold --screen editor --theme arctic --control-state current --crop 0,59,1170,2473
-python3 scripts/cadence_capture_manifest.py record --manifest assets/cadence/source-capture-manifest.json --file /Users/lukedudley/Developer/cadence-marketing-source/theme-neon.png --build "$APP_BUILD" --platform ios --viewport 390x844 --account cadence-demo --project signal-in-the-gold --screen editor --theme neon --control-state current --crop 0,59,1170,2473
-python3 scripts/cadence_capture_manifest.py record --manifest assets/cadence/source-capture-manifest.json --file /Users/lukedudley/Developer/cadence-marketing-source/theme-crimson.png --build "$APP_BUILD" --platform ios --viewport 390x844 --account cadence-demo --project signal-in-the-gold --screen editor --theme crimson --control-state current --crop 0,59,1170,2473
+APP_BUILD=702219cb586dd155e558d8438698b8617b031e0f
+python3 scripts/cadence_capture_manifest.py record --manifest assets/cadence/source-capture-manifest.json --file /Users/lukedudley/Developer/cadence-marketing-source/theme-arctic.png --build "$APP_BUILD" --platform ios --viewport 402x874 --account cadence-demo-seeded --project signal-in-the-gold --screen editor --theme arctic --control-state current-large-beat-play --crop 0,177,1206,2445
+python3 scripts/cadence_capture_manifest.py record --manifest assets/cadence/source-capture-manifest.json --file /Users/lukedudley/Developer/cadence-marketing-source/theme-neon.png --build "$APP_BUILD" --platform ios --viewport 402x874 --account cadence-demo-seeded --project signal-in-the-gold --screen editor --theme neon --control-state current-large-beat-play --crop 0,177,1206,2445
+python3 scripts/cadence_capture_manifest.py record --manifest assets/cadence/source-capture-manifest.json --file /Users/lukedudley/Developer/cadence-marketing-source/theme-crimson.png --build "$APP_BUILD" --platform ios --viewport 402x874 --account cadence-demo-seeded --project signal-in-the-gold --screen editor --theme crimson --control-state current-large-beat-play --crop 0,177,1206,2445
 python3 scripts/cadence_capture_manifest.py validate --manifest assets/cadence/source-capture-manifest.json --source-root /Users/lukedudley/Developer/cadence-marketing-source --require-themes arctic neon crimson
 ```
 
