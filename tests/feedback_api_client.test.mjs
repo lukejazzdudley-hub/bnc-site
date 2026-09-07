@@ -4,6 +4,7 @@ import {
   FeedbackApiError,
   beginSubmission,
   encodeTusMetadata,
+  finalizePreservingSavedResponse,
   finalizeSubmission,
   uploadTus,
 } from '../cadence/feedback/api-client.js';
@@ -159,4 +160,19 @@ test('finalize returns incomplete upload IDs without discarding the response', a
     completionToken: 'completion-token',
   });
   assert.deepEqual(result.missingClientIds, ['file-2']);
+});
+
+test('a finalize outage preserves the already-saved written response', async () => {
+  const fakeFetch = async () => {
+    throw new TypeError('network unavailable');
+  };
+
+  const result = await finalizePreservingSavedResponse(
+    fakeFetch,
+    FUNCTION_URL,
+    '11111111-1111-4111-8111-111111111111',
+    'completion-token',
+  );
+
+  assert.deepEqual(result, { verified: false });
 });

@@ -10,7 +10,7 @@ import {
 import {
   FeedbackApiError,
   beginSubmission,
-  finalizeSubmission,
+  finalizePreservingSavedResponse,
   uploadTus,
 } from './api-client.js';
 
@@ -224,12 +224,14 @@ function publicFailureMessage(error) {
   return 'Your response could not be sent right now. Your typed answers are still saved on this device; please try again.';
 }
 
-function showSuccess(submissionId, missingFiles = 0) {
+function showSuccess(submissionId, missingFiles = 0, verificationPending = false) {
   form.hidden = true;
   progressRegion.hidden = true;
   errorSummary.hidden = true;
   successPanel.hidden = false;
-  if (missingFiles > 0) {
+  if (verificationPending) {
+    successReference.textContent = `Your written feedback was saved. Evidence verification could not finish, so you do not need to submit the form again. Reference: ${submissionId}`;
+  } else if (missingFiles > 0) {
     successReference.textContent = `Your written feedback was saved, but ${missingFiles} evidence file${missingFiles === 1 ? '' : 's'} did not finish uploading. Reference: ${submissionId}`;
   } else if (submissionId) {
     successReference.textContent = `Reference: ${submissionId}`;
@@ -298,12 +300,17 @@ async function submitFeedback() {
 
     if (result.completionToken) {
       submitStatus.textContent = 'Verifying private evidence…';
-      const finalized = await finalizeSubmission(
+      const finalization = await finalizePreservingSavedResponse(
         window.fetch.bind(window),
         FUNCTION_URL,
         result.submissionId,
         result.completionToken,
       );
+      if (!finalization.verified) {
+        showSuccess(result.submissionId, failedUploads, true);
+        return;
+      }
+      const finalized = finalization.result;
       failedUploads = Math.max(failedUploads, finalized.missingClientIds?.length ?? 0);
     }
 

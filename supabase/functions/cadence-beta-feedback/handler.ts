@@ -108,6 +108,7 @@ const MAX_ANSWER_TOTAL = 50_000;
 const MAX_FILE_SIZE = 100 * 1024 * 1024;
 const MAX_FILE_TOTAL = 200 * 1024 * 1024;
 const MAX_FILES = 3;
+const MAX_REQUEST_BODY_BYTES = 256 * 1024;
 const MIN_COMPLETION_MS = 8_000;
 const RATE_LIMIT_PER_HOUR = 5;
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -271,6 +272,7 @@ export function validateFiles(value: unknown): ValidationResult<EvidenceFile[]> 
 
   const errors: ValidationError[] = [];
   const normalized: EvidenceFile[] = [];
+  const seenClientIds = new Set<string>();
   let totalSize = 0;
   for (const item of value) {
     if (!isRecord(item)) {
@@ -279,7 +281,13 @@ export function validateFiles(value: unknown): ValidationResult<EvidenceFile[]> 
     }
     const clientId = typeof item.clientId === 'string' ? item.clientId.trim() : '';
     const prefix = clientId && CLIENT_ID_PATTERN.test(clientId) ? `files.${clientId}` : 'files';
-    if (!CLIENT_ID_PATTERN.test(clientId)) errors.push({ field: `${prefix}.clientId`, code: 'invalid' });
+    if (!CLIENT_ID_PATTERN.test(clientId)) {
+      errors.push({ field: `${prefix}.clientId`, code: 'invalid' });
+    } else if (seenClientIds.has(clientId)) {
+      errors.push({ field: `${prefix}.clientId`, code: 'duplicate' });
+    } else {
+      seenClientIds.add(clientId);
+    }
 
     const name = typeof item.name === 'string' ? item.name.trim() : '';
     if (!name) errors.push({ field: `${prefix}.name`, code: 'required' });
@@ -379,6 +387,11 @@ export function createFeedbackHandler(
     }
     if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: corsHeaders(origin) });
     if (request.method !== 'POST') return jsonResponse(origin, 405, { ok: false, code: 'method_not_allowed' });
+
+    const contentLength = Number(request.headers.get('content-length'));
+    if (Number.isFinite(contentLength) && contentLength > MAX_REQUEST_BODY_BYTES) {
+      return jsonResponse(origin, 413, { ok: false, code: 'submission_too_large' });
+    }
 
     let rawBody: unknown;
     try {

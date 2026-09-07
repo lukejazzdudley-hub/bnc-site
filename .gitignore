@@ -3,6 +3,7 @@ node_modules/
 .wrangler/
 .gstack/
 .worktrees/
+__pycache__/
 .env
 .env.*
 !.env.example

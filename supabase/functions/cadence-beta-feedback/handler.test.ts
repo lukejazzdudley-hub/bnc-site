@@ -199,6 +199,17 @@ test('evidence file count is limited to three', () => {
   });
 });
 
+test('evidence client IDs must be unique within a submission', () => {
+  const files = [validFiles()[0], { ...validFiles()[0] }];
+
+  const result = validateFiles(files);
+
+  assert.deepEqual(result, {
+    ok: false,
+    errors: [{ field: 'files.file-1.clientId', code: 'duplicate' }],
+  });
+});
+
 test('evidence MIME types are allowlisted', () => {
   const files = [{ ...validFiles()[0], type: 'application/pdf' }];
 
@@ -292,6 +303,22 @@ test('malformed JSON returns a stable public error', async () => {
 
   assert.equal(response.status, 400);
   assert.deepEqual(await response.json(), { ok: false, code: 'invalid_submission' });
+});
+
+test('oversized request bodies are rejected before JSON parsing', async () => {
+  const handler = createFeedbackHandler(dependencies());
+  const response = await handler(new Request('https://example.test', {
+    method: 'POST',
+    headers: {
+      origin: PRODUCTION_ORIGIN,
+      'content-type': 'application/json',
+      'content-length': String(256 * 1024 + 1),
+    },
+    body: '{}',
+  }));
+
+  assert.equal(response.status, 413);
+  assert.deepEqual(await response.json(), { ok: false, code: 'submission_too_large' });
 });
 
 test('honeypot submissions are absorbed without persistence', async () => {

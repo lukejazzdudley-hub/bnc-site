@@ -100,6 +100,12 @@ class SiteContentContractTest(unittest.TestCase):
         corrupt = [str(page.relative_to(ROOT)) for page in PUBLIC_PAGES if "\ufffd" in page.read_text(encoding="utf-8")]
         self.assertEqual(corrupt, [])
 
+    def test_privacy_policy_covers_beta_feedback_and_optional_evidence(self) -> None:
+        privacy = (ROOT / "privacy.html").read_text(encoding="utf-8")
+        self.assertIn("Cadence beta feedback", privacy)
+        self.assertIn("optional screenshots or screen recordings", privacy)
+        self.assertIn("not use that evidence publicly or in advertising", privacy)
+
 
 if __name__ == "__main__":
     unittest.main()

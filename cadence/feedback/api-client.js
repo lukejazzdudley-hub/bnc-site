@@ -154,3 +154,14 @@ export function finalizeSubmission(fetchImpl, url, submissionId, completionToken
     completionToken,
   });
 }
+
+export async function finalizePreservingSavedResponse(fetchImpl, url, submissionId, completionToken) {
+  try {
+    const result = await finalizeSubmission(fetchImpl, url, submissionId, completionToken);
+    return { verified: true, result };
+  } catch {
+    // Begin has already persisted the written response. A transient verification
+    // failure must not invite the tester to submit the same answers again.
+    return { verified: false };
+  }
+}
