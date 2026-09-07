@@ -382,9 +382,12 @@ input[type="checkbox"] {
 }
 
 @media (max-width: 640px) {
-  .feedback-main { padding-top: 40px; }
+  .feedback-main { padding-top: 28px; }
+  .feedback-layout { gap: 24px; }
   .feedback-intro { display: block; }
-  .feedback-intro h1 { font-size: clamp(3rem, 16vw, 4.4rem); }
+  .feedback-intro h1 { font-size: clamp(3rem, 16vw, 4.4rem); margin: 16px 0; }
+  .feedback-facts { margin: 24px 0 0; }
+  .feedback-progress { margin-bottom: 26px; }
   .feedback-product { display: none; }
   .field-grid--two,
   .field-grid--four { grid-template-columns: 1fr; gap: 0; }

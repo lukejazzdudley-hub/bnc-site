@@ -21,6 +21,7 @@ tests/                             Frontend, backend, schema and data-tool contr
 ```
 
 `cadence.html` is a compatibility redirect. The canonical product URL is `/cadence/`; this avoids a file/directory collision with `/cadence/feedback/`.
+GitHub Pages also serves clean legal URLs (`privacy.html` → `/privacy`).
 
 ## Local preview
 
@@ -41,6 +42,30 @@ deno test supabase/functions/cadence-beta-feedback/handler.test.ts \
 deno check cadence/feedback/feedback.js \
   supabase/functions/cadence-beta-feedback/index.ts
 ```
+
+## Deploy
+
+Push a reviewed commit to `master`. GitHub Pages publishes the static files at
+`brandnamechanges.com`; there is no package install or build command. Confirm the
+custom-domain and HTTPS settings remain enabled in the repository's Pages
+settings, then verify:
+
+1. `https://brandnamechanges.com/cadence`
+2. `https://brandnamechanges.com/privacy`
+3. `https://brandnamechanges.com/terms`
+4. `https://brandnamechanges.com/support`
+5. `https://brandnamechanges.com/cadence/feedback/`
+
+The live response should identify GitHub Pages and return HTTP 200 for each URL.
+
+## Store-console URLs
+
+Keep these exact URLs in both store consoles:
+
+- https://brandnamechanges.com/privacy
+- https://brandnamechanges.com/terms
+- https://brandnamechanges.com/support  ← these are what App Store review needs.
+- https://brandnamechanges.com/delete-account
 
 The browser acceptance pass covers 375, 768 and 1440 pixel viewports, the four-stage journey, error-summary focus, broken media, internal links and horizontal overflow.
 
