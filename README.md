@@ -1,86 +1,114 @@
-# Brand Name Changes — website
+# Brand Name Changes website
 
-Static marketing + legal site for **Brand Name Changes Ltd** and its app **Cadence**.
-Zero build step — plain HTML/CSS/JS. Deploys to **Cloudflare Pages**.
+The public website for **Brand Name Changes Ltd** and **Cadence**. The frontend is plain HTML, CSS and JavaScript with no build step. Production is served from GitHub Pages at [brandnamechanges.com](https://brandnamechanges.com).
 
+## What is here
+
+```text
+index.html                         Company landing page
+cadence/index.html                 Cadence product page
+cadence/feedback/index.html        Four-step private beta feedback form
+cadence/feedback/*.js              Validation, recovery and resumable upload client
+cadence/feedback/feedback.css      Feedback-page presentation
+privacy.html                       Privacy policy
+terms.html                         Terms of service
+support.html                       Support and FAQ
+delete-account.html                Account-deletion instructions
+supabase/migrations/               Private feedback schema and Storage bucket
+supabase/functions/                Feedback intake and upload verification
+scripts/                           Private import/export operator tools
+tests/                             Frontend, backend, schema and data-tool contracts
 ```
-index.html      → /            BNC company landing (= App Store Marketing URL)
-cadence.html    → /cadence     Cadence product page
-privacy.html    → /privacy     Privacy Policy   (App Store: required)
-terms.html      → /terms       Terms of Service
-support.html    → /support     Support + FAQ    (App Store: required)
-404.html        → fallback
-styles.css, site.js
-```
 
-Cloudflare Pages serves clean URLs automatically (`privacy.html` → `/privacy`).
+`cadence.html` is a compatibility redirect. The canonical product URL is `/cadence/`; this avoids a file/directory collision with `/cadence/feedback/`.
 
----
+## Local preview
 
-## 1. Preview locally
 ```bash
-cd ~/Developer/bnc-site
-python3 -m http.server 8000      # then open http://localhost:8000
-# (locally use /privacy.html etc.; clean URLs work once on Cloudflare Pages)
+cd /path/to/bnc-site
+python3 serve.py
 ```
 
-## 2. Register the domain — brandnamechanges.com
-Easiest path (registrar + DNS + host all in Cloudflare):
-1. Create a free account at https://dash.cloudflare.com
-2. **Domain Registration → Register Domains** → search `brandnamechanges.com` → buy (~£8–10/yr, at cost).
-   - If you'd rather use Porkbun/Namecheap, that's fine — you'll just point the domain's
-     nameservers at Cloudflare when prompted in step 4.
+Open `http://127.0.0.1:8000`. The development server supports the same clean routes used in production.
 
-## 3. Deploy to Cloudflare Pages
-**Option A — direct upload (fastest, no git):**
-1. Cloudflare dashboard → **Workers & Pages → Create → Pages → Upload assets**.
-2. Drag the whole `bnc-site` folder in. Name the project `bnc-site`. Deploy.
+## Validation
 
-**Option B — git (auto-deploys on every push):**
-1. Push this folder to a GitHub repo (see step 6).
-2. Cloudflare → **Pages → Connect to Git** → pick the repo.
-3. Build command: *(none)*. Build output directory: `/`. Deploy.
-
-You'll get a free `bnc-site.pages.dev` URL immediately to test.
-
-## 4. Attach the custom domain
-1. In the Pages project → **Custom domains → Set up a domain** → `brandnamechanges.com`
-   (and `www.brandnamechanges.com`).
-2. If the domain is registered in Cloudflare, DNS is configured automatically.
-   Otherwise, add the CNAME records Cloudflare shows you at your registrar.
-3. SSL is automatic. Within minutes:
-   - https://brandnamechanges.com/privacy
-   - https://brandnamechanges.com/terms
-   - https://brandnamechanges.com/support  ← these are what App Store review needs.
-
-## 5. Point App Store Connect at the live URLs
-In App Store Connect → your app → **App Information** / version page:
-- **Privacy Policy URL:** `https://brandnamechanges.com/privacy`
-- **Support URL:** `https://brandnamechanges.com/support`
-- **Marketing URL (optional):** `https://brandnamechanges.com`
-
-These already match what's baked into the app metadata, so nothing in the app changes.
-
-## 6. (Optional) put it in git
 ```bash
-cd ~/Developer/bnc-site
-git init && git add -A && git commit -m "feat: Brand Name Changes site + Cadence pages"
-# create a repo on GitHub, then:
-# git remote add origin git@github.com:<you>/bnc-site.git && git push -u origin main
+python3 -m unittest discover -s tests -p '*test.py' -v
+node --test tests/*.test.mjs
+deno test supabase/functions/cadence-beta-feedback/handler.test.ts \
+  supabase/functions/cadence-beta-feedback/store.test.ts
+deno check cadence/feedback/feedback.js \
+  supabase/functions/cadence-beta-feedback/index.ts
 ```
 
----
+The browser acceptance pass covers 375, 768 and 1440 pixel viewports, the four-stage journey, error-summary focus, broken media, internal links and horizontal overflow.
 
-## Before you go live — finish these TODOs
-Grep the project for `CONFIRM` and `TODO`:
-- **Legal entity:** the footer/privacy/terms say *Brand Name Changes Ltd*. Replace with your
-  exact registered name + company number + registered office to match your DUNS / Apple
-  enrolment. (Search: `CONFIRM`)
-- **App Store link:** the “Download” buttons on `cadence.html` point at `#`. Replace with your
-  App Store URL once the app is live. (Search: `TODO`)
-- **Screenshots:** `cadence.html` has 3 placeholder device frames — drop in real App Store
-  screenshots (portrait PNG/JPG) when ready.
-- **Governing law:** `terms.html` assumes England & Wales — adjust if your entity is elsewhere.
+## Feedback service deployment
+
+The form writes only through the `cadence-beta-feedback` Edge Function. Browser roles have no direct table or bucket access.
+
+Required operator environment:
+
+```text
+SUPABASE_PROJECT_REF
+SUPABASE_URL
+SUPABASE_SERVICE_ROLE_KEY
+SUPABASE_ACCESS_TOKEN
+SUPABASE_DB_PASSWORD
+```
+
+Link the intended Cadence project, apply the reviewed migration, set a new private salt, and deploy the public intake function:
+
 ```bash
-grep -rn "CONFIRM\|TODO" .
+supabase link --project-ref "$SUPABASE_PROJECT_REF"
+supabase db push --linked
+openssl rand -hex 32
+supabase secrets set FEEDBACK_IP_SALT='<generated value>' --project-ref "$SUPABASE_PROJECT_REF"
+supabase functions deploy cadence-beta-feedback --project-ref "$SUPABASE_PROJECT_REF" --no-verify-jwt
 ```
+
+The function itself enforces the production/local origin allowlist, field and file bounds, a timing trap, a honeypot and a salted per-IP rate limit. Optional evidence uses server-issued signed TUS paths in the private `cadence-feedback-evidence` bucket. Written answers are committed before an upload starts.
+
+## Import the two original Google Form responses
+
+Keep the source CSV outside this repository. The importer expects the original 27-column export, parses Google’s month/day timestamp in `Europe/London`, retains the complete legacy payload and ignores a row already imported with the same SHA-256 identity.
+
+```bash
+SUPABASE_URL='https://project.supabase.co' \
+SUPABASE_SERVICE_ROLE_KEY='<private service key>' \
+python3 scripts/import_cadence_feedback.py '/private/path/Form Responses 1.csv'
+```
+
+Run the same command a second time to prove idempotency: it should report zero inserted rows and two skipped duplicates.
+
+## Export responses
+
+Exports intentionally include participant answers and contact details. They exclude IP, invitation, completion and deduplication hashes plus request user-agent data. The tool refuses to put an export inside the Git repository.
+
+```bash
+SUPABASE_URL='https://project.supabase.co' \
+SUPABASE_SERVICE_ROLE_KEY='<private service key>' \
+python3 scripts/export_cadence_feedback.py --output '/private/path/cadence-feedback.json'
+```
+
+Use a `.csv` suffix for a spreadsheet-friendly export. Delete temporary verification exports when the check is complete.
+
+## Privacy boundary
+
+- Responses and optional evidence are private product-research data.
+- They are not public testimonials or advertising assets without separate permission.
+- Source CSV files, exports, local environment files and Supabase CLI state stay outside Git.
+- Public `anon` and `authenticated` roles have no table or Storage policy granting feedback access.
+- Access or deletion requests go to `hello@brandnamechanges.com`.
+
+## Production release
+
+GitHub Pages publishes the default branch and uses the checked-in `CNAME`. Before pushing, run the complete validation block, inspect the staged diff, scan for secrets and confirm that no response CSV or export is tracked. After deployment, verify:
+
+- `https://brandnamechanges.com/cadence/`
+- `https://brandnamechanges.com/cadence/feedback/`
+- `https://brandnamechanges.com/support`
+- `https://brandnamechanges.com/privacy`
+- `https://brandnamechanges.com/terms`
+- `https://brandnamechanges.com/delete-account`
