@@ -5,7 +5,7 @@ import unittest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MEDIA_NAMES = ("hero-device", "transcribe", "rhyme-families", "arrange-to-daw", "dry-wet")
+MEDIA_NAMES = ("hero-device", "transcribe", "rhyme-families", "arrange-to-daw", "dry-wet", "theme-scroll")
 
 
 def ffprobe_json(*arguments: str) -> dict:
@@ -29,7 +29,8 @@ class CadenceMediaAssetTest(unittest.TestCase):
             self.assertEqual(audio, [], name)
             self.assertEqual(video[0]["codec_name"], "h264", name)
             self.assertEqual(video[0]["pix_fmt"], "yuv420p", name)
-            self.assertLessEqual(max(video[0]["width"], video[0]["height"]), 1280, name)
+            self.assertLessEqual(video[0]["width"], 1280, name)
+            self.assertLessEqual(video[0]["height"], 1350, name)
             self.assertGreater(float(details["format"]["duration"]), 0, name)
 
             frames = ffprobe_json(

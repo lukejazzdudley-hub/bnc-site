@@ -166,13 +166,16 @@ class SiteContentContractTest(unittest.TestCase):
                 missing.append(source)
         self.assertEqual(missing, [])
 
-    def test_cadence_theme_previews_preserve_their_source_aspect_ratio(self) -> None:
-        css = (ROOT / "cadence" / "cadence.css").read_text(encoding="utf-8")
-        rule = re.search(r"\.theme-card img\s*\{(?P<body>[^}]*)\}", css)
+    def test_theme_story_uses_one_scrubbed_handset_and_no_rejected_cards(self) -> None:
+        html = (ROOT / "cadence" / "index.html").read_text(encoding="utf-8")
+        section = html.split('<section class="cadence-themes"', 1)[1].split("</section>", 1)[0]
 
-        self.assertIsNotNone(rule)
-        assert rule is not None
-        self.assertRegex(rule.group("body"), r"height:\s*auto")
+        self.assertEqual(section.count("<video"), 1)
+        self.assertIn("theme-scroll.mp4", section)
+        self.assertIn("data-scrub-video", section)
+        self.assertNotIn("theme-card", section)
+        for rejected in ("theme-arctic.webp", "theme-neon.webp", "theme-crimson.webp"):
+            self.assertNotIn(rejected, html)
 
     def test_cadence_navigation_uses_locked_mark_not_square_app_icon(self) -> None:
         html = (ROOT / "cadence" / "index.html").read_text(encoding="utf-8")
