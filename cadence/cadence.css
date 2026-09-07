@@ -988,6 +988,9 @@
   }
 
   .cadence-mobile-cta a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
     padding: 10px 14px;
     border-radius: 8px;
     background: var(--cadence-amber);

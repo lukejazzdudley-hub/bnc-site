@@ -187,6 +187,13 @@ class SiteContentContractTest(unittest.TestCase):
         self.assertIn("data-animated-mark", nav)
         self.assertNotIn("app-icon.webp", nav)
 
+    def test_mobile_beta_cta_has_a_44_pixel_touch_target(self) -> None:
+        css = (ROOT / "cadence" / "cadence.css").read_text(encoding="utf-8")
+        rules = re.findall(r"\.cadence-mobile-cta a\s*\{(?P<body>[^}]*)\}", css)
+
+        self.assertTrue(rules)
+        self.assertTrue(any(re.search(r"min-height:\s*44px", rule) for rule in rules))
+
     def test_locked_mark_assets_are_local(self) -> None:
         for name in ("cadence-mark.webp", "cadence-mark-static.webp"):
             self.assertTrue((ROOT / "assets" / "cadence" / name).is_file(), name)
