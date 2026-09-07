@@ -5,7 +5,7 @@ import unittest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-MEDIA_NAMES = ("hero-device", "transcribe", "rhyme-families", "arrange-to-daw", "dry-wet", "theme-scroll")
+MEDIA_NAMES = ("hero-device", "transcribe", "rhyme-families", "arrange-to-daw", "dry-wet", "theme-scroll", "feedback-handset")
 
 
 def ffprobe_json(*arguments: str) -> dict:
