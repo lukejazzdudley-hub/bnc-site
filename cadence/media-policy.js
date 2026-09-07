@@ -11,6 +11,19 @@ export function shouldPlayMedia({
   return documentVisible && intersecting && !reducedMotion && !saveData;
 }
 
+const MIN_ACTIVE_RATIO = 0.35;
+
+export function selectActiveMedia(candidates) {
+  let selected = null;
+
+  for (const candidate of candidates) {
+    if (!candidate.intersecting || candidate.ratio < MIN_ACTIVE_RATIO) continue;
+    if (!selected || candidate.ratio > selected.ratio) selected = candidate;
+  }
+
+  return selected?.media ?? null;
+}
+
 export function normalizedScrollProgress({ start, end, position }) {
   if (end <= start) return 0;
   return Math.min(1, Math.max(0, (position - start) / (end - start)));
@@ -28,15 +41,15 @@ function mediaController() {
   if (!videos.length) return;
 
   const preferences = visitorPreferences();
-  const intersections = new WeakMap();
+  const intersections = new Map();
   const visitorMode = resolveMediaMode(preferences);
   document.body.classList.toggle('is-static', visitorMode === 'static');
 
-  const updateVideo = (video) => {
+  const updateVideo = (video, activeVideo) => {
     const canPlay = shouldPlayMedia({
       ...preferences,
       documentVisible: document.visibilityState === 'visible',
-      intersecting: intersections.get(video) === true,
+      intersecting: video === activeVideo,
     });
 
     if (!canPlay || video.dataset.manuallyPaused === 'true') {
@@ -58,16 +71,30 @@ function mediaController() {
     button.setAttribute('aria-label', `${paused ? 'Play' : 'Pause'} ${video.getAttribute('aria-label') || 'product demonstration'}`);
   };
 
+  const reconcileVideos = () => {
+    const activeVideo = selectActiveMedia(videos.map((video) => ({
+      media: video,
+      ...(intersections.get(video) || { intersecting: false, ratio: 0 }),
+    })));
+
+    for (const video of videos) {
+      updateVideo(video, activeVideo);
+      syncToggle(video);
+    }
+  };
+
   const observer = new IntersectionObserver((entries) => {
     for (const entry of entries) {
-      intersections.set(entry.target, entry.isIntersecting && entry.intersectionRatio >= 0.35);
-      updateVideo(entry.target);
-      syncToggle(entry.target);
+      intersections.set(entry.target, {
+        intersecting: entry.isIntersecting,
+        ratio: entry.intersectionRatio,
+      });
     }
+    reconcileVideos();
   }, { threshold: [0, 0.35, 0.7] });
 
   for (const video of videos) {
-    intersections.set(video, false);
+    intersections.set(video, { intersecting: false, ratio: 0 });
     observer.observe(video);
     video.addEventListener('play', () => syncToggle(video));
     video.addEventListener('pause', () => syncToggle(video));
@@ -77,7 +104,7 @@ function mediaController() {
       const shouldResume = video.paused || video.dataset.manuallyPaused === 'true';
       video.dataset.manuallyPaused = shouldResume ? 'false' : 'true';
       if (shouldResume) {
-        updateVideo(video);
+        reconcileVideos();
       } else {
         video.pause();
       }
@@ -86,7 +113,7 @@ function mediaController() {
   }
 
   document.addEventListener('visibilitychange', () => {
-    for (const video of videos) updateVideo(video);
+    reconcileVideos();
   });
 }
 

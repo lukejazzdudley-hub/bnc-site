@@ -4,6 +4,7 @@ import test from 'node:test';
 import {
   normalizedScrollProgress,
   resolveMediaMode,
+  selectActiveMedia,
   shouldPlayMedia,
 } from '../cadence/media-policy.js';
 
@@ -29,6 +30,24 @@ test('media only plays while visible, in view and allowed by visitor preferences
       assert.equal(shouldPlayMedia({ ...ready, [key]: false }), false);
     }
   }
+});
+
+test('the most visible eligible demonstration wins at section boundaries', () => {
+  const first = { id: 'first' };
+  const second = { id: 'second' };
+
+  assert.equal(selectActiveMedia([
+    { media: first, intersecting: true, ratio: 0.51 },
+    { media: second, intersecting: true, ratio: 0.72 },
+  ]), second);
+  assert.equal(selectActiveMedia([
+    { media: first, intersecting: true, ratio: 0.34 },
+    { media: second, intersecting: false, ratio: 0.9 },
+  ]), null);
+  assert.equal(selectActiveMedia([
+    { media: first, intersecting: true, ratio: 0.6 },
+    { media: second, intersecting: true, ratio: 0.6 },
+  ]), first);
 });
 
 test('scroll progress remains stable before, inside and after a scene', () => {
