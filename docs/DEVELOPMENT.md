@@ -17,6 +17,14 @@ No frontend package install or build step is required.
 4. Exercise affected pages at 375, 768 and 1440 pixels.
 5. Stage only named files and inspect the staged diff.
 
+## Cadence product media
+
+- Use approved, populated-account product captures; never substitute invented interface imagery for feature proof.
+- Keep source recordings and Blender scenes in the controlled marketing asset library. Commit only web-ready MP4/WebP derivatives under `assets/cadence/`.
+- Render the hero as a seamless square H.264 clip with a matching poster. The page must remain intelligible when the poster is the only frame shown.
+- Keep product videos muted, inline, looped and governed by `cadence/media-policy.js`. New demonstrations need an accessible label, poster and explicit pause control.
+- Before release, confirm no horizontal overflow or broken media at 390, 768, 1144 and 1440 pixels; scroll through every demonstration and prove that only the visible clip plays.
+
 ## Feedback changes
 
 Keep browser validation in `form-model.js`, transport behavior in `api-client.js` and DOM behavior in `feedback.js`. Mirror every browser constraint at the Edge Function boundary; client checks are user assistance, never authorization.

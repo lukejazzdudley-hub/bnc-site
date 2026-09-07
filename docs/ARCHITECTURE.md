@@ -8,6 +8,12 @@
 - **Postgres and Storage:** service-role-only response tables plus a private evidence bucket.
 - **Operator tools:** standard-library Python scripts for idempotent legacy import and allowlisted export.
 
+## Cadence product experience
+
+The public product page stays static and dependency-free while presenting real product behavior. Optimised app captures provide feature evidence; a pre-rendered Blender handset supplies the hero's spatial depth without placing a WebGL renderer or a multi-megabyte scene graph on visitors' devices.
+
+`cadence/media-policy.js` is the single playback coordinator. It uses viewport visibility and document focus to allow only relevant demonstrations to play, honours explicit pause choices, and selects poster-only presentation for reduced-motion or data-saving preferences. Every clip has a local poster and accessible description, so product meaning survives autoplay restrictions and unavailable media.
+
 ## Feedback flow
 
 ```text
@@ -34,3 +40,4 @@ The static site has no service credential. `anon` and `authenticated` receive no
 - production Brand Name Changes origins plus explicit localhost development origins;
 - no public response browser or admin dashboard;
 - prices and availability remain storefront truth rather than hard-coded website data.
+- committed website media must be product-accurate, locally hosted and optimised for mobile delivery; source recordings and Blender working files remain in the controlled asset library rather than the public repository.

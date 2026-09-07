@@ -7,6 +7,8 @@ The public website for **Brand Name Changes Ltd** and **Cadence**. The frontend 
 ```text
 index.html                         Company landing page
 cadence/index.html                 Cadence product page
+cadence/cadence.css                Cadence product-page art direction and responsive layout
+cadence/media-policy.js            Visibility, motion-preference and playback policy
 cadence/feedback/index.html        Four-step private beta feedback form
 cadence/feedback/*.js              Validation, recovery and resumable upload client
 cadence/feedback/feedback.css      Feedback-page presentation
@@ -17,6 +19,7 @@ delete-account.html                Account-deletion instructions
 supabase/migrations/               Private feedback schema and Storage bucket
 supabase/functions/                Feedback intake and upload verification
 scripts/                           Private import/export operator tools
+assets/cadence/                    Optimised product captures and Blender hero media
 tests/                             Frontend, backend, schema and data-tool contracts
 ```
 
@@ -40,6 +43,7 @@ node --test tests/*.test.mjs
 deno test supabase/functions/cadence-beta-feedback/handler.test.ts \
   supabase/functions/cadence-beta-feedback/store.test.ts
 deno check cadence/feedback/feedback.js \
+  cadence/media-policy.js \
   supabase/functions/cadence-beta-feedback/index.ts
 ```
 
