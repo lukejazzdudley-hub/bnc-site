@@ -14,3 +14,4 @@
 - Preserved `/cadence` while adding nested feedback routes by moving the canonical page to `/cadence/` and retaining a compatibility redirect.
 - Prevented duplicate responses when optional evidence verification is interrupted, and documented beta-feedback handling in the privacy policy.
 - Fixed the deployed feedback service's production identifier generation so valid submissions can be stored.
+- Routed signed evidence transfers through Supabase's dedicated resumable-upload endpoint.

@@ -5,6 +5,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGE = ROOT / "cadence" / "feedback" / "index.html"
+SCRIPT = ROOT / "cadence" / "feedback" / "feedback.js"
 
 
 class PageParser(HTMLParser):
@@ -91,6 +92,10 @@ class FeedbackPageContractTest(unittest.TestCase):
 
     def test_page_contains_no_corrupt_replacement_characters(self) -> None:
         self.assertNotIn("\ufffd", self.html)
+
+    def test_signed_resumable_uploads_use_the_supabase_sign_endpoint(self) -> None:
+        script = SCRIPT.read_text(encoding="utf-8")
+        self.assertIn("/storage/v1/upload/resumable/sign'", script)
 
 
 if __name__ == "__main__":

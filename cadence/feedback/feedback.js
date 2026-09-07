@@ -15,7 +15,7 @@ import {
 } from './api-client.js';
 
 const FUNCTION_URL = 'https://goupfxfloriqtucppmbx.supabase.co/functions/v1/cadence-beta-feedback';
-const TUS_URL = 'https://goupfxfloriqtucppmbx.storage.supabase.co/storage/v1/upload/resumable';
+const TUS_URL = 'https://goupfxfloriqtucppmbx.storage.supabase.co/storage/v1/upload/resumable/sign';
 const EVIDENCE_BUCKET = 'cadence-feedback-evidence';
 const SESSION_KEY = 'cadence-beta-feedback-v1';
 const startedAt = Date.now();
