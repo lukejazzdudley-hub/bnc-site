@@ -1,5 +1,6 @@
 from html.parser import HTMLParser
 from pathlib import Path
+import re
 import unittest
 from urllib.parse import urlsplit
 
@@ -134,6 +135,14 @@ class SiteContentContractTest(unittest.TestCase):
             if not resolved.is_file():
                 missing.append(source)
         self.assertEqual(missing, [])
+
+    def test_cadence_theme_previews_preserve_their_source_aspect_ratio(self) -> None:
+        css = (ROOT / "cadence" / "cadence.css").read_text(encoding="utf-8")
+        rule = re.search(r"\.theme-card img\s*\{(?P<body>[^}]*)\}", css)
+
+        self.assertIsNotNone(rule)
+        assert rule is not None
+        self.assertRegex(rule.group("body"), r"height:\s*auto")
 
     def test_support_copy_handles_both_platforms_and_the_in_app_delete_route(self) -> None:
         html = (ROOT / "support.html").read_text(encoding="utf-8").lower()

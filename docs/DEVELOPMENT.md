@@ -23,6 +23,7 @@ No frontend package install or build step is required.
 - Keep source recordings and Blender scenes in the controlled marketing asset library. Commit only web-ready MP4/WebP derivatives under `assets/cadence/`.
 - Render the hero as a seamless square H.264 clip with a matching poster. The page must remain intelligible when the poster is the only frame shown.
 - Keep product videos muted, inline, looped and governed by `cadence/media-policy.js`. New demonstrations need an accessible label, poster and explicit pause control.
+- Responsive product captures must set `height: auto` whenever CSS overrides their intrinsic width; HTML width and height attributes reserve space but must not distort the rendered image.
 - Before release, confirm no horizontal overflow or broken media at 390, 768, 1144 and 1440 pixels; scroll through every demonstration and prove that only the visible clip plays.
 
 ## Feedback changes
