@@ -11,6 +11,7 @@
 
 ### Fixed
 
+- Cadence theme previews now preserve their source proportions across desktop widths instead of stretching, overlapping copy or clipping below the viewport.
 - Replaced the sparse Cadence landing page with accurate product evidence for capture, Draft Demo, five rhyme families, arrangement, DAW, vocal effects and export—without unsupported testimonials, prices or trial promises.
 - Cadence product and support pages now describe the current feature set, 27-theme catalogue, three-note free tier, platform support and storefront-controlled plan options accurately.
 - Removed dead download links, visitor-facing TODO text, a false trial claim and hard-coded prices.
