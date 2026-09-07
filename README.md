@@ -81,7 +81,7 @@ Feature media must resolve to the populated demo account and the capture metadat
 python3 scripts/cadence_capture_manifest.py validate \
   --manifest assets/cadence/source-capture-manifest.json \
   --source-root /path/to/locked-captures \
-  --require-themes Arctic Neon Crimson
+  --require-themes arctic neon crimson
 ```
 
 The navigation mark is generated from the native component, not redrawn by eye:
