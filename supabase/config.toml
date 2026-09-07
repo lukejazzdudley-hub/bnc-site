@@ -1,0 +1,4 @@
+project_id = "bnc-site"
+
+[functions.cadence-beta-feedback]
+verify_jwt = false
