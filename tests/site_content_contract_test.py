@@ -22,6 +22,28 @@ class LinkParser(HTMLParser):
             self.links.append(values["href"])
 
 
+class CadenceExperienceParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.h1_count = 0
+        self.proof_chapters = 0
+        self.videos: list[dict[str, str]] = []
+        self.local_media: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        values = {key: value or "" for key, value in attrs}
+        if tag == "h1":
+            self.h1_count += 1
+        if tag == "article" and "data-product-proof" in values:
+            self.proof_chapters += 1
+        if tag == "video":
+            self.videos.append(values)
+        if tag in {"img", "source", "video"}:
+            for source in (values.get("src"), values.get("poster")):
+                if source and not urlsplit(source).scheme and not source.startswith("data:"):
+                    self.local_media.append(source)
+
+
 def route_file(path: str) -> Path:
     normalized = path.rstrip("/")
     if not normalized:
@@ -84,6 +106,34 @@ class SiteContentContractTest(unittest.TestCase):
         self.assertIn("on-device transcription", html)
         self.assertIn("draft demo", html)
         self.assertIn("beta feedback", html)
+
+    def test_cadence_experience_pairs_the_story_with_product_proof(self) -> None:
+        page = ROOT / "cadence" / "index.html"
+        parser = CadenceExperienceParser()
+        parser.feed(page.read_text(encoding="utf-8"))
+
+        self.assertEqual(parser.h1_count, 1)
+        self.assertGreaterEqual(parser.proof_chapters, 4)
+        self.assertGreaterEqual(len(parser.videos), 4)
+
+        for video in parser.videos:
+            self.assertIn("muted", video)
+            self.assertIn("playsinline", video)
+            self.assertEqual(video.get("preload"), "metadata")
+            self.assertTrue(video.get("poster"))
+            self.assertTrue(video.get("aria-label"))
+
+    def test_cadence_media_references_are_local_and_resolve(self) -> None:
+        page = ROOT / "cadence" / "index.html"
+        parser = CadenceExperienceParser()
+        parser.feed(page.read_text(encoding="utf-8"))
+
+        missing = []
+        for source in parser.local_media:
+            resolved = (page.parent / source).resolve()
+            if not resolved.is_file():
+                missing.append(source)
+        self.assertEqual(missing, [])
 
     def test_support_copy_handles_both_platforms_and_the_in_app_delete_route(self) -> None:
         html = (ROOT / "support.html").read_text(encoding="utf-8").lower()

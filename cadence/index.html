@@ -3,204 +3,322 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cadence — from first line to finished demo</title>
-  <meta name="description" content="Capture a lyric or Voice Memo, find useful rhymes, write to a beat, arrange timed takes and finish the demo in one songwriter workspace for iPhone, iPad and Android." />
-  <meta name="theme-color" content="#0c0c10" />
-  <meta property="og:title" content="Cadence — from first line to finished demo" />
-  <meta property="og:description" content="Capture, write, arrange and finish the song without rebuilding it across four different apps." />
+  <title>Cadence — one song, all the way through</title>
+  <meta name="description" content="Keep lyrics, rhyme ideas, beats, vocal takes and your mix in one connected songwriter workspace for iPhone, iPad and Android." />
+  <meta name="theme-color" content="#08090c" />
+  <meta property="og:title" content="Cadence — one song, all the way through" />
+  <meta property="og:description" content="From the first line to an exportable demo, without rebuilding the song across different apps." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://brandnamechanges.com/cadence/" />
+  <meta property="og:image" content="https://brandnamechanges.com/assets/cadence/hero-device.webp" />
+  <meta property="og:image:alt" content="A studio-lit phone showing the populated Cadence song library." />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://brandnamechanges.com/cadence/" />
   <link rel="stylesheet" href="../styles.css?v=3" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0A0A'/%3E%3Cpath d='M20.5 7 L11.5 25' stroke='%23F4F1EA' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="./cadence.css?v=1" />
+  <link rel="icon" href="../assets/cadence/app-icon.webp" />
 </head>
-<body>
-  <header class="nav">
+<body class="cadence-page">
+  <header class="nav cadence-nav">
     <div class="wrap">
-      <a class="brand" href="/" aria-label="Brand Name Changes home"><span class="logotype">BNC</span></a>
+      <a class="cadence-brand" href="/" aria-label="Brand Name Changes home">
+        <img src="../assets/cadence/app-icon.webp" alt="" width="34" height="34" />
+        <span>Cadence</span>
+        <small>by BNC</small>
+      </a>
       <nav class="nav-links" aria-label="Primary">
-        <a href="#workflow">Workflow</a>
-        <a href="#features">Features</a>
+        <a href="#workflow">How it works</a>
+        <a href="#features">Product</a>
         <a href="#pro">Cadence Pro</a>
         <a href="/support">Support</a>
-        <a class="btn btn-primary nav-cta" href="/cadence/feedback/">Beta feedback</a>
+        <a class="btn btn-primary nav-cta" href="#download">Get the beta</a>
       </nav>
       <button class="nav-toggle" aria-label="Open navigation menu" aria-expanded="false">Menu</button>
     </div>
   </header>
 
   <main>
-    <section class="hero cadence-hero">
-      <div class="wrap hero-grid">
-        <div>
-          <span class="eyebrow">Cadence · iPhone, iPad &amp; Android</span>
-          <h1 class="display">Turn the line in your head into a <span class="grad-text">finished demo.</span></h1>
-          <p class="lede">Bring in a lyric or Voice Memo, shape the rhyme scheme, loop the right pocket, time your takes and finish in the DAW—without rebuilding the song in another app.</p>
-          <div class="actions" id="download">
-            <a class="btn btn-primary btn-platform" href="https://testflight.apple.com/join/RdX9wmAq" target="_blank" rel="noopener">
-              <span>Join on iPhone &amp; iPad</span>
-              <small>TestFlight beta</small>
+    <section class="cadence-stage" aria-labelledby="cadence-title">
+      <div class="cadence-stage-grid wrap">
+        <div class="cadence-hero-copy">
+          <p class="cadence-kicker"><span aria-hidden="true"></span>Songwriter workspace · iOS &amp; Android</p>
+          <h1 id="cadence-title">One song.<br /><em>All the way through.</em></h1>
+          <p class="cadence-intro">Keep the lyric, rhyme ideas, beat, vocal takes and mix in one connected place—from the line in your head to an exportable demo.</p>
+          <div class="cadence-actions" id="download">
+            <a class="cadence-store-button cadence-store-button--primary" href="https://testflight.apple.com/join/RdX9wmAq" target="_blank" rel="noopener">
+              <span class="store-icon" aria-hidden="true"></span>
+              <span><small>Join the beta on</small>iPhone &amp; iPad</span>
             </a>
-            <a class="btn btn-ghost btn-platform" href="https://play.google.com/apps/testing/io.cadenceapp.mobile" target="_blank" rel="noopener">
-              <span>Join on Android</span>
-              <small>Google Play testing</small>
+            <a class="cadence-store-button" href="https://play.google.com/apps/testing/io.cadenceapp.mobile" target="_blank" rel="noopener">
+              <svg class="store-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3.3 2.5 10.8 9.2-10.8 9.8a2 2 0 0 1-.3-1V3.6a2 2 0 0 1 .3-1.1Zm12.1 10.3 2.8 2.4-11.6 6.4 8.8-8.8Zm4.1-3.2c1.7.9 1.7 2.3.1 3.2l-2.2 1.2-2.9-2.5 2.8-2.7 2.2.8ZM6.4 2.2l11.7 6.4-2.9 2.6-8.8-9Z" /></svg>
+              <span><small>Join the beta on</small>Android</span>
             </a>
           </div>
-          <p class="beta-note">Cadence is in testing. Store availability varies by platform and tester eligibility.</p>
-          <div class="meta" aria-label="Product principles">
-            <span><b>On-device</b> rhyme engine</span>
-            <span><b>Real</b> beat and take waveforms</span>
-            <span><b>Your audio</b> stays on its device unless you share it</span>
-          </div>
+          <p class="cadence-beta-note">Testing access and storefront availability vary by platform and region.</p>
         </div>
-        <figure class="visual product-hero reveal">
-          <img src="../assets/cadence-typing.png" alt="Cadence lyric editor showing live colour-grouped rhyme highlights" width="640" height="1422" />
-          <figcaption>Write inside the song—not beside it.</figcaption>
+
+        <figure class="cadence-hero-object" data-scroll-scene data-pointer-scene>
+          <div class="cadence-hero-glow" aria-hidden="true"></div>
+          <video
+            src="../assets/cadence/hero-device.mp4"
+            poster="../assets/cadence/hero-device.webp"
+            width="1280"
+            height="1280"
+            muted
+            playsinline
+            loop
+            preload="metadata"
+            data-autoplay
+            aria-label="A studio-lit three-dimensional phone rotates to reveal the real Cadence song library"
+          >A studio-lit Cadence product demonstration.</video>
+          <button class="media-toggle" type="button" data-media-toggle aria-label="Pause product demonstration">Pause</button>
+          <figcaption><strong>Springtime Showers</strong><span>13 songs · 6 takes recorded</span></figcaption>
         </figure>
       </div>
-    </section>
 
-    <section id="workflow" class="workflow-section">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">One creative relay</span>
-          <h2>Keep the idea moving.</h2>
-          <p class="lede">Cadence preserves the same song context from the rough voice note to the final vocal take.</p>
-        </div>
-        <ol class="workflow" aria-label="Cadence songwriting workflow">
-          <li class="workflow-step reveal"><span class="workflow-number">01</span><h3>Capture</h3><p>Record the thought, scan a handwritten page, or share existing lyrics, audio and Voice Memos into Cadence.</p></li>
-          <li class="workflow-step reveal"><span class="workflow-number">02</span><h3>Write</h3><p>Use on-device transcription, explore useful rhyme families and practise against the real beat waveform.</p></li>
-          <li class="workflow-step reveal"><span class="workflow-number">03</span><h3>Draft</h3><p>Assign lyrics to sections, record alternatives and place each take where it belongs.</p></li>
-          <li class="workflow-step reveal"><span class="workflow-number">04</span><h3>Finish</h3><p>Carry the timing into the DAW, compare Dry and Wet FX, mix, then export the demo or stems.</p></li>
-        </ol>
+      <div class="cadence-proof-bar wrap" aria-label="Cadence product principles">
+        <p><strong>On-device</strong><span>Rhyme &amp; transcription</span></p>
+        <p><strong>Real waveforms</strong><span>Write against the beat</span></p>
+        <p><strong>One timeline</strong><span>Draft to DAW</span></p>
+        <p><strong>Your recordings</strong><span>Local unless you share</span></p>
       </div>
     </section>
 
-    <section id="features">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Built around the song</span>
-          <h2>Less app-switching. More useful feedback.</h2>
+    <section class="fragmentation" aria-labelledby="fragmentation-title">
+      <div class="wrap fragmentation-grid">
+        <div class="fragmentation-list" aria-hidden="true">
+          <span>Lyrics in Notes</span>
+          <span>Melodies in Voice Memos</span>
+          <span>Beats in Files</span>
+          <span>Ideas between apps</span>
         </div>
-        <div class="features cols-2">
-          <article class="feature reveal">
-            <div class="feature-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h3l2-6 4 12 2-6h5" /></svg></div>
-            <div><h3>Start with what already exists</h3><p>Open a blank lyric, record an idea, scan a handwritten page, or share text, audio files and Voice Memos into the same song workspace.</p></div>
-          </article>
-          <article class="feature reveal">
-            <div class="feature-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 7h10M4 12h16M4 17h8" /><circle cx="18" cy="7" r="2" /></svg></div>
-            <div><h3>Hear the difference between rhymes</h3><p>Explore Perfect, Slant, Multi-syllable, Multi-word and Assonance results from an on-device pronunciation engine.</p></div>
-          </article>
-          <article class="feature reveal">
-            <div class="feature-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M3 12h2m2-5v10m3-7v4m3-8v12m3-9v6m3-3h2" /></svg></div>
-            <div><h3>Write inside the pocket</h3><p>Load a beat, see its real waveform, scrub precisely and drag independent A/B points around the section you are writing.</p></div>
-          </article>
-          <article class="feature reveal">
-            <div class="feature-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 5h14v4H5zM5 15h8v4H5z" /><path d="M15 17h4" /></svg></div>
-            <div><h3>Make the draft audible</h3><p>Pull selected lyrics into a read-only Draft Demo, record alternatives and preserve each section's timing before final production.</p></div>
-          </article>
-          <article class="feature reveal">
-            <div class="feature-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5v14M10 8v8M16 3v18M22 10v4" /></svg></div>
-            <div><h3>Finish without starting over</h3><p>Continue the timed draft in a multitrack DAW, reorder lanes, trim clips, loop, zoom and record final takes against the same timeline.</p></div>
-          </article>
-          <article class="feature reveal">
-            <div class="feature-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="7" cy="7" r="3" /><circle cx="17" cy="17" r="3" /><path d="M9 9l6 6M17 4v7M4 17h7" /></svg></div>
-            <div><h3>Make decisions with your ears</h3><p>Apply vocal FX, compare Dry and Wet at the same play point, adjust the live mixer, then export a demo or aligned stems.</p></div>
-          </article>
+        <div class="fragmentation-copy">
+          <p class="cadence-label">The problem</p>
+          <h2 id="fragmentation-title">Your creativity is everywhere.<br /><em>Your workflow shouldn’t be.</em></h2>
+          <p>Cadence keeps the context of the song intact, so returning to an idea feels like continuing—not reconstructing.</p>
         </div>
       </div>
     </section>
 
-    <section class="product-tour" aria-labelledby="product-tour-title">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <span class="eyebrow">Inside Cadence</span>
-          <h2 id="product-tour-title">The real workspace.</h2>
-          <p class="lede">Authentic product views from the editor, live song context and 27 theme families.</p>
-        </div>
-        <div class="product-gallery">
-          <figure class="product-shot reveal"><img src="../assets/cadence-editor.png" alt="Cadence song view with complete colour-grouped rhyme highlights" width="640" height="1422" loading="lazy" /><figcaption><strong>See the scheme.</strong><span>Rhyme groups stay attached to the lyric.</span></figcaption></figure>
-          <figure class="product-shot reveal"><img src="../assets/cadence-typing.png" alt="Cadence editor with rhyme and song arrangement actions" width="640" height="1422" loading="lazy" /><figcaption><strong>Keep the song connected.</strong><span>Writing, rhyme and arrangement live together.</span></figcaption></figure>
-          <figure class="product-shot reveal"><img src="../assets/cadence-theme-terminal.png" alt="Cadence appearance settings showing multiple colour themes" width="640" height="1422" loading="lazy" /><figcaption><strong>Make it yours.</strong><span>Choose light, dark and contrast settings for the session.</span></figcaption></figure>
-        </div>
+    <section id="workflow" class="cadence-story" aria-labelledby="workflow-title">
+      <div class="wrap cadence-story-head">
+        <p class="cadence-label">The connected workflow</p>
+        <h2 id="workflow-title">Capture the spark.<br />Keep the momentum.</h2>
+        <p>Five real product moments. One continuous song.</p>
       </div>
-    </section>
 
-    <section id="pro">
-      <div class="wrap">
-        <div class="spotlight pro-spotlight">
-          <div class="reveal">
-            <span class="eyebrow">Cadence Pro</span>
-            <h2>Keep the full workspace open.</h2>
-            <p class="lede">Start with three free notes. Cadence Pro unlocks unlimited new work, the complete Draft-to-DAW workflow, vocal FX, exports and account sync on supported devices. Recordings remain on their device of origin unless you explicitly share or upload them.</p>
-            <ul class="benefit-list">
-              <li>Unlimited notes and projects</li>
-              <li>Draft Demo, DAW, vocal FX and Mixer</li>
-              <li>Demo and aligned stems export</li>
-              <li>Account-bound access across supported devices</li>
+      <div id="features" class="cadence-proof-list">
+        <article class="cadence-proof cadence-proof--capture" data-product-proof="capture">
+          <div class="cadence-proof-copy">
+            <p class="cadence-index">01 / Capture</p>
+            <h2>Start with what you already have.</h2>
+            <p>Open a new lyric, share a Voice Memo or audio file into Cadence, scan a handwritten page, or record the thought before it disappears.</p>
+            <ul class="cadence-points">
+              <li>Import text and audio</li>
+              <li>Scan handwritten lyrics</li>
+              <li>Transcribe a take on-device</li>
             </ul>
           </div>
-          <div class="card plan-card reveal">
-            <span class="pill">Plans</span>
-            <h3>Choose in your local storefront.</h3>
-            <p>Apple or Google shows the available plan, price and currency for your region before purchase. Monthly and quarterly are alternative recurring offers.</p>
-            <div class="plan-list" aria-label="Cadence Pro plan types">
-              <div><strong>Monthly or quarterly</strong><span>Flexible recurring access</span></div>
-              <div><strong>Annual</strong><span>One year of full access</span></div>
-              <div><strong>Lifetime</strong><span>One purchase, full software access</span></div>
+          <div class="cadence-media-stage cadence-media-stage--studio">
+            <div class="cadence-studio-word" aria-hidden="true">CAPTURE</div>
+            <figure class="cadence-phone cadence-phone--lean-left">
+              <video
+                src="../assets/cadence/transcribe.mp4"
+                poster="../assets/cadence/transcribe.webp"
+                width="620"
+                height="1348"
+                muted
+                playsinline
+                loop
+                preload="metadata"
+                data-autoplay
+                aria-label="Cadence records a vocal take and completes on-device transcription"
+              >Cadence transcription product demonstration.</video>
+              <button class="media-toggle" type="button" data-media-toggle aria-label="Pause transcription demonstration">Pause</button>
+            </figure>
+          </div>
+        </article>
+
+        <article class="cadence-proof cadence-proof--rhyme" data-product-proof="rhyme">
+          <div class="cadence-media-stage cadence-media-stage--rhyme">
+            <div class="rhyme-key" aria-hidden="true">
+              <span style="--rhyme:#d87a70">Perfect</span>
+              <span style="--rhyme:#d59873">Slant</span>
+              <span style="--rhyme:#72b7a0">Multi-syllable</span>
+              <span style="--rhyme:#9a72d8">Multi-word</span>
+              <span style="--rhyme:#c071a2">Assonance</span>
             </div>
+            <figure class="cadence-phone cadence-phone--lean-right">
+              <video
+                src="../assets/cadence/rhyme-families.mp4"
+                poster="../assets/cadence/rhyme-families.webp"
+                width="620"
+                height="1348"
+                muted
+                playsinline
+                loop
+                preload="metadata"
+                data-autoplay
+                aria-label="Cadence explores five distinct rhyme families for a lyric in Signal in the Gold"
+              >Cadence rhyme family product demonstration.</video>
+              <button class="media-toggle" type="button" data-media-toggle aria-label="Pause rhyme demonstration">Pause</button>
+            </figure>
+          </div>
+          <div class="cadence-proof-copy">
+            <p class="cadence-index">02 / Write</p>
+            <h2>Find the rhyme that earns its place.</h2>
+            <p>Search beyond obvious endings. Cadence separates Perfect, Slant, Multi-syllable, Multi-word and Assonance results—and keeps them beside the lyric.</p>
+            <p class="cadence-fact">The rhyme engine runs on-device, so writing stays quick and private.</p>
+          </div>
+        </article>
+
+        <article class="cadence-proof cadence-proof--arrange" data-product-proof="arrange">
+          <div class="cadence-proof-copy">
+            <p class="cadence-index">03 / Shape</p>
+            <h2>Give the words somewhere to land.</h2>
+            <p>Load the real beat waveform, set independent A/B points and map selected lyrics into timed song sections. Build a Draft Demo before moving the song into the DAW.</p>
+            <div class="waveform-legend" aria-label="Beat and vocal timeline">
+              <span>Beat</span><i aria-hidden="true"></i><b>3:26</b>
+              <span>Vocal</span><i aria-hidden="true"></i><b>0:33</b>
+            </div>
+          </div>
+          <div class="cadence-media-stage cadence-media-stage--timeline">
+            <figure class="cadence-phone cadence-phone--upright">
+              <video
+                src="../assets/cadence/arrange-to-daw.mp4"
+                poster="../assets/cadence/arrange-to-daw.webp"
+                width="620"
+                height="1348"
+                muted
+                playsinline
+                loop
+                preload="metadata"
+                data-autoplay
+                aria-label="Springtime Showers moves from song arrangement into the Cadence multitrack DAW"
+              >Cadence arrangement and DAW product demonstration.</video>
+              <button class="media-toggle" type="button" data-media-toggle aria-label="Pause arrangement demonstration">Pause</button>
+            </figure>
+          </div>
+        </article>
+
+        <article class="cadence-proof cadence-proof--finish" data-product-proof="finish">
+          <div class="cadence-media-stage cadence-media-stage--mix">
+            <figure class="cadence-phone cadence-phone--lean-left">
+              <video
+                src="../assets/cadence/dry-wet.mp4"
+                poster="../assets/cadence/dry-wet.webp"
+                width="620"
+                height="1348"
+                muted
+                playsinline
+                loop
+                preload="metadata"
+                data-autoplay
+                aria-label="Cadence compares Dry and Wet vocal processing inside the song mix"
+              >Cadence vocal FX and mix product demonstration.</video>
+              <button class="media-toggle" type="button" data-media-toggle aria-label="Pause mix demonstration">Pause</button>
+            </figure>
+            <div class="mix-annotation" aria-hidden="true"><span>Dry</span><i></i><strong>Wet</strong></div>
+          </div>
+          <div class="cadence-proof-copy">
+            <p class="cadence-index">04 / Finish</p>
+            <h2>Make the decisions with your ears.</h2>
+            <p>Record final takes in the same multitrack DAW. Compare Dry and Wet at one play point, shape vocal FX, balance the live mixer, then export a demo or aligned stems.</p>
+            <ul class="cadence-points cadence-points--inline">
+              <li>Multitrack DAW</li>
+              <li>Vocal FX</li>
+              <li>Demo &amp; stems export</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="cadence-themes" aria-labelledby="themes-title">
+      <div class="wrap cadence-themes-grid">
+        <div class="cadence-themes-copy">
+          <p class="cadence-label">27 theme families</p>
+          <h2 id="themes-title">Your studio.<br /><em>Your light.</em></h2>
+          <p>Change the atmosphere without changing the workflow. From quiet Arctic to loud Neon, every theme keeps the song readable and the controls familiar.</p>
+        </div>
+        <div class="theme-fan" aria-label="Cadence shown in Crimson, Neon and Arctic themes">
+          <figure class="theme-card theme-card--crimson"><img src="../assets/cadence/theme-crimson.webp" alt="Cadence library and lyric editor in the Crimson theme" width="560" height="1218" loading="lazy" /></figure>
+          <figure class="theme-card theme-card--neon"><img src="../assets/cadence/theme-neon.webp" alt="Cadence rhyme and beat workspace in the Neon theme" width="560" height="1218" loading="lazy" /></figure>
+          <figure class="theme-card theme-card--arctic"><img src="../assets/cadence/theme-arctic.webp" alt="Cadence DAW in the Arctic theme" width="560" height="1218" loading="lazy" /></figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="pro" class="cadence-pro" aria-labelledby="pro-title">
+      <div class="wrap">
+        <div class="cadence-pro-panel">
+          <div class="cadence-pro-copy">
+            <img src="../assets/cadence/app-icon.webp" alt="" width="76" height="76" />
+            <p class="cadence-label">Cadence Pro</p>
+            <h2 id="pro-title">The whole song stays open.</h2>
+            <p>Start with three free notes. Pro unlocks unlimited new work and the complete Draft-to-DAW workflow, including vocal FX and exports.</p>
+            <div class="cadence-actions">
+              <a class="cadence-store-button cadence-store-button--primary" href="https://testflight.apple.com/join/RdX9wmAq" target="_blank" rel="noopener"><span><small>Join on</small>iPhone &amp; iPad</span></a>
+              <a class="cadence-store-button" href="https://play.google.com/apps/testing/io.cadenceapp.mobile" target="_blank" rel="noopener"><span><small>Join on</small>Android</span></a>
+            </div>
+          </div>
+          <div class="cadence-plan-list" aria-label="Cadence Pro plan types">
+            <p><span>Monthly or quarterly</span><strong>Flexible recurring access</strong></p>
+            <p><span>Annual</span><strong>One year of full access</strong></p>
+            <p><span>Lifetime</span><strong>One purchase, full software access</strong></p>
+            <small>Apple or Google displays the plans, price and currency available in your local storefront before purchase.</small>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="cta-band">
-      <div class="wrap">
-        <div class="inner reveal">
-          <span class="eyebrow">Testing now</span>
-          <h2>Take one song all the way through.</h2>
-          <p class="lede">Join the current testing programme and help shape Cadence before public release.</p>
-          <div class="actions">
-            <a class="btn btn-primary" href="https://testflight.apple.com/join/RdX9wmAq" target="_blank" rel="noopener">Join the iOS beta</a>
-            <a class="btn btn-ghost" href="https://play.google.com/apps/testing/io.cadenceapp.mobile" target="_blank" rel="noopener">Open Android testing</a>
-          </div>
-          <a class="text-link" href="/cadence/feedback/">Already testing? Share private feedback</a>
-        </div>
+    <section class="cadence-final" aria-labelledby="final-title">
+      <div class="wrap cadence-final-inner">
+        <p class="cadence-label">The next song starts here</p>
+        <h2 id="final-title">Create without<br /><em>losing the feeling.</em></h2>
+        <p>Cadence is in active testing on iPhone, iPad and Android.</p>
+        <a class="cadence-store-button cadence-store-button--primary" href="#download">Choose your platform</a>
+        <a class="cadence-feedback-link" href="/cadence/feedback/">Already testing? Share private feedback</a>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
+  <div class="cadence-mobile-cta" aria-label="Download Cadence">
+    <span>Cadence beta</span>
+    <a href="#download">Choose platform</a>
+  </div>
+
+  <footer class="footer cadence-footer">
     <div class="wrap">
       <div class="cols">
         <div>
-          <a class="brand" href="/" style="margin-bottom:14px;"><span class="logotype">Brand Name Changes</span></a>
-          <p style="max-width:36ch; font-size:0.92rem;">Cadence is made by Brand Name Changes.</p>
+          <a class="brand" href="/"><span class="logotype">Brand Name Changes</span></a>
+          <p>Independent tools for people making things worth finishing.</p>
         </div>
         <div>
           <h4>Cadence</h4>
-          <a href="#workflow">Workflow</a>
-          <a href="#features">Features</a>
+          <a href="#workflow">How it works</a>
+          <a href="#features">Product</a>
           <a href="#pro">Cadence Pro</a>
           <a href="/cadence/feedback/">Beta feedback</a>
-          <a href="/support">Support</a>
         </div>
         <div>
           <h4>Company</h4>
           <a href="/">Studio</a>
+          <a href="/support">Support</a>
           <a href="/privacy">Privacy</a>
           <a href="/terms">Terms</a>
           <a href="/delete-account">Delete account</a>
-          <a href="mailto:hello@brandnamechanges.com">Contact</a>
         </div>
       </div>
       <div class="legal">
-        <span>© <span data-year>2026</span> Brand Name Changes Ltd. All rights reserved.</span>
+        <span>© <span data-year>2026</span> Brand Name Changes Ltd.</span>
         <span>Apple, iPhone, iPad and TestFlight are Apple Inc. trademarks. Google Play and Android are Google LLC trademarks.</span>
       </div>
     </div>
   </footer>
 
   <script src="../site.js" defer></script>
+  <script type="module" src="./media-policy.js"></script>
 </body>
 </html>
