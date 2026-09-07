@@ -170,7 +170,7 @@ export function createFeedbackDependencies(
 ): FeedbackDependencies {
   if (!options.ipSalt) throw new Error('feedback IP salt is required');
   const now = options.now ?? Date.now;
-  const randomUuid = options.randomUuid ?? crypto.randomUUID;
+  const randomUuid = options.randomUuid ?? (() => crypto.randomUUID());
   const randomToken = options.randomToken ?? secureRandomToken;
 
   return {

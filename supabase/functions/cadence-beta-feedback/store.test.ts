@@ -144,6 +144,19 @@ test('a no-file submission is complete as soon as its answers are stored', async
   assert.deepEqual(state.operations, ['insert-response']);
 });
 
+test('the production UUID generator remains bound to Web Crypto', async () => {
+  const { state, adapter } = persistence();
+  const dependencies = createFeedbackDependencies(adapter, {
+    ipSalt: 'server-only-salt',
+    now: () => NOW,
+  });
+
+  const result = await dependencies.beginSubmission(input(false));
+
+  assert.match(result.submissionId, /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i);
+  assert.equal(state.responseRows[0].id, result.submissionId);
+});
+
 test('answers are persisted before any upload token is issued', async () => {
   const { state, adapter } = persistence();
   const dependencies = createFeedbackDependencies(adapter, deterministicOptions());
