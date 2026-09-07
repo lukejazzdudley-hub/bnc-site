@@ -84,6 +84,8 @@ python3 scripts/cadence_capture_manifest.py validate \
   --require-themes arctic neon crimson
 ```
 
+`assets/cadence/workflow-capture-manifest.json` separately locks the current-build library, transcription, rhyme, arrangement and mix source recordings to their shipped MP4 derivatives. The workflow manifest records the exact simulator, populated account, project, screen/control state, capture time, source checksum and derivative checksum so a polished Blender render cannot disguise stale or invented app pixels.
+
 The navigation mark is generated from the native component, not redrawn by eye:
 
 ```bash
