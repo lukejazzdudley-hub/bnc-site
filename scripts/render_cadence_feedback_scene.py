@@ -23,9 +23,9 @@ for node in material.node_tree.nodes:
 
 phone.animation_data_clear()
 poses = (
-    (1, (0.34, 0.0, 0.03), (-0.5, 10.0, -5.5), 1.05),
-    (58, (0.01, 0.0, 0.08), (-0.8, 6.0, -1.5), 1.38),
-    (90, (0.01, 0.0, 0.08), (-0.8, 6.0, -1.5), 1.38),
+    (1, (0.40, 0.0, -0.02), (-0.5, 10.0, -5.5), 0.86),
+    (58, (0.03, 0.0, 0.0), (-0.8, 6.0, -1.5), 1.03),
+    (90, (0.03, 0.0, 0.0), (-0.8, 6.0, -1.5), 1.03),
 )
 for frame, location, rotation, scale in poses:
     phone.location = location
@@ -41,8 +41,8 @@ scene.camera.rotation_euler = (math.radians(88.7), 0.0, 0.0)
 scene.frame_start = 1
 scene.frame_end = 90
 scene.render.fps = 30
-scene.render.resolution_x = 720
-scene.render.resolution_y = 400
+scene.render.resolution_x = 480
+scene.render.resolution_y = 560
 scene.render.resolution_percentage = 100
 scene.render.image_settings.file_format = "PNG"
 scene.render.image_settings.color_mode = "RGBA"

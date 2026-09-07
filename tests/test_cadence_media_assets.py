@@ -47,3 +47,9 @@ class CadenceMediaAssetTest(unittest.TestCase):
             poster = ROOT / "assets" / "cadence" / f"{name}.webp"
             self.assertTrue(poster.is_file(), name)
             self.assertGreater(poster.stat().st_size, 0, name)
+
+    def test_feedback_handset_uses_a_portrait_safe_canvas(self) -> None:
+        path = ROOT / "assets" / "cadence" / "feedback-handset.mp4"
+        stream = ffprobe_json("-select_streams", "v:0", "-show_streams", str(path))["streams"][0]
+
+        self.assertGreater(stream["height"], stream["width"])
