@@ -11,7 +11,6 @@ import {
   selectActiveChapter,
   shouldCommitVideoFrame,
   smoothMotionProgress,
-  themeTrioReady,
 } from '../cadence/phone-stage.js';
 
 test('screen sources are contained without changing their aspect ratio', () => {
@@ -24,12 +23,6 @@ test('screen sources are contained without changing their aspect ratio', () => {
   const full = containRectForSource(1206, 2622, 620, 1348);
   assert.equal(Math.round(full.width), 620);
   assert.equal(Math.round(full.height), 1348);
-});
-
-test('theme trio waits until both independent side screens are bound', () => {
-  assert.equal(themeTrioReady(true, ['true', 'true']), true);
-  assert.equal(themeTrioReady(true, ['true', undefined]), false);
-  assert.equal(themeTrioReady(false, ['true', 'true']), false);
 });
 
 test('live 3D is disabled when motion, data or WebGL constraints require a fallback', () => {

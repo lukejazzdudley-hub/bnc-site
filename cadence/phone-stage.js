@@ -68,10 +68,6 @@ export function containRectForSource(sourceWidth, sourceHeight, targetWidth, tar
   };
 }
 
-export function themeTrioReady(themeActive, readiness) {
-  return themeActive && readiness.length === 2 && readiness.every((state) => state === 'true');
-}
-
 function supportsWebGL() {
   try {
     const canvas = document.createElement('canvas');
@@ -83,11 +79,14 @@ function supportsWebGL() {
 }
 
 function visitorMode() {
-  return resolvePhoneStageMode({
-    reducedMotion: window.matchMedia('(prefers-reduced-motion: reduce)').matches,
-    saveData: Boolean(navigator.connection?.saveData),
-    webglAvailable: supportsWebGL(),
-  });
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const saveData = Boolean(navigator.connection?.saveData);
+
+  // Do not create even a throwaway WebGL context for visitors who have
+  // explicitly requested the lightweight poster experience.
+  if (reducedMotion || saveData) return 'poster';
+
+  return resolvePhoneStageMode({ reducedMotion, saveData, webglAvailable: supportsWebGL() });
 }
 
 function parsePose(chapter) {
@@ -295,16 +294,6 @@ async function initialiseViewer(viewer) {
       if (status) status.textContent = chapter.dataset.phoneStatus || '';
     }
 
-    const liveDevice = viewer.closest('.cadence-live-device');
-    const sideReadiness = liveDevice
-      ? [...liveDevice.querySelectorAll('.cadence-theme-phone')]
-        .map((item) => item.dataset.controllerReady)
-      : [];
-    liveDevice?.classList.toggle(
-      'is-theme-trio',
-      themeTrioReady(chapter.dataset.themeTrio === 'true', sideReadiness),
-    );
-
     const screenPlan = screenPlanForChapter(chapter.dataset);
     if (screenPlan?.kind === 'image') {
       activeVideo = null;
@@ -361,7 +350,6 @@ function startPosterStory() {
       }), window.innerHeight);
       if (!chapter) return;
       chapters.forEach((item) => item.classList.toggle('is-active', item === chapter));
-      device?.classList.toggle('is-theme-trio', chapter.dataset.themeTrio === 'true');
       const status = device?.querySelector('[data-phone-status]');
       if (status) status.textContent = chapter.dataset.phoneStatus || '';
       const source = posterSourceForChapter(chapter);

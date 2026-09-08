@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "lockedAt": "2026-09-08T09:06:13Z",
+  "version": 2,
+  "lockedAt": "2026-09-08T15:13:08Z",
   "blenderSource": "/home/luke/blender-cad-motion/cadence-performance-factory/renders/web-hero-v1/cadence-web-hero-v1.blend",
   "blenderRoot": "CTRL-F03V5-b01-v8-library",
   "screenMaterial": "MAT-F03V5-screen-b01-v8-library",
@@ -8,6 +8,13 @@
   "runtime": {
     "package": "@google/model-viewer",
     "version": "4.3.1"
+  },
+  "v3Runtime": {
+    "package": "three",
+    "version": "0.185.1",
+    "playback": "authored-camera scroll scrub",
+    "sourceBundleSha256": "2076f2d851981bf291e5a2bf2a534a7cfc9f06d903de9839283a9468805b141e",
+    "scope": "source-locked V3.2 hero alignment and neutral-lit themes only"
   },
   "assets": {
     "cadence-phone-hero.glb": "fafb3615c3cc63245f611b8fc5f3da36c37355d73b3c314ba71f0587089cf55b",
@@ -28,8 +35,21 @@
     "screens/transcribe.mp4": "5520796eed930795f957bd97c3378292bd990bc4aa3d6b6bf3707e1f1dcd9570",
     "screens/transcribe.webp": "76e30514033f6ef285cac7eb351c852b9f9d71565735342ea441d7236f5af077"
   },
+  "v3Assets": {
+    "v3/hero-desktop.web.glb": "dba5499600b3bccd46e092451905bf0d6a69953163fc616b07a7ed803327dd25",
+    "v3/hero-mobile.web.glb": "b37d260596a506b99c986f4260694857d26adfc496294e2e2eabf9576f220734",
+    "v3/themes-desktop.web.glb": "46ad80e99bed1e683b7bb4dba8ccab6656faa4fc0aeb685ee8efc8b1d9ca44d4",
+    "v3/themes-mobile.web.glb": "1b1e2b0bb8d66ba45de35820ba3ccf3006607c7e4d686f318ce732a5384a2a13",
+    "v3/hero-desktop.webp": "2313c1bc74a0b63738006d8eee1226873a166ec7c7d7e59850bbc82088bdeaed",
+    "v3/hero-mobile.webp": "4b66f4658a4995a0f694358cec457db7ae8d3cc93670e7d3c19fb4767b3c085c",
+    "v3/themes-desktop.webp": "f8ad76eef995c178eb4273d6e206acc5be27fac1f3acdfdf5c0d56ef5b427a19",
+    "v3/themes-mobile.webp": "10a4c14e78ee8106ac8b2bdc513216ea0fd686ca49a94c48ed28fdbe6e055f7c"
+  },
   "vendorAssets": {
     "assets/vendor/model-viewer.min.js": "b09c7da4850a140d3b07bae0c0c7e556807be366fa87d177af57bc9819c7f069",
-    "assets/vendor/model-viewer-LICENSE.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    "assets/vendor/model-viewer-LICENSE.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+    "assets/vendor/three/three.module.min.js": "86bcee248b64f44bcfc23c331ae74619061957d59cab040171dcb6fb5900beb6",
+    "assets/vendor/three/three.core.min.js": "05b2609338c76cd65daf74f3ac515bc9a5045e1b3b33edc07d8c9bd55250fa90",
+    "assets/vendor/three/LICENSE.txt": "8b378ebe60e2fe500158cb0ac71cb5e8b7d92953c2abcc63a0eb90499653b5bc"
   }
 }

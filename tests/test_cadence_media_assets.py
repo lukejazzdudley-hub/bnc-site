@@ -25,10 +25,11 @@ class CadenceMediaAssetTest(unittest.TestCase):
         manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
         cadence_root = manifest_path.parent
 
-        for relative_path, expected_hash in manifest["assets"].items():
-            path = cadence_root / relative_path
-            self.assertTrue(path.is_file(), relative_path)
-            self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), expected_hash, relative_path)
+        for group in ("assets", "v3Assets"):
+            for relative_path, expected_hash in manifest[group].items():
+                path = cadence_root / relative_path
+                self.assertTrue(path.is_file(), relative_path)
+                self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), expected_hash, relative_path)
 
         for relative_path, expected_hash in manifest["vendorAssets"].items():
             path = ROOT / relative_path

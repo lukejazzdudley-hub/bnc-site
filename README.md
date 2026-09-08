@@ -10,6 +10,7 @@ cadence/index.html                 Cadence product page
 cadence/cadence.css                Cadence product-page art direction and responsive layout
 cadence/media-policy.js            Lazy loading and deterministic scroll-scrub policy
 cadence/phone-stage.js              Live GLB screen binding and scroll-driven camera controller
+cadence/v3-scenes.js                Authored-camera V3 scene loader and scroll controller
 cadence/feedback/index.html        Four-step private beta feedback form
 cadence/feedback/*.js              Validation, recovery and resumable upload client
 cadence/feedback/feedback.css      Feedback-page presentation
@@ -87,7 +88,7 @@ python3 scripts/cadence_capture_manifest.py validate \
 
 `assets/cadence/workflow-capture-manifest.json` separately locks the current-build library, transcription, rhyme, arrangement and mix source recordings to their shipped MP4 derivatives. The workflow manifest records the exact simulator, populated account, project, screen/control state, capture time, source checksum and derivative checksum so a polished Blender render cannot disguise stale or invented app pixels.
 
-`assets/cadence/live-3d-manifest.json` locks the exported Blender root, screen-material contract, model-viewer version and checksums for every public GLB, screen texture and vendored runtime file.
+`assets/cadence/live-3d-manifest.json` locks the exported Blender roots, runtime versions and checksums for every public GLB, screen texture, V3 poster and vendored runtime file.
 
 The navigation mark is generated from the native component, not redrawn by eye:
 
@@ -97,7 +98,7 @@ node scripts/render_cadence_mark.mjs \
   assets/cadence
 ```
 
-The product journey uses one persistent live Blender handset. `cadence/phone-stage.js` maps scroll position to its camera orbit and current verified app recording; reduced-motion, data-saving and unavailable-WebGL visitors receive the poster without downloading the MP4.
+The middle product journey uses one persistent live Blender handset. `cadence/phone-stage.js` maps scroll position to its camera orbit and current verified app recording. The source-locked V3 Library and Themes scenes use their own authored desktop/mobile cameras through `cadence/v3-scenes.js`; only an on-screen V3 scene retains a WebGL context. Reduced-motion, data-saving and unavailable-WebGL visitors receive verified posters without downloading the GLB or MP4.
 
 ## Feedback service deployment
 

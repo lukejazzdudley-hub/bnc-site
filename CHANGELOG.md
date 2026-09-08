@@ -4,6 +4,9 @@
 
 ### Added
 
+- Cadence now opens on the source-locked V3 populated Library scene and closes its product story with a separately authored three-theme composition, both driven directly by scroll with desktop/mobile camera work preserved.
+- The V3.2 visual repair lifts the Library capture into its correct handset registration and replaces the theme trio's coloured edge halos with restrained neutral reflections.
+
 - Cadence now renders its approved Blender handset as live 3D in the browser, with real product footage changing on the device as visitors move through the workflow.
 - The feedback page now uses the same live, scroll-responsive handset with a verified product screen on phone layouts.
 - Cadence now has a conversion-led product experience built from real app captures, a purpose-rendered Blender handset, five connected workflow moments, 27-theme proof and direct iOS/Android beta entry points.
@@ -12,6 +15,8 @@
 - Existing Google Form responses can be imported once without duplicates and exported without internal security metadata.
 
 ### Fixed
+
+- V3 scenes release their WebGL context after leaving view and create a fresh canvas when revisited, preventing off-screen GPU memory accumulation without breaking reverse scroll.
 
 - Replaced the empty, filtered hero screen with the approved populated demo library, registered it to the handset aperture and removed the captured status bar.
 - Replaced the handset's permanent diagonal pose and chapter-by-chapter wobble with one upright, continuous 3D path that reverses with the page.

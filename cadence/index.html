@@ -17,6 +17,14 @@
   <link rel="stylesheet" href="../styles.css?v=3" />
   <link rel="stylesheet" href="./cadence.css?v=1" />
   <link rel="icon" href="../assets/cadence/app-icon.webp" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "../assets/vendor/three/three.module.min.js",
+        "three/addons/": "../assets/vendor/three/addons/"
+      }
+    }
+  </script>
 </head>
 <body class="cadence-page">
   <header class="nav cadence-nav">
@@ -60,26 +68,21 @@
           <p class="cadence-beta-note">Testing access and storefront availability vary by platform and region.</p>
         </div>
 
-        <figure class="cadence-hero-object" data-phone-chapter data-screen-video="../assets/cadence/screens/library.mp4" data-pose-from="0,90,92" data-pose-to="0,90,84" data-orientation-from="15,-6,-8" data-orientation-to="15,0,0">
-          <model-viewer
-            class="cadence-phone-model cadence-phone-model--hero"
-            src="../assets/cadence/cadence-phone-hero.glb"
-            poster="../assets/cadence/screens/library.webp"
-            loading="lazy"
-            reveal="auto"
-            interaction-prompt="none"
-            touch-action="pan-y"
-            shadow-intensity="0.8"
-            shadow-softness="0.9"
-            environment-image="neutral"
-            exposure="1.08"
-            camera-orbit="0deg 90deg 92%"
-            orientation="15deg -6deg -8deg"
-            camera-target="0m 0m 0m"
-            field-of-view="25deg"
-            data-live-phone
-            aria-label="A live three-dimensional Cadence phone showing the populated song library"
-          ><img slot="poster" src="../assets/cadence/screens/library.webp" alt="" /></model-viewer>
+        <figure
+          class="cadence-hero-object cadence-v3-scene cadence-v3-scene--hero"
+          data-cadence-v3-scene="hero"
+          data-desktop-model="../assets/cadence/v3/hero-desktop.web.glb"
+          data-mobile-model="../assets/cadence/v3/hero-mobile.web.glb"
+          data-desktop-poster="../assets/cadence/v3/hero-desktop.webp"
+          data-mobile-poster="../assets/cadence/v3/hero-mobile.webp"
+          data-desktop-width="1000"
+          data-desktop-height="1400"
+          data-mobile-width="780"
+          data-mobile-height="1400"
+          role="img"
+          aria-label="An upright three-dimensional Cadence phone showing a populated song library as cover artwork separates gently in depth"
+        >
+          <noscript><img src="../assets/cadence/v3/hero-desktop.webp" alt="An upright Cadence phone showing a populated song library" /></noscript>
         </figure>
       </div>
 
@@ -111,11 +114,11 @@
       <div class="wrap cadence-story-head">
         <p class="cadence-label">The connected workflow</p>
         <h2 id="workflow-title">Capture the spark.<br />Keep the momentum.</h2>
-        <p>Five real product moments. One continuous song.</p>
+        <p>Four real product moments. One continuous song.</p>
       </div>
 
       <div id="features" class="cadence-product-journey" data-phone-story data-pose-from="0,90,104" data-pose-to="0,90,94" data-orientation-from="15,-5,-8" data-orientation-to="15,0,0">
-        <figure class="cadence-live-device" aria-label="A persistent three-dimensional phone follows the Cadence workflow, then becomes three phones showing different themes">
+        <figure class="cadence-live-device" aria-label="A persistent three-dimensional phone follows the Cadence workflow">
           <model-viewer
             class="cadence-phone-model cadence-phone-model--primary"
             src="../assets/cadence/cadence-phone-workflow.glb"
@@ -135,46 +138,6 @@
             data-live-phone
             aria-label="A live three-dimensional Cadence phone whose screen and angle change with each workflow step"
           ><img slot="poster" src="../assets/cadence/transcribe.webp" alt="" /></model-viewer>
-          <model-viewer
-            class="cadence-phone-model cadence-theme-phone cadence-theme-phone--cyan"
-            src="../assets/cadence/cadence-phone-workflow.glb"
-            poster="../assets/cadence/screens/theme-cyan.webp"
-            loading="lazy"
-            reveal="auto"
-            interaction-prompt="none"
-            touch-action="pan-y"
-            shadow-intensity="0.72"
-            shadow-softness="0.94"
-            environment-image="neutral"
-            exposure="1.08"
-            camera-orbit="0deg 90deg 98%"
-            orientation="15deg 0deg -9deg"
-            camera-target="0m 0m 0m"
-            field-of-view="24deg"
-            data-live-phone
-            data-static-screen="../assets/cadence/screens/theme-cyan.webp"
-            aria-hidden="true"
-          ><img slot="poster" src="../assets/cadence/screens/theme-cyan.webp" alt="" /></model-viewer>
-          <model-viewer
-            class="cadence-phone-model cadence-theme-phone cadence-theme-phone--orange"
-            src="../assets/cadence/cadence-phone-workflow.glb"
-            poster="../assets/cadence/screens/theme-orange.webp"
-            loading="lazy"
-            reveal="auto"
-            interaction-prompt="none"
-            touch-action="pan-y"
-            shadow-intensity="0.72"
-            shadow-softness="0.94"
-            environment-image="neutral"
-            exposure="1.08"
-            camera-orbit="0deg 90deg 98%"
-            orientation="15deg 0deg 9deg"
-            camera-target="0m 0m 0m"
-            field-of-view="24deg"
-            data-live-phone
-            data-static-screen="../assets/cadence/screens/theme-orange.webp"
-            aria-hidden="true"
-          ><img slot="poster" src="../assets/cadence/screens/theme-orange.webp" alt="" /></model-viewer>
           <figcaption data-phone-status aria-live="polite">Capture · Transcribe</figcaption>
         </figure>
 
@@ -221,14 +184,33 @@
             </ul>
           </div>
         </article>
-        <article class="cadence-proof cadence-proof--themes" data-phone-chapter data-screen-image="../assets/cadence/screens/themes.webp" data-phone-status="Three themes · One workflow" data-theme-trio="true">
-          <div class="cadence-proof-copy cadence-themes-copy">
+        </div>
+      </div>
+    </section>
+
+    <section class="cadence-themes" aria-labelledby="themes-title">
+      <div class="wrap cadence-themes-grid">
+        <div class="cadence-themes-copy">
           <p class="cadence-label">27 theme families</p>
           <h2 id="themes-title">Your studio.<br /><em>Your light.</em></h2>
-          <p>Change the atmosphere without changing the workflow. From quiet Arctic to loud Neon, every theme keeps the song readable and the controls familiar.</p>
-          </div>
-        </article>
+          <p>Change the atmosphere without changing the workflow. Arctic, Neon and Crimson keep the same song and controls in view while the room changes around you.</p>
         </div>
+        <figure
+          class="cadence-v3-scene cadence-v3-scene--themes"
+          data-cadence-v3-scene="themes"
+          data-desktop-model="../assets/cadence/v3/themes-desktop.web.glb"
+          data-mobile-model="../assets/cadence/v3/themes-mobile.web.glb"
+          data-desktop-poster="../assets/cadence/v3/themes-desktop.webp"
+          data-mobile-poster="../assets/cadence/v3/themes-mobile.webp"
+          data-desktop-width="2000"
+          data-desktop-height="1400"
+          data-mobile-width="780"
+          data-mobile-height="4000"
+          role="img"
+          aria-label="Three upright Cadence phones showing the same song in Arctic, Neon and Crimson themes"
+        >
+          <noscript><img src="../assets/cadence/v3/themes-desktop.webp" alt="Three Cadence phones showing Arctic, Neon and Crimson themes" /></noscript>
+        </figure>
       </div>
     </section>
 
@@ -299,5 +281,6 @@
   <script src="../site.js" defer></script>
   <script type="module" src="./media-policy.js"></script>
   <script type="module" src="./phone-stage.js"></script>
+  <script type="module" src="./v3-scenes.js"></script>
 </body>
 </html>
