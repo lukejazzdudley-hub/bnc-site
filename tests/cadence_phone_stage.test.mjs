@@ -5,6 +5,7 @@ import {
   cameraOrbitForProgress,
   resolvePhoneStageMode,
   selectActiveChapter,
+  shouldCommitVideoFrame,
 } from '../cadence/phone-stage.js';
 
 test('live 3D is disabled when motion, data or WebGL constraints require a fallback', () => {
@@ -41,4 +42,13 @@ test('camera motion interpolates and clamps to the authored chapter pose', () =>
   assert.equal(cameraOrbitForProgress(pose, -1), '-18.00deg 78.00deg 108.00%');
   assert.equal(cameraOrbitForProgress(pose, 0.5), '-3.00deg 81.00deg 102.00%');
   assert.equal(cameraOrbitForProgress(pose, 2), '12.00deg 84.00deg 96.00%');
+});
+
+test('late media events cannot overwrite the active chapter screen', () => {
+  const library = { id: 'library' };
+  const rhyme = { id: 'rhyme' };
+
+  assert.equal(shouldCommitVideoFrame(rhyme, rhyme), true);
+  assert.equal(shouldCommitVideoFrame(library, rhyme), false);
+  assert.equal(shouldCommitVideoFrame(library, null), false);
 });

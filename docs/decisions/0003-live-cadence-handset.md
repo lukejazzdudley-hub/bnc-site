@@ -12,6 +12,8 @@ The pre-rendered handset clips remained recognisable as rectangular videos and c
 
 Export the approved Blender handset as an optimised GLB and render it in the browser with a vendored, pinned `@google/model-viewer` runtime. The hero, workflow and feedback pages use separate GLB files so each renderer owns its material state. Real Cadence recordings drive the handset's emissive screen through a canvas texture; the feedback page uses a verified still texture. Scroll position selects the active chapter, seeks its screen recording and interpolates the camera orbit.
 
+Only the active chapter may commit a decoded frame to the shared canvas. Late `loadeddata` or `seeked` events from preloaded chapters are ignored, preventing an earlier Library frame from overwriting the visible rhyme, arrangement or mix state. Public screen media also replaces the captured operating-system status strip with the app background so time, signal and battery indicators never appear in product marketing.
+
 The browser falls back to existing WebP posters when WebGL is unavailable, reduced motion is requested or data saving is enabled. Product text and calls to action remain semantic HTML. The GLBs are processed with glTF Transform using Draco geometry compression and WebP textures; Blender sources remain on Clevo.
 
 ## Consequences

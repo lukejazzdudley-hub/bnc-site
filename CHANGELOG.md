@@ -13,6 +13,7 @@
 
 ### Fixed
 
+- Locked the handset to the active product chapter so delayed media events cannot restore an earlier screen, and removed captured time, network and battery chrome from every screen texture.
 - Removed the remaining boxed-video presentation and stale operating-system status chrome from the live product experience.
 - Prevented hero, workflow and feedback handsets from sharing screen-material state, and reduced each web model from 3.46 MB to under 200 KB.
 - Integrated the Cadence product demonstrations directly into the page without presentation boxes, random backgrounds, fake media controls or unrelated decoration.

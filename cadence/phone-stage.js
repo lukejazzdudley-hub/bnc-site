@@ -25,6 +25,10 @@ export function cameraOrbitForProgress(pose, progress) {
     + `${interpolate(pose.from.radius, pose.to.radius).toFixed(2)}%`;
 }
 
+export function shouldCommitVideoFrame(video, activeVideo) {
+  return Boolean(video && video === activeVideo);
+}
+
 function supportsWebGL() {
   try {
     const canvas = document.createElement('canvas');
@@ -149,10 +153,12 @@ async function initialiseViewer(viewer) {
 
   const videos = new Map();
   let activeChapter = null;
+  let activeVideo = null;
   let frameRequested = false;
 
   const drawFrame = (video) => {
-    if (!context || !canvas || !canvasTexture || !video.videoWidth || !video.videoHeight) return;
+    if (!shouldCommitVideoFrame(video, activeVideo)
+      || !context || !canvas || !canvasTexture || !video.videoWidth || !video.videoHeight) return;
     context.fillStyle = '#17181d';
     context.fillRect(0, 0, canvas.width, canvas.height);
     context.save();
@@ -204,6 +210,7 @@ async function initialiseViewer(viewer) {
 
     if (chapter.dataset.screenVideo) {
       const video = videoFor(chapter);
+      activeVideo = video;
       viewer.dataset.screenRequested = video.src;
       if (Number.isFinite(video.duration) && video.duration > 0) {
         const target = Math.min(video.duration - 0.04, video.duration * progress);
@@ -222,6 +229,7 @@ async function initialiseViewer(viewer) {
 
   window.addEventListener('scroll', requestUpdate, { passive: true });
   window.addEventListener('resize', requestUpdate, { passive: true });
+  chapters.filter((chapter) => chapter.dataset.screenVideo).forEach(videoFor);
   requestUpdate();
   viewer.dataset.controllerReady = 'true';
 }
