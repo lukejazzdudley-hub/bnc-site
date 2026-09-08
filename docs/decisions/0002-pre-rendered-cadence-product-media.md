@@ -2,7 +2,7 @@
 
 ## Status
 
-Accepted
+Superseded by [0003](0003-live-cadence-handset.md)
 
 ## Context
 

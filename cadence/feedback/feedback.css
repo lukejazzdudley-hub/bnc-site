@@ -112,17 +112,19 @@
   overflow: visible;
 }
 
-.feedback-product img {
+.feedback-product model-viewer {
   display: block;
   width: 100%;
-  height: auto;
+  height: clamp(360px, 56vh, 620px);
   border: 0;
   background: transparent;
-  transform: translate3d(0, calc(140px - var(--scene-progress, .5) * 200px), 0)
-    rotate(calc(14deg - var(--scene-progress, .5) * 20deg))
-    scale(calc(.78 + var(--scene-progress, .5) * .28));
-  transform-origin: 50% 68%;
-  will-change: transform;
+  --poster-color: transparent;
+}
+
+.feedback-product model-viewer > img[slot="poster"] {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .feedback-form-shell { min-width: 0; }
@@ -406,23 +408,21 @@ input[type="checkbox"] {
   .feedback-main { padding-top: 28px; }
   .feedback-layout { gap: 8px; }
   .feedback-intro {
-    grid-template-columns: minmax(0, 1fr) minmax(118px, 40vw);
-    column-gap: 12px;
+    grid-template-columns: 1fr;
   }
   .feedback-intro h1 { font-size: clamp(3rem, 16vw, 4.4rem); margin: 16px 0; }
-  .feedback-facts { grid-column: 1; grid-row: 4; margin: 24px 0 0; }
+  .feedback-facts { grid-column: 1; grid-row: 5; margin: 0; }
   .feedback-facts div { grid-template-columns: 62px 1fr; gap: 7px; padding: 12px 0; }
   .feedback-facts dd { font-size: .8rem; }
   .feedback-progress { margin-bottom: 26px; }
   .feedback-product {
-    grid-column: 2;
+    grid-column: 1;
     grid-row: 4;
     width: 100%;
-    height: auto;
-    margin: 12px -6px -34px 0;
+    margin: 4px 0 -18px;
     align-self: center;
   }
-  .feedback-product img { width: 100%; height: auto; }
+  .feedback-product model-viewer { width: 100%; height: 340px; }
   .field-grid--two,
   .field-grid--four { grid-template-columns: 1fr; gap: 0; }
   .feedback-progress__copy { align-items: flex-start; flex-direction: column; gap: 5px; }
@@ -434,5 +434,5 @@ input[type="checkbox"] {
 
 @media (prefers-reduced-motion: reduce) {
   #feedback-progress::-webkit-progress-value { transition: none; }
-  .feedback-product img { transform: none; }
+  .feedback-product model-viewer { transform: none; }
 }

@@ -217,9 +217,6 @@
 }
 
 .cadence-hero-object {
-  --pointer-x: 0;
-  --pointer-y: 0;
-  --scene-progress: 0;
   position: relative;
   min-inline-size: 0;
   margin: 0;
@@ -228,10 +225,27 @@
   place-items: center;
 }
 
-.cadence-hero-object video {
+model-viewer.cadence-phone-model {
+  --poster-color: transparent;
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: visible;
+  background: transparent;
+  pointer-events: none;
+  touch-action: pan-y;
+}
+
+model-viewer.cadence-phone-model > img[slot="poster"] {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+
+model-viewer.cadence-phone-model--hero {
+  height: min(76vh, 760px);
 }
 
 .cadence-proof-bar {
@@ -357,24 +371,67 @@
   line-height: 1.5;
 }
 
+.cadence-product-journey {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(330px, .78fr) minmax(520px, 1.22fr);
+  gap: clamp(42px, 7vw, 112px);
+  width: min(1360px, calc(100% - 2 * var(--gut)));
+  margin: 0 auto;
+}
+
+.cadence-live-device {
+  position: sticky;
+  z-index: 2;
+  top: clamp(76px, 9vh, 108px);
+  grid-column: 2;
+  grid-row: 1;
+  align-self: start;
+  height: calc(100vh - clamp(104px, 13vh, 150px));
+  min-height: 590px;
+  margin: 0;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.cadence-live-device .cadence-phone-model {
+  width: min(100%, 680px);
+  height: 100%;
+}
+
+.cadence-live-device figcaption {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(24px, 5vh, 58px);
+  transform: translateX(-50%);
+  color: rgba(245, 244, 239, .64);
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
 .cadence-proof-list {
+  grid-column: 1;
+  grid-row: 1;
   display: grid;
 }
 
 .cadence-proof {
-  display: grid;
-  grid-template-columns: minmax(330px, .78fr) minmax(520px, 1.22fr);
+  display: flex;
   align-items: center;
-  gap: clamp(42px, 7vw, 112px);
-  width: min(1360px, calc(100% - 2 * var(--gut)));
-  margin: 0 auto;
+  min-height: 92vh;
+  margin: 0;
   padding: clamp(78px, 9vw, 136px) 0;
   border-top: 1px solid var(--cadence-line);
+  opacity: .44;
+  transition: opacity var(--t-slow, 420ms) var(--e-out, cubic-bezier(.22, 1, .36, 1));
 }
 
-.cadence-proof--rhyme,
-.cadence-proof--finish {
-  grid-template-columns: minmax(520px, 1.22fr) minmax(330px, .78fr);
+.cadence-proof.is-active {
+  opacity: 1;
 }
 
 .cadence-proof-copy {
@@ -468,98 +525,20 @@
   font-size: .72rem;
 }
 
-.cadence-media-stage {
-  position: relative;
-  min-inline-size: 0;
-  min-height: clamp(520px, 70vw, 820px);
-  overflow: visible;
-  display: grid;
-  place-items: center;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-}
-
-.cadence-media-stage::before,
-.cadence-media-stage::after {
-  content: none;
-}
-
-.cadence-phone {
-  position: sticky;
-  top: clamp(88px, 12vh, 136px);
-  width: min(100%, 430px);
-  margin: 0 auto;
-}
-
-.cadence-phone video,
-.cadence-phone img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 0;
-  background: transparent;
-}
-
-.cadence-phone--lean-left {
-  transform: none;
-}
-
-.cadence-phone--lean-right {
-  transform: none;
-}
-
-.cadence-phone--upright {
-  transform: none;
-}
-
-.cadence-themes {
-  padding: clamp(92px, 11vw, 160px) 0;
-  background: #ece9e1;
-  color: #0d0e11;
-}
-
-.cadence-themes-grid {
-  max-width: 1360px;
-  display: grid;
-  grid-template-columns: minmax(280px, .68fr) minmax(560px, 1.32fr);
-  align-items: center;
-  gap: clamp(52px, 8vw, 130px);
-}
-
 .cadence-themes-copy h2 {
   margin: 20px 0 26px;
-  font-size: clamp(3.2rem, 5.8vw, 6rem);
+  font-size: clamp(2.65rem, 4.3vw, 5rem);
 }
 
 .cadence-themes-copy h2 em {
-  color: #8d7250;
+  color: var(--cadence-amber);
 }
 
 .cadence-themes-copy > p:last-child {
   max-width: 450px;
-  color: #5d5a54;
-  font-size: 1.04rem;
+  color: var(--cadence-muted);
+  font-size: clamp(1rem, 1.4vw, 1.18rem);
   line-height: 1.7;
-}
-
-.theme-handset {
-  position: relative;
-  min-width: 0;
-  min-height: 660px;
-  margin: 0;
-  display: grid;
-  place-items: center;
-}
-
-.theme-handset video {
-  display: block;
-  width: min(100%, 610px);
-  height: auto;
-  border: 0;
-  background: transparent;
-  filter: drop-shadow(0 32px 55px rgba(20,20,20,.2));
-  mask-image: radial-gradient(ellipse 70% 74% at 50% 50%, #000 68%, transparent 100%);
 }
 
 .cadence-pro {
@@ -713,34 +692,9 @@
     font-size: clamp(3.5rem, 7.5vw, 5.4rem);
   }
 
-  .cadence-proof,
-  .cadence-proof--rhyme,
-  .cadence-proof--finish {
-    grid-template-columns: minmax(300px, .85fr) minmax(440px, 1.15fr);
+  .cadence-product-journey {
+    grid-template-columns: minmax(300px, .82fr) minmax(440px, 1.18fr);
     gap: 48px;
-  }
-
-  .cadence-proof--rhyme .cadence-media-stage,
-  .cadence-proof--finish .cadence-media-stage {
-    order: 2;
-  }
-
-  .cadence-proof--rhyme .cadence-proof-copy,
-  .cadence-proof--finish .cadence-proof-copy {
-    order: 1;
-  }
-
-  .cadence-media-stage {
-    min-height: 630px;
-  }
-
-  .cadence-phone {
-    width: min(100%, 380px);
-  }
-
-  .cadence-themes-grid {
-    grid-template-columns: minmax(260px, .76fr) minmax(460px, 1.24fr);
-    gap: 54px;
   }
 }
 
@@ -752,10 +706,6 @@
   .cadence-stage-grid,
   .fragmentation-grid,
   .cadence-story-head,
-  .cadence-proof,
-  .cadence-proof--rhyme,
-  .cadence-proof--finish,
-  .cadence-themes-grid,
   .cadence-pro-panel {
     grid-template-columns: 1fr;
   }
@@ -802,33 +752,32 @@
     justify-self: start;
   }
 
-  .cadence-proof {
+  .cadence-product-journey {
+    display: block;
+    width: 100%;
+  }
+
+  .cadence-live-device {
+    top: 68px;
+    width: 100%;
+    height: 46vh;
+    min-height: 330px;
+    background: linear-gradient(to bottom, #000 88%, transparent);
+  }
+
+  .cadence-live-device .cadence-phone-model {
+    width: min(100%, 520px);
+  }
+
+  .cadence-proof-list {
     width: min(100% - 2 * var(--gut), 760px);
+    margin: -46vh auto 0;
   }
 
-  .cadence-proof .cadence-media-stage {
-    order: 2;
-  }
-
-  .cadence-proof .cadence-proof-copy {
-    order: 1;
-  }
-
-  .cadence-media-stage {
-    min-height: clamp(440px, 132vw, 640px);
-  }
-
-  .cadence-phone {
-    position: relative;
-    top: auto;
-  }
-
-  .cadence-themes-copy {
-    max-width: 560px;
-  }
-
-  .theme-handset {
-    min-height: 650px;
+  .cadence-proof {
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: calc(46vh + 52px) 0 16vh;
   }
 }
 
@@ -879,38 +828,30 @@
     font-size: clamp(2.7rem, 13vw, 4rem);
   }
 
-  .cadence-proof {
-    width: calc(100% - 2 * var(--gut));
-    padding: 68px 0;
-  }
-
   .cadence-proof-copy h2 {
     font-size: clamp(2.5rem, 12vw, 3.7rem);
-  }
-
-  .cadence-media-stage {
-    min-height: clamp(440px, 132vw, 570px);
-  }
-
-  .cadence-phone {
-    width: min(100%, 330px);
-  }
-
-  .cadence-phone video,
-  .cadence-phone img {
-    border-radius: 0;
   }
 
   .cadence-points--inline {
     grid-template-columns: 1fr;
   }
 
-  .theme-handset {
-    min-height: 470px;
+  .cadence-live-device {
+    height: 43vh;
+    min-height: 290px;
   }
 
-  .theme-handset video {
-    width: min(125%, 520px);
+  .cadence-proof-list {
+    margin-top: -43vh;
+  }
+
+  .cadence-live-device figcaption {
+    display: none;
+  }
+
+  .cadence-proof {
+    min-height: 100vh;
+    padding: calc(43vh + 42px) 0 15vh;
   }
 
   .cadence-pro-panel {
@@ -930,10 +871,13 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .cadence-hero-object video,
-  .cadence-phone,
+  .cadence-proof,
   .cadence-store-button {
     transform: none;
     transition: none;
+  }
+
+  .cadence-proof {
+    opacity: 1;
   }
 }

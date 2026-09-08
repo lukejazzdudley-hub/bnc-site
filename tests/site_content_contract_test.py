@@ -104,7 +104,7 @@ class SiteContentContractTest(unittest.TestCase):
     def test_cadence_feature_copy_matches_the_current_catalogue(self) -> None:
         html = (ROOT / "cadence" / "index.html").read_text(encoding="utf-8").lower()
         self.assertIn("27 theme families", html)
-        self.assertIn("on-device transcription", html)
+        self.assertIn("transcribe a take on-device", html)
         self.assertIn("draft demo", html)
         self.assertIn("beta feedback", html)
 
@@ -115,14 +115,9 @@ class SiteContentContractTest(unittest.TestCase):
 
         self.assertEqual(parser.h1_count, 1)
         self.assertGreaterEqual(parser.proof_chapters, 4)
-        self.assertGreaterEqual(len(parser.videos), 4)
-
-        for video in parser.videos:
-            self.assertIn("muted", video)
-            self.assertIn("playsinline", video)
-            self.assertEqual(video.get("preload"), "none")
-            self.assertTrue(video.get("poster"))
-            self.assertTrue(video.get("aria-label"))
+        html = page.read_text(encoding="utf-8")
+        self.assertEqual(html.count("<model-viewer"), 2)
+        self.assertEqual(html.count("data-screen-video"), 6)
 
     def test_cadence_product_videos_are_scroll_scrubbed_not_looped(self) -> None:
         parser = CadenceExperienceParser()
@@ -144,20 +139,37 @@ class SiteContentContractTest(unittest.TestCase):
         self.assertNotIn("mix-annotation", html)
 
     def test_product_media_is_integrated_without_a_decorative_box(self) -> None:
+        html = (ROOT / "cadence" / "index.html").read_text(encoding="utf-8")
         css = (ROOT / "cadence" / "cadence.css").read_text(encoding="utf-8")
-        rule = re.search(r"\.cadence-media-stage\s*\{(?P<body>[^}]*)\}", css)
 
-        self.assertIsNotNone(rule)
-        assert rule is not None
-        self.assertRegex(rule.group("body"), r"border:\s*0")
-        self.assertRegex(rule.group("body"), r"border-radius:\s*0")
-        self.assertRegex(rule.group("body"), r"background:\s*transparent")
-        self.assertRegex(css, r"\.cadence-media-stage::before,\s*\.cadence-media-stage::after\s*\{[^}]*content:\s*none")
+        self.assertNotIn("cadence-media-stage", html)
+        self.assertIn("cadence-live-device", html)
+        self.assertIn("<model-viewer", html)
+        self.assertIn("cadence-phone-hero.glb", html)
+        self.assertIn("cadence-phone-workflow.glb", html)
+        self.assertRegex(css, r"\.cadence-live-device\s*\{[^}]*position:\s*sticky")
+        self.assertRegex(css, r"model-viewer[^}]*background:\s*transparent")
 
-    def test_product_video_layers_do_not_escape_their_mobile_layout(self) -> None:
+    def test_product_chapters_drive_one_persistent_live_phone(self) -> None:
+        html = (ROOT / "cadence" / "index.html").read_text(encoding="utf-8")
+        story = html.split('<section id="workflow"', 1)[1].split("</section>", 1)[0]
+
+        self.assertEqual(story.count("<model-viewer"), 1)
+        self.assertEqual(story.count("data-phone-chapter"), 5)
+        self.assertEqual(story.count("data-screen-video"), 5)
+        self.assertIn("phone-stage.js", html)
+        stage_script = (ROOT / "cadence" / "phone-stage.js").read_text(encoding="utf-8")
+        self.assertIn("model-viewer.min.js", stage_script)
+
+    def test_hero_and_story_models_use_isolated_material_instances(self) -> None:
+        html = (ROOT / "cadence" / "index.html").read_text(encoding="utf-8")
+        self.assertIn('cadence-phone-hero.glb', html)
+        self.assertIn('cadence-phone-workflow.glb', html)
+
+    def test_live_phone_layers_do_not_escape_their_mobile_layout(self) -> None:
         css = (ROOT / "cadence" / "cadence.css").read_text(encoding="utf-8")
-        hero_rule = re.search(r"\.cadence-hero-object video\s*\{(?P<body>[^}]*)\}", css)
-        phone_rule = re.search(r"\.cadence-phone video,\s*\.cadence-phone img\s*\{(?P<body>[^}]*)\}", css)
+        hero_rule = re.search(r"\.cadence-hero-object\s*\{(?P<body>[^}]*)\}", css)
+        phone_rule = re.search(r"\.cadence-phone-model\s*\{(?P<body>[^}]*)\}", css)
 
         self.assertIsNotNone(hero_rule)
         self.assertIsNotNone(phone_rule)
@@ -167,6 +179,9 @@ class SiteContentContractTest(unittest.TestCase):
         self.assertNotIn("mix-blend-mode", combined)
         self.assertNotIn("mask-image", combined)
         self.assertNotIn("filter:", combined)
+        self.assertIn("margin-top: -43vh", css)
+        mobile_css = css.split("@media (max-width: 640px)", 1)[1]
+        self.assertNotIn("width: calc(100% - 2 * var(--gut));", mobile_css)
 
     def test_cadence_media_references_are_local_and_resolve(self) -> None:
         page = ROOT / "cadence" / "index.html"
@@ -180,16 +195,29 @@ class SiteContentContractTest(unittest.TestCase):
                 missing.append(source)
         self.assertEqual(missing, [])
 
-    def test_theme_story_uses_one_scrubbed_handset_and_no_rejected_cards(self) -> None:
+    def test_theme_story_is_the_final_state_of_the_persistent_phone(self) -> None:
         html = (ROOT / "cadence" / "index.html").read_text(encoding="utf-8")
-        section = html.split('<section class="cadence-themes"', 1)[1].split("</section>", 1)[0]
+        story = html.split('<section id="workflow"', 1)[1].split("</section>", 1)[0]
 
-        self.assertEqual(section.count("<video"), 1)
-        self.assertIn("theme-scroll.mp4", section)
-        self.assertIn("data-scrub-video", section)
-        self.assertNotIn("theme-card", section)
+        self.assertEqual(story.count("<model-viewer"), 1)
+        self.assertIn("screens/themes.mp4", story)
+        self.assertIn("27 themes · One workflow", story)
+        self.assertNotIn("theme-card", story)
         for rejected in ("theme-arctic.webp", "theme-neon.webp", "theme-crimson.webp"):
             self.assertNotIn(rejected, html)
+
+    def test_live_screen_replaces_blenders_emissive_material_map(self) -> None:
+        stage_script = (ROOT / "cadence" / "phone-stage.js").read_text(encoding="utf-8")
+        self.assertIn("material.emissiveTexture.setTexture(canvasTexture)", stage_script)
+        self.assertIn("context.scale(1, -1)", stage_script)
+        self.assertIn("viewer.model?.materials?.length", stage_script)
+        self.assertIn("window.requestAnimationFrame(checkReady)", stage_script)
+        self.assertIn("viewer.dataset.screenError", stage_script)
+        self.assertIn("document.body.append(video)", stage_script)
+        self.assertIn("viewer.createTexture(imageChapter.dataset.screenImage)", stage_script)
+        self.assertIn("video.addEventListener('loadedmetadata', requestUpdate", stage_script)
+        self.assertIn("viewers.forEach((viewer) => observer.observe(viewer))", stage_script)
+        self.assertIn("observer.unobserve(viewer)", stage_script)
 
     def test_cadence_navigation_uses_locked_mark_not_square_app_icon(self) -> None:
         html = (ROOT / "cadence" / "index.html").read_text(encoding="utf-8")

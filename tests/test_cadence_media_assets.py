@@ -1,3 +1,4 @@
+import hashlib
 import json
 from pathlib import Path
 import subprocess
@@ -19,6 +20,24 @@ def ffprobe_json(*arguments: str) -> dict:
 
 
 class CadenceMediaAssetTest(unittest.TestCase):
+    def test_live_3d_assets_match_the_locked_manifest(self) -> None:
+        manifest_path = ROOT / "assets" / "cadence" / "live-3d-manifest.json"
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        cadence_root = manifest_path.parent
+
+        for relative_path, expected_hash in manifest["assets"].items():
+            path = cadence_root / relative_path
+            self.assertTrue(path.is_file(), relative_path)
+            self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), expected_hash, relative_path)
+
+        for relative_path, expected_hash in manifest["vendorAssets"].items():
+            path = ROOT / relative_path
+            self.assertTrue(path.is_file(), relative_path)
+            self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), expected_hash, relative_path)
+
+        for model in cadence_root.glob("cadence-phone-*.glb"):
+            self.assertLess(model.stat().st_size, 250_000, model.name)
+
     def test_scrub_videos_are_seekable_web_encodes(self) -> None:
         for name in MEDIA_NAMES:
             path = ROOT / "assets" / "cadence" / f"{name}.mp4"

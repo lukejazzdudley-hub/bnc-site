@@ -13,9 +13,8 @@ to conceal a stale screen, an invented control or inconsistent source material.
 
 ## Locked decisions
 
-- Product motion is pre-rendered in Blender or captured from the current app.
-  The browser does not receive a live Blender scene, Three.js or another WebGL
-  runtime.
+- The approved Blender handset is exported as an optimised live GLB and rendered
+  in-browser. Only verified captures from the current app may drive its screen.
 - Product demonstrations are scroll-scrubbed. They do not loop independently
   of the visitor or continue playing off-screen.
 - Visible rectangular media-stage borders, rounded presentation panels and
@@ -72,10 +71,10 @@ while the copy crosses its active range. On narrow screens the handset occupies
 a bounded area beneath the scene heading and never traps the visitor in a long
 pin.
 
-The existing `.cadence-media-stage` wrappers remain as semantic layout hooks,
-but render transparently with no border, rounded panel, artificial grid, random
-waveform stripe or ornamental frame. Depth comes from the handset, controlled
-light and the real interface motion.
+The rejected `.cadence-media-stage` wrappers are removed. One persistent live
+handset remains sticky while semantic product chapters pass beside or beneath
+it. Depth comes from the actual handset geometry, controlled light and the real
+interface motion.
 
 ### Theme scene
 
@@ -87,13 +86,13 @@ unrelated screens.
 
 ## Scroll-motion model
 
-Every scrubbed scene exposes a video element and a scroll range. The controller:
+Every product chapter exposes a verified screen source and scroll range. The controller:
 
 - waits for video metadata before seeking;
 - calculates normalized progress from the scene's actual position;
 - maps progress to `currentTime` inside `requestAnimationFrame`;
 - supports forward and reverse scrolling;
-- pauses the media element and never depends on autoplay permission;
+- draws decoded frames into the handset's emissive screen material and never depends on autoplay permission;
 - updates only the active or nearly active scene;
 - leaves all other videos paused;
 - uses a poster when reduced motion or data saving is enabled; and
@@ -127,8 +126,8 @@ text, so the animation is decorative and ignored by assistive technology.
 
 ## Feedback-page 3D treatment
 
-The flat editor screenshot is removed. The introduction uses a compact,
-unboxed Blender handset scene derived from the approved hero render.
+The flat editor screenshot is removed. The introduction uses a live, unboxed
+GLB handset derived from the approved Blender source and a verified still screen.
 
 On phones:
 
@@ -204,5 +203,5 @@ The rebuild is acceptable only when:
 ## Out of scope
 
 This change does not modify the Cadence app interface, invent new screenshots,
-change storefront claims, change the website's beta CTA, publish feedback,
-alter form questions or introduce a client-side 3D engine.
+change storefront claims, change the website's beta CTA, publish feedback or
+alter form questions.

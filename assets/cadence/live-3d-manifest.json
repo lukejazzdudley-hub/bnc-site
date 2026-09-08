@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "lockedAt": "2026-09-08T08:41:21Z",
+  "blenderSource": "/home/luke/blender-cad-motion/cadence-performance-factory/renders/web-hero-v1/cadence-web-hero-v1.blend",
+  "blenderRoot": "CTRL-F03V5-b01-v8-library",
+  "screenMaterial": "MAT-F03V5-screen-b01-v8-library",
+  "optimization": "gltf-transform optimize --compress draco --texture-compress webp",
+  "runtime": {
+    "package": "@google/model-viewer",
+    "version": "4.3.1"
+  },
+  "assets": {
+    "cadence-phone-hero.glb": "fafb3615c3cc63245f611b8fc5f3da36c37355d73b3c314ba71f0587089cf55b",
+    "cadence-phone-workflow.glb": "fafb3615c3cc63245f611b8fc5f3da36c37355d73b3c314ba71f0587089cf55b",
+    "cadence-phone-feedback.glb": "fafb3615c3cc63245f611b8fc5f3da36c37355d73b3c314ba71f0587089cf55b",
+    "screens/arrange-to-daw.mp4": "dd9890eae704f3415e12498536bb0d6bd12665de0b120f39a58b22491f8b7a61",
+    "screens/arrange-to-daw.webp": "9059b68ec4bdc3a40e3adb07ad17767fa2a8090127ee9b279b4f1cea4eccb2d7",
+    "screens/dry-wet.mp4": "53da1ec8ca54eb7853c6c518f281053f24d4d99b9932194e46d9b0f8b9583169",
+    "screens/dry-wet.webp": "2369ba19140748a433e11426d8f79f91566eb833c600e1735d26b3ccbad26beb",
+    "screens/library.mp4": "aebbf68793cff21f79c47921e52b36a3bce72fc257c5f86ad19ba263b0131e30",
+    "screens/library.webp": "9f87b3b73206d4b4ed34457a2826761d1404602c4cc58d0e1afb4fdcbdce14d0",
+    "screens/rhyme-families.mp4": "5cb548fc29069301b881cc3c0d38d5320cc40234f944f96d5a34d4553765e074",
+    "screens/rhyme-families.webp": "805a31692535b0825805c812534d5c5832fb679de345a22283a0887a21c9522d",
+    "screens/themes.mp4": "407e9dea6d65d16aec60541811d05096ad39f4ce1c205585a8dcdde2ec9564a3",
+    "screens/themes.webp": "7dbec8fd9e5705f8c6f583a9886f4020fd9b4951480493a5e70449eb29069fcc",
+    "screens/transcribe.mp4": "048d2d11fd83b49ec5923c8dcc2c09e7da08b31195326264b66298850d897d70",
+    "screens/transcribe.webp": "9a22849ea3d79a06a06acee601bde62d19b5848438f76d49c5958f3a7aecb0ec"
+  },
+  "vendorAssets": {
+    "assets/vendor/model-viewer.min.js": "283b0672384614b4847636c306fc93fe4b1fcadc76d668b4e47f0ca76bcf033b",
+    "assets/vendor/model-viewer-LICENSE.txt": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+  }
+}

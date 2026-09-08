@@ -60,18 +60,25 @@
           <p class="cadence-beta-note">Testing access and storefront availability vary by platform and region.</p>
         </div>
 
-        <figure class="cadence-hero-object" data-scroll-scene data-pointer-scene>
-          <video
-            data-src="../assets/cadence/hero-device.mp4"
+        <figure class="cadence-hero-object" data-phone-chapter data-screen-video="../assets/cadence/screens/library.mp4" data-pose-from="-28,76,112" data-pose-to="8,82,94">
+          <model-viewer
+            class="cadence-phone-model cadence-phone-model--hero"
+            src="../assets/cadence/cadence-phone-hero.glb"
             poster="../assets/cadence/hero-device.webp"
-            width="480"
-            height="900"
-            muted
-            playsinline
-            preload="none"
-            data-scrub-video
-            aria-label="A studio-lit three-dimensional phone rotates to reveal the real Cadence song library"
-          >A studio-lit Cadence product demonstration.</video>
+            loading="lazy"
+            reveal="auto"
+            interaction-prompt="none"
+            touch-action="pan-y"
+            shadow-intensity="0.8"
+            shadow-softness="0.9"
+            environment-image="neutral"
+            exposure="1.08"
+            camera-orbit="-28deg 76deg 112%"
+            camera-target="0m 0m 0m"
+            field-of-view="25deg"
+            data-live-phone
+            aria-label="A live three-dimensional Cadence phone showing the populated song library"
+          ><img slot="poster" src="../assets/cadence/hero-device.webp" alt="" /></model-viewer>
         </figure>
       </div>
 
@@ -106,8 +113,31 @@
         <p>Five real product moments. One continuous song.</p>
       </div>
 
-      <div id="features" class="cadence-proof-list">
-        <article class="cadence-proof cadence-proof--capture" data-product-proof="capture">
+      <div id="features" class="cadence-product-journey" data-phone-story>
+        <figure class="cadence-live-device" aria-label="A persistent three-dimensional phone follows the Cadence workflow">
+          <model-viewer
+            class="cadence-phone-model"
+            src="../assets/cadence/cadence-phone-workflow.glb"
+            poster="../assets/cadence/transcribe.webp"
+            loading="lazy"
+            reveal="auto"
+            interaction-prompt="none"
+            touch-action="pan-y"
+            shadow-intensity="0.85"
+            shadow-softness="0.92"
+            environment-image="neutral"
+            exposure="1.1"
+            camera-orbit="-18deg 78deg 108%"
+            camera-target="0m 0m 0m"
+            field-of-view="25deg"
+            data-live-phone
+            aria-label="A live three-dimensional Cadence phone whose screen and angle change with each workflow step"
+          ><img slot="poster" src="../assets/cadence/transcribe.webp" alt="" /></model-viewer>
+          <figcaption data-phone-status aria-live="polite">Capture · Transcribe</figcaption>
+        </figure>
+
+        <div class="cadence-proof-list">
+        <article class="cadence-proof cadence-proof--capture" data-product-proof="capture" data-phone-chapter data-screen-video="../assets/cadence/screens/transcribe.mp4" data-phone-status="Capture · Transcribe" data-pose-from="-18,78,108" data-pose-to="8,82,98">
           <div class="cadence-proof-copy">
             <p class="cadence-index">01 / Capture</p>
             <h2>Start with what you already have.</h2>
@@ -118,39 +148,9 @@
               <li>Transcribe a take on-device</li>
             </ul>
           </div>
-          <div class="cadence-media-stage cadence-media-stage--studio" data-scroll-scene>
-            <figure class="cadence-phone cadence-phone--lean-left">
-              <video
-                data-src="../assets/cadence/transcribe.mp4"
-                poster="../assets/cadence/transcribe.webp"
-                width="480"
-                height="900"
-                muted
-                playsinline
-                preload="none"
-                data-scrub-video
-                aria-label="Cadence records a vocal take and completes on-device transcription"
-              >Cadence transcription product demonstration.</video>
-            </figure>
-          </div>
         </article>
 
-        <article class="cadence-proof cadence-proof--rhyme" data-product-proof="rhyme">
-          <div class="cadence-media-stage cadence-media-stage--rhyme" data-scroll-scene>
-            <figure class="cadence-phone cadence-phone--lean-right">
-              <video
-                data-src="../assets/cadence/rhyme-families.mp4"
-                poster="../assets/cadence/rhyme-families.webp"
-                width="480"
-                height="900"
-                muted
-                playsinline
-                preload="none"
-                data-scrub-video
-                aria-label="Cadence explores five distinct rhyme families for a lyric in Signal in the Gold"
-              >Cadence rhyme family product demonstration.</video>
-            </figure>
-          </div>
+        <article class="cadence-proof cadence-proof--rhyme" data-product-proof="rhyme" data-phone-chapter data-screen-video="../assets/cadence/screens/rhyme-families.mp4" data-phone-status="Write · Rhyme families" data-pose-from="12,82,100" data-pose-to="-7,78,96">
           <div class="cadence-proof-copy">
             <p class="cadence-index">02 / Write</p>
             <h2>Find the rhyme that earns its place.</h2>
@@ -159,45 +159,15 @@
           </div>
         </article>
 
-        <article class="cadence-proof cadence-proof--arrange" data-product-proof="arrange">
+        <article class="cadence-proof cadence-proof--arrange" data-product-proof="arrange" data-phone-chapter data-screen-video="../assets/cadence/screens/arrange-to-daw.mp4" data-phone-status="Shape · Draft to DAW" data-pose-from="-8,79,101" data-pose-to="13,84,94">
           <div class="cadence-proof-copy">
             <p class="cadence-index">03 / Shape</p>
             <h2>Give the words somewhere to land.</h2>
             <p>Load the real beat waveform, set independent A/B points and map selected lyrics into timed song sections. Build a Draft Demo before moving the song into the DAW.</p>
           </div>
-          <div class="cadence-media-stage cadence-media-stage--timeline" data-scroll-scene>
-            <figure class="cadence-phone cadence-phone--upright">
-              <video
-                data-src="../assets/cadence/arrange-to-daw.mp4"
-                poster="../assets/cadence/arrange-to-daw.webp"
-                width="480"
-                height="900"
-                muted
-                playsinline
-                preload="none"
-                data-scrub-video
-                aria-label="Springtime Showers moves from song arrangement into the Cadence multitrack DAW"
-              >Cadence arrangement and DAW product demonstration.</video>
-            </figure>
-          </div>
         </article>
 
-        <article class="cadence-proof cadence-proof--finish" data-product-proof="finish">
-          <div class="cadence-media-stage cadence-media-stage--mix" data-scroll-scene>
-            <figure class="cadence-phone cadence-phone--lean-left">
-              <video
-                data-src="../assets/cadence/dry-wet.mp4"
-                poster="../assets/cadence/dry-wet.webp"
-                width="480"
-                height="900"
-                muted
-                playsinline
-                preload="none"
-                data-scrub-video
-                aria-label="Cadence compares Dry and Wet vocal processing inside the song mix"
-              >Cadence vocal FX and mix product demonstration.</video>
-            </figure>
-          </div>
+        <article class="cadence-proof cadence-proof--finish" data-product-proof="finish" data-phone-chapter data-screen-video="../assets/cadence/screens/dry-wet.mp4" data-phone-status="Finish · Mix and FX" data-pose-from="15,83,98" data-pose-to="-10,77,94">
           <div class="cadence-proof-copy">
             <p class="cadence-index">04 / Finish</p>
             <h2>Make the decisions with your ears.</h2>
@@ -209,29 +179,14 @@
             </ul>
           </div>
         </article>
-      </div>
-    </section>
-
-    <section class="cadence-themes" aria-labelledby="themes-title">
-      <div class="wrap cadence-themes-grid">
-        <div class="cadence-themes-copy">
+        <article class="cadence-proof cadence-proof--themes" data-phone-chapter data-screen-video="../assets/cadence/screens/themes.mp4" data-phone-status="27 themes · One workflow" data-pose-from="-12,78,100" data-pose-to="9,83,92">
+          <div class="cadence-proof-copy cadence-themes-copy">
           <p class="cadence-label">27 theme families</p>
           <h2 id="themes-title">Your studio.<br /><em>Your light.</em></h2>
           <p>Change the atmosphere without changing the workflow. From quiet Arctic to loud Neon, every theme keeps the song readable and the controls familiar.</p>
+          </div>
+        </article>
         </div>
-        <figure class="theme-handset" data-scroll-scene>
-          <video
-            data-src="../assets/cadence/theme-scroll.mp4"
-            poster="../assets/cadence/theme-scroll.webp"
-            width="1080"
-            height="1350"
-            muted
-            playsinline
-            preload="none"
-            data-scrub-video
-            aria-label="The same Signal in the Gold editor changes from Arctic to Neon to Crimson"
-          >Cadence theme transition product demonstration.</video>
-        </figure>
       </div>
     </section>
 
@@ -301,5 +256,6 @@
 
   <script src="../site.js" defer></script>
   <script type="module" src="./media-policy.js"></script>
+  <script type="module" src="./phone-stage.js"></script>
 </body>
 </html>

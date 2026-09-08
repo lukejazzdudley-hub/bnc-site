@@ -4,6 +4,8 @@
 
 ### Added
 
+- Cadence now renders its approved Blender handset as live 3D in the browser, with real product footage changing on the device as visitors move through the workflow.
+- The feedback page now uses the same live, scroll-responsive handset with a verified product screen on phone layouts.
 - Cadence now has a conversion-led product experience built from real app captures, a purpose-rendered Blender handset, five connected workflow moments, 27-theme proof and direct iOS/Android beta entry points.
 - Product demonstrations now move with the page as visitors scroll, reverse when they scroll back and fall back to composed posters without downloading video for reduced-motion or data-saving visitors.
 - Cadence testers can send structured private feedback directly at `/cadence/feedback/`, recover typed progress on the same device, and attach resumable screenshots or screen recordings.
@@ -11,6 +13,8 @@
 
 ### Fixed
 
+- Removed the remaining boxed-video presentation and stale operating-system status chrome from the live product experience.
+- Prevented hero, workflow and feedback handsets from sharing screen-material state, and reduced each web model from 3.46 MB to under 200 KB.
 - Integrated the Cadence product demonstrations directly into the page without presentation boxes, random backgrounds, fake media controls or unrelated decoration.
 - Rebuilt every workflow demonstration inside the verified Blender handset using status-free captures from the populated demo account.
 - Kept one real `Signal in the Gold` editor state on one handset while Arctic, Neon and Crimson change around it.

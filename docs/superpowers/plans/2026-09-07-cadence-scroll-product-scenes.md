@@ -1,5 +1,7 @@
 # Cadence Scroll Product Scenes Implementation Plan
 
+> Historical plan. ADR 0003 supersedes its pre-rendered-media architecture because visual acceptance showed that transparent video wrappers still read as boxes.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Replace the boxed, independently looping Cadence media with capture-locked, scroll-scrubbed handset scenes, the exact animated silver Cadence mark, and a compact mobile-first feedback-page product scene.

@@ -41,14 +41,24 @@
             <dd>Saved on this device as you go</dd>
           </div>
         </dl>
-        <figure class="feedback-product" data-scroll-scene data-scroll-driver=".feedback-layout">
-          <img
-            src="../../assets/cadence/feedback-handset-cutout.webp"
-            width="480"
-            height="840"
-            alt="The verified Signal in the Gold lyric editor on a three-dimensional Cadence handset"
-            decoding="async"
-          />
+        <figure class="feedback-product" data-phone-chapter data-screen-image="../../assets/cadence/screens/rhyme-families.webp" data-pose-from="-18,78,112" data-pose-to="12,84,94">
+          <model-viewer
+            src="../../assets/cadence/cadence-phone-feedback.glb"
+            poster="../../assets/cadence/feedback-handset-cutout.webp"
+            loading="lazy"
+            reveal="auto"
+            interaction-prompt="none"
+            touch-action="pan-y"
+            shadow-intensity="0.8"
+            shadow-softness="0.92"
+            environment-image="neutral"
+            exposure="1.08"
+            camera-orbit="-18deg 78deg 112%"
+            camera-target="0m 0m 0m"
+            field-of-view="25deg"
+            data-live-phone
+            aria-label="A live three-dimensional Cadence handset showing the verified Signal in the Gold lyric editor"
+          ><img slot="poster" src="../../assets/cadence/feedback-handset-cutout.webp" alt="" /></model-viewer>
         </figure>
       </aside>
 
@@ -355,5 +365,6 @@
 
   <script type="module" src="feedback.js"></script>
   <script type="module" src="../media-policy.js"></script>
+  <script type="module" src="../phone-stage.js"></script>
 </body>
 </html>
