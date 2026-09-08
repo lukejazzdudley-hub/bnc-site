@@ -16,6 +16,7 @@
 
 ### Fixed
 
+- Cadence links now open the canonical `/cadence/` page directly, removing the visible white compatibility redirect during navigation; legacy links retain their query string and anchor on a dark fallback.
 - V3 scenes release their WebGL context after leaving view and create a fresh canvas when revisited, preventing off-screen GPU memory accumulation without breaking reverse scroll.
 
 - Replaced the empty, filtered hero screen with the approved populated demo library, registered it to the handset aperture and removed the captured status bar.

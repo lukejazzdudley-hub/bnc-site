@@ -66,6 +66,26 @@ def route_file(path: str) -> Path:
 
 
 class SiteContentContractTest(unittest.TestCase):
+    def test_internal_cadence_links_use_the_canonical_directory_route(self) -> None:
+        failures = []
+        for page in PUBLIC_PAGES:
+            parser = LinkParser()
+            parser.feed(page.read_text(encoding="utf-8"))
+            for href in parser.links:
+                parsed = urlsplit(href)
+                if parsed.path == "/cadence":
+                    failures.append(f"{page.relative_to(ROOT)}: {href}")
+
+        self.assertEqual(failures, [])
+
+    def test_legacy_cadence_redirect_never_exposes_an_unstyled_page(self) -> None:
+        html = (ROOT / "cadence.html").read_text(encoding="utf-8")
+        head = html.split("</head>", 1)[0]
+
+        self.assertIn("window.location.replace", head)
+        self.assertIn("background: #08090c", head)
+        self.assertIn("color-scheme: dark", head)
+
     def test_public_pages_have_no_dead_or_missing_internal_links(self) -> None:
         failures = []
         for page in PUBLIC_PAGES:
