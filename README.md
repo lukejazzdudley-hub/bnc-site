@@ -8,7 +8,9 @@ The public website for **Brand Name Changes Ltd** and **Cadence**. The frontend 
 index.html                         Company landing page
 cadence/index.html                 Cadence product page
 cadence/cadence.css                Cadence product-page art direction and responsive layout
-cadence/media-policy.js            Visibility, motion-preference and playback policy
+cadence/media-policy.js            Lazy loading and deterministic scroll-scrub policy
+cadence/phone-stage.js              Live GLB screen binding and scroll-driven camera controller
+cadence/v3-scenes.js                Authored-camera V3 scene loader and scroll controller
 cadence/feedback/index.html        Four-step private beta feedback form
 cadence/feedback/*.js              Validation, recovery and resumable upload client
 cadence/feedback/feedback.css      Feedback-page presentation
@@ -19,7 +21,7 @@ delete-account.html                Account-deletion instructions
 supabase/migrations/               Private feedback schema and Storage bucket
 supabase/functions/                Feedback intake and upload verification
 scripts/                           Private import/export operator tools
-assets/cadence/                    Optimised product captures and Blender hero media
+assets/cadence/                    Verified capture manifest and web-ready Blender media
 tests/                             Frontend, backend, schema and data-tool contracts
 ```
 
@@ -33,7 +35,7 @@ cd /path/to/bnc-site
 python3 serve.py
 ```
 
-Open `http://127.0.0.1:8000`. The development server supports the same clean routes used in production.
+Open `http://127.0.0.1:8000`. The development server supports the same clean routes and media byte ranges used in production, so scroll-seeking video can be reviewed locally.
 
 ## Validation
 
@@ -71,7 +73,32 @@ Keep these exact URLs in both store consoles:
 - https://brandnamechanges.com/support  ← these are what App Store review needs.
 - https://brandnamechanges.com/delete-account
 
-The browser acceptance pass covers 375, 768 and 1440 pixel viewports, the four-stage journey, error-summary focus, broken media, internal links and horizontal overflow.
+The browser acceptance pass covers 320, 375, 390, 430, 768, 1024 and 1440 pixel viewports, forward and reverse scrubbing, the four-stage feedback journey, error-summary focus, broken media, internal links and horizontal overflow.
+
+## Cadence media provenance
+
+Feature media must resolve to the populated demo account and the capture metadata in `assets/cadence/source-capture-manifest.json`. Validate the locked Arctic, Neon and Crimson captures before rendering:
+
+```bash
+python3 scripts/cadence_capture_manifest.py validate \
+  --manifest assets/cadence/source-capture-manifest.json \
+  --source-root /path/to/locked-captures \
+  --require-themes arctic neon crimson
+```
+
+`assets/cadence/workflow-capture-manifest.json` separately locks the current-build library, transcription, rhyme, arrangement and mix source recordings to their shipped MP4 derivatives. The workflow manifest records the exact simulator, populated account, project, screen/control state, capture time, source checksum and derivative checksum so a polished Blender render cannot disguise stale or invented app pixels.
+
+`assets/cadence/live-3d-manifest.json` locks the exported Blender roots, runtime versions and checksums for every public GLB, screen texture, V3 poster and vendored runtime file.
+
+The navigation mark is generated from the native component, not redrawn by eye:
+
+```bash
+node scripts/render_cadence_mark.mjs \
+  /path/to/cadence/apps/mobile/src/components/CadenceLogo.tsx \
+  assets/cadence
+```
+
+The middle product journey uses one persistent live Blender handset. `cadence/phone-stage.js` maps scroll position to its camera orbit and current verified app recording. The source-locked V3 Library and Themes scenes use their own authored desktop/mobile cameras through `cadence/v3-scenes.js`; only an on-screen V3 scene retains a WebGL context. Reduced-motion, data-saving and unavailable-WebGL visitors receive verified posters without downloading the GLB or MP4.
 
 ## Feedback service deployment
 

@@ -10,9 +10,9 @@
 
 ## Cadence product experience
 
-The public product page stays static and dependency-free while presenting real product behavior. Optimised app captures provide feature evidence; a pre-rendered Blender handset supplies the hero's spatial depth without placing a WebGL renderer or a multi-megabyte scene graph on visitors' devices.
+The public product page remains a static deployment while presenting browser-rendered Blender scenes. The middle workflow and feedback handset use independently addressed Draco-compressed GLBs through a pinned local `@google/model-viewer` bundle. The source-locked V3 Library and Themes families use separately authored desktop/mobile GLBs, cameras and animation through a pinned local Three.js runtime. No production scene depends on a runtime CDN.
 
-`cadence/media-policy.js` is the single playback coordinator. It uses viewport visibility and document focus to allow only relevant demonstrations to play, honours explicit pause choices, and selects poster-only presentation for reduced-motion or data-saving preferences. Every clip has a local poster and accessible description, so product meaning survives autoplay restrictions and unavailable media.
+`cadence/phone-stage.js` binds verified Cadence captures to the workflow handset, chooses the chapter nearest the viewport centre, seeks the active recording and interpolates the camera orbit. `cadence/v3-scenes.js` drives each authored V3 clip from one reversible scroll value, preserves the exported camera and disposes its renderer off-screen so only one V3 WebGL scene is normally resident. `cadence/media-policy.js` continues to coordinate non-3D media. Reduced-motion, data-saving and unavailable-WebGL modes retain verified posters, so product meaning survives renderer or media failure.
 
 ## Feedback flow
 

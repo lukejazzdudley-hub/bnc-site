@@ -1,11 +1,13 @@
 from html.parser import HTMLParser
 from pathlib import Path
+import re
 import unittest
 
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGE = ROOT / "cadence" / "feedback" / "index.html"
 SCRIPT = ROOT / "cadence" / "feedback" / "feedback.js"
+STYLES = ROOT / "cadence" / "feedback" / "feedback.css"
 
 
 class PageParser(HTMLParser):
@@ -19,6 +21,7 @@ class PageParser(HTMLParser):
         self.has_noscript = False
         self.form_actions: list[str] = []
         self.images: list[dict[str, str]] = []
+        self.videos: list[dict[str, str]] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         values = {key: value or "" for key, value in attrs}
@@ -38,6 +41,8 @@ class PageParser(HTMLParser):
             self.form_actions.append(values.get("action", ""))
         if tag == "img":
             self.images.append(values)
+        if tag == "video":
+            self.videos.append(values)
 
 
 class FeedbackPageContractTest(unittest.TestCase):
@@ -81,14 +86,38 @@ class FeedbackPageContractTest(unittest.TestCase):
         self.assertNotIn("docs.google.com", self.html)
         self.assertNotIn("forms.gle", self.html)
 
-    def test_module_script_noscript_fallback_and_meaningful_image_alt_exist(self) -> None:
+    def test_module_script_noscript_fallback_and_meaningful_media_label_exist(self) -> None:
         self.assertTrue(any(
             script.get("type") == "module" and script.get("src") == "feedback.js"
             for script in self.parser.scripts
         ))
         self.assertTrue(self.parser.has_noscript)
-        self.assertTrue(self.parser.images)
-        self.assertTrue(all(image.get("alt", "").strip() for image in self.parser.images))
+        self.assertTrue(self.parser.images or self.parser.videos)
+        visible_images = [image for image in self.parser.images if image.get("slot") != "poster"]
+        self.assertTrue(all(image.get("alt", "").strip() for image in visible_images))
+        self.assertTrue(all(video.get("aria-label", "").strip() for video in self.parser.videos))
+        self.assertIn('data-live-phone', self.html)
+        self.assertIn('aria-label="A live three-dimensional Cadence handset', self.html)
+
+    def test_feedback_intro_uses_a_live_scroll_linked_3d_handset(self) -> None:
+        self.assertIn('class="feedback-product"', self.html)
+        self.assertIn("<model-viewer", self.html)
+        self.assertIn("cadence-phone-feedback.glb", self.html)
+        self.assertIn("data-phone-chapter", self.html)
+        self.assertIn("data-screen-image", self.html)
+        self.assertIn("feedback-handset-cutout.webp", self.html)
+        self.assertNotIn("feedback-handset.mp4", self.html)
+
+        css = STYLES.read_text(encoding="utf-8")
+        media_rule = re.search(r"\.feedback-product model-viewer\s*\{(?P<body>[^}]*)\}", css)
+        self.assertIsNotNone(media_rule)
+        assert media_rule is not None
+        self.assertNotIn("mix-blend-mode", media_rule.group("body"))
+        self.assertNotIn("mask-image", media_rule.group("body"))
+        self.assertIn("background: transparent", media_rule.group("body"))
+        self.assertIn('src="../phone-stage.js"', self.html)
+        self.assertIn('src="../media-policy.js"', self.html)
+        self.assertNotIn("assets/cadence-editor.png", self.html)
 
     def test_page_contains_no_corrupt_replacement_characters(self) -> None:
         self.assertNotIn("\ufffd", self.html)
