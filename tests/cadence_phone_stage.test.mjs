@@ -3,12 +3,34 @@ import test from 'node:test';
 
 import {
   cameraOrbitForProgress,
+  containRectForSource,
   modelOrientationForProgress,
+  progressAcrossBounds,
   resolvePhoneStageMode,
+  screenPlanForChapter,
   selectActiveChapter,
   shouldCommitVideoFrame,
   smoothMotionProgress,
+  themeTrioReady,
 } from '../cadence/phone-stage.js';
+
+test('screen sources are contained without changing their aspect ratio', () => {
+  const cropped = containRectForSource(1206, 2448, 620, 1348);
+  assert.equal(cropped.width, 620);
+  assert.equal(Math.round(cropped.height), 1259);
+  assert.equal(Math.round(cropped.y), 45);
+  assert.ok(Math.abs(cropped.width / cropped.height - 1206 / 2448) < 0.0001);
+
+  const full = containRectForSource(1206, 2622, 620, 1348);
+  assert.equal(Math.round(full.width), 620);
+  assert.equal(Math.round(full.height), 1348);
+});
+
+test('theme trio waits until both independent side screens are bound', () => {
+  assert.equal(themeTrioReady(true, ['true', 'true']), true);
+  assert.equal(themeTrioReady(true, ['true', undefined]), false);
+  assert.equal(themeTrioReady(false, ['true', 'true']), false);
+});
 
 test('live 3D is disabled when motion, data or WebGL constraints require a fallback', () => {
   assert.equal(resolvePhoneStageMode({ reducedMotion: false, saveData: false, webglAvailable: true }), 'live');
@@ -46,18 +68,18 @@ test('camera motion interpolates and clamps to the authored chapter pose', () =>
   assert.equal(cameraOrbitForProgress(pose, 2), '12.00deg 84.00deg 96.00%');
 });
 
-test('model orientation keeps the phone upright while visibly rotating in 3D', () => {
+test('model orientation uses model-viewer roll pitch yaw order', () => {
   const pose = {
-    from: { x: 0, y: -6, z: 14 },
-    to: { x: 1, y: 4, z: 16 },
+    from: { roll: 15, pitch: -6, yaw: -8 },
+    to: { roll: 15, pitch: 0, yaw: 0 },
   };
 
-  assert.equal(modelOrientationForProgress(pose, -1), '0.00deg -6.00deg 14.00deg');
-  assert.equal(modelOrientationForProgress(pose, 0.5), '0.50deg -1.00deg 15.00deg');
-  assert.equal(modelOrientationForProgress(pose, 2), '1.00deg 4.00deg 16.00deg');
+  assert.equal(modelOrientationForProgress(pose, -1), '15.00deg -6.00deg -8.00deg');
+  assert.equal(modelOrientationForProgress(pose, 0.5), '15.00deg -3.00deg -4.00deg');
+  assert.equal(modelOrientationForProgress(pose, 2), '15.00deg 0.00deg 0.00deg');
 });
 
-test('physical phone motion eases at chapter boundaries without breaking reverse scroll', () => {
+test('physical phone motion eases across one continuous story without breaking reverse scroll', () => {
   assert.equal(smoothMotionProgress(-1), 0);
   assert.equal(smoothMotionProgress(0), 0);
   assert.equal(smoothMotionProgress(0.25), 0.15625);
@@ -65,6 +87,26 @@ test('physical phone motion eases at chapter boundaries without breaking reverse
   assert.equal(smoothMotionProgress(0.75), 0.84375);
   assert.equal(smoothMotionProgress(1), 1);
   assert.equal(smoothMotionProgress(2), 1);
+});
+
+test('the physical phone follows the complete story rather than restarting in every chapter', () => {
+  assert.equal(progressAcrossBounds({ top: 820, bottom: 4820 }, 1000), 0);
+  assert.equal(progressAcrossBounds({ top: -1500, bottom: 2500 }, 1000), 0.5);
+  assert.equal(progressAcrossBounds({ top: -3820, bottom: 180 }, 1000), 1);
+  assert.equal(progressAcrossBounds({ top: 1200, bottom: 5200 }, 1000), 0);
+  assert.equal(progressAcrossBounds({ top: -4200, bottom: -200 }, 1000), 1);
+});
+
+test('a theme chapter selects one locked product frame instead of replaying theme switching', () => {
+  assert.deepEqual(screenPlanForChapter({
+    screenImage: '/theme-magenta.webp',
+    screenVideo: '/themes.mp4',
+  }), { kind: 'image', source: '/theme-magenta.webp' });
+  assert.deepEqual(screenPlanForChapter({ screenVideo: '/rhyme.mp4' }), {
+    kind: 'video',
+    source: '/rhyme.mp4',
+  });
+  assert.equal(screenPlanForChapter({}), null);
 });
 
 test('late media events cannot overwrite the active chapter screen', () => {

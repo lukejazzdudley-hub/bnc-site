@@ -400,8 +400,48 @@ model-viewer.cadence-phone-model--hero {
   height: 100%;
 }
 
+.cadence-phone-model--primary {
+  position: relative;
+  z-index: 2;
+  transform: translate3d(0, 0, 0) scale(1);
+  transition: transform var(--t-slow, 420ms) var(--e-in-out, cubic-bezier(.65, 0, .35, 1));
+}
+
+.cadence-theme-phone {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  margin: auto;
+  opacity: 0;
+  transform: translate3d(0, 4%, 0) scale(.68);
+  visibility: hidden;
+  transition:
+    opacity var(--t-slow, 420ms) var(--e-out, cubic-bezier(.22, 1, .36, 1)),
+    transform var(--t-slow, 420ms) var(--e-in-out, cubic-bezier(.65, 0, .35, 1)),
+    visibility 0s linear var(--t-slow, 420ms);
+}
+
+.cadence-live-device.is-theme-trio .cadence-phone-model--primary {
+  transform: translate3d(0, 0, 0) scale(.76);
+}
+
+.cadence-live-device.is-theme-trio .cadence-theme-phone {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 70ms, 70ms, 0s;
+}
+
+.cadence-live-device.is-theme-trio .cadence-theme-phone--cyan {
+  transform: translate3d(-35%, 3%, 0) scale(.68);
+}
+
+.cadence-live-device.is-theme-trio .cadence-theme-phone--orange {
+  transform: translate3d(35%, 3%, 0) scale(.68);
+}
+
 .cadence-live-device figcaption {
   position: absolute;
+  z-index: 3;
   left: 50%;
   bottom: clamp(24px, 5vh, 58px);
   transform: translateX(-50%);
@@ -432,6 +472,11 @@ model-viewer.cadence-phone-model--hero {
 
 .cadence-proof.is-active {
   opacity: 1;
+}
+
+html[data-phone-stage="poster"] .cadence-proof {
+  opacity: 1;
+  transition: none;
 }
 
 .cadence-proof-copy {
@@ -769,6 +814,18 @@ model-viewer.cadence-phone-model--hero {
     width: min(100%, 520px);
   }
 
+  .cadence-live-device.is-theme-trio .cadence-phone-model--primary {
+    transform: translate3d(0, 0, 0) scale(.72);
+  }
+
+  .cadence-live-device.is-theme-trio .cadence-theme-phone--cyan {
+    transform: translate3d(-28%, 4%, 0) scale(.6);
+  }
+
+  .cadence-live-device.is-theme-trio .cadence-theme-phone--orange {
+    transform: translate3d(28%, 4%, 0) scale(.6);
+  }
+
   .cadence-proof-list {
     width: min(100% - 2 * var(--gut), 760px);
     margin: -46vh auto 0;
@@ -872,9 +929,23 @@ model-viewer.cadence-phone-model--hero {
 
 @media (prefers-reduced-motion: reduce) {
   .cadence-proof,
-  .cadence-store-button {
+  .cadence-store-button,
+  .cadence-phone-model--primary,
+  .cadence-theme-phone {
     transform: none;
     transition: none;
+  }
+
+  .cadence-live-device.is-theme-trio .cadence-phone-model--primary {
+    transform: scale(.76);
+  }
+
+  .cadence-live-device.is-theme-trio .cadence-theme-phone--cyan {
+    transform: translate3d(-35%, 3%, 0) scale(.68);
+  }
+
+  .cadence-live-device.is-theme-trio .cadence-theme-phone--orange {
+    transform: translate3d(35%, 3%, 0) scale(.68);
   }
 
   .cadence-proof {

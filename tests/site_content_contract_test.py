@@ -116,8 +116,8 @@ class SiteContentContractTest(unittest.TestCase):
         self.assertEqual(parser.h1_count, 1)
         self.assertGreaterEqual(parser.proof_chapters, 4)
         html = page.read_text(encoding="utf-8")
-        self.assertEqual(html.count("<model-viewer"), 2)
-        self.assertEqual(html.count("data-screen-video"), 6)
+        self.assertEqual(html.count("<model-viewer"), 4)
+        self.assertEqual(html.count("data-screen-video"), 5)
 
     def test_cadence_product_videos_are_scroll_scrubbed_not_looped(self) -> None:
         parser = CadenceExperienceParser()
@@ -154,9 +154,10 @@ class SiteContentContractTest(unittest.TestCase):
         html = (ROOT / "cadence" / "index.html").read_text(encoding="utf-8")
         story = html.split('<section id="workflow"', 1)[1].split("</section>", 1)[0]
 
-        self.assertEqual(story.count("<model-viewer"), 1)
+        self.assertEqual(story.count("<model-viewer"), 3)
         self.assertEqual(story.count("data-phone-chapter"), 5)
-        self.assertEqual(story.count("data-screen-video"), 5)
+        self.assertEqual(story.count("data-screen-video"), 4)
+        self.assertEqual(story.count("data-screen-image"), 1)
         self.assertIn("phone-stage.js", html)
         stage_script = (ROOT / "cadence" / "phone-stage.js").read_text(encoding="utf-8")
         self.assertIn("model-viewer.min.js", stage_script)
@@ -199,12 +200,34 @@ class SiteContentContractTest(unittest.TestCase):
         html = (ROOT / "cadence" / "index.html").read_text(encoding="utf-8")
         story = html.split('<section id="workflow"', 1)[1].split("</section>", 1)[0]
 
-        self.assertEqual(story.count("<model-viewer"), 1)
-        self.assertIn("screens/themes.mp4", story)
-        self.assertIn("27 themes · One workflow", story)
+        self.assertEqual(story.count("<model-viewer"), 3)
+        self.assertIn('data-theme-trio="true"', story)
+        self.assertIn("screens/theme-cyan.webp", story)
+        self.assertIn("screens/themes.webp", story)
+        self.assertIn("screens/theme-orange.webp", story)
+        self.assertIn("Three themes · One workflow", story)
         self.assertNotIn("theme-card", story)
-        for rejected in ("theme-arctic.webp", "theme-neon.webp", "theme-crimson.webp"):
-            self.assertNotIn(rejected, html)
+
+    def test_live_phone_fallbacks_use_current_product_frames(self) -> None:
+        html = (ROOT / "cadence" / "index.html").read_text(encoding="utf-8")
+        css = (ROOT / "cadence" / "cadence.css").read_text(encoding="utf-8")
+        script = (ROOT / "cadence" / "phone-stage.js").read_text(encoding="utf-8")
+
+        hero = html.split('<figure class="cadence-hero-object"', 1)[1].split("</figure>", 1)[0]
+        self.assertNotIn("hero-device.webp", hero)
+        self.assertEqual(hero.count("screens/library.webp"), 2)
+        head = html.split("</head>", 1)[0]
+        self.assertNotIn("hero-device.webp", head)
+        self.assertIn("assets/cadence/screens/library.webp", head)
+        primary = html.split('class="cadence-phone-model cadence-phone-model--primary"', 1)[1].split("</model-viewer>", 1)[0]
+        cyan = html.split('class="cadence-phone-model cadence-theme-phone cadence-theme-phone--cyan"', 1)[1].split("</model-viewer>", 1)[0]
+        orange = html.split('class="cadence-phone-model cadence-theme-phone cadence-theme-phone--orange"', 1)[1].split("</model-viewer>", 1)[0]
+        self.assertEqual(primary.count("transcribe.webp"), 2)
+        self.assertEqual(cyan.count("screens/theme-cyan.webp"), 3)
+        self.assertEqual(orange.count("screens/theme-orange.webp"), 3)
+        self.assertIn('html[data-phone-stage="poster"] .cadence-proof', css)
+        self.assertIn("startPosterStory", script)
+        self.assertIn("cadence-phone-ready", script)
 
     def test_live_screen_replaces_blenders_emissive_material_map(self) -> None:
         stage_script = (ROOT / "cadence" / "phone-stage.js").read_text(encoding="utf-8")
@@ -218,6 +241,10 @@ class SiteContentContractTest(unittest.TestCase):
         self.assertIn("video.addEventListener('loadedmetadata', requestUpdate", stage_script)
         self.assertIn("viewers.forEach((viewer) => observer.observe(viewer))", stage_script)
         self.assertIn("observer.unobserve(viewer)", stage_script)
+
+    def test_vendored_model_viewer_guards_a_stale_ar_scene(self) -> None:
+        vendor = (ROOT / "assets" / "vendor" / "model-viewer.min.js").read_text(encoding="utf-8")
+        self.assertIn("this.xrMode!==Mv&&null!=this.presentedScene&&(", vendor)
 
     def test_cadence_navigation_uses_locked_mark_not_square_app_icon(self) -> None:
         html = (ROOT / "cadence" / "index.html").read_text(encoding="utf-8")

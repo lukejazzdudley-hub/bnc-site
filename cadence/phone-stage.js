@@ -33,13 +33,43 @@ export function smoothMotionProgress(progress) {
 export function modelOrientationForProgress(pose, progress) {
   const amount = Math.min(1, Math.max(0, progress));
   const interpolate = (from, to) => from + (to - from) * amount;
-  return `${interpolate(pose.from.x, pose.to.x).toFixed(2)}deg `
-    + `${interpolate(pose.from.y, pose.to.y).toFixed(2)}deg `
-    + `${interpolate(pose.from.z, pose.to.z).toFixed(2)}deg`;
+  return `${interpolate(pose.from.roll, pose.to.roll).toFixed(2)}deg `
+    + `${interpolate(pose.from.pitch, pose.to.pitch).toFixed(2)}deg `
+    + `${interpolate(pose.from.yaw, pose.to.yaw).toFixed(2)}deg`;
+}
+
+export function progressAcrossBounds(bounds, viewportHeight) {
+  const start = viewportHeight * 0.82;
+  const end = viewportHeight * 0.18;
+  const height = Math.max(0, bounds.bottom - bounds.top);
+  return Math.min(1, Math.max(0, (start - bounds.top) / Math.max(1, height + start - end)));
+}
+
+export function screenPlanForChapter(chapter) {
+  if (chapter.screenImage) return { kind: 'image', source: chapter.screenImage };
+  if (chapter.screenVideo) return { kind: 'video', source: chapter.screenVideo };
+  return null;
 }
 
 export function shouldCommitVideoFrame(video, activeVideo) {
   return Boolean(video && video === activeVideo);
+}
+
+export function containRectForSource(sourceWidth, sourceHeight, targetWidth, targetHeight) {
+  if (!sourceWidth || !sourceHeight) return { x: 0, y: 0, width: targetWidth, height: targetHeight };
+  const scale = Math.min(targetWidth / sourceWidth, targetHeight / sourceHeight);
+  const width = sourceWidth * scale;
+  const height = sourceHeight * scale;
+  return {
+    x: (targetWidth - width) / 2,
+    y: (targetHeight - height) / 2,
+    width,
+    height,
+  };
+}
+
+export function themeTrioReady(themeActive, readiness) {
+  return themeActive && readiness.length === 2 && readiness.every((state) => state === 'true');
 }
 
 function supportsWebGL() {
@@ -77,20 +107,17 @@ function parseOrientation(chapter) {
   const parse = (value, fallback) => {
     const parts = String(value || '').split(',').map(Number);
     return parts.length === 3 && parts.every(Number.isFinite)
-      ? { x: parts[0], y: parts[1], z: parts[2] }
+      ? { roll: parts[0], pitch: parts[1], yaw: parts[2] }
       : fallback;
   };
   return {
-    from: parse(chapter.dataset.orientationFrom, { x: 0, y: -4, z: 15 }),
-    to: parse(chapter.dataset.orientationTo, { x: 0, y: 4, z: 15 }),
+    from: parse(chapter.dataset.orientationFrom, { roll: 15, pitch: -4, yaw: -8 }),
+    to: parse(chapter.dataset.orientationTo, { roll: 15, pitch: 0, yaw: 0 }),
   };
 }
 
 function progressForChapter(chapter) {
-  const bounds = chapter.getBoundingClientRect();
-  const start = window.innerHeight * 0.82;
-  const end = window.innerHeight * 0.18 - bounds.height;
-  return Math.min(1, Math.max(0, (start - bounds.top) / Math.max(1, start - end)));
+  return progressAcrossBounds(chapter.getBoundingClientRect(), window.innerHeight);
 }
 
 function makeVideo(source) {
@@ -151,6 +178,20 @@ async function initialiseViewer(viewer) {
     throw new Error(`Cadence screen material ${SCREEN_MATERIAL} is missing`);
   }
 
+  const setScreenTexture = (texture) => {
+    baseColorTexture.setTexture(texture);
+    material.emissiveTexture.setTexture(texture);
+  };
+
+  if (viewer.dataset.staticScreen) {
+    const imageTexture = await viewer.createTexture(viewer.dataset.staticScreen);
+    setScreenTexture(imageTexture);
+    viewer.dataset.screenBound = 'true';
+    viewer.dataset.controllerReady = 'true';
+    viewer.dispatchEvent(new CustomEvent('cadence-phone-ready', { bubbles: true }));
+    return;
+  }
+
   const story = viewer.closest('[data-phone-story]');
   const chapters = story
     ? [...story.querySelectorAll('[data-phone-chapter]')]
@@ -164,8 +205,7 @@ async function initialiseViewer(viewer) {
 
   if (imageChapter) {
     const imageTexture = await viewer.createTexture(imageChapter.dataset.screenImage);
-    baseColorTexture.setTexture(imageTexture);
-    material.emissiveTexture.setTexture(imageTexture);
+    setScreenTexture(imageTexture);
   } else {
     canvasTexture = viewer.createCanvasTexture();
     canvas = canvasTexture.source.element;
@@ -178,6 +218,7 @@ async function initialiseViewer(viewer) {
   viewer.dataset.screenBound = 'true';
 
   const videos = new Map();
+  const images = new Map();
   let activeChapter = null;
   let activeVideo = null;
   let frameRequested = false;
@@ -185,15 +226,27 @@ async function initialiseViewer(viewer) {
   const drawFrame = (video) => {
     if (!shouldCommitVideoFrame(video, activeVideo)
       || !context || !canvas || !canvasTexture || !video.videoWidth || !video.videoHeight) return;
+    const destination = containRectForSource(
+      video.videoWidth,
+      video.videoHeight,
+      canvas.width,
+      canvas.height,
+    );
     context.fillStyle = '#17181d';
     context.fillRect(0, 0, canvas.width, canvas.height);
     context.save();
     context.translate(0, canvas.height);
     context.scale(1, -1);
-    context.drawImage(video, 0, 0, canvas.width, canvas.height);
+    context.drawImage(video, destination.x, destination.y, destination.width, destination.height);
     context.restore();
+    setScreenTexture(canvasTexture);
     canvasTexture.source.update();
     viewer.dataset.screenFrame = `${video.currentSrc}@${video.currentTime.toFixed(2)}`;
+  };
+
+  const imageFor = (chapter) => {
+    if (!images.has(chapter)) images.set(chapter, viewer.createTexture(chapter.dataset.screenImage));
+    return images.get(chapter);
   };
 
   const videoFor = (chapter) => {
@@ -221,10 +274,15 @@ async function initialiseViewer(viewer) {
     if (!chapter) return;
 
     const progress = progressForChapter(chapter);
-    const motionProgress = smoothMotionProgress(progress);
+    const physicalProgress = story
+      ? progressAcrossBounds(story.getBoundingClientRect(), window.innerHeight)
+      : progress;
+    const motionProgress = smoothMotionProgress(physicalProgress);
+    const motionSource = story || chapter;
     viewer.dataset.screenProgress = progress.toFixed(3);
-    viewer.cameraOrbit = cameraOrbitForProgress(parsePose(chapter), motionProgress);
-    viewer.orientation = modelOrientationForProgress(parseOrientation(chapter), motionProgress);
+    viewer.dataset.motionProgress = physicalProgress.toFixed(3);
+    viewer.cameraOrbit = cameraOrbitForProgress(parsePose(motionSource), motionProgress);
+    viewer.orientation = modelOrientationForProgress(parseOrientation(motionSource), motionProgress);
     viewer.fieldOfView = `${(25 - motionProgress * 2).toFixed(2)}deg`;
     viewer.dataset.modelOrientation = viewer.orientation;
 
@@ -237,7 +295,25 @@ async function initialiseViewer(viewer) {
       if (status) status.textContent = chapter.dataset.phoneStatus || '';
     }
 
-    if (chapter.dataset.screenVideo) {
+    const liveDevice = viewer.closest('.cadence-live-device');
+    const sideReadiness = liveDevice
+      ? [...liveDevice.querySelectorAll('.cadence-theme-phone')]
+        .map((item) => item.dataset.controllerReady)
+      : [];
+    liveDevice?.classList.toggle(
+      'is-theme-trio',
+      themeTrioReady(chapter.dataset.themeTrio === 'true', sideReadiness),
+    );
+
+    const screenPlan = screenPlanForChapter(chapter.dataset);
+    if (screenPlan?.kind === 'image') {
+      activeVideo = null;
+      imageFor(chapter).then((texture) => {
+        if (activeChapter !== chapter) return;
+        setScreenTexture(texture);
+        viewer.dataset.screenFrame = screenPlan.source;
+      });
+    } else if (screenPlan?.kind === 'video') {
       const video = videoFor(chapter);
       activeVideo = video;
       viewer.dataset.screenRequested = video.src;
@@ -258,9 +334,50 @@ async function initialiseViewer(viewer) {
 
   window.addEventListener('scroll', requestUpdate, { passive: true });
   window.addEventListener('resize', requestUpdate, { passive: true });
+  viewer.closest('.cadence-live-device')?.addEventListener('cadence-phone-ready', requestUpdate);
   chapters.filter((chapter) => chapter.dataset.screenVideo).forEach(videoFor);
+  chapters.filter((chapter) => chapter.dataset.screenImage).forEach(imageFor);
   requestUpdate();
   viewer.dataset.controllerReady = 'true';
+}
+
+function posterSourceForChapter(chapter) {
+  if (chapter.dataset.screenImage) return chapter.dataset.screenImage;
+  return chapter.dataset.screenVideo?.replace(/\.mp4(?:\?.*)?$/, '.webp') || '';
+}
+
+function startPosterStory() {
+  document.querySelectorAll('[data-phone-story]').forEach((story) => {
+    const chapters = [...story.querySelectorAll('[data-phone-chapter]')];
+    const device = story.querySelector('.cadence-live-device');
+    const primaryPoster = device?.querySelector('.cadence-phone-model--primary > img[slot="poster"]');
+    let frameRequested = false;
+
+    const update = () => {
+      frameRequested = false;
+      const chapter = selectActiveChapter(chapters.map((item) => {
+        const bounds = item.getBoundingClientRect();
+        return { chapter: item, top: bounds.top, bottom: bounds.bottom };
+      }), window.innerHeight);
+      if (!chapter) return;
+      chapters.forEach((item) => item.classList.toggle('is-active', item === chapter));
+      device?.classList.toggle('is-theme-trio', chapter.dataset.themeTrio === 'true');
+      const status = device?.querySelector('[data-phone-status]');
+      if (status) status.textContent = chapter.dataset.phoneStatus || '';
+      const source = posterSourceForChapter(chapter);
+      if (primaryPoster && source && primaryPoster.getAttribute('src') !== source) {
+        primaryPoster.setAttribute('src', source);
+      }
+    };
+    const requestUpdate = () => {
+      if (frameRequested) return;
+      frameRequested = true;
+      window.requestAnimationFrame(update);
+    };
+    window.addEventListener('scroll', requestUpdate, { passive: true });
+    window.addEventListener('resize', requestUpdate, { passive: true });
+    requestUpdate();
+  });
 }
 
 async function startPhoneStages() {
@@ -268,7 +385,10 @@ async function startPhoneStages() {
   if (!viewers.length) return;
   const mode = visitorMode();
   document.documentElement.dataset.phoneStage = mode;
-  if (mode !== 'live') return;
+  if (mode !== 'live') {
+    startPosterStory();
+    return;
+  }
 
   await new Promise((resolve) => {
     const observer = new IntersectionObserver((entries) => {

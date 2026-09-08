@@ -13,7 +13,9 @@
 
 ### Fixed
 
-- Replaced the handset's permanent diagonal pose with an upright, scroll-scrubbed 3D orientation path that rotates differently through each product chapter and reverses with the page.
+- Replaced the empty, filtered hero screen with the approved populated demo library, registered it to the handset aperture and removed the captured status bar.
+- Replaced the handset's permanent diagonal pose and chapter-by-chapter wobble with one upright, continuous 3D path that reverses with the page.
+- The theme finale now reveals three real handsets together in cyan, magenta and orange instead of changing one phone's screen in place.
 - Locked the handset to the active product chapter so delayed media events cannot restore an earlier screen, and removed captured time, network and battery chrome from every screen texture.
 - Removed the remaining boxed-video presentation and stale operating-system status chrome from the live product experience.
 - Prevented hero, workflow and feedback handsets from sharing screen-material state, and reduced each web model from 3.46 MB to under 200 KB.
