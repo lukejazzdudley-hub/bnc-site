@@ -34,7 +34,7 @@ cd /path/to/bnc-site
 python3 serve.py
 ```
 
-Open `http://127.0.0.1:8000`. The development server supports the same clean routes used in production.
+Open `http://127.0.0.1:8000`. The development server supports the same clean routes and media byte ranges used in production, so scroll-seeking video can be reviewed locally.
 
 ## Validation
 
