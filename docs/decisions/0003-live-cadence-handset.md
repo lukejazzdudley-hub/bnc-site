@@ -14,6 +14,8 @@ Export the approved Blender handset as an optimised GLB and render it in the bro
 
 Only the active chapter may commit a decoded frame to the shared canvas. Late `loadeddata` or `seeked` events from preloaded chapters are ignored, preventing an earlier Library frame from overwriting the visible rhyme, arrangement or mix state. Public screen media also replaces the captured operating-system status strip with the app background so time, signal and battery indicators never appear in product marketing.
 
+The exported handset contains a baked diagonal root pose, so the web experience applies a correcting model orientation before choreography. Each chapter owns continuous start and end orientations; smoothstep easing maps local scroll progress to real model pitch, yaw and roll while the camera remains on a frontal axis. Adjacent chapter endpoints are continuous, avoiding both a permanently tilted product and a repeated reset animation. Screen seeking remains linear so interface actions stay directly coupled to scroll.
+
 The browser falls back to existing WebP posters when WebGL is unavailable, reduced motion is requested or data saving is enabled. Product text and calls to action remain semantic HTML. The GLBs are processed with glTF Transform using Draco geometry compression and WebP textures; Blender sources remain on Clevo.
 
 ## Consequences

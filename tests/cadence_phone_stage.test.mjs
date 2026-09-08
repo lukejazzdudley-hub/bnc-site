@@ -3,9 +3,11 @@ import test from 'node:test';
 
 import {
   cameraOrbitForProgress,
+  modelOrientationForProgress,
   resolvePhoneStageMode,
   selectActiveChapter,
   shouldCommitVideoFrame,
+  smoothMotionProgress,
 } from '../cadence/phone-stage.js';
 
 test('live 3D is disabled when motion, data or WebGL constraints require a fallback', () => {
@@ -42,6 +44,27 @@ test('camera motion interpolates and clamps to the authored chapter pose', () =>
   assert.equal(cameraOrbitForProgress(pose, -1), '-18.00deg 78.00deg 108.00%');
   assert.equal(cameraOrbitForProgress(pose, 0.5), '-3.00deg 81.00deg 102.00%');
   assert.equal(cameraOrbitForProgress(pose, 2), '12.00deg 84.00deg 96.00%');
+});
+
+test('model orientation keeps the phone upright while visibly rotating in 3D', () => {
+  const pose = {
+    from: { x: 0, y: -6, z: 14 },
+    to: { x: 1, y: 4, z: 16 },
+  };
+
+  assert.equal(modelOrientationForProgress(pose, -1), '0.00deg -6.00deg 14.00deg');
+  assert.equal(modelOrientationForProgress(pose, 0.5), '0.50deg -1.00deg 15.00deg');
+  assert.equal(modelOrientationForProgress(pose, 2), '1.00deg 4.00deg 16.00deg');
+});
+
+test('physical phone motion eases at chapter boundaries without breaking reverse scroll', () => {
+  assert.equal(smoothMotionProgress(-1), 0);
+  assert.equal(smoothMotionProgress(0), 0);
+  assert.equal(smoothMotionProgress(0.25), 0.15625);
+  assert.equal(smoothMotionProgress(0.5), 0.5);
+  assert.equal(smoothMotionProgress(0.75), 0.84375);
+  assert.equal(smoothMotionProgress(1), 1);
+  assert.equal(smoothMotionProgress(2), 1);
 });
 
 test('late media events cannot overwrite the active chapter screen', () => {

@@ -25,6 +25,19 @@ export function cameraOrbitForProgress(pose, progress) {
     + `${interpolate(pose.from.radius, pose.to.radius).toFixed(2)}%`;
 }
 
+export function smoothMotionProgress(progress) {
+  const amount = Math.min(1, Math.max(0, progress));
+  return amount * amount * (3 - 2 * amount);
+}
+
+export function modelOrientationForProgress(pose, progress) {
+  const amount = Math.min(1, Math.max(0, progress));
+  const interpolate = (from, to) => from + (to - from) * amount;
+  return `${interpolate(pose.from.x, pose.to.x).toFixed(2)}deg `
+    + `${interpolate(pose.from.y, pose.to.y).toFixed(2)}deg `
+    + `${interpolate(pose.from.z, pose.to.z).toFixed(2)}deg`;
+}
+
 export function shouldCommitVideoFrame(video, activeVideo) {
   return Boolean(video && video === activeVideo);
 }
@@ -57,6 +70,19 @@ function parsePose(chapter) {
   return {
     from: parse(chapter.dataset.poseFrom, { theta: -10, phi: 78, radius: 105 }),
     to: parse(chapter.dataset.poseTo, { theta: 8, phi: 82, radius: 96 }),
+  };
+}
+
+function parseOrientation(chapter) {
+  const parse = (value, fallback) => {
+    const parts = String(value || '').split(',').map(Number);
+    return parts.length === 3 && parts.every(Number.isFinite)
+      ? { x: parts[0], y: parts[1], z: parts[2] }
+      : fallback;
+  };
+  return {
+    from: parse(chapter.dataset.orientationFrom, { x: 0, y: -4, z: 15 }),
+    to: parse(chapter.dataset.orientationTo, { x: 0, y: 4, z: 15 }),
   };
 }
 
@@ -195,9 +221,12 @@ async function initialiseViewer(viewer) {
     if (!chapter) return;
 
     const progress = progressForChapter(chapter);
+    const motionProgress = smoothMotionProgress(progress);
     viewer.dataset.screenProgress = progress.toFixed(3);
-    viewer.cameraOrbit = cameraOrbitForProgress(parsePose(chapter), progress);
-    viewer.fieldOfView = `${(25 - progress * 3).toFixed(2)}deg`;
+    viewer.cameraOrbit = cameraOrbitForProgress(parsePose(chapter), motionProgress);
+    viewer.orientation = modelOrientationForProgress(parseOrientation(chapter), motionProgress);
+    viewer.fieldOfView = `${(25 - motionProgress * 2).toFixed(2)}deg`;
+    viewer.dataset.modelOrientation = viewer.orientation;
 
     if (activeChapter !== chapter) {
       activeChapter = chapter;
