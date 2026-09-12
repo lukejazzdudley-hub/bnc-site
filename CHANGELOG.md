@@ -16,6 +16,7 @@
 
 ### Fixed
 
+- The Cadence privacy policy now matches the app's explicit analytics consent: product analytics and Crashlytics stay off until the user enables Help improve Cadence.
 - Cadence links now open the canonical `/cadence/` page directly, removing the visible white compatibility redirect during navigation; legacy links retain their query string and anchor on a dark fallback.
 - V3 scenes release their WebGL context after leaving view and create a fresh canvas when revisited, preventing off-screen GPU memory accumulation without breaking reverse scroll.
 

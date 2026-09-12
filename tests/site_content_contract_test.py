@@ -136,6 +136,13 @@ class SiteContentContractTest(unittest.TestCase):
         self.assertIn("draft demo", html)
         self.assertIn("beta feedback", html)
 
+    def test_privacy_policy_matches_explicit_analytics_consent(self) -> None:
+        html = (ROOT / "privacy.html").read_text(encoding="utf-8").lower()
+
+        self.assertNotIn("help improve cadence</strong> is on by default", html)
+        self.assertIn("stays off until you choose to enable it", html)
+        self.assertIn("turning it off stops new collection", html)
+
     def test_cadence_experience_pairs_the_story_with_product_proof(self) -> None:
         page = ROOT / "cadence" / "index.html"
         parser = CadenceExperienceParser()
