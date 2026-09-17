@@ -2,6 +2,22 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {articles as guides} from '../content/resources/guides/index.mjs';
 import {articles as comparisons} from '../content/resources/comparisons/index.mjs';
+import {buyingTools} from '../content/resources/comparisons/buyers.mjs';
+
+test('buying guide compares eleven named tools with source links and a disclosed editorial recommendation', () => {
+  assert.equal(buyingTools.length, 11);
+  assert.equal(new Set(buyingTools.map(t => t[0])).size, 11);
+  const guide = comparisons[0];
+  const html = guide.sections.map(s => s.html).join(' ');
+  for (const [name, url, fit, strength, caveat] of buyingTools) {
+    assert.ok(html.includes(`href="${url}">${name}</a>`), name);
+    assert.ok(fit && strength && caveat, name);
+  }
+  assert.match(html, /We make Cadence/);
+  assert.match(html, /not a hands-on benchmark/);
+  assert.match(html, /aria-label="Compare 11 songwriting apps"/);
+  assert.doesNotMatch(html, /AggregateRating|tested for six weeks/);
+});
 
 test('approved content map contains six guides and four comparisons with substantive distinct sections', () => {
   assert.equal(guides.length, 6);

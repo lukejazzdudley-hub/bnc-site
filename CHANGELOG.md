@@ -4,6 +4,8 @@
 
 ### Added
 
+- The buying guide now compares 11 songwriting tools with linked primary sources, clear buying caveats and workflow-specific recommendations. Quick-pick cards and a mobile-scrollable table make the shortlist easier to use; Cadence’s ownership and recommendation criteria are explicit.
+
 - Resource articles now open with descriptive titles, reading-time estimates and direct reading links. Related guides connect the next step; comparison tables remain readable and keyboard-scrollable on phones. More compact headers, silver controls and clearer copy bring the hub closer to the main Cadence experience.
 
 - A songwriting resource hub connects six practical writing/demo guides, four sourced app-buying comparisons and the five existing tools and walkthroughs. Articles include worked examples, contents navigation and contextual links back to the Cadence workflow.

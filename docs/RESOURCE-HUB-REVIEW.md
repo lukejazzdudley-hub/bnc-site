@@ -54,3 +54,18 @@ Verification: all ten routes fit 320px with no document overflow; desktop hub,
 mobile hub and article screenshots reviewed. A focused comparison region accepts
 ArrowRight and advances scrollLeft by 40px. 76 Node and 72 Python tests pass,
 including title, related-link, reading-time and table accessibility contracts.
+
+## Eleven-tool buying comparison
+
+The existing buying guide now includes Cadence and all ten tools in the requested
+reference shortlist. The recommendation is explicitly for lyric-first mobile
+writing, with ownership disclosed and no invented benchmark scores. Each row
+links to primary documentation and pairs strengths with a buying caveat. Quick
+picks distinguish lyric, studio and harmony workflows. No affiliate tracking or
+additional client-side JavaScript was introduced.
+
+Validation: 77 Node and 72 Python tests pass. Browser checks at 320px and 390px
+show no document overflow; the named comparison region scrolls with ArrowRight
+and its product column remains sticky. Desktop and mobile visuals were reviewed.
+Source pricing is deliberately not collapsed into potentially misleading regional
+headline prices. Availability and vendor features should be rechecked when updated.

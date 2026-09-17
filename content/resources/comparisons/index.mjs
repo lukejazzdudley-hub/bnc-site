@@ -1,14 +1,16 @@
+import {buyingSections, buyingSources} from './buyers.mjs';
 const checked = '2026-09-17';
 
 export const articles = [
   {
     slug: 'choosing-a-songwriting-app',
-    title: 'How to choose a songwriting app for the way you actually write',
-    description: 'Choose a songwriting app by starting point, finishing goal, device and handoff needs, with an honest checklist for testing your shortlist.',
+    title: 'Best songwriting apps in 2026: what to buy for your workflow',
+    description: 'Compare 11 songwriting apps, including Cadence, BandLab, GarageBand and Song Cage. Clear strengths, buying caveats and picks for lyrics, chords and production.',
     heading: 'Choose the app that removes your next bottleneck',
     intro: 'The best songwriting app is not the one with the longest feature list. It is the one that keeps your idea intact from the moment it arrives to the point where you need another tool.',
     category: 'Choose your tools',
     sections: [
+      ...buyingSections,
       {
         id: 'start-with-your-real-workflow',
         heading: 'Start with your real workflow, not a feature grid',
@@ -53,6 +55,7 @@ export const articles = [
       },
     ],
     sources: [
+      ...buyingSources,
       { title: 'Cadence songwriting app', url: 'https://brandnamechanges.com/cadence/songwriting-app/', checked },
       { title: 'Getting started with BandLab Studio', url: 'https://help.bandlab.com/hc/en-us/articles/115002945153-Getting-Started-with-the-BandLab-Studio', checked },
       { title: 'BandLab track and project duration limits', url: 'https://help.bandlab.com/hc/en-us/articles/115002945433-Track-and-Project-Duration-Limits', checked },
