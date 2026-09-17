@@ -4,6 +4,9 @@ The public website for **Brand Name Changes Ltd** and **Cadence**. The frontend 
 
 ## What is here
 
+The [organic-search guide](docs/SEARCH-GROWTH.md) covers the five Cadence search
+pages, browser-only rhyme tool, dictionary licensing, regeneration and measurement.
+
 ```text
 index.html                         Company landing page
 cadence/index.html                 Cadence product page
