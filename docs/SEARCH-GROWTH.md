@@ -64,8 +64,12 @@ Ranking uses usage frequency minus twice the consonant-distance score, with
 syllable count/alphabetic ordering only as tie-breakers. Unstressed function-word
 pronunciations are not rhyme targets. Polysemy and accent variation remain limits.
 The vocabulary filter is MIT-licensed word-list 4.1.0; retain WORD-LIST-LICENSE.txt.
-The small phrase bank is original editorial text. Multi-word endings are ending
-matches, not the app's full phrase rhyme engine. Slant uses equal vowel sequences
+The 82-entry phrase bank is original editorial text. Multi-word rhymes compare
+two to four vowel nuclei and intervening consonants across word boundaries,
+including close slants. Pronunciation combinations are bounded to 32 and inputs
+to six words. Phrase endings remains a separate final-word matching mode.
+This small bank has limited coverage; it is not the app's full phrase engine.
+Slant uses equal vowel sequences
 and a weighted consonant edit: voicing differences score closest, then stop
 substitutions, cluster edits, other obstruents. Bare-vowel assonance is excluded.
 Neither mode establishes native-language parity.
@@ -87,6 +91,16 @@ They document arrangement and effects UI, not original transcription or an
 audio-quality comparison. No new customer content was imported.
 
 ## Validation
+
+17 September completion check: 62 Node tests cover matching and cache failure,
+offline recovery, integrity, origin and size limits. Genuine phrase regressions
+include ice cream / I scream and insight / in sight. Google sitemap previously
+reported Success with 12 URLs. Bing verification, fresh Google URL inspection
+and visual/mobile browser QA remain pending because authenticated Chrome
+control timed out. No indexing or visual-QA success is claimed from unit tests.
+Non-English publication remains gated on recorded redistribution clearance,
+phoneme adaptation and native accuracy evidence; app candidate data is not
+automatically cleared for public website redistribution.
 
 Run `node scripts/build_search_pages.mjs`, `node --test tests/*.test.mjs` and
 `python3 -m unittest discover -s tests -p '*test*.py'`.

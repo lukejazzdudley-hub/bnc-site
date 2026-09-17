@@ -33,7 +33,7 @@ test('slant preserves vowels and excludes exact rhymes', () => {
   assert.deepEqual(findRhymes(small, 'cat', 'slant').results.map(r => r.word), ['cap']);
 });
 test('phrase endings are real curated entries, not generated word combinations', () => {
-  const found = findRhymes(index, 'light', 'phrase').results;
+  const found = findRhymes(index, 'light', 'endings').results;
   assert.ok(found.some(r => r.word === 'all night'));
   assert.ok(found.every(r => r.phrase && pack.phrases.includes(r.word)));
 });

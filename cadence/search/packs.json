@@ -1,8 +1,8 @@
 {
   "en": {
     "url": "/cadence/search/pack-en.json",
-    "sha256": "fcc38d7f21d383e2e957a4fb9c581956579d71894a476bbc5a331e4b4e430c82",
-    "bytes": 2494809,
+    "sha256": "fd5f17740120d42a2e50a716d91cbf790d2fc9313a79bf2bf5224c3c6b79eaec",
+    "bytes": 2494933,
     "source": "CMU 3.0.0, word-list 4.1.0, dictionary-en 4.0.0, wordfreq 3.1.1; original editorial phrases"
   }
 }
