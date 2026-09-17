@@ -4,6 +4,8 @@
 
 ### Added
 
+- The browser rhyme finder adds conservative slant matches and curated multi-word endings, filters English name noise, and downloads a smaller verified dictionary only when searched. Other language choices clearly show their pending availability.
+
 - Visitors can find English perfect and multisyllabic rhymes privately in their browser, without an account.
 - New guides cover songwriting, rap writing, voice-memo transcription and the Springtime Showers arrangement workflow, with real app footage.
 - Search engines can discover the website through a sitemap, canonical pages and structured metadata.

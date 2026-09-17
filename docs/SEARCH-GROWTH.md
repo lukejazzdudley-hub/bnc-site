@@ -39,16 +39,34 @@ Keep beta links accurate; switch iOS to the public store only after verifying re
 HTML plus sitemap. Edit it rather than the generated pages. Search engines and
 visitors without JavaScript receive the complete explanatory content.
 
-The rhyme tool lazy-loads a 4.1 MB raw dictionary on the first search into a
+The rhyme tool lazy-loads a 2.03 MB filtered English pack on the first search into a
 module worker. Subsequent searches reuse the index; UI stays on the main thread.
 It returns at most 150 results, ignores stale replies and allows retry after
 load failure/timeout. No user query leaves the worker/browser and no query is
-saved. Dictionary data may include uncommon names; matches use American English
+saved. Dictionary data may include uncommon words; matches use American English
 sound tails and are not equivalent to the app's proprietary ranking engine.
 
 Rebuild data: `node scripts/build_rhyme_dictionary.mjs /path/to/cmu-pronouncing-dictionary`.
 Use the version in `dictionary-provenance.json`; retain both upstream licences.
 Never bundle proprietary app files or private lyrics into the public repository.
+
+Build the web subset with `node scripts/build_web_english_pack.mjs /path/to/word-list-4.1.0`.
+The vocabulary filter is MIT-licensed word-list 4.1.0; retain WORD-LIST-LICENSE.txt.
+The small phrase bank is original editorial text. Multi-word endings are ending
+matches, not the app's full phrase rhyme engine. Slant uses equal vowel sequences
+with one consonant edit. Neither mode establishes native-language parity.
+
+All 25 language choices are catalogued, but only English is released. Others
+are visibly unavailable until provenance, redistribution terms, phoneme adapter
+and native accuracy checks are recorded. A selectable label is not support.
+No production app packs are copied, changed or published by this website work.
+The current loader accepts same-origin assets only; reusing a remote pack host
+requires an explicit allowlist and CORS verification after clearance.
+
+Downloads are SHA-256 verified and capped at 16 MB. Cache storage is optional;
+only three pack versions are retained. Switching languages terminates the old
+worker and clears results. Failed/corrupt cache reads fall back to the network.
+This implementation adds no vendor, database write or paid inference request.
 
 Springtime clips are backed by `assets/cadence/workflow-capture-manifest.json`.
 They document arrangement and effects UI, not original transcription or an

@@ -16,7 +16,7 @@ test('multiple matching syllables, not merely long words', () => {
 });
 test('input normalization and safe rejection', () => {
   assert.equal(normalize('  DON’T '), "don't");
-  for (const word of ['<script>', 'two words', '123', 'a'.repeat(61)]) assert.equal(findRhymes(index, word).state, 'invalid');
+  for (const word of ['<script>', '123', 'a'.repeat(61)]) assert.equal(findRhymes(index, word).state, 'invalid');
   assert.equal(findRhymes(index, 'zzzzqxx').state, 'unknown');
 });
 test('alternate pronunciations and bounded distinct output', () => {

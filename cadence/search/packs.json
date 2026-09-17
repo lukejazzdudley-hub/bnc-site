@@ -1,0 +1,8 @@
+{
+  "en": {
+    "url": "/cadence/search/pack-en.json",
+    "sha256": "bb2a79feb8c99c4403e31d5950315b5a42900fc095a2756986f9c08543b3df4d",
+    "bytes": 2031208,
+    "source": "CMU 3.0.0 intersected with word-list 4.1.0; original editorial phrases"
+  }
+}
