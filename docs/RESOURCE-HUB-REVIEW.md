@@ -32,3 +32,25 @@ Topic selection announces four writing resources; All topics restores all ten.
 Article contents links reach the intended section. No broken images were found
 in the ten-route browser pass. Automated tests cover reduced-motion and no-JS
 fallback contracts; those are not claims of physical-device testing.
+
+## Post-agent quality pass
+User requested an independent improvement pass after publication. The review
+found oversized mobile article heroes, narrow comparison columns, inconsistent
+table accessibility, repeated category labels and research-note language.
+
+- Descriptive article H1s now match the topic visitors searched for. Smaller
+  headers and direct reading links reduce the distance to the answer; decorative
+  article screenshots are omitted on mobile, while hub/product imagery remains.
+- Silver replaces unmotivated gold accents. Body text uses the site’s sans-serif
+  stack; muted text contrast is raised. Background light is restrained and static.
+- All eight tables have named, focusable scroll regions and scoped headers.
+  Columns retain a readable width rather than squeezing into the phone viewport.
+- Reading time is estimated at 200 words/minute from article sections. Related
+  links stay within the same topic, exclude the current article and work without JS.
+- Comparison prose is more direct without inventing competitor omissions or
+  replacing source-based caveats with unsupported superiority claims.
+
+Verification: all ten routes fit 320px with no document overflow; desktop hub,
+mobile hub and article screenshots reviewed. A focused comparison region accepts
+ArrowRight and advances scrollLeft by 40px. 76 Node and 72 Python tests pass,
+including title, related-link, reading-time and table accessibility contracts.

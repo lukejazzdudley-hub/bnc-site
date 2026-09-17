@@ -13,6 +13,12 @@ test('approved content map contains six guides and four comparisons with substan
     const prose = article.sections.map(s => s.html.replace(/<[^>]*>/g, ' ')).join(' ');
     assert.ok(prose.split(/\s+/).length >= 700, article.slug);
     assert.doesNotMatch(prose, /lorem ipsum|TODO|TBD/);
+    for (const section of article.sections) {
+      const tables = (section.html.match(/<table>/g) || []).length;
+      const wrappers = (section.html.match(/class="table-scroll" tabindex="0" role="region" aria-label="[^"]+"/g) || []).length;
+      assert.equal(tables, wrappers, `${article.slug}: every table needs a named keyboard-scrollable region`);
+      assert.doesNotMatch(section.html, /<th>/, `${article.slug}: table header scope required`);
+    }
   }
 });
 

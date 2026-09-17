@@ -16,6 +16,7 @@ import {
   buildResourceHub,
   loadArticles,
   renderArticle,
+  readingMinutes,
   renderHub,
   validateArticles,
 } from '../scripts/build_resource_hub.mjs';
@@ -225,11 +226,11 @@ test('builder emits the hub and ten articles without replacing sitemap content',
 
   assert.equal(result.articleCount, 10);
   assert.equal(result.routes.length, 11);
-  assert.match(readFileSync(path.join(temporaryRoot, 'cadence/resources/index.html'), 'utf8'), /Make the next line/);
+  assert.match(readFileSync(path.join(temporaryRoot, 'cadence/resources/index.html'), 'utf8'), /Songwriting guides/);
   for (const article of articles) {
     assert.match(
       readFileSync(path.join(temporaryRoot, `cadence/resources/${article.slug}/index.html`), 'utf8'),
-      new RegExp(article.heading.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')),
+      new RegExp(article.title.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')),
     );
   }
   assert.match(sitemapAfterFirstBuild, new RegExp(existingRoute.replaceAll('.', '\\.')));
@@ -256,11 +257,29 @@ test('resource styles preserve keyboard focus, reduced motion and mobile reflow'
 
   assert.match(css, /:focus-visible/);
   assert.match(css, /\.article-section pre \{[^}]*overflow-x: auto;/);
+  assert.match(css, /\.table-scroll \{[^}]*overflow-x: auto;/);
+  assert.match(css, /\.table-scroll table \{[^}]*min-width: 620px;/);
   assert.match(css, /prefers-reduced-motion: reduce/);
   assert.match(css, /@media \(max-width: 680px\)/);
   assert.match(css, /\.resource-filter-bar \{[\s\S]*?flex-wrap: wrap;/);
   assert.match(filters, /aria-current/);
   assert.match(renderHub(makeArticles()), /aria-live="polite"/);
+});
+
+test('articles expose descriptive titles, reading time and relevant next reads', () => {
+  const article = makeArticle(1);
+  const related = makeArticle(2, { category: article.category });
+  const unrelated = makeArticle(3);
+  const html = renderArticle(article, [article, related, unrelated]);
+  assert.ok(html.includes(`<h1>${article.title}</h1>`));
+  assert.match(html, /Read the guide/);
+  assert.equal(readingMinutes(article), 1);
+  assert.equal(readingMinutes(makeArticle(4, { sections: [{html: `<p>${'word '.repeat(401)}</p>`}] })), 3);
+  const navigation = html.match(/<nav class="article-related"[\s\S]*?<\/nav>/)[0];
+  assert.ok(navigation.includes(`/cadence/resources/${related.slug}/`));
+  assert.ok(!navigation.includes(`/cadence/resources/${article.slug}/`));
+  assert.ok(!navigation.includes(`/cadence/resources/${unrelated.slug}/`));
+  assert.ok(!renderArticle(article).includes('class="article-related"'));
 });
 
 test('topic filters select a category, hide other sections and announce its result count', () => {
