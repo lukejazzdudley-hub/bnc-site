@@ -226,7 +226,7 @@ test('builder emits the hub and ten articles without replacing sitemap content',
 
   assert.equal(result.articleCount, 10);
   assert.equal(result.routes.length, 11);
-  assert.match(readFileSync(path.join(temporaryRoot, 'cadence/resources/index.html'), 'utf8'), /Songwriting guides/);
+  assert.match(readFileSync(path.join(temporaryRoot, 'cadence/resources/index.html'), 'utf8'), /Start anywhere/);
   for (const article of articles) {
     assert.match(
       readFileSync(path.join(temporaryRoot, `cadence/resources/${article.slug}/index.html`), 'utf8'),

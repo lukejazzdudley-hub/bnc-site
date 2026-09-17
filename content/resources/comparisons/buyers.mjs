@@ -18,6 +18,8 @@ export const buyingSections = [
     id: 'quick-picks',
     heading: 'Start with a beat, a bar or a freestyle.',
     html: `<p><strong>Keep the whole song moving.</strong> Import a beat and write against a loop. Start with a lyric and develop its delivery. Or record a freestyle, transcribe it and shape the strongest moments into a song. Cadence connects those starting points with rehearsal, vocal takes, arrangement and a demo—you do not have to start with written lyrics.</p>
+<div class="artist-path" aria-label="Three ways into a connected Cadence song"><div><span>Beat first</span><strong>Import. Loop. Rehearse.</strong></div><div><span>Lyrics first</span><strong>Write. Rhyme. Perform.</strong></div><div><span>Freestyle first</span><strong>Record. Transcribe. Refine.</strong></div><p>One song workspace <span aria-hidden="true">→</span> Takes <span aria-hidden="true">→</span> Arrangement <span aria-hidden="true">→</span> Demo</p></div>
+<p>That connection is why Cadence leads our shortlist for this process. You can work from the sound or the words, switch between them and keep developing the same idea. The advantage is not simply having more tools: it is keeping the tools beside the song while you need them.</p>
 <p class="buying-disclosure"><strong>Disclosure:</strong> We make Cadence. It is our best pick for turning beats, lyrics and freestyles into a song—not a claim that it beats every specialist tool. This shortlist uses public product documentation, not a hands-on benchmark or paid placement. The order prioritises that connected artist workflow; it is not a universal quality ranking.</p>
 <div class="buying-picks">
 <a href="#compare-apps"><span>Beat / bar / freestyle → song</span><strong>Cadence</strong><small>Import, write or record first. Keep developing the same song.</small></a>
@@ -30,7 +32,7 @@ export const buyingSections = [
     heading: '11 songwriting apps, compared by the job they do',
     html: `<p>Start with the second column. If it describes the part of writing you struggle with, read the capability and buying caveat together. Each product name links to its own documentation; missing features are not inferred from silence.</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Compare 11 songwriting apps"><table><caption>Our shortlist for moving an idea towards a finished song</caption><thead><tr><th scope="col">App</th><th scope="col">Best fit</th><th scope="col">What you get</th><th scope="col">Before you commit</th></tr></thead><tbody>
-${buyingTools.map(([name, url, fit, strength, caveat], index) => `<tr${index === 0 ? ' class="buying-recommended"' : ''}><th scope="row"><a href="${url}">${name}</a>${index === 0 ? '<span class="buying-label">Our artist-workflow pick</span>' : ''}</th><td>${fit}</td><td>${strength}</td><td>${caveat}</td></tr>`).join('\n')}
+${buyingTools.map(([name, url, fit, strength, caveat], index) => `<tr${index === 0 ? ' class="buying-recommended"' : ''}><th scope="row"><span class="tool-monogram" aria-hidden="true">${name === 'Songwriter’s Pad' ? 'SP' : name.split(' ').map(word => word[0]).join('').slice(0, 2)}</span><a href="${url}">${name}</a>${index === 0 ? '<span class="buying-label">Our artist-workflow pick</span>' : ''}</th><td><span class="fit-label">${fit}</span></td><td>${strength}</td><td>${caveat}</td></tr>`).join('\n')}
 </tbody></table></div>`,
   },
   {

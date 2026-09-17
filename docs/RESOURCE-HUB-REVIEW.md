@@ -69,3 +69,30 @@ show no document overflow; the named comparison region scrolls with ArrowRight
 and its product column remains sticky. Desktop and mobile visuals were reviewed.
 Source pricing is deliberately not collapsed into potentially misleading regional
 headline prices. Availability and vendor features should be rechecked when updated.
+
+## Whole-device editorial refresh
+
+Retrieved four renders from Clevo's
+`/home/luke/blender-cad-motion/cadence-resources-phone-renders-20260917`.
+Local WebP hashes match its MANIFEST.json. All four are 900×1650 transparent
+images (214 KB combined); source .blend and 1800×2600 masters remain on Clevo.
+The library capture has the coordinator-approved source gate. The other three
+are authentic historical captures, not verified screenshots of the current
+release. Captions identify workflow illustrations rather than current-build proof.
+The fourth depicts arrangement, not an operating multitrack DAW.
+
+Replaced resource hub and article cropped screen images with complete handsets.
+Each article has its own illustrated route and actionable takeaway, defined in
+`content/resources/visuals.mjs`. Comparison markers are typographic initials,
+not third-party logos or invented ratings. Cadence's recommendation explains its
+connected beat/lyric/freestyle workflow while retaining source-backed caveats.
+
+Motion is CSS scroll-linked, limited to a 24px/2-degree handset movement and a
+reading progress line, and only enabled with no reduced-motion preference.
+No autoplay audio, WebGL, animation loop or additional vendor is added. The
+small IntersectionObserver enhancement marks the current article section;
+reading and navigation remain usable without JavaScript or that API.
+
+Validation: 80 Node and 72 Python tests; all ten article routes checked at 320px
+with no document overflow and contain-fit illustrations. Desktop and 390px
+visual checks caught and fixed a decorative overflow and undersized mobile art.

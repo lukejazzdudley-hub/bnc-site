@@ -6,6 +6,7 @@ import {
 } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import {renders, visualGuides} from '../content/resources/visuals.mjs';
 
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 export const DEFAULT_ROOT = path.resolve(SCRIPT_DIR, '..');
@@ -26,20 +27,20 @@ const CATEGORY_PRESENTATION = {
   'Choose your tools': {
     id: 'choose-your-tools',
     description: 'Pick the workspace that fits the way you write, record and finish.',
-    image: '/assets/cadence/screens/library.webp',
+    image: renders.library.src,
     imageAlt: 'Cadence song library showing projects and songs',
   },
   'Improve your writing': {
     id: 'improve-your-writing',
     description: 'Work with rhyme, stress and structure without flattening your voice.',
-    image: '/assets/cadence/screens/rhyme-families.webp',
+    image: renders.rhyme.src,
     imageAlt: 'Cadence lyric editor with rhyme families beside the draft',
   },
   'Finish your ideas': {
     id: 'finish-your-ideas',
     description: 'Move a lyric or voice memo towards a performance you can hear and share.',
-    image: '/assets/cadence/screens/arrange-to-daw.webp',
-    imageAlt: 'Cadence arrangement moving into a multitrack session',
+    image: renders.arrange.src,
+    imageAlt: renders.arrange.alt,
   },
 };
 
@@ -174,7 +175,8 @@ function renderHead({ title, description, canonical, schema, image = '/assets/ca
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#07090c">
   <link rel="icon" href="/assets/cadence/app-icon.webp">
-  <link rel="stylesheet" href="/cadence/resources/resource.css?v=20260917e">
+  <link rel="stylesheet" href="/cadence/resources/resource.css?v=20260918a">
+  <script type="module" src="/cadence/resources/reading.mjs"></script>
   <script type="application/ld+json">${renderJsonLd(schema)}</script>
   <script type="module" src="/cadence/media-policy.js"></script>`;
 }
@@ -270,7 +272,7 @@ export function renderHub(articles) {
     return `<section class="resource-topic" id="${presentation.id}" data-resource-topic="${escapeHtml(category)}" aria-labelledby="${presentation.id}-heading">
       <div class="resource-topic__heading">
         <div><h2 id="${presentation.id}-heading">${escapeHtml(category)}</h2><div>${escapeHtml(presentation.description)}</div></div>
-        <img src="${presentation.image}" alt="${escapeHtml(presentation.imageAlt)}" loading="lazy" width="620" height="1348">
+        <img src="${presentation.image}" alt="${escapeHtml(presentation.imageAlt)}" loading="lazy" width="900" height="1650">
       </div>
       <div class="resource-grid">${categoryArticles.map(renderArticleCard).join('')}</div>
     </section>`;
@@ -297,14 +299,13 @@ export function renderHub(articles) {
     <section class="resource-hero resource-shell" aria-labelledby="resource-title">
       <div class="resource-hero__copy">
         <p class="resource-breadcrumb"><a href="/cadence/">Cadence</a><span aria-hidden="true">/</span>Resources</p>
-        <h1 id="resource-title">Songwriting guides.<br>From first line to demo.</h1>
+        <h1 id="resource-title">Start anywhere.<br>Make it a song.</h1>
         <p>Practical guides for the messy middle of songwriting—from choosing a workspace and shaping a rhyme to turning a voice memo into a demo.</p>
         <div class="resource-actions"><a href="#resource-list">Browse the guides</a><a href="/cadence/rhyme-finder/">Try the free rhyme finder</a></div>
       </div>
       <figure class="resource-hero__evidence">
         <picture>
-          <source media="(max-width: 680px)" srcset="/assets/cadence/v3/hero-mobile.webp">
-          <img src="/assets/cadence/v3/hero-desktop.webp" alt="Cadence on a phone showing a populated song library" width="1000" height="1400">
+          <img src="${renders.library.src}" alt="${renders.library.alt}" width="900" height="1650">
         </picture>
         <figcaption>Real Cadence workspace</figcaption>
       </figure>
@@ -345,20 +346,29 @@ function renderSources(sources) {
 function articleImage(category) {
   if (category === 'Improve your writing') {
     return {
-      src: '/assets/cadence/screens/rhyme-families.webp',
+      src: renders.rhyme.src,
       alt: 'Cadence lyric editor with highlighted rhyme families and suggestions',
     };
   }
   if (category === 'Finish your ideas') {
     return {
-      src: '/assets/cadence/screens/arrange-to-daw.webp',
-      alt: 'Cadence arrangement and multitrack workflow on a phone',
+      src: renders.arrange.src,
+      alt: renders.arrange.alt,
     };
   }
   return {
-    src: '/assets/cadence/screens/library.webp',
+    src: renders.library.src,
     alt: 'Cadence library showing songwriting projects and songs',
   };
+}
+
+export function renderFieldNote(guide) {
+  if (!guide) return '';
+  const image = renders[guide.image];
+  return `<aside id="workflow-in-practice" class="field-note" aria-label="${escapeHtml(guide.title)}">
+    <figure><img src="${image.src}" alt="${escapeHtml(image.alt)}" width="900" height="1650" loading="lazy"><figcaption>Cadence workflow illustration. Interface may vary by version.</figcaption></figure>
+    <div><h2>${escapeHtml(guide.title)}</h2><ol class="workflow-route">${guide.steps.map(step => `<li>${escapeHtml(step)}</li>`).join('')}</ol><p>${escapeHtml(guide.takeaway)}</p><a href="${guide.href}">${escapeHtml(guide.action)}</a></div>
+  </aside>`;
 }
 
 export function renderArticle(article, allArticles = []) {
@@ -366,6 +376,7 @@ export function renderArticle(article, allArticles = []) {
   const canonical = `${DOMAIN}/cadence/resources/${article.slug}/`;
   const title = `${article.title} | Cadence`;
   const image = articleImage(article.category);
+  const guide = visualGuides[article.slug];
   const schema = [
     {
       '@context': 'https://schema.org',
@@ -390,9 +401,9 @@ export function renderArticle(article, allArticles = []) {
       ],
     },
   ];
-  const contents = article.sections.map((section) => `<li><a href="#${section.id}">${escapeHtml(section.heading)}</a></li>`).join('');
+  const contents = article.sections.map((section, index) => `${guide && index === 2 ? '<li><a href="#workflow-in-practice">The workflow in practice</a></li>' : ''}<li><a href="#${section.id}">${escapeHtml(section.heading)}</a></li>`).join('');
   const related = allArticles.filter(candidate => candidate.slug !== article.slug && candidate.category === article.category).slice(0, 2);
-  const sections = article.sections.map((section) => `<section id="${section.id}" class="article-section" aria-labelledby="${section.id}-heading">
+  const sections = article.sections.map((section, index) => `${index === 2 ? renderFieldNote(guide) : ''}<section id="${section.id}" class="article-section" aria-labelledby="${section.id}-heading">
     <h2 id="${section.id}-heading">${escapeHtml(section.heading)}</h2>
     ${section.html}
   </section>`).join('');
@@ -403,6 +414,7 @@ export function renderArticle(article, allArticles = []) {
   ${renderHead({ title, description: article.description, canonical, schema, image: image.src })}
 </head>
 <body class="resource-page resource-article">
+  <div class="reading-progress" aria-hidden="true"></div>
   ${renderHeader()}
   <main id="main">
     <header class="article-hero resource-shell">
@@ -413,8 +425,8 @@ export function renderArticle(article, allArticles = []) {
         <div class="resource-actions"><a href="#${article.sections[0].id}">Read the guide</a><span>${readingMinutes(article)} min read</span></div>
       </div>
       <figure>
-        <img src="${image.src}" alt="${escapeHtml(image.alt)}" width="620" height="1348">
-        <figcaption>Inside the Cadence writing workspace</figcaption>
+        <img src="${image.src}" alt="${escapeHtml(image.alt)}" width="900" height="1650">
+        <figcaption>A complete workspace for the idea.</figcaption>
       </figure>
     </header>
 
@@ -432,8 +444,8 @@ export function renderArticle(article, allArticles = []) {
         ${related.length ? `<nav class="article-related" aria-label="Related guides"><h2>Keep exploring</h2>${related.map(candidate => `<a href="/cadence/resources/${candidate.slug}/">${escapeHtml(candidate.title)}</a>`).join('')}</nav>` : ''}
         <aside class="article-next">
           <p>Keep the idea moving</p>
-          <h2>Take the words back to the song.</h2>
-          <p>Cadence keeps lyrics, rhyme ideas, beats and vocal takes in one workspace as the draft develops.</p>
+          <h2>Your next song can start anywhere.</h2>
+          <p>A beat, a bar or a freestyle. Import, write or record first—then keep the takes, arrangement and demo connected in Cadence.</p>
           <a href="/cadence/">Explore Cadence</a>
         </aside>
       </article>

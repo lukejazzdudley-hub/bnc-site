@@ -1,0 +1,21 @@
+const root = '/assets/cadence/resources/';
+export const renders = {
+  library: {src: `${root}01-library-neutral.webp`, alt: 'Cadence song library displayed on a complete neutral graphite handset'},
+  rhyme: {src: `${root}02-lyrics-rhyme-three-quarter.webp`, alt: 'Cadence rhyme families and inspector on a complete angled handset'},
+  takes: {src: `${root}03-beat-writing-opposite.webp`, alt: 'Cadence vocal takes and beat loop controls on a complete angled handset'},
+  arrange: {src: `${root}04-arrangement-daw.webp`, alt: 'Cadence song map and beat alignment in the arrangement workspace'},
+};
+
+// These are reading aids, not assertions that one capture depicts every stage.
+export const visualGuides = {
+  'choosing-a-songwriting-app': {image: 'takes', title: 'The first idea is only the beginning.', steps: ['Rehearse the idea', 'Keep the takes', 'Shape the arrangement'], takeaway: 'Start with a beat, a bar or a freestyle. Cadence keeps the next decisions connected to the same song.', action: 'Explore the connected workspace', href: '/cadence/'},
+  'cadence-vs-bandlab': {image: 'takes', title: 'Keep the performance beside the words.', steps: ['Loop the section', 'Try the delivery', 'Keep the take'], takeaway: 'Cadence is a compelling fit when the song grows through repeated passes between a beat, the words and your voice.', action: 'See beat-led writing', href: '/cadence/rap-writing-app/'},
+  'cadence-vs-garageband': {image: 'arrange', title: 'Give the idea a shape before polishing it.', steps: ['Choose sections', 'Place the takes', 'Build the demo'], takeaway: 'Compare the route from a first idea to an arrangement—not only the number of instruments in the toolbox.', action: 'Follow an arrangement', href: '/cadence/springtime-showers/'},
+  'cadence-vs-song-cage': {image: 'rhyme', title: 'From something on the page to something you can perform.', steps: ['Find the words', 'Hear the delivery', 'Shape the song'], takeaway: 'Choose around your starting point: a beat and a vocal idea, or a chord and melody composition.', action: 'Explore songwriting in Cadence', href: '/cadence/songwriting-app/'},
+  'writing-rap-lyrics-over-a-beat': {image: 'takes', title: 'The beat is part of the writing.', steps: ['Loop a passage', 'Leave room to breathe', 'Record a pass'], takeaway: 'A line that reads well still needs to land in time. Keep the beat audible while you test the delivery.', action: 'Try the beat-led workflow', href: '/cadence/rap-writing-app/'},
+  'perfect-slant-multisyllabic-rhymes': {image: 'rhyme', title: 'Hear the relationship. Then choose the rhyme.', steps: ['Find the stress', 'Compare the sounds', 'Keep the meaning'], takeaway: 'Rhyme suggestions are options, not instructions. Read the full line aloud before committing to the match.', action: 'Explore the rhyme finder', href: '/cadence/rhyme-finder/'},
+  'internal-rhymes-and-rhyme-schemes': {image: 'rhyme', title: 'Make a pattern the ear can follow.', steps: ['Set the landing', 'Weave inside it', 'Break it on purpose'], takeaway: 'Use internal rhymes to move a phrase forward. Leave space around the line you want the listener to remember.', action: 'Explore rhyme relationships', href: '/cadence/rhyme-finder/'},
+  'syllables-stress-and-flow': {image: 'rhyme', title: 'Count helps. Delivery decides.', steps: ['Speak the line', 'Mark the stresses', 'Try it on the beat'], takeaway: 'Equal syllable counts do not guarantee equal flow. Where the weight falls matters just as much.', action: 'Write against a beat', href: '/cadence/rap-writing-app/'},
+  'organise-voice-memos-into-songs': {image: 'takes', title: 'Keep the moment, not just the file.', steps: ['Name the idea', 'Keep its context', 'Choose the next move'], takeaway: 'The recording preserves delivery; a checked transcript helps you work on the words. Keep both attached to the song.', action: 'Turn a memo into a draft', href: '/cadence/voice-memos-to-lyrics/'},
+  'lyric-draft-to-recorded-demo': {image: 'arrange', title: 'A demo should make the next decision easier.', steps: ['Test the delivery', 'Shape the sections', 'Share a useful draft'], takeaway: 'Finish enough to communicate the song. Keep important recordings exported before handing the project over.', action: 'See arrangement and takes', href: '/cadence/springtime-showers/'},
+};
