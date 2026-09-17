@@ -16,6 +16,10 @@ test('buying guide compares eleven named tools with source links and a disclosed
   assert.match(html, /We make Cadence/);
   assert.match(html, /not a hands-on benchmark/);
   assert.match(html, /aria-label="Compare 11 songwriting apps"/);
+  assert.equal(guide.sections[0].heading, 'Start with a beat, a bar or a freestyle.');
+  assert.match(html, /Our artist-workflow pick/);
+  assert.match(html, /Import beats/);
+  assert.doesNotMatch(html, /lyric-first pick|recommendation for lyric-first/);
   assert.doesNotMatch(html, /AggregateRating|tested for six weeks/);
 });
 
