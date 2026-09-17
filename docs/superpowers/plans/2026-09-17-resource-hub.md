@@ -1,6 +1,6 @@
 # Cadence resource hub implementation plan
 
-Approved content/design map is recorded in ../.. /CONTRACTS.md (docs/CONTRACTS.md).
+Approved content/design map is recorded in docs/CONTRACTS.md.
 Architecture: authored ESM content rendered to static crawlable HTML; reuse
 accepted brand assets and on-demand browser tool. No CMS/runtime vendor.
 

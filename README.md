@@ -42,8 +42,16 @@ Open `http://127.0.0.1:8000`. The development server supports the same clean rou
 
 ## Validation
 
+Regenerate editorial pages before validation (the second command extends the
+sitemap produced by the first):
+
 ```bash
-python3 -m unittest discover -s tests -p '*test.py' -v
+node scripts/build_search_pages.mjs
+node scripts/build_resource_hub.mjs
+```
+
+```bash
+python3 -m unittest discover -s tests -p '*test*.py' -v
 node --test tests/*.test.mjs
 deno test supabase/functions/cadence-beta-feedback/handler.test.ts \
   supabase/functions/cadence-beta-feedback/store.test.ts

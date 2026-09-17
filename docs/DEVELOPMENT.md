@@ -7,7 +7,14 @@
 - Deno;
 - Supabase CLI for deployment only.
 
-No frontend package install or build step is required.
+No frontend package install is required. Editorial source changes must be
+regenerated with `node scripts/build_search_pages.mjs` followed by
+`node scripts/build_resource_hub.mjs`; commit generated HTML and sitemap too.
+
+Resource content lives in `content/resources/guides/` and
+`content/resources/comparisons/`. Keep source checks truthful and update their
+dates only after rechecking the cited product information. Do not imply hands-on
+testing from a vendor-documentation comparison or invent ratings and authors.
 
 ## Workflow
 

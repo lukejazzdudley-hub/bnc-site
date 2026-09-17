@@ -55,7 +55,6 @@ Four stops from nowhere, still KNOW who I am</p></blockquote>
     ],
     sources: [
       { title: 'Lyric Writing: Writing Lyrics to Music — Berklee Online', url: 'https://online.berklee.edu/courses/lyric-writing-writing-lyrics-to-music', checked },
-      { title: 'Rhyme — Poetry Foundation glossary', url: 'https://www.poetryfoundation.org/education/glossary/rhyme', checked },
       { title: 'Cadence songwriting workspace', url: 'https://brandnamechanges.com/cadence/', checked }
     ]
   },
