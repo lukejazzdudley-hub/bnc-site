@@ -970,6 +970,20 @@ body.resource-page {
   }
 }
 
+.buying-disclosure { border-left: 2px solid #bfc7d4; padding: 16px 20px; background: #ffffff05; }
+.buying-picks { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 28px 0; }
+.buying-picks a { display: flex; flex-direction: column; gap: 12px; padding: 24px 20px; border: 1px solid #ffffff24; border-radius: 18px; background: radial-gradient(ellipse at top left, #b9c6df18, transparent 85%), #111318; text-decoration: none; transition: border-color .2s, background-color .2s; }
+.buying-picks a:hover { border-color: #bfc7d4; background-color: #1b1e25; }
+.buying-picks span, .buying-picks small { color: #bac1ce; font-size: .85rem; line-height: 1.55; }
+.buying-picks strong { color: #f5f6fa; font-size: 1.15rem; line-height: 1.35; }
+#compare-apps table { min-width: 700px; }
+#compare-apps caption { text-align: left; padding: 18px; color: #c6cdda; }
+#compare-apps th:first-child { width: 18%; }
+#compare-apps tbody th { position: sticky; left: 0; background: #15171d; z-index: 1; box-shadow: 1px 0 #ffffff20; }
+#compare-apps .buying-recommended > * { background-color: #232832; }
+.buying-label { display: block; margin-top: 10px; font-size: .7rem; font-weight: 500; color: #d0d8e6; }
+@media (max-width: 700px) { .buying-picks { grid-template-columns: 1fr; } .buying-picks a { padding: 20px; } #compare-apps table { min-width: 860px; } #compare-apps th:first-child { width: 130px; } }
+
 @media (forced-colors: active) {
   .resource-filter-bar a[aria-current="true"],
   .resource-product > a,
