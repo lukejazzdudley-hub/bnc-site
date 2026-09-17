@@ -8,6 +8,15 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 SLUGS = ['songwriting-app', 'rap-writing-app', 'voice-memos-to-lyrics', 'springtime-showers', 'rhyme-finder']
 
 class SearchPages(unittest.TestCase):
+    def test_established_transparent_brand_animation(self):
+        for slug in SLUGS:
+            html = (ROOT / 'cadence' / slug / 'index.html').read_text()
+            self.assertIn('data-animated-mark', html)
+            self.assertIn('/assets/cadence/cadence-mark.webp', html)
+            self.assertIn('prefers-reduced-motion: reduce', html)
+            self.assertIn('/cadence/media-policy.js', html)
+            self.assertNotIn('<img src="/assets/cadence/app-icon.webp"', html)
+
     def test_metadata_and_internal_assets(self):
         for slug in SLUGS:
             html = (ROOT / 'cadence' / slug / 'index.html').read_text()
