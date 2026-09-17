@@ -2,6 +2,17 @@
 
 ## Scope and cost
 
+Resource expansion: `/cadence/resources/` connects the five existing resources
+with six craft/workflow guides and four buying/comparison guides. Each article
+owns a distinct intent; no programmatic keyword variants or mass doorway pages.
+The hub is an acquisition experiment, not evidence of rankings or conversions.
+The complete sitemap has 23 routes, of which 16 form this resource collection.
+
+Editorial policy: original lyric examples, honest documentation-based competitor
+comparisons, near-claim source links and dates from real checks. No invented
+author credentials, customer quotes, independent scores or hands-on tests.
+Recheck availability, capabilities and any future price references before edits.
+
 Five static pages: songwriting app, rap writing app, voice memos to lyrics,
 Springtime Showers walkthrough and free English rhyme finder. Existing GitHub
 Pages hosting; no new subscription, database writes or paid inference API.

@@ -1,5 +1,18 @@
 # Architecture
 
+## Resource publishing
+
+The resource hub is static HTML generated from authored ESM records in
+`content/resources/`. Guides and comparisons are separate editorial collections;
+`scripts/build_resource_hub.mjs` owns rendering and sitemap extension. Existing
+search pages retain their URLs and link into `/cadence/resources/`.
+
+Build order is search-page generator, then resource-hub generator. Committed HTML
+is served directly by Pages; readers and crawlers do not need JavaScript for
+article content. Optional browser enhancements must not fetch user queries,
+gate reading or introduce analytics consent changes. Citations and checked dates
+are editorial evidence, not claims of hands-on comparative testing.
+
 ## Boundaries
 
 - **GitHub Pages:** immutable static marketing, legal, support and feedback-form assets.
