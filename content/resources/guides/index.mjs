@@ -84,17 +84,17 @@ Four stops from nowhere, still KNOW who I am</p></blockquote>
       {
         id: 'slant-and-assonance',
         heading: 'Slant rhyme keeps the door partly open',
-        html: String.raw`<p>Slant rhyme—also called half or off rhyme—shares important sounds without completing the full perfect-rhyme pattern. There is no single universal boundary. <em>Room/storm</em> can feel related through the sustained vowel colour and closing consonants in a particular delivery; <em>glass/lost</em> may connect through consonant shape and performance even though the vowels differ.</p>
-<p>Assonance focuses on repeated vowel sound, while consonance focuses on repeated consonant sound. In “slow road, no home,” the long “o” carries the chain. In “brick clock, back click,” the hard consonants provide much of the texture. These looser relations can suit uncertainty, conversation, menace, or forward motion because they echo without fully settling.</p>
-<p>Do not label a weak match “slant” merely to defend it. Put both words into their complete lines, perform them at tempo, and ask whether the relationship is audible without explanation. A rhyme can be technically close and still disappear behind an unstressed delivery. Conversely, pitch, elongation, and accent may pull two imperfect words closer in a sung or rapped phrase.</p>`
+        html: String.raw`<p>Slant rhyme—also called half or off rhyme—shares important sounds without completing the full perfect-rhyme pattern. Terminology varies, so name the actual sound relationship when precision matters. <em>Cat/cap</em> and <em>light/like</em> keep the stressed vowel but change the final consonant. Each pair is clearly related and clearly short of a perfect rhyme.</p>
+<p>Assonance repeats a vowel sound while the surrounding consonants can differ: “wide sky, bright fire” carries the long “i” sound across four words. Consonance repeats consonant sounds while the vowel changes: <em>blank/trunk</em> shares the final “nk” sound but moves from the vowel in <em>blank</em> to the vowel in <em>trunk</em>. Devices can overlap—<em>cat/cap</em> uses assonance inside a slant-rhyme pair—but they are not interchangeable labels.</p>
+<p>Do not label a weak match “slant” merely to defend it. Put both words into their complete lines, perform them at tempo, and ask whether the shared vowel or consonant relation is audible without explanation. Use the established pronunciation in the intended accent; do not force an unnatural vowel or swallow a consonant just to manufacture a match.</p>`
       },
       {
         id: 'multisyllabic-rhyme',
         heading: 'Multisyllabic rhyme matches a longer sound shape',
-        html: String.raw`<p>A multisyllabic rhyme matches across two or more syllables. The number of syllables in the written word is not enough; the matching sound and stress pattern matter. <em>Motion/ocean</em> forms a compact two-syllable match in many pronunciations. A phrase can participate too: “paper crown” might answer “take it down” when the delivery aligns their stressed vowels and tails.</p>
-<p>Build longer rhymes from the anchor outward:</p>
-<ol><li>Choose the most important stressed vowel: <em>crown</em>.</li><li>Collect useful sound neighbours: <em>down, ground, out, now</em>.</li><li>Add the preceding rhythm: <em>paper crown</em>.</li><li>Search for phrases with a compatible shape: <em>lay it down</em>, <em>wait around</em>.</li><li>Write complete thoughts, then keep only matches that sound natural at tempo.</li></ol>
-<p>A multi-word rhyme is not automatically multisyllabic, and a multisyllabic rhyme is not automatically good. “I state it now / the paper crown” has a promising sound span but vague meaning. “You built a paper crown / rain came and weighed it down” earns the rhyme by continuing the image.</p>`
+        html: String.raw`<p>A multisyllabic rhyme matches across two or more syllables. The number of syllables in the written word is not enough; the matching sound and stress pattern matter. <em>Motion/ocean</em> forms a compact two-syllable perfect rhyme in standard pronunciations because the sounds match from the stressed long “o” onward.</p>
+<p>A phrase can extend a rhyme without becoming an exact multisyllabic match. In “paper crown / take it down,” only <em>crown/down</em> forms the exact one-syllable rhyme; <em>paper/take it</em> does not match. The full pairing is better described as an approximate multi-word or phrase slant. Build that kind of longer echo from the anchor outward:</p>
+<ol><li>Choose the most important stressed vowel: <em>crown</em>.</li><li>Collect exact one-syllable neighbours: <em>down, ground, town</em>.</li><li>Add the preceding rhythm: <em>paper crown</em>.</li><li>Search for compatible phrases such as <em>lay it down</em>; label the whole phrase approximate unless its earlier syllables match too.</li><li>Treat <em>wait around</em> as a looser phrase slant because <em>crown/round</em> also changes the final consonant.</li><li>Write complete thoughts, then keep only matches that sound natural at tempo.</li></ol>
+<p>A multi-word rhyme is not automatically multisyllabic, and a multisyllabic rhyme is not automatically exact. “I state it now / the paper crown” has an approximate phrase echo but vague meaning. “You built a paper crown / rain came and weighed it down” uses the same approximate phrase/slant structure more effectively because it continues the image.</p>`
       },
       {
         id: 'choose-for-effect',
@@ -189,7 +189,7 @@ I <em>hold</em> to the wheel with the truth on my <strong>side</strong></p></blo
 <p>Mark each syllable with a dot:</p>
 <pre><code>The / win-dow / keeps / the / morn-ing / out
  1      2       1    1      2       1  = 8</code></pre>
-<p>Now compare “The morning stays outside my window.” It may also fit eight spoken syllables, but its stresses fall differently. Syllable count helps you spot crowding and imbalance; it cannot tell you whether a line grooves. Pronunciation tools can help with unfamiliar words, but CMUSphinx notes that a <a href="https://cmusphinx.github.io/wiki/tutorialdict/">phonetic dictionary maps words to phonemes</a> and cannot eliminate the irregularities of real pronunciation.</p>`
+<p>Now compare “Morning stays outside my window.” It has eight spoken syllables in standard pronunciation, but its stresses fall differently. Syllable count helps you spot crowding and imbalance; it cannot tell you whether a line grooves. Pronunciation tools can help with unfamiliar words, but CMUSphinx notes that a <a href="https://cmusphinx.github.io/wiki/tutorialdict/">phonetic dictionary maps words to phonemes</a> and cannot eliminate the irregularities of real pronunciation.</p>`
       },
       {
         id: 'hear-natural-stress',
