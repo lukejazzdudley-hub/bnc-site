@@ -1,0 +1,13 @@
+import { readFileSync, writeFileSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
+import path from 'node:path';
+import { createHash } from 'node:crypto';
+const source = process.argv[2];
+if (!source) throw new Error('Usage: node scripts/build_rhyme_dictionary.mjs /path/to/cmu-pronouncing-dictionary');
+const { dictionary } = await import(pathToFileURL(path.resolve(source, 'index.js')));
+const pkg = JSON.parse(readFileSync(path.join(source, 'package.json'), 'utf8'));
+const filtered = Object.fromEntries(Object.entries(dictionary).filter(([word]) => /^[a-z]+(?:'[a-z]+)?(?:\(\d+\))?$/.test(word)));
+const output = JSON.stringify(filtered);
+writeFileSync(new URL('../cadence/search/dictionary.json', import.meta.url), output);
+writeFileSync(new URL('../cadence/search/dictionary-provenance.json', import.meta.url), JSON.stringify({ package: pkg.name, version: pkg.version, entries: Object.keys(filtered).length, sha256: createHash('sha256').update(output).digest('hex'), source: 'https://github.com/words/cmu-pronouncing-dictionary', upstream: 'https://github.com/cmusphinx/cmudict', filter: 'English alphabetic headwords, apostrophes and alternate pronunciations; no proprietary app data.' }, null, 2) + '\n');
+console.log(`${Object.keys(filtered).length} pronunciations; ${output.length} bytes`);

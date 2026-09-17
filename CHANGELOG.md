@@ -4,6 +4,10 @@
 
 ### Added
 
+- Visitors can find English perfect and multisyllabic rhymes privately in their browser, without an account.
+- New guides cover songwriting, rap writing, voice-memo transcription and the Springtime Showers arrangement workflow, with real app footage.
+- Search engines can discover the website through a sitemap, canonical pages and structured metadata.
+
 - Cadence now opens on the source-locked V3 populated Library scene and closes its product story with a separately authored three-theme composition, both driven directly by scroll with desktop/mobile camera work preserved.
 - The V3.2 visual repair lifts the Library capture into its correct handset registration and replaces the theme trio's coloured edge halos with restrained neutral reflections.
 

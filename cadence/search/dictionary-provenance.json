@@ -1,0 +1,9 @@
+{
+  "package": "cmu-pronouncing-dictionary",
+  "version": "3.0.0",
+  "entries": 133043,
+  "sha256": "02c38e130b42c9473f00bec5a983205493959c2fd7b6921b05aa8438e3de0b88",
+  "source": "https://github.com/words/cmu-pronouncing-dictionary",
+  "upstream": "https://github.com/cmusphinx/cmudict",
+  "filter": "English alphabetic headwords, apostrophes and alternate pronunciations; no proprietary app data."
+}
