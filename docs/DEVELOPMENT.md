@@ -53,6 +53,12 @@ Schema changes require a new timestamped migration. Do not weaken RLS or add a p
 
 ## Troubleshooting
 
+Resource illustrations and reading routes live in `content/resources/visuals.mjs`;
+run `node scripts/build_resource_hub.mjs` after editing. Keep whole-device images
+in contain-fit frames. Check 320px and desktop, keyboard table scrolling and the
+no-JS reading fallback. Do not label historical render textures as current-build
+screenshots; provenance is recorded in `docs/RESOURCE-HUB-REVIEW.md`.
+
 - A clean URL returning 404 under `python3 -m http.server` is expected; use `serve.py`.
 - If the form preserves answers but evidence fails, inspect TUS create/PATCH responses and then finalize status. Do not ask the tester to rewrite the response.
 - If an import reports duplicates, compare only counts or hash prefixes in logs; never print participant rows during routine verification.

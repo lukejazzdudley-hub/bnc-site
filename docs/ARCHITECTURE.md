@@ -47,6 +47,12 @@ The static site has no service credential. `anon` and `authenticated` receive no
 
 ## Operational constraints
 
+Resource articles are generated static HTML. `content/resources/visuals.mjs`
+maps topic-specific illustrations and reading routes. `reading.mjs` only marks
+the current contents link using IntersectionObserver; it does not fetch data,
+track readers or control scrolling. CSS scroll timelines enhance illustrations
+when supported and motion is allowed, with a static fallback otherwise.
+
 - 3 evidence files maximum;
 - 100 MiB maximum per file and 200 MiB per response;
 - allowlisted image/video MIME types only;

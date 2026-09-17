@@ -4,6 +4,8 @@
 
 ### Added
 
+- Resource pages now use complete neutral Blender handsets instead of cropped screenshots, with topic-specific illustrated reading breaks, visual writing routes and clearer comparison markers. Subtle scroll-linked motion, reading progress and current-section navigation respect reduced-motion preferences.
+
 - Cadence’s buying-guide recommendation now covers beat-first, lyric-first and freestyle-first songwriting, including beat import, rehearsal, transcription, takes and arrangement—not only lyric writing.
 
 - The buying guide now compares 11 songwriting tools with linked primary sources, clear buying caveats and workflow-specific recommendations. Quick-pick cards and a mobile-scrollable table make the shortlist easier to use; Cadence’s ownership and recommendation criteria are explicit.
