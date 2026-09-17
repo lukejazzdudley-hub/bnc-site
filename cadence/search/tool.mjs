@@ -29,7 +29,7 @@ function receive({ data }) {
   for (const match of data.results) {
     const item = document.createElement('li');
     const small = document.createElement('small');
-    small.textContent = match.phrase ? 'Phrase · matching ending' : `${match.syllables} ${match.syllables === 1 ? 'syllable' : 'syllables'}`;
+    small.textContent = match.matchedSyllables ? `${match.matchedSyllables}-syllable phrase ${match.distance ? 'slant' : 'match'}` : match.phrase ? 'Phrase · matching ending' : `${match.syllables} ${match.syllables === 1 ? 'syllable' : 'syllables'}`;
     item.append(document.createTextNode(match.word), small);
     results.append(item);
   }
@@ -71,6 +71,7 @@ language.addEventListener('change', () => {
 });
 for (const button of document.querySelectorAll('[data-example]')) button.addEventListener('click', () => {
   field.value = button.dataset.example;
+  if (button.dataset.mode) form.elements.mode.value = button.dataset.mode;
   form.requestSubmit();
 });
 document.querySelector('#tool-controls').hidden = false;

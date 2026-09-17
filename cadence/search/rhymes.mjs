@@ -14,11 +14,14 @@ export function tail(phones) {
 export function createIndex(dictionary, { language = 'en', phrases = [], frequencies = null } = {}) {
   const readings = new Map();
   const families = new Map();
+  const pronunciations = new Map();
   for (const [raw, phones] of Object.entries(dictionary)) {
-    // Reduced function-word pronunciations (e.g. unstressed "that") are not rhyme targets.
-    if (!/[12](?: |$)/.test(phones)) continue;
     const word = normalize(raw.replace(/\(\d+\)$/, ''), language);
     if (!/^[\p{L}\p{M}]+(?:'[\p{L}\p{M}]+)?$/u.test(word)) continue;
+    if (!pronunciations.has(word)) pronunciations.set(word, new Set());
+    pronunciations.get(word).add(phones.replace(/\d/g, ''));
+    // Preserve reduced forms for phrase interiors, not standalone rhyme targets.
+    if (!/[12](?: |$)/.test(phones)) continue;
     const key = tail(phones);
     if (!key) continue;
     if (!readings.has(word)) readings.set(word, new Set());
@@ -27,23 +30,56 @@ export function createIndex(dictionary, { language = 'en', phrases = [], frequen
     families.get(key).set(word, { word, syllables: (phones.match(/\d/g) || []).length });
   }
   const phraseFamilies = new Map();
+  const phraseSounds = new Map();
   for (const raw of phrases) {
     const phrase = normalize(raw, language);
     const words = phrase.split(' ');
-    if (words.length < 2 || words.some(word => !readings.has(word))) continue;
-    for (const key of readings.get(words.at(-1))) {
+    if (words.length < 2 || words.some(word => !pronunciations.has(word))) continue;
+    phraseSounds.set(phrase, phraseSignatures(pronunciations, words, true));
+    for (const key of readings.get(words.at(-1)) || []) {
       if (!phraseFamilies.has(key)) phraseFamilies.set(key, new Map());
       phraseFamilies.get(key).set(phrase, { word: phrase, phrase: true });
     }
   }
-  return { readings, families, phraseFamilies, language, frequencies };
+  return { readings, families, phraseFamilies, phraseSounds, pronunciations, language, frequencies };
+}
+
+// Compare 2–4 vowel nuclei across an actual word boundary, retaining consonants.
+// Bound pronunciation combinations so unfamiliar input cannot explode work.
+function phraseSignatures(pronunciations, words, mustCrossBoundary = false) {
+  if (words.length > 6) return [];
+  let variants = [{phones:[], lastStart:0}];
+  for (const word of words) {
+    const next = [];
+    for (const prefix of variants) {
+      for (const reading of pronunciations.get(word) || []) {
+        next.push({phones:[...prefix.phones, ...reading.split(' ')], lastStart:prefix.phones.length});
+        if (next.length >= 32) break;
+      }
+      if (next.length >= 32) break;
+    }
+    variants = next;
+  }
+  const found = new Map();
+  for (const {phones, lastStart} of variants) {
+    const vowels = phones.flatMap((p,i) => isVowel(p) ? [i] : []);
+    for (let depth = 2; depth <= Math.min(4, vowels.length); depth++) {
+      const start = vowels.at(-depth);
+      if (mustCrossBoundary && start >= lastStart) continue;
+      const key = phones.slice(start).join(' ');
+      found.set(key, {key, depth});
+    }
+  }
+  return [...found.values()];
 }
 
 export function findRhymes(index, input, mode = 'perfect') {
   const word = normalize(input, index.language);
-  if (!['perfect', 'multi', 'slant', 'phrase'].includes(mode) ||
+  if (!['perfect', 'multi', 'slant', 'phrase', 'endings'].includes(mode) ||
       !/^[\p{L}\p{M}]+(?:[' ][\p{L}\p{M}]+)*$/u.test(word) || word.length > 60) return { state: 'invalid', results: [] };
   const inputWords = word.split(' ');
+  if (inputWords.length > 6) return {state:'invalid',results:[]};
+  if (mode === 'phrase') return findPhraseRhymes(index, word, inputWords);
   if (inputWords.some(w => !index.readings.has(w))) return { state: 'unknown', results: [] };
   const keys = index.readings.get(inputWords.at(-1));
   if (!keys) return { state: 'unknown', results: [] };
@@ -60,7 +96,7 @@ export function findRhymes(index, input, mode = 'perfect') {
     // Multi-syllabic means at least two matching vowel nuclei, not just a long word.
     const depth = key.split(' ').filter(p => /^(AA|AE|AH|AO|AW|AY|EH|ER|EY|IH|IY|OW|OY|UH|UW)$/.test(p)).length;
     if (mode === 'multi' && depth < 2) continue;
-    const candidates = mode === 'phrase' ? index.phraseFamilies.get(key)?.values() || [] : index.families.get(key).values();
+    const candidates = mode === 'endings' ? index.phraseFamilies.get(key)?.values() || [] : index.families.get(key).values();
     if (mode !== 'slant') for (const result of candidates) {
       if (result.word !== word && !result.word.split(' ').includes(inputWords.at(-1))) add(result);
     }
@@ -75,6 +111,29 @@ export function findRhymes(index, input, mode = 'perfect') {
   const score = r => r.frequency - 2 * r.distance;
   const all = [...matches.values()].sort((a, b) => score(b) - score(a) || (a.syllables || 0) - (b.syllables || 0) || a.word.localeCompare(b.word, index.language));
   return { state: 'known', total: all.length, results: all.slice(0, 150) };
+}
+
+function findPhraseRhymes(index, query, words) {
+  if (words.some(w => !index.pronunciations.has(w))) return {state:'unknown',results:[]};
+  const sounds = phraseSignatures(index.pronunciations, words);
+  const results = [];
+  for (const [phrase, candidates] of index.phraseSounds) {
+    if (phrase === query) continue;
+    const frequency = index.frequencies ? Math.min(...phrase.split(' ').map(w=>index.frequencies[w] || 0)) : 0;
+    if (index.frequencies && frequency < 3.2) continue;
+    let best;
+    for (const a of sounds) for (const b of candidates) {
+      if (a.depth !== b.depth) continue;
+      const distance = a.key === b.key ? 0 : slantDistance(a.key,b.key);
+      if (!Number.isFinite(distance)) continue;
+      if (!best || a.depth > best.matchedSyllables || (a.depth === best.matchedSyllables && distance < best.distance)) {
+        best = {word:phrase,phrase:true,matchedSyllables:a.depth,distance,frequency};
+      }
+    }
+    if (best) results.push(best);
+  }
+  results.sort((a,b)=>b.matchedSyllables-a.matchedSyllables || a.distance-b.distance || b.frequency-a.frequency || a.word.localeCompare(b.word,index.language));
+  return {state:'known',total:results.length,results:results.slice(0,150)};
 }
 
 const isVowel = p => /^(AA|AE|AH|AO|AW|AY|EH|ER|EY|IH|IY|OW|OY|UH|UW)$/.test(p);

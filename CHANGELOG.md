@@ -4,6 +4,8 @@
 
 ### Added
 
+- Multi-word rhyme searches now compare sounds across word boundaries, including “ice cream” / “I scream”. A separate Phrase endings option retains final-word matches, and the small curated bank's coverage is clearly stated.
+
 - The browser rhyme finder adds conservative slant matches and curated multi-word endings, filters English name noise, and downloads a smaller verified dictionary only when searched. Other language choices clearly show their pending availability.
 
 - Visitors can find English perfect and multisyllabic rhymes privately in their browser, without an account.
