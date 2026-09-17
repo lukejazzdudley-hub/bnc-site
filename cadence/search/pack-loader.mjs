@@ -11,6 +11,9 @@ export function validatePack(pack, expectedId) {
   }
   if (!Array.isArray(pack.phrases) || pack.phrases.length > 10000 ||
       pack.phrases.some(p => typeof p !== 'string' || p.length > 100)) throw new Error('Invalid phrase bank');
+  if (pack.id === 'en' && (!pack.frequencies || typeof pack.frequencies !== 'object' || Array.isArray(pack.frequencies) ||
+      Object.values(pack.frequencies).some(v => !Number.isFinite(v) || v < 0 || v > 9) ||
+      pack.entries.some(([word]) => !Object.hasOwn(pack.frequencies, word.replace(/\(\d+\)$/, ''))))) throw new Error('Invalid frequency data');
   return pack;
 }
 

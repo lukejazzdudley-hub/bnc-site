@@ -22,6 +22,8 @@
 
 ### Fixed
 
+- The English rhyme finder no longer puts obscure word-game entries such as “ais” ahead of useful words. Suggestions now use spelling checks, common-usage filtering and closer-sound ranking, while valid rare words remain searchable.
+
 - Search pages now use Cadence’s established transparent animated mark, with its reduced-motion fallback, instead of the boxed app icon.
 
 - The Cadence privacy policy now matches the app's explicit analytics consent: product analytics and Crashlytics stay off until the user enables Help improve Cadence.

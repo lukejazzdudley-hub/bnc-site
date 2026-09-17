@@ -15,7 +15,7 @@ self.onmessage = async ({ data }) => {
       if (!r.ok) throw new Error('Manifest unavailable');
       return r.json();
     }).then(manifest => loadPack(manifest[data.language], data.language))
-      .then(pack => createIndex(Object.fromEntries(pack.entries), { language: pack.id, phrases: pack.phrases }))
+      .then(pack => createIndex(Object.fromEntries(pack.entries), { language: pack.id, phrases: pack.phrases, frequencies: pack.frequencies }))
       .catch(error => { pending = null; throw error; });
     const index = await pending;
     self.postMessage({ id: data.id, ...findRhymes(index, data.word, data.mode) });
