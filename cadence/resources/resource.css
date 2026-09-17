@@ -648,6 +648,17 @@ body.resource-page {
   font-size: 1.28rem;
 }
 
+.article-section pre {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 16px;
+  background: var(--resource-raised);
+}
+
+.article-section pre code {
+  padding: 0;
+}
+
 .article-section code {
   padding: 0.12em 0.32em;
   background: var(--resource-raised);

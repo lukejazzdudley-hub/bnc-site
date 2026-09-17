@@ -174,7 +174,7 @@ function renderHead({ title, description, canonical, schema, image = '/assets/ca
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#07090c">
   <link rel="icon" href="/assets/cadence/app-icon.webp">
-  <link rel="stylesheet" href="/cadence/resources/resource.css">
+  <link rel="stylesheet" href="/cadence/resources/resource.css?v=20260917">
   <script type="application/ld+json">${renderJsonLd(schema)}</script>
   <script type="module" src="/cadence/media-policy.js"></script>`;
 }

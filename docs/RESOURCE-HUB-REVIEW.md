@@ -13,6 +13,8 @@ vendor, data collection or proprietary app dictionary publication.
 - Separated web rhyme-finder limitations from the app engine.
 - Source validator resolves relative and absolute local links equivalently.
 - Reduced-motion preference disables smooth topic-filter scrolling.
+- Mobile browser QA found preformatted rhythm and naming examples widening the
+  page. Their containers now scroll horizontally without widening the article.
 
 ## Evidence
 75 Node tests and 72 Python tests pass after integration. Repeated resource build
@@ -21,8 +23,12 @@ Agent branches integrated: codex/resource-guides, codex/resource-compare,
 codex/resource-ui. Content reviewed independently by orchestrator, not accepted
 solely from tests. No claimed comparative latency/audio/reliability benchmark.
 
-## Remaining release gate
-Full resource hub desktop/mobile visual QA: Chrome debugger detached, then new
-tab timed out. Permission requested to use in-app browser. Automated layout and
-content contracts do not replace visual acceptance. Do not claim this gate passed
-or publish the hub until actual rendered-page review is completed.
+## Rendered browser review
+Completed in the user-approved in-app browser after Chrome disconnected.
+Reviewed desktop hub, resource cards, mobile hub, article hero and comparison
+table screenshots. All ten articles were opened at 390px and 320px; the two
+preformatted-example overflow cases were corrected and rechecked at 320px.
+Topic selection announces four writing resources; All topics restores all ten.
+Article contents links reach the intended section. No broken images were found
+in the ten-route browser pass. Automated tests cover reduced-motion and no-JS
+fallback contracts; those are not claims of physical-device testing.

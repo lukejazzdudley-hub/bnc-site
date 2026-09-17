@@ -255,6 +255,7 @@ test('resource styles preserve keyboard focus, reduced motion and mobile reflow'
   const filters = readFileSync(path.join(root, 'cadence/resources/filters.mjs'), 'utf8');
 
   assert.match(css, /:focus-visible/);
+  assert.match(css, /\.article-section pre \{[^}]*overflow-x: auto;/);
   assert.match(css, /prefers-reduced-motion: reduce/);
   assert.match(css, /@media \(max-width: 680px\)/);
   assert.match(css, /\.resource-filter-bar \{[\s\S]*?flex-wrap: wrap;/);
