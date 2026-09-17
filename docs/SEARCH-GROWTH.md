@@ -35,6 +35,20 @@ Keep beta links accurate; switch iOS to the public store only after verifying re
 
 ## Maintenance and architecture
 
+The five pages share an onyx/silver editorial treatment with the main product
+page. `atmosphere.mjs` updates one background light on pointer movement, at most
+once per frame; it does not run a continuous animation loop or collect input.
+Coarse pointers and reduced-motion preferences keep a static background.
+Product imagery is authentic; comparison tables describe workflow categories,
+not unverified claims about named competitors. Authorship messaging does not
+claim the app contains no machine learning: transcription remains disclosed.
+
+Redesign validation: 62 Node and 70 Python tests passed. Chrome rendered all
+five routes at 390px without document overflow or detected broken images;
+desktop and mobile screenshots reviewed for the article and rhyme finder.
+Browser search confirmed ice cream → I scream / nice dream. No phone hardware
+test or named-competitor benchmark is implied by responsive browser testing.
+
 `scripts/build_search_pages.mjs` is the content source and generates committed
 HTML plus sitemap. Edit it rather than the generated pages. Search engines and
 visitors without JavaScript receive the complete explanatory content.

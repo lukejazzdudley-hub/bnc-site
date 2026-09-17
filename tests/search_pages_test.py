@@ -8,6 +8,27 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 SLUGS = ['songwriting-app', 'rap-writing-app', 'voice-memos-to-lyrics', 'springtime-showers', 'rhyme-finder']
 
 class SearchPages(unittest.TestCase):
+    def test_editorial_design_and_artist_positioning(self):
+        for slug in SLUGS:
+            html = (ROOT / 'cadence' / slug / 'index.html').read_text()
+            self.assertIn('class="atmosphere" aria-hidden="true"', html)
+            self.assertIn('/cadence/search/atmosphere.mjs', html)
+            self.assertIn('Tools for your writing. Not writing in your place.', html)
+            self.assertIn('loading="lazy"', html)
+        for slug in ['songwriting-app', 'rap-writing-app']:
+            html = (ROOT / 'cadence' / slug / 'index.html').read_text()
+            self.assertIn('Writing workflow comparison', html)
+            self.assertIn('scope="row"', html)
+            self.assertIn('not a feature rating of individual products', html)
+
+    def test_background_respects_motion_and_does_not_track(self):
+        source = (ROOT / 'cadence/search/atmosphere.mjs').read_text()
+        self.assertIn('prefers-reduced-motion: reduce', source)
+        self.assertIn('pointer: fine', source)
+        self.assertIn('cancelAnimationFrame', source)
+        self.assertNotIn('fetch(', source)
+        self.assertNotIn('localStorage', source)
+
     def test_established_transparent_brand_animation(self):
         for slug in SLUGS:
             html = (ROOT / 'cadence' / slug / 'index.html').read_text()
