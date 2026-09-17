@@ -27,7 +27,7 @@ export const articles = [
 <tr><th scope="row">Harmony and composition</th><td>Chord, melody, key, voicing and MIDI tools</td><td>Does it produce audio, notation, MIDI or only an internal project?</td></tr>
 <tr><th scope="row">Collaboration</th><td>Invites, roles, revision history and clear ownership</td><td>Can collaborators edit, comment and export without sharing one login?</td></tr>
 </tbody></table></div>
-<p>For example, <a href="https://help.bandlab.com/hc/en-us/articles/115002945153-Getting-Started-with-the-BandLab-Studio">BandLab’s official Studio guide</a> documents recording, audio and MIDI tracks, virtual instruments and a 16-track, 15-minute project limit. <a href="https://support.apple.com/en-gb/guide/garageband-iphone/chsb34b9757/ios">Apple’s GarageBand guide</a> documents up to 32 tracks and 2,000 bars. Those numbers are useful only if track count or song length is your constraint. Neither tells you how quickly you will recover the meaning of a half-finished verse next Tuesday.</p>`,
+<p>For example, <a href="https://help.bandlab.com/hc/en-us/articles/115002945153-Getting-Started-with-the-BandLab-Studio">BandLab’s official Studio guide</a> documents recording, audio and MIDI tracks and virtual instruments. Its separate <a href="https://help.bandlab.com/hc/en-us/articles/115002945433-Track-and-Project-Duration-Limits">limits page distinguishes 16 tracks on Free from 32 with Membership</a>; both tiers retain a 15-minute project limit. <a href="https://support.apple.com/en-gb/guide/garageband-iphone/chsb34b9757/ios">Apple’s GarageBand guide</a> documents up to 32 tracks and 2,000 bars. Those numbers are useful only if track count or song length is your constraint. Neither tells you how quickly you will recover the meaning of a half-finished verse next Tuesday.</p>`,
       },
       {
         id: 'check-device-storage-and-handoffs',
@@ -55,6 +55,7 @@ export const articles = [
     sources: [
       { title: 'Cadence songwriting app', url: 'https://brandnamechanges.com/cadence/songwriting-app/', checked },
       { title: 'Getting started with BandLab Studio', url: 'https://help.bandlab.com/hc/en-us/articles/115002945153-Getting-Started-with-the-BandLab-Studio', checked },
+      { title: 'BandLab track and project duration limits', url: 'https://help.bandlab.com/hc/en-us/articles/115002945433-Track-and-Project-Duration-Limits', checked },
       { title: 'Downloading BandLab mixdowns and tracks', url: 'https://help.bandlab.com/hc/en-us/articles/115002959774-Downloading-Mixdowns-and-Tracks', checked },
       { title: 'Build a song in GarageBand for iPhone', url: 'https://support.apple.com/en-gb/guide/garageband-iphone/chsb34b9757/ios', checked },
       { title: 'Back up GarageBand for iOS songs', url: 'https://support.apple.com/en-us/101936', checked },
@@ -74,7 +75,7 @@ export const articles = [
         id: 'short-answer',
         heading: 'The short answer',
         html: `<p>Choose Cadence when the song develops through words, rhyme choices, delivery over a beat, vocal takes and a rough arrangement. Its <a href="/cadence/">public workflow</a> moves from capture and on-device transcription through rhyme exploration, A/B beat looping, song sections, a multitrack DAW and demo or aligned-stem export. Android is available on Google Play; iPhone and iPad access is currently through TestFlight.</p>
-<p>Choose BandLab when recording, instruments, mixing, cloud access and inviting collaborators are central. <a href="https://help.bandlab.com/hc/en-us/articles/115002945153-Getting-Started-with-the-BandLab-Studio">BandLab’s official Studio guide</a> describes a browser and mobile cloud DAW with audio and MIDI recording, virtual instruments, imported files and its Sounds library. Projects can use up to 16 audio/MIDI tracks and run for up to 15 minutes.</p>
+<p>Choose BandLab when recording, instruments, mixing, cloud access and inviting collaborators are central. <a href="https://help.bandlab.com/hc/en-us/articles/115002945153-Getting-Started-with-the-BandLab-Studio">BandLab’s official Studio guide</a> describes a browser and mobile cloud DAW with audio and MIDI recording, virtual instruments, imported files and its Sounds library. <a href="https://help.bandlab.com/hc/en-us/articles/115002945433-Track-and-Project-Duration-Limits">Free projects support up to 16 tracks and Membership projects up to 32</a>; both tiers have a 15-minute duration limit.</p>
 <p>That is not a quality ranking. It is a workflow distinction based on current public documentation, not a hands-on latency, sound-quality or stability test. Both products can participate in writing and recording; their strongest organising idea is different.</p>`,
       },
       {
@@ -90,7 +91,7 @@ export const articles = [
         html: `<div class="table-scroll" tabindex="0" role="region" aria-label="Cadence and BandLab workflow comparison"><table><thead><tr><th scope="col">Decision</th><th scope="col">Cadence</th><th scope="col">BandLab</th></tr></thead><tbody>
 <tr><th scope="row">Primary workspace</th><td>Lyric, beat, takes, arrangement and mobile DAW in one song</td><td>Cloud DAW with audio, MIDI, instruments, samples and effects</td></tr>
 <tr><th scope="row">Rhyme support</th><td>Perfect, slant, multisyllabic, multi-word and assonance modes are described publicly</td><td>Not a headline capability in the official Studio documentation checked</td></tr>
-<tr><th scope="row">Project scale</th><td>No public track-count claim used here</td><td>Up to 16 audio/MIDI tracks and 15 minutes per project</td></tr>
+<tr><th scope="row">Project scale</th><td>No public track-count claim used here</td><td>Free: up to 16 tracks. Membership: up to 32. Both: 15 minutes per project</td></tr>
 <tr><th scope="row">Handoff</th><td>Public site describes demo and aligned-stem export</td><td>Mixdowns, individual audio/MIDI tracks and stems are documented</td></tr>
 </tbody></table></div>
 <p>BandLab provides the broader documented production toolbox. Its Studio section covers MIDI editing, slicing and merging regions, automation, effect presets and Visual EQ. <a href="https://help.bandlab.com/hc/en-us/articles/115002959774-Downloading-Mixdowns-and-Tracks">Its download guide</a> documents mixdowns, individual tracks and stem downloads, while noting that exporting a selected segment or section is unsupported.</p>
@@ -107,7 +108,7 @@ export const articles = [
         id: 'which-one-fits',
         heading: 'Which one fits your next three songs?',
         html: `<p><strong>Cadence is the stronger fit</strong> if your repeated problem is turning lyric fragments and voice memos into a performed draft without losing the beat, rhyme context or earlier takes. It also suits writers who want the writing tools to support decisions rather than generate a song for them. The public site is candid that transcription needs review and iOS remains in TestFlight.</p>
-<p><strong>BandLab is the stronger fit</strong> if you need cross-device cloud projects, collaborators, virtual instruments, samples and a production-oriented timeline. Its documented limits of 16 tracks and 15 minutes are generous for many songs but should still be checked against dense arrangements, long live sets or podcast-like work.</p>
+<p><strong>BandLab is the stronger fit</strong> if you need cross-device cloud projects, collaborators, virtual instruments, samples and a production-oriented timeline. Its documented Free limit is 16 tracks, Membership raises the limit to 32, and both tiers retain the 15-minute ceiling. Check those boundaries against dense arrangements, long live sets or podcast-like work.</p>
 <p><strong>Use both deliberately</strong> if Cadence helps you write and perform while BandLab is where collaborators produce. Agree on a handoff: export a dated demo plus aligned stems from Cadence, create one named BandLab project, and keep the lyric version attached to that handoff. That preserves each product’s strength without making two competing sources of truth.</p>
 <p>No price comparison appears here because storefront prices and plans can vary and change. Check the current purchase screen or official storefront immediately before deciding. More importantly, complete the same short song in both products and count the conversions, missing context and recovery steps.</p>`,
       },
@@ -117,6 +118,7 @@ export const articles = [
       { title: 'Cadence songwriting app', url: 'https://brandnamechanges.com/cadence/songwriting-app/', checked },
       { title: 'Cadence voice memo and transcription guide', url: 'https://brandnamechanges.com/cadence/voice-memos-to-lyrics/', checked },
       { title: 'Getting started with BandLab Studio', url: 'https://help.bandlab.com/hc/en-us/articles/115002945153-Getting-Started-with-the-BandLab-Studio', checked },
+      { title: 'BandLab track and project duration limits', url: 'https://help.bandlab.com/hc/en-us/articles/115002945433-Track-and-Project-Duration-Limits', checked },
       { title: 'Invite BandLab collaborators', url: 'https://help.bandlab.com/hc/en-us/articles/115002945253-How-do-I-invite-other-users-to-collaborate', checked },
       { title: 'Download BandLab mixdowns and tracks', url: 'https://help.bandlab.com/hc/en-us/articles/115002959774-Downloading-Mixdowns-and-Tracks', checked },
       { title: 'Navigate the BandLab Project Page', url: 'https://help.bandlab.com/hc/en-us/articles/4402292152857-Navigating-the-Project-Page', checked },
@@ -141,7 +143,7 @@ export const articles = [
       {
         id: 'lyrics-and-writing',
         heading: 'Lyrics and writing support',
-        html: `<p>Cadence keeps writing tools beside the lyric. Its public <a href="/cadence/rhyme-finder/">rhyme finder</a> explains perfect, multisyllabic, slant and multi-word results and the limitations of its American English pronunciation data and curated phrase bank. The app’s public pages add rhyme highlighting, assonance and syllable counts. The point is not to choose a suggestion blindly; Cadence tells writers to read candidates aloud in their own accent and test meaning and rhythm.</p>
+        html: `<p>Cadence keeps writing tools beside the lyric. The separate public <a href="/cadence/rhyme-finder/">browser rhyme finder</a> explains perfect, multisyllabic, slant and multi-word results. Its documented American English pronunciation data, curated phrase bank and coverage limitations apply to that browser tool only; they should not be inferred as limits of the Cadence app’s rhyme engine. The app’s public pages describe rhyme highlighting, perfect, slant, multisyllabic and assonance modes, plus syllable counts, but do not publish the same data-source or coverage details. In either workspace, read candidates aloud and test meaning and rhythm rather than choosing a suggestion blindly.</p>
 <p>Cadence also documents a path from an imported voice memo to editable words. Transcription runs on device, but the vendor warns that singing, background music, speed, low volume and overlapping voices can reduce accuracy. A transcript is a starting point that must be corrected while listening, not proof that an app can recover every lyric.</p>
 <p>Apple’s GarageBand guide is deep on tracks, instruments and regions. The official material checked for this article does not describe an integrated rhyme inspector or a comparable voice-memo-to-lyric workflow. You can still write with GarageBand, record scratch vocals and keep lyrics elsewhere. The limitation is the handoff: if the exact words and the take that shaped them matter together, decide where the canonical lyric lives before recording versions multiply.</p>`,
       },
@@ -202,7 +204,7 @@ export const articles = [
       {
         id: 'words-rhythm-and-rhyme',
         heading: 'Words, rhythm and rhyme',
-        html: `<p>Cadence keeps rhyme exploration next to the working lyric. Its public pages describe perfect, slant, multisyllabic, multi-word and assonance modes, rhyme highlighting and syllable counts. The <a href="/cadence/rhyme-finder/">free browser rhyme finder</a> states its limits: American English dictionary pronunciations, incomplete accent and slang coverage, a small curated phrase bank and suggestions that cannot judge artistic fit.</p>
+        html: `<p>Cadence keeps rhyme exploration next to the working lyric. Its public app pages describe perfect, slant, multisyllabic, multi-word and assonance modes, rhyme highlighting and syllable counts. The separate <a href="/cadence/rhyme-finder/">free browser rhyme finder</a> states its own limits: American English dictionary pronunciations, incomplete accent and slang coverage, a small curated phrase bank and suggestions that cannot judge artistic fit. Those are browser-tool limitations, not evidence about the Cadence app engine; the public app descriptions checked do not publish equivalent data-source or coverage limits.</p>
 <p>Song Cage also provides perfect and slant rhymes, synonyms and related-word exploration. Its distinctive public model is that lyric blocks occupy a beat grid. <a href="https://songcage.com/docs/syllable-splits/">The syllable-splitting guide</a> explains how parts of a word can sit at separate beat positions and carry separate melody notes. That is useful when your problem is prosody: exactly where each syllable lands and which pitch it carries.</p>
 <p>The practical distinction is emphasis. Cadence asks how a line sounds against the imported beat and recorded performance. Song Cage asks how words, rhythmic positions, pitches and chords relate on a compositional grid. Neither system can decide whether a line is emotionally true or whether an unusual pronunciation is right for your voice.</p>`,
       },
