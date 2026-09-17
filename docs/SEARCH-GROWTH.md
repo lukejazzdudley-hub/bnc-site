@@ -39,7 +39,7 @@ Keep beta links accurate; switch iOS to the public store only after verifying re
 HTML plus sitemap. Edit it rather than the generated pages. Search engines and
 visitors without JavaScript receive the complete explanatory content.
 
-The rhyme tool lazy-loads a 2.03 MB filtered English pack on the first search into a
+The rhyme tool lazy-loads a roughly 2.5 MB filtered English pack on the first search into a
 module worker. Subsequent searches reuse the index; UI stays on the main thread.
 It returns at most 150 results, ignores stale replies and allows retry after
 load failure/timeout. No user query leaves the worker/browser and no query is
@@ -50,11 +50,25 @@ Rebuild data: `node scripts/build_rhyme_dictionary.mjs /path/to/cmu-pronouncing-
 Use the version in `dictionary-provenance.json`; retain both upstream licences.
 Never bundle proprietary app files or private lyrics into the public repository.
 
-Build the web subset with `node scripts/build_web_english_pack.mjs /path/to/word-list-4.1.0`.
+Build frequency metadata with `uv run --with wordfreq==3.1.1 python scripts/build_web_frequencies.py /tmp/frequency-en.json`.
+Then build the web subset with `node scripts/build_web_english_pack.mjs /path/to/word-list-4.1.0 /tmp/frequency-en.json /path/to/node_modules`.
+Build-only modules: dictionary-en@4.0.0 and nspell@2.1.5 (no browser dependency).
+The spelling dictionary rejects capitalized names and invalid word-game forms.
+The editorial supplement currently contains only the common loanword `chai`.
+Abbreviations without written vowels and single-letter names are not included.
+Retain SPELLING-LICENSE.txt and THIRD-PARTY-NOTICES.txt including wordfreq attribution.
+Usage data is CC BY-SA 4.0, credited to Robyn Speer and the upstream corpus authors.
+Frequency values are historical estimates, not proof that a word is valid.
+Candidate suggestions require Zipf >= 3.2; valid rare dictionary queries still work.
+Ranking uses usage frequency minus twice the consonant-distance score, with
+syllable count/alphabetic ordering only as tie-breakers. Unstressed function-word
+pronunciations are not rhyme targets. Polysemy and accent variation remain limits.
 The vocabulary filter is MIT-licensed word-list 4.1.0; retain WORD-LIST-LICENSE.txt.
 The small phrase bank is original editorial text. Multi-word endings are ending
 matches, not the app's full phrase rhyme engine. Slant uses equal vowel sequences
-with one consonant edit. Neither mode establishes native-language parity.
+and a weighted consonant edit: voicing differences score closest, then stop
+substitutions, cluster edits, other obstruents. Bare-vowel assonance is excluded.
+Neither mode establishes native-language parity.
 
 All 25 language choices are catalogued, but only English is released. Others
 are visibly unavailable until provenance, redistribution terms, phoneme adapter

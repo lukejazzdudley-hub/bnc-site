@@ -8,7 +8,7 @@ import { createIndex, findRhymes, normalize, nearTail } from '../cadence/search/
 const raw = readFileSync(new URL('../cadence/search/pack-en.json', import.meta.url), 'utf8');
 const pack = JSON.parse(raw);
 const manifest = JSON.parse(readFileSync(new URL('../cadence/search/packs.json', import.meta.url)));
-const index = createIndex(Object.fromEntries(pack.entries), { phrases: pack.phrases });
+const index = createIndex(Object.fromEntries(pack.entries), { phrases: pack.phrases, frequencies: pack.frequencies });
 test('published manifest authenticates exactly the generated English pack', async () => {
   assert.equal(createHash('sha256').update(raw).digest('hex'), manifest.en.sha256);
   assert.equal((await verifyResponse(new Response(raw), manifest.en, 'en')).id, 'en');

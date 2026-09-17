@@ -25,7 +25,7 @@ function receive({ data }) {
     error: 'The dictionary could not load. Check your connection and try again.',
     unavailable: 'This language is not available on the website yet. No English results have been substituted.',
   };
-  status.textContent = messages[data.state] || (data.total ? `${data.total} matches${data.total > 150 ? ' — showing the first 150' : ''}. Listed by syllable count, then alphabetically.` : 'No matches in this mode. Try Perfect rhymes or another word.');
+  status.textContent = messages[data.state] || (data.total ? `${data.total} matches${data.total > 150 ? ' — showing the best 150' : ''}. Ranked by common usage and sound similarity.` : 'No matches in this mode. Try Perfect rhymes or another word.');
   for (const match of data.results) {
     const item = document.createElement('li');
     const small = document.createElement('small');
