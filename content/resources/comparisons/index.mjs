@@ -49,7 +49,7 @@ export const articles = [
       {
         id: 'make-the-choice',
         heading: 'Make the smallest choice that preserves the whole idea',
-        html: `<p>Choose Cadence if your bottleneck is developing words against a beat into vocal takes, an arrangement and a demo, and its current platform status suits you. Choose BandLab if cloud-based recording, production and collaborator workflows matter more than a lyric-first centre. Choose GarageBand if you are on Apple hardware and want a deep mobile instrument and production environment. Choose Song Cage if chords, melody, theory and lyric rhythm are the composition problem you want the software to help you see.</p>
+        html: `<p>Choose Cadence to turn an imported beat, written bar or recorded freestyle into a song: develop the words and delivery, rehearse sections, keep takes and build an arrangement and demo. Check that its current platform status suits you. Choose BandLab if cloud-based recording and production are your priority. Choose GarageBand if you are on Apple hardware and want a mobile instrument and production environment. Choose Song Cage if chords, melody, theory and lyric rhythm are the composition problem you want the software to help you see.</p>
 <p>You can also use two tools deliberately. A focused writing workspace plus a production DAW is better than one nominally complete app that makes the first ten minutes painful. The important word is <em>deliberately</em>: define the handoff file, naming habit and source of truth before the song is scattered across both.</p>
 <p>Revisit the decision after three complete songs. Count abandoned ideas, duplicated files and broken handoffs, not features. The right app should make returning, deciding and finishing easier without taking authorship away from you.</p>`,
       },
@@ -68,10 +68,10 @@ export const articles = [
   },
   {
     slug: 'cadence-vs-bandlab',
-    title: 'Cadence vs BandLab: lyric-first workflow or cloud studio?',
+    title: 'Cadence vs BandLab: connected songwriting or cloud studio?',
     description: 'Compare Cadence and BandLab by writing flow, recording, collaboration, storage and export, with a practical verdict for different songwriters.',
     heading: 'Cadence and BandLab solve different centres of the same problem',
-    intro: 'Cadence keeps lyrics, a beat and vocal decisions in one song workspace. BandLab starts from a cloud recording studio and collaboration platform. Choose by the work you do most.',
+    intro: 'Start in Cadence with an imported beat, a lyric or a freestyle, then develop the song in one workspace. BandLab offers a cloud recording studio and collaboration platform. Choose by the work you do most.',
     category: 'Choose your tools',
     sections: [
       {

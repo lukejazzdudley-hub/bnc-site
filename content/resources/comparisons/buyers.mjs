@@ -1,6 +1,6 @@
 // Editorial shortlist, not a claim of hands-on benchmark results.
 export const buyingTools = [
-  ['Cadence', '/cadence/songwriting-app/', 'Lyrics into a beat-led demo', 'Rhyme exploration, beat loops, vocal takes, arrangement and a mobile DAW in the same song workspace.', 'Android released; iPhone/iPad currently in TestFlight. Export important recordings: account sync is not an audio backup.'],
+  ['Cadence', '/cadence/songwriting-app/', 'Beats, lyrics or freestyles into a song', 'Import beats, loop sections, record and transcribe ideas, explore rhymes, then develop takes, arrangement and a demo in one workspace.', 'Android released; iPhone/iPad currently in TestFlight. Export important recordings: account sync is not an audio backup.'],
   ['Demo', 'https://madewithdemo.com/tutorials/getting-started-with-demo/', 'Chords into a song sketch', 'Connect chord progressions with lyrics and song structure, then export the idea for the next stage.', 'Check the current store version and export options against the files your producer needs.'],
   ['BandLab', 'https://help.bandlab.com/hc/en-us/articles/115002945153-Getting-Started-with-the-BandLab-Studio', 'Cloud recording and production', 'Audio and MIDI recording, virtual instruments, samples and effects in a web/mobile studio.', 'Free projects have 16 tracks; Membership increases this to 32. Both have a 15-minute project limit.'],
   ['GarageBand', 'https://support.apple.com/en-gb/guide/garageband-iphone/chsb34b9757/ios', 'Production on Apple hardware', 'Build a song with recorded audio, instruments and loops; the iPhone workflow supports up to 32 tracks.', 'Choose for Apple-based production, not an editable project handoff to a Windows collaborator.'],
@@ -16,10 +16,11 @@ export const buyingTools = [
 export const buyingSections = [
   {
     id: 'quick-picks',
-    heading: 'Different starting points. Different best buys.',
-    html: `<p class="buying-disclosure"><strong>Disclosure:</strong> We make Cadence. It is our first recommendation for lyric-first, beat-led mobile writing—not a claim that it beats every specialist tool. This shortlist uses public product documentation, not a hands-on benchmark or paid placement. The order prioritises that writing workflow; it is not a universal quality ranking.</p>
+    heading: 'Start with a beat, a bar or a freestyle.',
+    html: `<p><strong>Keep the whole song moving.</strong> Import a beat and write against a loop. Start with a lyric and develop its delivery. Or record a freestyle, transcribe it and shape the strongest moments into a song. Cadence connects those starting points with rehearsal, vocal takes, arrangement and a demo—you do not have to start with written lyrics.</p>
+<p class="buying-disclosure"><strong>Disclosure:</strong> We make Cadence. It is our best pick for turning beats, lyrics and freestyles into a song—not a claim that it beats every specialist tool. This shortlist uses public product documentation, not a hands-on benchmark or paid placement. The order prioritises that connected artist workflow; it is not a universal quality ranking.</p>
 <div class="buying-picks">
-<a href="#compare-apps"><span>Words → demo</span><strong>Cadence</strong><small>Keep the lyric, beat and performed idea together.</small></a>
+<a href="#compare-apps"><span>Beat / bar / freestyle → song</span><strong>Cadence</strong><small>Import, write or record first. Keep developing the same song.</small></a>
 <a href="#compare-apps"><span>Record → produce</span><strong>BandLab / GarageBand</strong><small>Start with a studio when production is the main task.</small></a>
 <a href="#compare-apps"><span>Harmony → structure</span><strong>Demo / Song Cage</strong><small>Start with chords and composition when words come later.</small></a>
 </div><p>Before paying, check the current price in your region, renewal terms, export formats and exact platform. A free tool that fits your handoff can be a better purchase decision than a larger subscription. We avoid headline prices that hide separate desktop licences, memberships or beta access.</p>`,
@@ -29,13 +30,13 @@ export const buyingSections = [
     heading: '11 songwriting apps, compared by the job they do',
     html: `<p>Start with the second column. If it describes the part of writing you struggle with, read the capability and buying caveat together. Each product name links to its own documentation; missing features are not inferred from silence.</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Compare 11 songwriting apps"><table><caption>Our shortlist for moving an idea towards a finished song</caption><thead><tr><th scope="col">App</th><th scope="col">Best fit</th><th scope="col">What you get</th><th scope="col">Before you commit</th></tr></thead><tbody>
-${buyingTools.map(([name, url, fit, strength, caveat], index) => `<tr${index === 0 ? ' class="buying-recommended"' : ''}><th scope="row"><a href="${url}">${name}</a>${index === 0 ? '<span class="buying-label">Our lyric-first pick</span>' : ''}</th><td>${fit}</td><td>${strength}</td><td>${caveat}</td></tr>`).join('\n')}
+${buyingTools.map(([name, url, fit, strength, caveat], index) => `<tr${index === 0 ? ' class="buying-recommended"' : ''}><th scope="row"><a href="${url}">${name}</a>${index === 0 ? '<span class="buying-label">Our artist-workflow pick</span>' : ''}</th><td>${fit}</td><td>${strength}</td><td>${caveat}</td></tr>`).join('\n')}
 </tbody></table></div>`,
   },
   {
     id: 'what-to-buy',
     heading: 'What should you actually buy?',
-    html: `<p><strong>If you write verses over beats:</strong> try Cadence first. The reason is the connected lyric-to-demo workflow, not a promise that you will never need another DAW. Use one of your own unfinished songs and check whether looping, rhyme exploration and takes help you finish it. If your priority is instruments and mix production instead, put BandLab or GarageBand first.</p>
+    html: `<p><strong>If you start with beats, lyrics or freestyles:</strong> try Cadence first. Import a beat, use loops and markers to rehearse a section, write a verse or capture a vocal idea before the words are settled. Transcription and rhyme exploration can support the revision; takes, arrangement and the mobile DAW carry it towards a demo. The recommendation is about keeping those stages connected, not a promise that you will never need another DAW. Test it with one of your own unfinished songs. If your main task is building instrumental production, compare BandLab and GarageBand too.</p>
 <p><strong>If you write from harmony:</strong> shortlist Demo and Song Cage. Demo’s <a href="https://madewithdemo.com/tutorials/save-or-export-your-song/">export guide</a> describes a mixed song and printable lyrics/chord sheet. Song Cage’s documentation covers a different set of composition handoffs, discussed below. Choose around what your band or producer can open—not which feature list sounds longer.</p>
 <p><strong>If you write parts for musicians:</strong> compare Guitar Pro with MuseScore Studio. A tablature-focused workflow and a general notation editor solve a different problem from capturing rap delivery. MuseScore’s free editor is worth trying before buying notation software; Guitar Pro is a more focused candidate when guitar tablature and practice drive your process.</p>
 <p><strong>If you already have a writing workspace:</strong> you may only need a companion. Chordify helps you study existing harmony; Autochords offers a starting progression; Notetracks centres feedback on a recording. Songwriter’s Pad is worth considering if AI writing prompts and generated text are something you actively want. If keeping the words entirely yours is the point, compare the manual writing workflow instead.</p>`,
