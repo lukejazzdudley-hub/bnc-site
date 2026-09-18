@@ -4,6 +4,8 @@
 
 ### Added
 
+- Cadence pages now use the standalone Cadence mark in browser tabs instead of the App Store icon.
+
 - Resource pages now use complete neutral Blender handsets instead of cropped screenshots, with topic-specific illustrated reading breaks, visual writing routes and clearer comparison markers. Subtle scroll-linked motion, reading progress and current-section navigation respect reduced-motion preferences.
 
 - Cadence’s buying-guide recommendation now covers beat-first, lyric-first and freestyle-first songwriting, including beat import, rehearsal, transcription, takes and arrangement—not only lyric writing.
