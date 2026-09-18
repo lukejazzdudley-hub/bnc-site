@@ -120,6 +120,17 @@ test('content loader imports both named article arrays and enforces the final co
   assert.deepEqual(loaded.map(({ slug }) => slug), articles.map(({ slug }) => slug));
 });
 
+test('resource pages use the Cadence mark rather than the App Store icon as favicon', () => {
+  const pages = [
+    readFileSync(path.join(root, 'cadence/resources/index.html'), 'utf8'),
+    readFileSync(path.join(root, 'cadence/resources/choosing-a-songwriting-app/index.html'), 'utf8'),
+  ];
+  for (const html of pages) {
+    assert.match(html, /rel="icon"[^>]+cadence-mark-static\.webp/);
+    assert.doesNotMatch(html, /rel="icon"[^>]+app-icon\.webp/);
+  }
+});
+
 test('content loader fails closed when a module is missing', async () => {
   await assert.rejects(
     loadArticles(['/tmp/cadence-resource-module-that-does-not-exist.mjs']),

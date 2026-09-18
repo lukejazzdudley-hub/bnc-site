@@ -37,6 +37,7 @@ class SearchPages(unittest.TestCase):
             self.assertIn('prefers-reduced-motion: reduce', html)
             self.assertIn('/cadence/media-policy.js', html)
             self.assertNotIn('<img src="/assets/cadence/app-icon.webp"', html)
+            self.assertIn('rel="icon" type="image/webp" sizes="256x256" href="/assets/cadence/cadence-mark-static.webp"', html)
 
     def test_metadata_and_internal_assets(self):
         for slug in SLUGS:
