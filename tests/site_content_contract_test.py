@@ -152,7 +152,7 @@ class SiteContentContractTest(unittest.TestCase):
         self.assertGreaterEqual(parser.proof_chapters, 4)
         html = page.read_text(encoding="utf-8")
         self.assertEqual(html.count("<model-viewer"), 1)
-        self.assertEqual(html.count("data-cadence-v3-scene"), 2)
+        self.assertEqual(html.count("data-cadence-v3-scene"), 1)
         self.assertEqual(html.count("data-screen-video"), 4)
 
     def test_cadence_product_videos_are_scroll_scrubbed_not_looped(self) -> None:
@@ -181,19 +181,19 @@ class SiteContentContractTest(unittest.TestCase):
         self.assertNotIn("cadence-media-stage", html)
         self.assertIn("cadence-live-device", html)
         self.assertIn("<model-viewer", html)
-        self.assertIn("hero-desktop.web.glb", html)
+        self.assertIn("resources/01-library-neutral.webp", html)
         self.assertIn("cadence-phone-workflow.glb", html)
         self.assertRegex(css, r"\.cadence-live-device\s*\{[^}]*position:\s*sticky")
         self.assertRegex(css, r"model-viewer[^}]*background:\s*transparent")
         self.assertRegex(css, r"\.cadence-v3-scene\s*\{[^}]*background:\s*transparent")
 
-    def test_source_locked_v3_scenes_replace_the_old_hero_and_theme_phone_composites(self) -> None:
+    def test_neutral_hero_preserves_live_theme_scene(self) -> None:
         html = (ROOT / "cadence" / "index.html").read_text(encoding="utf-8")
 
-        self.assertIn('data-cadence-v3-scene="hero"', html)
+        self.assertIn('cadence-hero-neutral', html)
         self.assertIn('data-cadence-v3-scene="themes"', html)
-        self.assertIn("hero-desktop.web.glb", html)
-        self.assertIn("hero-mobile.web.glb", html)
+        self.assertNotIn("hero-desktop.web.glb", html)
+        self.assertNotIn("hero-mobile.web.glb", html)
         self.assertIn("themes-desktop.web.glb", html)
         self.assertIn("themes-mobile.web.glb", html)
         self.assertNotIn("cadence-theme-phone", html)
@@ -213,8 +213,8 @@ class SiteContentContractTest(unittest.TestCase):
 
     def test_authored_hero_and_live_story_use_separate_scene_assets(self) -> None:
         html = (ROOT / "cadence" / "index.html").read_text(encoding="utf-8")
-        self.assertIn('v3/hero-desktop.web.glb', html)
-        self.assertIn('v3/hero-mobile.web.glb', html)
+        self.assertIn('resources/01-library-neutral.webp', html)
+        self.assertIn('fetchpriority="high"', html)
         self.assertIn('cadence-phone-workflow.glb', html)
 
     def test_live_phone_layers_do_not_escape_their_mobile_layout(self) -> None:
@@ -262,10 +262,10 @@ class SiteContentContractTest(unittest.TestCase):
         css = (ROOT / "cadence" / "cadence.css").read_text(encoding="utf-8")
         script = (ROOT / "cadence" / "phone-stage.js").read_text(encoding="utf-8")
 
-        hero = html.split('data-cadence-v3-scene="hero"', 1)[1].split("</figure>", 1)[0]
+        hero = html.split('class="cadence-hero-object cadence-hero-neutral"', 1)[1].split("</figure>", 1)[0]
         self.assertNotIn("hero-device.webp", hero)
-        self.assertEqual(hero.count("v3/hero-desktop.webp"), 2)
-        self.assertEqual(hero.count("v3/hero-mobile.webp"), 1)
+        self.assertEqual(hero.count("resources/01-library-neutral.webp"), 1)
+        self.assertNotIn(".glb", hero)
         head = html.split("</head>", 1)[0]
         self.assertNotIn("hero-device.webp", head)
         self.assertIn("assets/cadence/share-card-v1.png", head)

@@ -4,6 +4,8 @@
 
 ### Added
 
+- Cadence’s product page now opens with neutral silver handset artwork, clearer white/silver typography and a tighter layout. Mobile download buttons come before the phone, and tablet navigation uses an uncluttered menu.
+
 - Sharing the Cadence website now uses a branded landscape card with readable copy and an authentic phone render instead of a raw Library screenshot.
 
 - Cadence now links directly to its public App Store and Google Play listings across the product page, search guides and resource hub.
