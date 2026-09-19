@@ -134,7 +134,7 @@ class SiteContentContractTest(unittest.TestCase):
         self.assertIn("27 theme families", html)
         self.assertIn("transcribe a take on-device", html)
         self.assertIn("draft demo", html)
-        self.assertIn("beta feedback", html)
+        self.assertIn("product feedback", html)
 
     def test_privacy_policy_matches_explicit_analytics_consent(self) -> None:
         html = (ROOT / "privacy.html").read_text(encoding="utf-8").lower()
@@ -302,7 +302,7 @@ class SiteContentContractTest(unittest.TestCase):
         self.assertIn("data-animated-mark", nav)
         self.assertNotIn("app-icon.webp", nav)
 
-    def test_beta_store_ctas_have_a_44_pixel_touch_target(self) -> None:
+    def test_store_ctas_have_a_44_pixel_touch_target(self) -> None:
         css = (ROOT / "cadence" / "cadence.css").read_text(encoding="utf-8")
         rules = re.findall(r"\.cadence-store-button\s*\{(?P<body>[^}]*)\}", css)
 
@@ -333,9 +333,9 @@ class SiteContentContractTest(unittest.TestCase):
         corrupt = [str(page.relative_to(ROOT)) for page in PUBLIC_PAGES if "\ufffd" in page.read_text(encoding="utf-8")]
         self.assertEqual(corrupt, [])
 
-    def test_privacy_policy_covers_beta_feedback_and_optional_evidence(self) -> None:
+    def test_privacy_policy_covers_product_feedback_and_optional_evidence(self) -> None:
         privacy = (ROOT / "privacy.html").read_text(encoding="utf-8")
-        self.assertIn("Cadence beta feedback", privacy)
+        self.assertIn("Cadence product feedback", privacy)
         self.assertIn("optional screenshots or screen recordings", privacy)
         self.assertIn("not use that evidence publicly or in advertising", privacy)
 

@@ -4,6 +4,8 @@
 
 ### Added
 
+- Cadence now links directly to its public App Store and Google Play listings across the product page, search guides and resource hub.
+
 - Cadence pages now use the standalone Cadence mark in browser tabs instead of the App Store icon.
 
 - Resource pages now use complete neutral Blender handsets instead of cropped screenshots, with topic-specific illustrated reading breaks, visual writing routes and clearer comparison markers. Subtle scroll-linked motion, reading progress and current-section navigation respect reduced-motion preferences.
@@ -31,12 +33,14 @@
 
 - Cadence now renders its approved Blender handset as live 3D in the browser, with real product footage changing on the device as visitors move through the workflow.
 - The feedback page now uses the same live, scroll-responsive handset with a verified product screen on phone layouts.
-- Cadence now has a conversion-led product experience built from real app captures, a purpose-rendered Blender handset, five connected workflow moments, 27-theme proof and direct iOS/Android beta entry points.
+- Cadence now has a conversion-led product experience built from real app captures, a purpose-rendered Blender handset, five connected workflow moments, 27-theme proof and direct App Store and Google Play entry points.
 - Product demonstrations now move with the page as visitors scroll, reverse when they scroll back and fall back to composed posters without downloading video for reduced-motion or data-saving visitors.
-- Cadence testers can send structured private feedback directly at `/cadence/feedback/`, recover typed progress on the same device, and attach resumable screenshots or screen recordings.
+- Cadence users can send structured private feedback directly at `/cadence/feedback/`, recover typed progress on the same device, and attach resumable screenshots or screen recordings.
 - Existing Google Form responses can be imported once without duplicates and exported without internal security metadata.
 
 ### Fixed
+
+- Removed the obsolete TestFlight acquisition path and beta-status copy now that Cadence is publicly available on both mobile storefronts.
 
 - The English rhyme finder no longer puts obscure word-game entries such as “ais” ahead of useful words. Suggestions now use spelling checks, common-usage filtering and closer-sound ranking, while valid rare words remain searchable.
 
