@@ -268,7 +268,7 @@ class SiteContentContractTest(unittest.TestCase):
         self.assertEqual(hero.count("v3/hero-mobile.webp"), 1)
         head = html.split("</head>", 1)[0]
         self.assertNotIn("hero-device.webp", head)
-        self.assertIn("assets/cadence/screens/library.webp", head)
+        self.assertIn("assets/cadence/share-card-v1.png", head)
         primary = html.split('class="cadence-phone-model cadence-phone-model--primary"', 1)[1].split("</model-viewer>", 1)[0]
         self.assertEqual(primary.count("transcribe.webp"), 2)
         self.assertIn('html[data-phone-stage="poster"] .cadence-proof', css)

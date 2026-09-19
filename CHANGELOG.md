@@ -4,6 +4,8 @@
 
 ### Added
 
+- Sharing the Cadence website now uses a branded landscape card with readable copy and an authentic phone render instead of a raw Library screenshot.
+
 - Cadence now links directly to its public App Store and Google Play listings across the product page, search guides and resource hub.
 
 - Cadence pages now use the standalone Cadence mark in browser tabs instead of the App Store icon.
