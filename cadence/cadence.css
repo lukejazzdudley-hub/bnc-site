@@ -210,7 +210,7 @@
   line-height: 1;
 }
 
-.cadence-beta-note {
+.cadence-availability-note {
   margin-top: 13px;
   color: #686870;
   font-size: 0.73rem;
@@ -884,7 +884,7 @@ html[data-phone-stage="poster"] .cadence-proof {
     margin-top: 12px;
   }
 
-  .cadence-beta-note {
+  .cadence-availability-note {
     grid-row: 6;
   }
 

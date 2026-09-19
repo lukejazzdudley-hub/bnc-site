@@ -14,7 +14,7 @@ cadence/cadence.css                Cadence product-page art direction and respon
 cadence/media-policy.js            Lazy loading and deterministic scroll-scrub policy
 cadence/phone-stage.js              Live GLB screen binding and scroll-driven camera controller
 cadence/v3-scenes.js                Authored-camera V3 scene loader and scroll controller
-cadence/feedback/index.html        Four-step private beta feedback form
+cadence/feedback/index.html        Four-step private product feedback form
 cadence/feedback/*.js              Validation, recovery and resumable upload client
 cadence/feedback/feedback.css      Feedback-page presentation
 privacy.html                       Privacy policy
