@@ -1,0 +1,8 @@
+{
+  "applinks": {
+    "details": [{
+      "appIDs": ["F2LVM7U837.io.cadenceapp.mobile"],
+      "components": [{ "/": "/cadence/listen/*", "comment": "Explicitly accepted Cadence listening links only" }]
+    }]
+  }
+}
