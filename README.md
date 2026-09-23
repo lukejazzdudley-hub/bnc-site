@@ -31,6 +31,19 @@ tests/                             Frontend, backend, schema and data-tool contr
 `cadence.html` is a compatibility redirect. The canonical product URL is `/cadence/`; this avoids a file/directory collision with `/cadence/feedback/`.
 GitHub Pages also serves clean legal URLs (`privacy.html` → `/privacy`).
 
+## Android listening links
+
+`.well-known/assetlinks.json` associates `brandnamechanges.com` with the
+Google Play-signed `io.cadenceapp.mobile` package. Its SHA-256 fingerprint was
+read from the Play Developer API `generatedApks.list` response for versions
+106, 107 and 108, which all returned the same signing key. Do not substitute
+the local upload or emulator debug certificate. The app manifest restricts
+handling to `/cadence/listen/`; the association file alone cannot make an older
+installed build handle HTTPS links. After the manifest-bearing Play build is
+distributed, test a Play-signed installation with `pm verify-app-links` and
+`pm get-app-links`. The listening page's explicit **Open in Cadence** button
+provides the custom-scheme fallback until then.
+
 ## Local preview
 
 ```bash
