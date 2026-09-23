@@ -4,6 +4,10 @@
 
 ### Added
 
+- Android listening links now have the website association needed for verified
+  opening in the Play-signed Cadence app. The in-page Open in Cadence button
+  remains available while the app update rolls out.
+
 - Cadence’s product page now opens with neutral silver handset artwork, clearer white/silver typography and a tighter layout. Mobile download buttons come before the phone, and tablet navigation uses an uncluttered menu.
 
 - Sharing the Cadence website now uses a branded landscape card with readable copy and an authentic phone render instead of a raw Library screenshot.
