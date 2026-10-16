@@ -24,6 +24,13 @@ class GrowthContracts(unittest.TestCase):
    self.assertEqual(a.n_frames,b.n_frames)
    self.assertEqual(b.size,(64,64))
   self.assertLess((ROOT/'assets/cadence/cadence-mark-nav.webp').stat().st_size,65000)
+ def test_settled_search_mark_supports_high_density_displays(self):
+  from PIL import Image
+  for route in ['guide','songwriting-app','regions/gb','fr']:
+   html=(ROOT/f'cadence/{route}/index.html').read_text()
+   source=re.search(r'data-static-src="([^"]+)"',html).group(1)
+   with Image.open(ROOT/source.lstrip('/')) as image:
+    self.assertGreaterEqual(min(image.size),44*3,route)
  def test_measurement_tables_are_private(self):
   sql=(ROOT/'supabase/migrations/20261016030000_cadence_search_counts.sql').read_text()
   for table in ['cadence_search_daily','cadence_search_abuse_buckets']:self.assertIn(f'alter table public.{table} enable row level security',sql)

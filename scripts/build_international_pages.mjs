@@ -26,7 +26,7 @@ const localApple = region => `https://apps.apple.com/${region.code}/app/cadence-
 const localGoogle = region => `https://play.google.com/store/apps/details?id=io.cadenceapp.mobile&hl=en&gl=${region.code.toUpperCase()}`;
 const storeLinks = region => `<div class="actions"><a class="button primary" href="${localApple(region)}">${escape(region.shortName)} App Store</a><a class="button" href="${escape(localGoogle(region))}">Google Play · ${escape(region.shortName)}</a></div>`;
 const regionLinks = current => `<nav class="region-links" aria-label="Choose a country or region"><a href="/cadence/">Global English</a>${regions.map(region => `<a href="${regionPath(region)}" lang="${region.language}"${region.code === current ? ' aria-current="page"' : ''}>${escape(region.name)}</a>`).join('')}</nav>`;
-const mark = `<picture aria-hidden="true"><source media="(prefers-reduced-motion: reduce)" srcset="/assets/cadence/cadence-mark-nav-static.webp"><img src="/assets/cadence/cadence-mark-nav.webp" data-animated-mark data-static-src="/assets/cadence/cadence-mark-nav-static.webp" alt="" width="36" height="36"></picture>`;
+const mark = `<picture aria-hidden="true"><source media="(prefers-reduced-motion: reduce)" srcset="/assets/cadence/cadence-mark-static.webp"><img src="/assets/cadence/cadence-mark-nav.webp" data-animated-mark data-static-src="/assets/cadence/cadence-mark-static.webp" alt="" width="36" height="36"></picture>`;
 
 function render({ title, description, canonical, language = 'en', body, schema, regional = false }) {
   return `<!doctype html>
