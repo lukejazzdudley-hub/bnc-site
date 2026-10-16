@@ -2,7 +2,7 @@ const ENDPOINT='https://goupfxfloriqtucppmbx.supabase.co/functions/v1/cadence-se
 export function sourceGroup(referrer,search=''){
  if(new URLSearchParams(search).has('utm_source'))return 'campaign';
  let host;try{host=new URL(referrer).hostname.toLowerCase();}catch{return 'direct';}
- if(/(^|\.)google\.(com|co\.uk|fr|es|ca|co\.in|com\.au|co\.za)$/.test(host))return 'google';
+ if(/(^|\.)google\.(com|co\.uk|fr|es|ca|co\.in|com\.au|co\.za|com\.br|pt|de|it|ru|com\.sa|co\.kr|co\.il|co\.jp|com\.tr|co\.id|com\.my|pl|com\.ph|com\.vn|com\.ng)$/.test(host))return 'google';
  if(/(^|\.)bing\.com$/.test(host))return 'bing';
  if(/(^|\.)(duckduckgo\.com|search\.yahoo\.com|ecosia\.org)$/.test(host))return 'other_search';
  return host==='brandnamechanges.com'?'direct':'referral';
@@ -33,7 +33,7 @@ export function startMeasurement(win,doc){
  const view=()=>{if(allowed&&!viewSent){viewSent=true;send('view');}};
  const fr=doc.documentElement.lang.startsWith('fr'),es=doc.documentElement.lang.startsWith('es');
  const text=fr?{title:'Mesure facultative du site',body:'Autoriser des compteurs de pages et de clics vers les boutiques ? Aucun texte de chanson ni mot recherché. Ce choix ne change pas les réglages de l’application.',yes:'Autoriser les compteurs',no:'Non merci',change:'Choix de confidentialité',off:'Mesure désactivée',on:'Compteurs autorisés'}:es?{title:'Medición opcional del sitio',body:'¿Permitir recuentos de páginas y clics hacia las tiendas? No se recogen letras ni palabras buscadas. Esta elección no cambia los ajustes de la aplicación.',yes:'Permitir recuentos',no:'No, gracias',change:'Opciones de privacidad',off:'Medición desactivada',on:'Recuentos permitidos'}:{title:'Optional website measurement',body:'Allow counts of pages and clicks to the app stores? No lyrics or rhyme searches are collected. This choice is separate from the app’s settings.',yes:'Allow counts',no:'No thanks',change:'Privacy choices',off:'Measurement is off',on:'Optional counts allowed'};
- const root=doc.createElement('section');root.className='website-measurement';root.setAttribute('aria-label',text.title);
+ const root=doc.createElement('section');root.className='website-measurement';root.setAttribute('aria-label',text.title);root.setAttribute('lang',fr?'fr':es?'es':'en');root.setAttribute('dir','ltr');
  const prompt=doc.createElement('div'),heading=doc.createElement('h2'),p=doc.createElement('p'),yes=doc.createElement('button'),no=doc.createElement('button'),change=doc.createElement('button'),status=doc.createElement('p'),link=doc.createElement('a');
  heading.textContent=text.title;p.textContent=text.body;yes.textContent=text.yes;no.textContent=text.no;change.textContent=text.change;link.href='/privacy#website-measurement';link.textContent=fr?'Détails (English)':es?'Detalles (English)':'What is counted';status.setAttribute('role','status');
  prompt.append(heading,p,yes,no,link);root.append(prompt,status,change);doc.body.append(root);

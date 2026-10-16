@@ -80,7 +80,7 @@ See [rollout and evidence](seo/GLOBAL-SEARCH.md) and
 
 ## Audience-intent expansion
 
-`content/acquisition.mjs` owns four added English workflows; `content/locales.mjs` owns French/Spanish introductions. Existing generators render complete HTML and reciprocal language/region alternates. `scripts/audit_crawl.py` validates the static anchor graph, canonicals, local targets and sitemap indexability. Feedback stays noindex and outside the sitemap. No client routing or new tracking is added.
+`content/acquisition.mjs` owns four added English workflows; `content/locales.mjs` preserves French/Spanish introductions. `content/language-packs.mjs` records all 20 verified downloadable packs, while `content/pack-locales.mjs` supplies the other 18 product introductions. `content/pack-writing-exercises.mjs` supplies original language-specific writing and bilingual exercises for 20 English pack guides, rendered by `scripts/build_pack_guides.mjs`. Existing generators render complete HTML and supported reciprocal language/region alternates. HTML language, URL route and Google hreflang identifiers are separate; Arabic/Hebrew are RTL and Nigerian Pidgin is outside the Google alternate cluster. See `seo/ALL-LANGUAGE-COVERAGE.md` for research and evidence limits. `scripts/audit_crawl.py` validates the static anchor graph, canonicals, local targets and sitemap indexability. Feedback stays noindex and outside the sitemap. No client routing or new tracking is added.
 
 ## Public language tools and optional measurement
 

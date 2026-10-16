@@ -2,6 +2,8 @@ import test from 'node:test';import assert from 'node:assert/strict';
 import {sourceGroup,storeFor,eventPayload,startMeasurement} from '../cadence/search/measurement.mjs';
 test('source grouping discards full URLs, queries and identifying campaign values',()=>{
  assert.equal(sourceGroup('https://google.fr/search?q=private'),'google');
+ for(const host of ['www.google.com.br','www.google.pt','www.google.de','www.google.co.jp','www.google.com.ng','www.google.co.kr','www.google.com.vn'])assert.equal(sourceGroup(`https://${host}/search?q=private`),'google');
+ assert.equal(sourceGroup('https://google.com.evil.example/search'),'referral');
  assert.equal(sourceGroup('https://bing.com/?q=private'),'bing');
  assert.equal(sourceGroup('https://brandnamechanges.com/cadence/'),'direct');
  assert.equal(sourceGroup('','?utm_source=private@example.com'),'campaign');

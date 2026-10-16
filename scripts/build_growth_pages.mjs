@@ -22,4 +22,7 @@ mkdirSync(path.join(root,watchRoute),{recursive:true});
 writeFileSync(path.join(root,watchRoute,'index.html'),readFileSync(path.join(root,'content/type-beat-walkthrough.html'),'utf8'));
 writeFeatureGuide(root);
 const sitemap=path.join(root,'sitemap.xml');writeFileSync(sitemap,appendSitemap(readFileSync(sitemap,'utf8'),[...configs.map(c=>c.route),watchRoute,featureGuideRoute]));
+// Keep the server's optional-measurement allowlist aligned with published routes.
+const routes=[...new Set([...readFileSync(sitemap,'utf8').matchAll(/<loc>https:\/\/brandnamechanges\.com(\/cadence\/[^<]*)<\/loc>/g)].map(match=>match[1]))].sort();
+writeFileSync(path.join(root,'supabase/functions/cadence-search-events/routes.ts'),`// Generated from sitemap.xml; only public Cadence landing routes.\nexport const routes = new Set(${JSON.stringify(routes)});\n`);
 console.log('Built French and Spanish public rhyme tools.');

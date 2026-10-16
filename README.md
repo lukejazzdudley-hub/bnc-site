@@ -72,7 +72,8 @@ node scripts/build_growth_pages.mjs
 python3 -m unittest discover -s tests -p '*test*.py' -v
 node --test tests/*.test.mjs
 deno test supabase/functions/cadence-beta-feedback/handler.test.ts \
-  supabase/functions/cadence-beta-feedback/store.test.ts
+  supabase/functions/cadence-beta-feedback/store.test.ts \
+  supabase/functions/cadence-search-events/handler.test.ts
 deno check cadence/feedback/feedback.js \
   cadence/media-policy.js \
   supabase/functions/cadence-beta-feedback/index.ts
@@ -200,7 +201,7 @@ GitHub Pages publishes the default branch and uses the checked-in `CNAME`. Befor
 
 ### Search content
 
-The search architecture groups related queries around useful workflows, with type-beat and Android entry pages, French/Spanish introductions and regional download guidance. See `docs/seo/GLOBAL-SEARCH.md` for the query map and evidence limits. After all generators, run `python3 scripts/audit_crawl.py`; the sitemap contains 40 indexable URLs.
+The search architecture groups related queries around useful workflows, with type-beat and Android entry pages, product introductions for all 20 downloadable packs, English pack-specific writing guides and regional download guidance. See `docs/seo/ALL-LANGUAGE-COVERAGE.md` for the 248-query hypothesis map, observed competitor reports and remaining evidence gaps; historical traffic bands remain in `docs/seo/GLOBAL-SEARCH.md`. After all generators, run `python3 scripts/audit_crawl.py`; the sitemap contains 78 indexable URLs. Published coverage is not proof of indexing or page-one rankings.
 
 ### Language tools and acquisition counts
 

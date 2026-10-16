@@ -29,7 +29,7 @@ class ResourceIntegration(unittest.TestCase):
                 path = ROOT / url.lstrip('/')
                 self.assertTrue(path.exists() or path.with_suffix('.html').exists(), url)
         self.assertEqual(len(sitemap), len(set(sitemap)))
-        self.assertEqual(len(sitemap), 40)
+        self.assertEqual(len(sitemap), 78)
         for code in ['', 'gb/', 'us/', 'ca/', 'au/', 'in/', 'za/']:
             self.assertIn('https://brandnamechanges.com/cadence/regions/' + code, sitemap)
 

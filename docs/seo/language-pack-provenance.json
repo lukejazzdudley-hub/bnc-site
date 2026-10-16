@@ -1,0 +1,228 @@
+{
+  "date": "2026-10-16",
+  "source": "packages/rhyme-engine/src/pronouncers/language-pack.ts in the separate Cadence app repository",
+  "publicChannel": "https://goupfxfloriqtucppmbx.supabase.co/storage/v1/object/public/language-packs/",
+  "packs": [
+    {
+      "id": "fr",
+      "label": "Français",
+      "english": "French",
+      "http": 200,
+      "bytes": "5845884",
+      "manifest": {
+        "sha256": "cd18b4fb2ac8acece24b3914eaf48f3baf6369039637cc2a871160f70814e506",
+        "bytes": 5845884
+      }
+    },
+    {
+      "id": "es",
+      "label": "Español",
+      "english": "Spanish",
+      "http": 200,
+      "bytes": "6600861",
+      "manifest": {
+        "sha256": "8b38181fd0206f2521e0ab4ea0bde9a139ead002d66c3aed6523d266b95f5609",
+        "bytes": 6600861
+      }
+    },
+    {
+      "id": "pt",
+      "label": "Português (Brasil)",
+      "english": "Portuguese (Brazil)",
+      "http": 200,
+      "bytes": "3919971",
+      "manifest": {
+        "sha256": "16928ab2fc5e20f0790b32bf35c503018d30bea0fec7aebe6fab5cf8d5f5dbe2",
+        "bytes": 3919971
+      }
+    },
+    {
+      "id": "pt-pt",
+      "label": "Português (Portugal)",
+      "english": "Portuguese (Portugal)",
+      "http": 200,
+      "bytes": "2225270",
+      "manifest": {
+        "sha256": "197feed6c7a189d7d48dba7eb872da30b9676faa444eeb011d325c7cbd75c678",
+        "bytes": 2225270
+      }
+    },
+    {
+      "id": "de",
+      "label": "Deutsch",
+      "english": "German",
+      "http": 200,
+      "bytes": "6309473",
+      "manifest": {
+        "sha256": "b62e61476d88cb81a1715f71f2400a59ac91403efba6a3024e8690001245c593",
+        "bytes": 6309473
+      }
+    },
+    {
+      "id": "it",
+      "label": "Italiano",
+      "english": "Italian",
+      "http": 200,
+      "bytes": "3377499",
+      "manifest": {
+        "sha256": "6323d704a4e4c8f53510f4373c735b75f4f7a4a02214fa8958bb36371a8a2aad",
+        "bytes": 3377499
+      }
+    },
+    {
+      "id": "ru",
+      "label": "Русский",
+      "english": "Russian",
+      "http": 200,
+      "bytes": "7362000",
+      "manifest": {
+        "sha256": "56a3aff9ddf022db1906bd521de420ab5f3a2b9eec12070ace8acdea40ba2876",
+        "bytes": 7362000
+      }
+    },
+    {
+      "id": "ar",
+      "label": "العربية",
+      "english": "Arabic",
+      "http": 200,
+      "bytes": "6310233",
+      "manifest": {
+        "sha256": "664121fff9c9a800f37fd3a4089963ca1eef96116bef2b2efd8834073e109230",
+        "bytes": 6310233
+      }
+    },
+    {
+      "id": "hi",
+      "label": "हिन्दी",
+      "english": "Hindi",
+      "http": 200,
+      "bytes": "1358625",
+      "manifest": {
+        "sha256": "679c237b6f1075b9e1e52582e4ad0dce8753643ff3972c00492685b95184a68f",
+        "bytes": 1358625
+      }
+    },
+    {
+      "id": "ko",
+      "label": "한국어",
+      "english": "Korean",
+      "http": 200,
+      "bytes": "6631162",
+      "manifest": {
+        "sha256": "2f1d4cbecfaeaac5fd6a9c54c8d047c11206fdb8c02f7c7aa7e9a716f0d83aa6",
+        "bytes": 6631162
+      }
+    },
+    {
+      "id": "he",
+      "label": "עברית",
+      "english": "Hebrew",
+      "http": 200,
+      "bytes": "4264099",
+      "manifest": {
+        "sha256": "dccc2f3618c695bf12321b292204d99eac6c25c4cd38853aa044d77c75efa66d",
+        "bytes": 4264099
+      }
+    },
+    {
+      "id": "ja",
+      "label": "日本語",
+      "english": "Japanese",
+      "http": 200,
+      "bytes": "12564161",
+      "manifest": {
+        "sha256": "5713fd1a25e2a60b9be77144d77833e29ddf9e68fd019346e41212510dd2720b",
+        "bytes": 12564161
+      }
+    },
+    {
+      "id": "tr",
+      "label": "Türkçe",
+      "english": "Turkish",
+      "http": 200,
+      "bytes": "6620243",
+      "manifest": {
+        "sha256": "3bbf10ba8a36d4c87e09b1290d0d16d5271785ec2407df275108c8e5ecc47d01",
+        "bytes": 6620243
+      }
+    },
+    {
+      "id": "id",
+      "label": "Bahasa Indonesia",
+      "english": "Indonesian",
+      "http": 200,
+      "bytes": "5902026",
+      "manifest": {
+        "sha256": "d05a5084167530466a620f294ecf5adeef8eef8595537f9e391d4952f84fb4dc",
+        "bytes": 5902026
+      }
+    },
+    {
+      "id": "ms",
+      "label": "Bahasa Melayu",
+      "english": "Malay",
+      "http": 200,
+      "bytes": "3857278",
+      "manifest": {
+        "sha256": "5b0eb50a379ef86fc4359f4ca2586b17cf753d4466b0cddd1ed3bd8c6aa471b6",
+        "bytes": 3857278
+      }
+    },
+    {
+      "id": "pl",
+      "label": "Polski",
+      "english": "Polish",
+      "http": 200,
+      "bytes": "6302264",
+      "manifest": {
+        "sha256": "d870a8890c25ea836a67a2a458c040441fa4d7854ea3def01b39630d116aab9b",
+        "bytes": 6302264
+      }
+    },
+    {
+      "id": "tl",
+      "label": "Filipino",
+      "english": "Filipino",
+      "http": 200,
+      "bytes": "5779886",
+      "manifest": {
+        "sha256": "a2214518f778776174c719a56e9f4b1cad7cd892ab49a51ad62a3d303d9d65c7",
+        "bytes": 5779886
+      }
+    },
+    {
+      "id": "vi",
+      "label": "Tiếng Việt",
+      "english": "Vietnamese",
+      "http": 200,
+      "bytes": "238335",
+      "manifest": {
+        "sha256": "9c3230d64797b539c184c1a0ce45759eda25330e0a49ca826a4b4422929e06bc",
+        "bytes": 238335
+      }
+    },
+    {
+      "id": "yo",
+      "label": "Yorùbá",
+      "english": "Yoruba",
+      "http": 200,
+      "bytes": "3994735",
+      "manifest": {
+        "sha256": "047b9655408eb9c7558db094736aa36ca70dc43230898570f6d6cf74adc224a1",
+        "bytes": 3994735
+      }
+    },
+    {
+      "id": "pcm",
+      "label": "Naijá",
+      "english": "Nigerian Pidgin",
+      "http": 200,
+      "bytes": "847740",
+      "manifest": {
+        "sha256": "3e3e16dda51bef6109a3a4d875d9ba8dbc16774b8a7fe4cd6b384c44d3abaa11",
+        "bytes": 847740
+      }
+    }
+  ],
+  "scope": "Public legacy production objects and manifest; not a certification of an unreleased channel or every device/storefront."
+}
