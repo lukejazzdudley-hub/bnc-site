@@ -85,3 +85,7 @@ See [rollout and evidence](seo/GLOBAL-SEARCH.md) and
 ## Public language tools and optional measurement
 
 French/Spanish public dictionaries load in a worker only when searched; size bounds, source hashes and separate licences preserve the app-source boundary. Static HTML owns methods, examples and internal discovery links. The optional measurement module collects only coarse aggregate route/source/store counts after consent. A dedicated Supabase function validates and rate-limits writes; RLS prevents public reads. See `seo/growth/MEASUREMENT.md`, `LANGUAGE-REVIEW.md` and `PERFORMANCE.md` in that directory for operational limits.
+
+## Feature guide
+
+`content/feature-guide.mjs` stores the public app manual as workflow chapters with stable anchors. `scripts/build_feature_guide.mjs` renders static HTML through the fourth growth generator; reading and deep links require no JavaScript. The release source-label check reads a separately supplied app checkout and flags missing evidence strings; it does not validate device UI behavior. See `docs/seo/growth/FEATURE-GUIDE.md`.

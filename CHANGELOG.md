@@ -2,6 +2,8 @@
 
 ## 2026-10-16
 
+- Find and use Cadence’s tools through a feature guide covering voice memos, rhyme inspection, language ordering, section recording and aligned DAW exports.
+
 - Find Cadence through six English regional download guides with local storefront links and practical writing exercises.
 - Read answers about free notes, supported platforms, recordings and rhyme-tool limits on the product and search pages.
 - Find the same app through the secondary name Flow by Cadence.

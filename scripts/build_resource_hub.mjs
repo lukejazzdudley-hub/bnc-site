@@ -45,6 +45,7 @@ const CATEGORY_PRESENTATION = {
 };
 
 const EXISTING_RESOURCES = [
+  {href:'/cadence/guide/',title:'Cadence feature walkthrough',description:'Find and use voice memos, rhymes, language ordering, section recording and DAW exports.'},
   {href: '/cadence/type-beat-songwriting-app/', title: 'Write to type beats', description: 'Loop your instrumental, write the verse and record a draft.'},
   {href: '/cadence/songwriting-app-android/', title: 'Cadence for Android', description: 'Lyrics, beats and takes on your Android device.'},
   {href: '/cadence/song-structure/', title: 'Song structure', description: 'Give verse, chorus and bridge a purpose.'},

@@ -1,0 +1,64 @@
+{
+  "checked": "2026-10-16",
+  "scope": "Source-label drift check; pair with release UI review. Do not treat source matches as hands-on device acceptance.",
+  "files": {
+    "apps/mobile/src/screens/LibraryScreen.tsx": [
+      "library-settings-button",
+      "Import"
+    ],
+    "apps/mobile/src/screens/SongScreen.tsx": [
+      "Enter fullscreen",
+      "Transcribe to lyrics",
+      "Rhymes ",
+      "Arrange into a song draft"
+    ],
+    "apps/mobile/src/components/fab-tree.ts": [
+      "Rhymes",
+      "Memo",
+      "Syllables",
+      "Load beat",
+      "Edit"
+    ],
+    "apps/mobile/src/components/RhymePanel.tsx": [
+      "Rhyme inspector",
+      "Rhyme any word",
+      "Multi-syllable",
+      "Multi-word",
+      "Assonance"
+    ],
+    "apps/mobile/src/components/settings-hub.ts": [
+      "Languages",
+      "Writing & Rhymes",
+      "Recording & Audio",
+      "Library & Export",
+      "Language priority order"
+    ],
+    "apps/mobile/src/components/SettingsSheet.tsx": [
+      "Find a setting",
+      "SUGGESTION ORDER",
+      "earlier",
+      "later",
+      "Syllable counter",
+      "Export as .txt files"
+    ],
+    "apps/mobile/src/components/settings-language-preferences.ts": [
+      "Best match",
+      "Priority first",
+      "Alternate"
+    ],
+    "apps/mobile/src/components/ArrangerSheet.tsx": [
+      "Build in DAW",
+      "Update DAW from draft?",
+      "Record into the focused section",
+      "Move take 50 milliseconds earlier",
+      "Assign a take to this section"
+    ],
+    "apps/mobile/src/components/DraftDemo.tsx": [
+      "Record into DAW",
+      "Tap to arm this channel",
+      "Mixdown",
+      "aligned at 0",
+      "Export stems"
+    ]
+  }
+}
