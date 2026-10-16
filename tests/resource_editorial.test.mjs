@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {articles as guides} from '../content/resources/guides/index.mjs';
 import {articles as comparisons} from '../content/resources/comparisons/index.mjs';
+import {readFileSync} from 'node:fs';
 import {buyingTools} from '../content/resources/comparisons/buyers.mjs';
 
 test('buying guide compares eleven named tools with source links and a disclosed editorial recommendation', () => {
@@ -53,4 +54,28 @@ test('review corrections remain explicit in comparisons and lyric examples', () 
   assert.doesNotMatch(stress.sections.map(s => s.html).join(' '), /“The morning stays outside my window”/);
   const rhyme = guides.find(a => a.slug === 'perfect-slant-multisyllabic-rhymes');
   assert.doesNotMatch(rhyme.sections.map(s => s.html).join(' '), /Room\/storm/i);
+});
+
+
+test('search-intent answers distinguish rhyme placement from matching length', () => {
+  const internal = guides.find(a => a.slug === 'internal-rhymes-and-rhyme-schemes');
+  assert.match(internal.title, /Meaning, Examples/);
+  const answer = internal.sections.find(s => s.id === 'internal-rhyme-meaning').html;
+  assert.match(answer, /<strong>light<\/strong> against the <strong>night<\/strong>/);
+  assert.match(answer, /final word, <em>you<\/em>, does not belong/);
+  assert.match(answer, /aria-label="Internal rhyme compared with end rhyme"/);
+  const multi = guides.find(a => a.slug === 'perfect-slant-multisyllabic-rhymes');
+  const examples = multi.sections.find(s => s.id === 'multisyllabic-rhyme').html;
+  assert.match(examples, /One matching syllable; perfect, not multisyllabic/);
+  assert.match(examples, /Approximate two-syllable slant, not a perfect match/);
+  assert.match(examples, /href="\/cadence\/rhyme-finder\/"/);
+});
+
+
+test('export walkthrough keeps verified output distinct from unfinished continuous footage', () => {
+  const source = readFileSync(new URL('../scripts/build_search_pages.mjs', import.meta.url), 'utf8');
+  assert.match(source, /Export stems \(WAV · aligned at 0\)/);
+  assert.match(source, /clips above do not show the export screen/);
+  assert.match(source, /Export was checked separately/);
+  assert.match(source, /not a judgement of the performance or mix/);
 });

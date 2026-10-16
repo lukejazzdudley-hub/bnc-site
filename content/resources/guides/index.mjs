@@ -60,8 +60,8 @@ Four stops from nowhere, still KNOW who I am</p></blockquote>
   },
   {
     slug: 'perfect-slant-multisyllabic-rhymes',
-    title: 'Perfect, Slant, and Multisyllabic Rhymes Explained',
-    description: 'Hear the difference between perfect, slant, assonance, and multisyllabic rhyme, then choose the type that serves your lyric.',
+    title: 'Multisyllabic Rhymes: Examples, Perfect and Slant Matches',
+    description: 'Understand multisyllabic rhymes with two-syllable examples, sound and stress patterns, and a comparison of perfect rhyme, slant rhyme and assonance.',
     heading: 'Choose rhymes by sound, stress, and purpose',
     intro: 'Rhyme is not a spelling contest. It is a relationship between performed sounds, and different degrees of similarity create different kinds of closure.',
     category: 'Improve your writing',
@@ -91,6 +91,8 @@ Four stops from nowhere, still KNOW who I am</p></blockquote>
         id: 'multisyllabic-rhyme',
         heading: 'Multisyllabic rhyme matches a longer sound shape',
         html: String.raw`<p>A multisyllabic rhyme matches across two or more syllables. The number of syllables in the written word is not enough; the matching sound and stress pattern matter. <em>Motion/ocean</em> forms a compact two-syllable perfect rhyme in standard pronunciations because the sounds match from the stressed long “o” onward.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Multisyllabic rhyme examples"><table><thead><tr><th scope="col">Pair</th><th scope="col">Matching sound</th><th scope="col">Why it qualifies</th></tr></thead><tbody><tr><td>motion / ocean</td><td>Stressed “oh” + unstressed “shun”</td><td>Two matching syllables</td></tr><tr><td>painter / later</td><td>“ay” + the unstressed ending, but a different consonant</td><td>Approximate two-syllable slant, not a perfect match</td></tr><tr><td>light / night</td><td>“ight”</td><td>One matching syllable; perfect, not multisyllabic</td></tr></tbody></table></div>
+<p>Try the original couplet “I follow the <strong>motion</strong> / of rain on the <strong>ocean</strong>.” Say both endings with the stress on the first syllable. Then search <a href="/cadence/rhyme-finder/">motion in the free rhyme finder</a>, choose Multisyllabic rhymes and try a result inside your own line. Matches depend on pronunciation; the app’s <a href="/cadence/guide/#rhyme-inspector">rhyme inspector guide</a> explains where to explore related sounds beside a draft.</p>
 <p>A phrase can extend a rhyme without becoming an exact multisyllabic match. In “paper crown / take it down,” only <em>crown/down</em> forms the exact one-syllable rhyme; <em>paper/take it</em> does not match. The full pairing is better described as an approximate multi-word or phrase slant. Build that kind of longer echo from the anchor outward:</p>
 <ol><li>Choose the most important stressed vowel: <em>crown</em>.</li><li>Collect exact one-syllable neighbours: <em>down, ground, town</em>.</li><li>Add the preceding rhythm: <em>paper crown</em>.</li><li>Search for compatible phrases such as <em>lay it down</em>; label the whole phrase approximate unless its earlier syllables match too.</li><li>Treat <em>wait around</em> as a looser phrase slant because <em>crown/round</em> also changes the final consonant.</li><li>Write complete thoughts, then keep only matches that sound natural at tempo.</li></ol>
 <p>A multi-word rhyme is not automatically multisyllabic, and a multisyllabic rhyme is not automatically exact. “I state it now / the paper crown” has an approximate phrase echo but vague meaning. “You built a paper crown / rain came and weighed it down” uses the same approximate phrase/slant structure more effectively because it continues the image.</p>`
@@ -112,12 +114,22 @@ Four stops from nowhere, still KNOW who I am</p></blockquote>
   },
   {
     slug: 'internal-rhymes-and-rhyme-schemes',
-    title: 'Internal Rhymes and Rhyme Schemes That Stay Musical',
-    description: 'Design end-rhyme and internal-rhyme patterns that guide the ear without making every line sound mechanical.',
-    heading: 'Build rhyme patterns the listener can feel',
-    intro: 'A rhyme scheme is more than letters at line endings. Placement, repetition, distance, and the strength of each sound decide how the pattern moves.',
+    title: 'Internal Rhyme: Meaning, Examples and Rhyme Schemes',
+    description: 'Learn what internal rhyme means, see original examples, compare internal vs end rhyme, and build rhyme schemes for lyrics.',
+    heading: 'Internal rhyme: meaning, examples and patterns',
+    intro: 'Internal rhyme places matching sounds within a line. See original examples, compare end rhyme and map patterns for your lyric.',
     category: 'Improve your writing',
     sections: [
+      {
+        id: 'internal-rhyme-meaning',
+        heading: 'What is internal rhyme?',
+        html: String.raw`<p><strong>Internal rhyme places rhyming words inside a line, or connects a word inside one line with a rhyme in another.</strong> End rhyme puts matching sounds at the ends of lines. These describe where the rhyme lands; perfect, slant and multisyllabic describe the kind of sound match.</p>
+<p>In this original example, both rhyming words occur before the line ends:</p>
+<blockquote><p>I keep a <strong>light</strong> against the <strong>night</strong> and wait for you.</p></blockquote>
+<p><em>Light/night</em> is a perfect internal rhyme. The final word, <em>you</em>, does not belong to that pair. By contrast, splitting the thought into lines ending in <em>light</em> and <em>night</em> would make the pair an end rhyme. A line can use both internal and end rhyme.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Internal rhyme compared with end rhyme"><table><thead><tr><th scope="col">Question</th><th scope="col">Internal rhyme</th><th scope="col">End rhyme</th></tr></thead><tbody><tr><th scope="row">Where is it?</th><td>At least one matching word sits inside a line.</td><td>Matching words land at line endings.</td></tr><tr><th scope="row">What can it do?</th><td>Connect parts of a phrase and draw attention within the line.</td><td>Mark a line’s landing and establish a repeating scheme.</td></tr><tr><th scope="row">Must it be perfect?</th><td>No. Specify whether the match is perfect, slant or another sound relationship.</td><td>No. Placement and rhyme type are separate choices.</td></tr></tbody></table></div>
+<p>In poetry, read the line aloud to hear what the pattern emphasises. In lyrics, try it over the beat as well: stress, pauses and delivery can strengthen or hide the same written rhyme. The examples below show how to combine the two placements without forcing the sentence.</p>`
+      },
       {
         id: 'map-the-end-rhymes',
         heading: 'Map the end rhymes first',

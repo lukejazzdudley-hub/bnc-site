@@ -18,3 +18,11 @@ Native review is a separate request: send the compact packet in LANGUAGE-REVIEW.
 ## Execution, 16 October 2026
 
 Seven individually addressed messages sent from the Brand Name Changes account after checking Sent for duplicates: MusicTech, MusicRadar, AndroidGuys, Songwriting Magazine; a producer-feedback request to wavytrbl through the contact listed on their [own BeatStars profile](https://www.beatstars.com/wavytrbl); native-review availability requests to [WafWaf Production](https://www.wafwaf-production.fr/ateliers-d-ecriture/) and [ESCAM](https://www.escam.com.mx/). Messages ask for independent critique and disclose demo limitations. Native requests ask for availability/scope/quote before any paid agreement. Sending is verified; delivery, replies, native acceptance, reviews and links are not assumed. Private message identifiers and addresses are excluded from this public report.
+
+## Follow-through, 16 October 2026
+
+Checked all seven original threads: each still contains only the sent request; no reply or bounce was found in the account search at the check. No published review or earned link has been verified. Same-day reminder emails were not sent.
+
+Three additional, deduplicated requests were sent: a region-specific native critique to [École nationale de la chanson, Québec](https://enchanson.ca/nousjoindre/), a Spanish editorial critique to [Madrid Songwriting School](https://www.madridsongwritingschool.com/), and an independent editorial consideration request through [GEARNEWS’s public news contact](https://www.gearnews.com/contact/). Ten requests in total across this campaign, not ten reviews. Native messages include concrete test words, dialect questions and no promise of fees. Editorial messages disclose free/Pro and simulator-demo limits, with no favourable-review or link condition.
+
+Next external evidence required: an actual reply, agreement on review scope, a completed critique, resolved corrections and permission for attribution; or a live editorial URL that demonstrably names the correct Cadence app. A sent receipt satisfies none of those outcomes.

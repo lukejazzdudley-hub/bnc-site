@@ -1,5 +1,27 @@
 # Search Console indexing observations
 
+## Current verification — 16 October 2026
+
+Authenticated, verified domain property. Expanded sitemap reports **Success, 40 discovered URLs** after resubmission. This is discovery, not a count of indexed pages.
+
+| Inspected URL | Google result |
+|---|---|
+| `/cadence/songwriting-app-android/` | URL is on Google; page indexed |
+| `/cadence/type-beat-songwriting-app/` | URL is on Google; page indexed |
+| `/cadence/fr/` | URL is on Google; page indexed |
+| `/cadence/es/` | URL is on Google; page indexed |
+| `/cadence/guide/` | URL is on Google; page indexed |
+| `/cadence/fr/dictionnaire-rimes/` | URL is on Google; page indexed |
+| `/cadence/es/diccionario-rimas/` | URL is on Google; page indexed |
+| `/cadence/type-beat-walkthrough/` | Crawled — currently not indexed |
+
+Watch-page detail: last crawl 16 October04:13:53, Googlebot smartphone; successful fetch, crawling and indexing allowed. Self canonical; Google-selected canonical is the inspected URL. Its inspection displayed a temporary sitemap processing error while the sitemap overview reported Success / 40. Do not recast this as a confirmed permanent technical error or repeatedly request indexing. Improve substantive evidence and revisit after another crawl.
+
+The seven indexed results do not establish top positions, store visits or AI citations. See [query baseline](QUERY-IMPROVEMENTS.md) for actual search observations. Private inspection snapshots stay outside this repository.
+
+## Earlier observations — superseded by the verification above
+
+
 16 October 2026, authenticated verified domain property. Sitemap last read 16 October: Success, **36 discovered URLs** from the previous release. This is Google's reported fetched sitemap count, not proof that every page is indexed. New tools expand the local sitemap to 39; Google must fetch the new release before that count can change.
 
 | Inspected URL | Google result at inspection |
@@ -19,7 +41,7 @@ Search Console Core Web Vitals: insufficient mobile and desktop usage data for t
 
 ## Live release
 
-PR26 merged and GitHub Pages deployment succeeded at commit `11d289906318a816e10b0c2e88c0a3256a3f7d9f`. The public sitemap has 39 URLs; French/Spanish tools, watch page, collector module and optimized navigation asset returned HTTP200. Resubmission returned **Sitemap submitted successfully**. Google still displayed 36 discovered pages before reprocessing; no claim that the three new URLs are already indexed.
+PR26 merged and GitHub Pages deployment succeeded at commit `11d289906318a816e10b0c2e88c0a3256a3f7d9f`. The public sitemap has 39 URLs; French/Spanish tools, watch page, collector module and optimized navigation asset returned HTTP 200. Resubmission returned **Sitemap submitted successfully**. Google still displayed 36 discovered pages before reprocessing; no claim that the three new URLs are already indexed.
 
 New French dictionary inspection: **Discovered — currently not indexed**. Its live test returned **URL is available to Google / Page can be indexed**. This confirms live fetch eligibility, not index inclusion.
 
