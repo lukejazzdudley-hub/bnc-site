@@ -63,8 +63,8 @@ class InternationalSEO(unittest.TestCase):
         html = (ROOT / 'cadence/languages/index.html').read_text()
         description = re.search(r'<meta name="description" content="([^"]+)"', html)[1]
         self.assertNotIn('English-only', description)
-        self.assertIn('Spanish', description)
-        self.assertIn('French', description)
+        self.assertIn('20 Cadence rhyme packs', description)
+        self.assertIn('built-in English', description)
         self.assertIn('id="spanish-songwriting"', html)
         self.assertIn('A songwriting app for Spanish lyrics', html)
         self.assertIn('href="/cadence/guide/#languages"', html)

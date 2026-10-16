@@ -85,7 +85,12 @@ traffic and install attribution. Optional website measurement is documented in `
 
 ## Search expansion validation
 
-Run `python3 scripts/audit_crawl.py` after the four generators. Edit added workflow copy in `content/acquisition.mjs` and localised copy in `content/locales.mjs`. Review language-pack and platform claims against current release evidence; locale is not a promise of translated UI. Keep private GSC exports outside the public repository. See `docs/seo/GLOBAL-SEARCH.md` and its 109-query map.
+Run `python3 scripts/audit_crawl.py` after the four generators. Edit added workflow copy in `content/acquisition.mjs`, existing French/Spanish copy in `content/locales.mjs`, and other pack introductions in `content/pack-locales.mjs`. The catalog is `content/language-packs.mjs`; original English pack exercises are in `content/pack-writing-exercises.mjs`. Review language-pack and platform claims against current release evidence; locale is not a promise of translated UI. Keep private GSC exports outside the public repository. See `docs/seo/GLOBAL-SEARCH.md`, its historical 109-query map, and `docs/seo/ALL-LANGUAGE-COVERAGE.md` with the all-pack research map.
+
+The fourth generator also regenerates the optional measurement function's route
+allowlist from the completed sitemap. Deploy `cadence-search-events` after adding
+landing routes, using the existing project and JWT configuration. This updates
+allowed public paths; it does not change consent, collected dimensions or RLS.
 
 ## Maintaining the app guide
 

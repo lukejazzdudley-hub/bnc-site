@@ -19,6 +19,18 @@
 .cadence-faq { padding-block: 64px; }
 .cadence-faq > p { max-width: 70ch; margin-block: 22px; color: #c7c9d0; }
 .cadence-faq h2 { font-size: clamp(30px, 4vw, 48px); }
+.language-directory h3 { font-size: 26px; line-height: 1.5; }
+.language-directory article > a { display: inline-block; padding-block: 12px; }
+.locale-nav { max-width: 100%; }
+.locale-nav summary { cursor: pointer; padding: 12px 4px; min-height: 44px; }
+.locale-nav .region-links { display: flex; flex-wrap: wrap; max-width: 70ch; }
+.locale-nav a { min-height: 44px; display: inline-flex; align-items: center; }
+.locale-nav summary:focus-visible { outline: 3px solid #aebdeb; outline-offset: 3px; }
+[dir="rtl"] .hero.text-only { text-align: start; }
+[dir="rtl"] .content { text-align: start; }
+[dir="rtl"] .brand { direction: ltr; unicode-bidi: isolate; }
+[dir="rtl"] .hero h1 { letter-spacing: normal; line-height: 1.35; }
+html:lang(ja) .hero h1, html:lang(ko) .hero h1 { word-break: normal; line-height: 1.35; }
 @media (max-width: 750px) {
   .region-hero { grid-template-columns: 1fr; gap: 26px; }
   .region-phone { max-width: 190px; }

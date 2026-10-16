@@ -2,6 +2,11 @@
 
 ## 2026-10-16
 
+- Find all 20 downloadable rhyme packs plus built-in English from the language directory.
+- Read 18 additional native-language introductions, including Arabic and Hebrew with right-to-left layout, while keeping the existing French and Spanish pages.
+- Follow a pack-specific English guide with language setup, listening checks, original writing exercises, bilingual practice and links to current recording and export controls.
+- Distinguish available app packs from the separate English, French and Spanish browser dictionaries. Optional website counts now recognise more international Google domains.
+
 - The studio page now shows Android availability and explains recording preservation without promising automatic audio backup.
 
 - Find the Spanish songwriting workflow, language-pack setup and free Spanish/French rhyme tools from the language guide.

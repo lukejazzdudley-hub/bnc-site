@@ -1,3 +1,5 @@
+> Current all-pack expansion: see [all-language coverage](ALL-LANGUAGE-COVERAGE.md). The earlier rollout records below describe their original scope; they are not the current catalog or a ranking claim.
+
 # Cadence global search rollout
 
 Checked 16 October 2026. Primary URL: https://brandnamechanges.com/cadence/.
