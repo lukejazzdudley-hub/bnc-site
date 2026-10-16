@@ -218,3 +218,7 @@ outreach logs stay outside this public repository.
 The public [Cadence guide](https://brandnamechanges.com/cadence/guide/) explains where to find and use 14 writing, recording, language and export workflows. Edit `content/feature-guide.mjs` and regenerate with the fourth generator. Follow `docs/seo/growth/FEATURE-GUIDE.md` when app controls change.
 
 The guide includes workflow shortcuts, local feature lookup and an optional 3D handset. Its reading content stays static; 3D is fetched only on request, with still-image and lightweight fallbacks.
+
+## Web-design preferences
+
+Use Motion, Kokonut UI and Bklit UI for relevant animation, components and data visualisation. See `AGENTS.md` and `docs/WEB-DESIGN-STACK.md` for the integration and accessibility rules. This preference does not itself add frontend dependencies.
