@@ -1,0 +1,19 @@
+# Spanish songwriting search visibility — 16 October 2026
+
+Luke reports that Cadence is absent for “songwriting app spanish” and that branded searches show stores instead of the website. Reproduced both the English phrase and “app para escribir canciones” in the actual Google browser. The website is absent from the first results page observed for both. The Spanish query footer says results are personalised: this is a session observation, not a universal country-specific ranking measurement.
+
+The English phrase mixes songwriting, Spanish-learning apps and AI song generation. The native Spanish phrase shows app listings, comparison articles, forums, videos and AI song tools. Do not imply Cadence generates songs or teaches Spanish merely to match those result types.
+
+The Spanish product page already has an appropriate “App para escribir canciones…” title and was confirmed indexed earlier today. Its absence on the observed first page is not evidence of an index block. Earlier delivery checks established technical eligibility, not commercial search success. GSC’s completed baseline window ends 13 October, before the current release, and cannot prove today’s ranking improvement.
+
+Concrete correction: the English language hub described the browser tool as English-only even after dedicated French/Spanish tools launched. Corrected that stale metadata and added a substantive English explanation of Spanish songwriting with the existing app: pack/suggestion setup, beat loops, vocal takes, sections and Pro demo progression. Links use stable guide anchors and the existing Spanish page/tool; no new keyword-variant route or duplicate country page was created. Spanish pack availability is separate from complete interface translation and from independent browser dictionaries.
+
+This is a relevance correction, not a ranking fix proven by tests. For acceptance, measure non-brand songwriting queries against their actual landing pages, segmented by relevant country/device. Keep English bilingual intent separate from native Spanish queries. Track branded website visibility separately from app-store visibility; store-listing discovery is not website traffic. A sitemap receipt, index result or passing test cannot satisfy that outcome.
+
+Outstanding evidence: non-brand app-intent clicks and impressions after the release; comparative country-specific positions over time; useful Spanish-language demonstration and independent native editorial acceptance; actual relevant third-party coverage. No ranking uplift or publication is claimed by this patch.
+
+The branded phrase “cadence lyrics and rhymes” also produces a first page dominated by the ordinary/military meaning of cadence in this browser session. The correct Google Play listing appears; the website does not. This supports a brand-disambiguation concern, but does not identify Google’s private ranking reasons. Existing product JSON-LD already links both stores via sameAs; adding the same schema again is not a substantive fix.
+
+The official Google Play Website link currently goes to the studio root. Verified its destination directly. The root does link to Cadence, but it also had an iOS-only status badge and an incorrect automatic-backup promise. Corrected those facts while preserving the company page and its existing product links. Changing store marketing URLs or the primary domain is a separate release decision, not something to do silently to chase a ranking.
+
+Validation: 96 Python, 147 Node and 42 Deno tests passed. The new language-hub regression test failed against the old English-only description before the correction, then passed. The company-page regression test likewise caught the old backup claim. Crawl: 40 URLs, no errors; language-page layouts have no horizontal overflow at 320, 375, 390, 430, 768, 1024 and 1440 pixels. Gitleaks clean. These checks validate the patch, not a search-position improvement.

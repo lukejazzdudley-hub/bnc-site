@@ -59,6 +59,20 @@ class InternationalSEO(unittest.TestCase):
         for path in ['cadence/index.html', 'cadence/resources/index.html', 'cadence/songwriting-app/index.html']:
             self.assertIn('href="/cadence/regions/"', (ROOT / path).read_text())
 
+    def test_language_hub_answers_spanish_songwriting_intent_honestly(self):
+        html = (ROOT / 'cadence/languages/index.html').read_text()
+        description = re.search(r'<meta name="description" content="([^"]+)"', html)[1]
+        self.assertNotIn('English-only', description)
+        self.assertIn('Spanish', description)
+        self.assertIn('French', description)
+        self.assertIn('id="spanish-songwriting"', html)
+        self.assertIn('A songwriting app for Spanish lyrics', html)
+        self.assertIn('href="/cadence/guide/#languages"', html)
+        self.assertIn('href="/cadence/guide/#beat-loop"', html)
+        self.assertIn('href="/cadence/es/diccionario-rimas/"', html)
+        self.assertIn('does not mean every app screen is translated', html)
+        self.assertNotIn('learn Spanish through music', html)
+
     def test_brand_alias_keeps_product_identity_and_store_urls(self):
         html = (ROOT / 'cadence/index.html').read_text()
         self.assertIn('Flow by Cadence', html)

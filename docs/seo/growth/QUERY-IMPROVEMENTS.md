@@ -39,3 +39,7 @@ Google country/language volume exports for Spain, Mexico and Québec remain unav
 ## Evaluation rule
 
 Compare the next complete 28-day window with this baseline, retaining the same search type, dates and filter definitions. Track impressions, clicks, CTR and page-level engagement/store visits separately. Investigate query-page mismatches and new meaningful intent; keep supported pages useful before expanding. Do not join an individual visitor to an aggregate search query or call a store click an install.
+
+## User-reported Spanish visibility gap
+
+The later [Spanish search response](SPANISH-SEARCH-RESPONSE.md) reproduces the missing first-page website result for English bilingual and native Spanish app-intent searches. It also records brand ambiguity, a concrete language-hub correction and the remaining outcome requirements. Technical completion must not be reported as successful discovery.

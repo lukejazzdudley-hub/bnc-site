@@ -2,6 +2,10 @@
 
 ## 2026-10-16
 
+- The studio page now shows Android availability and explains recording preservation without promising automatic audio backup.
+
+- Find the Spanish songwriting workflow, language-pack setup and free Spanish/French rhyme tools from the language guide.
+
 - Learn internal and multisyllabic rhyme through clearer definitions, original examples and comparisons. Springtime Showers now explains aligned WAV export with verified output details.
 
 - Settled navigation marks stay sharp on high-density screens.
