@@ -37,3 +37,14 @@ input,select{background:#090b10;border-color:#596172;border-radius:14px}input:fo
 
 .content details{border-top:1px solid var(--line);padding:20px 0;max-width:72ch}.content summary{cursor:pointer;font-size:19px;font-weight:600}.content summary:focus-visible{outline:3px solid #aebdeb;outline-offset:5px}.content details p{color:#c7c9d0;line-height:1.8}
 .website-measurement{max-width:1100px;margin:0 auto;padding:28px 24px;color:#c7c9d0;font:inherit;border-top:1px solid #34363d}.website-measurement h2{font-size:20px}.website-measurement p{max-width:70ch;font-size:15px}.website-measurement button{min-height:44px;padding:10px 16px;margin:4px 12px 4px 0;border:1px solid #777;background:#16181e;color:#fff;border-radius:8px;font:inherit;cursor:pointer}.website-measurement button:focus-visible{outline:3px solid #adc4ef;outline-offset:3px}.website-measurement [hidden]{display:none}
+
+/* Shared refinement for acquisition, locale, walkthrough and guide pages. */
+:root{--surface-raised:linear-gradient(140deg,#252b38,#171c25);--silver:#d7deec;--radius-panel:24px}
+body{background-image:radial-gradient(ellipse at 85% 6%,#8d9fb014,transparent 38%)}
+header nav a,footer nav a{display:inline-flex;align-items:center;min-height:44px}
+.content summary{min-height:44px;padding-right:16px}.content details[open] summary{color:var(--silver)}
+#romance-status{min-height:3em;margin:26px 0 16px;color:#c4c6ce}#romance-results{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}#romance-results li{background:var(--surface-raised);border:1px solid #3b4250;border-radius:16px;min-height:78px;padding:12px 16px;overflow-wrap:anywhere}#romance-results small{display:block;color:#b8bdca;font-size:12px;margin-top:4px}.examples button{min-height:44px}.tool:has(#romance-form) form{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.tool:has(#romance-form) button[type=submit]{grid-column:1/-1}.tool:has(#romance-form) input,.tool:has(#romance-form) select{min-width:0}
+.hero .search-device{margin:0;max-width:280px;justify-self:center}.search-device img{display:block;object-fit:contain;width:100%;height:auto;filter:drop-shadow(0 24px 30px #0006)}.search-device figcaption{text-align:center;font-size:12px}
+@media(min-width:1000px){body:has(#romance-form) main>.hero{padding-block:48px 28px}body:has(#romance-form) .hero h1{max-width:20ch;font-size:clamp(44px,5.2vw,68px)}}
+@media(max-width:750px){.hero .search-device{max-width:190px}.tool:has(#romance-form) form{grid-template-columns:1fr}.hero:has(.search-device){gap:24px;padding-bottom:36px}header nav{gap:4px 18px}}
+@media(prefers-reduced-motion:no-preference){.search-device img{transition:transform .35s ease}.search-device:hover img{transform:translateY(-6px) rotate(-1deg)}}

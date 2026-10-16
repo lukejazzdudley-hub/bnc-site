@@ -203,6 +203,7 @@ function renderHeader() {
       <nav aria-label="Main navigation">
         <a aria-current="page" href="/cadence/resources/">Resources</a>
         <a href="/cadence/rhyme-finder/">Rhyme finder</a>
+        <a href="/cadence/guide/">Guide</a>
         <a class="resource-header__cta" href="/cadence/#download">Get Cadence</a>
       </nav>
     </div>
