@@ -94,6 +94,12 @@ allowed public paths; it does not change consent, collected dimensions or RLS.
 
 ## Maintaining the app guide
 
+For the beat-to-demo lesson, edit `content/resources/beat-lesson.mjs` and regenerate
+with the four commands above. The model is `cadence/resources/beat-worksheet-model.mjs`;
+run `node --test tests/beat-worksheet.test.mjs` for timing and download edge cases.
+Check invalid values, zero-bar sections, multilingual entries, actual text
+download and print layout. Do not add lyrics or worksheet fields to measurement.
+
 Edit `content/feature-guide.mjs`; the fourth generator publishes `/cadence/guide/`. Keep chapter anchors stable and review actual app controls with each release. Run `python3 scripts/check_feature_guide_sources.py --app-root /path/to/cadence` to catch changed source labels, then perform the separate UI review. See `docs/seo/growth/FEATURE-GUIDE.md` for the update and evidence procedure.
 
 ### Guide interaction and 3D checks

@@ -1,12 +1,14 @@
+import {beatLessonSections} from '../beat-lesson.mjs';
+
 const checked = '2026-09-17';
 
 export const articles = [
   {
     slug: 'writing-rap-lyrics-over-a-beat',
     title: 'How to Write Rap Lyrics Over a Beat',
-    description: 'A practical method for finding pockets, drafting bars, testing breath, and revising rap lyrics against the beat that will carry them.',
+    description: 'Write rap lyrics over a beat with an original verse revision, a 30-minute beat-to-demo lesson, section timing and a free printable songwriting worksheet.',
     heading: 'Write rap lyrics that live inside the beat',
-    intro: 'The page can hide timing problems. The beat cannot. This workflow starts with listening, turns rhythm into a usable map, and keeps meaning in charge while you draft and revise.',
+    intro: 'Find the pocket, hear what your words are doing and make a demo you can learn from. Follow the writing guide, then try the worked verse and free beat-to-demo worksheet with any recorder.',
     category: 'Improve your writing',
     sections: [
       {
@@ -51,7 +53,8 @@ Four stops from nowhere, still KNOW who I am</p></blockquote>
         html: String.raw`<p>A written bar and a performed bar are different objects. Record a rough take, wait a few minutes, then listen once without reading. Write down only what you actually hear: the words that disappear, the line that lands early, the image you remember, and the moment your attention drops. Those notes form a better revision list than staring at the text.</p>
 <p>Change one variable per pass. First fix timing, then breath, then wording, then rhyme detail. If you rewrite all four at once, you cannot tell which change improved the performance. Save a rough version before large edits so an energetic imperfect take is not lost to a tidier but flatter rewrite.</p>
 <p>In Cadence, you can bring in the beat waveform, set independent A/B points, keep the lyric with vocal takes, and build a Draft Demo before moving further into the multitrack workflow. Those tools reduce app-switching; they do not decide whether a line works. Your final test remains simple: can you perform the verse repeatedly, can a listener follow its movement, and does the voice make the beat feel more complete?</p>`
-      }
+      },
+      ...beatLessonSections
     ],
     sources: [
       { title: 'Lyric Writing: Writing Lyrics to Music — Berklee Online', url: 'https://online.berklee.edu/courses/lyric-writing-writing-lyrics-to-music', checked },

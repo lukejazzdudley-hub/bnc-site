@@ -88,6 +88,14 @@ French/Spanish public dictionaries load in a worker only when searched; size bou
 
 ## Feature guide
 
+The beat-writing resource additionally imports authored lesson sections from
+`content/resources/beat-lesson.mjs`. Its optional worksheet uses a pure timing/text
+model plus a page-scoped DOM controller; no form entries leave the browser or
+persist after reload. The resource generator also emits a blank UTF-8 worksheet
+for no-JavaScript readers. No new landing route, tracking dimension or server
+allowlist is required. Print mirrors use textContent so entered lyrics wrap
+without textarea clipping. See `seo/BEAT-TO-DEMO-LESSON.md`.
+
 `content/feature-guide.mjs` stores the public app manual as workflow chapters with stable anchors. `scripts/build_feature_guide.mjs` renders static HTML through the fourth growth generator; reading and deep links require no JavaScript. The release source-label check reads a separately supplied app checkout and flags missing evidence strings; it does not validate device UI behavior. See `docs/seo/growth/FEATURE-GUIDE.md`.
 
 The guide adds a progressive contents filter and current-section indicator. Its optional handset dynamically imports the existing model-viewer and shared screen-texture initializer only on explicit activation. A reserved aperture prevents layout shifts; reduced-motion/data-saving preferences retain the poster. Static chapters and workflow links remain the source for readers and crawlers.
