@@ -2,6 +2,8 @@
 
 ## 2026-10-16
 
+- Explore the feature guide through workflow shortcuts, quick tool lookup and an optional interactive 3D handset. New search pages use complete device illustrations; French and Spanish rhyme results have clearer cards and touch controls.
+
 - Find and use Cadence’s tools through a feature guide covering voice memos, rhyme inspection, language ordering, section recording and aligned DAW exports.
 
 - Find Cadence through six English regional download guides with local storefront links and practical writing exercises.

@@ -90,3 +90,7 @@ Run `python3 scripts/audit_crawl.py` after the four generators. Edit added workf
 ## Maintaining the app guide
 
 Edit `content/feature-guide.mjs`; the fourth generator publishes `/cadence/guide/`. Keep chapter anchors stable and review actual app controls with each release. Run `python3 scripts/check_feature_guide_sources.py --app-root /path/to/cadence` to catch changed source labels, then perform the separate UI review. See `docs/seo/growth/FEATURE-GUIDE.md` for the update and evidence procedure.
+
+### Guide interaction and 3D checks
+
+`cadence/guide/guide.mjs` filters only the contents links; it never removes instructional chapters. Check empty search, no match and keyboard deep links. The 3D handset loads the existing pinned model-viewer only after Explore in 3D, shares `initialiseViewer` with the product page and retains the static poster until texture binding succeeds. Check rotation, Reset view, Use still image, failed renderer loading, reduced motion and data saving. Network-quality changes alone must not close the view. No search words are persisted or sent.

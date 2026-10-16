@@ -167,7 +167,7 @@ async function waitForModel(viewer) {
   });
 }
 
-async function initialiseViewer(viewer) {
+export async function initialiseViewer(viewer) {
   viewer.dataset.initialising = 'true';
   await waitForModel(viewer);
   viewer.dataset.modelReady = 'true';

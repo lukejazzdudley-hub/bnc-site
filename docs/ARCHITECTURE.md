@@ -89,3 +89,5 @@ French/Spanish public dictionaries load in a worker only when searched; size bou
 ## Feature guide
 
 `content/feature-guide.mjs` stores the public app manual as workflow chapters with stable anchors. `scripts/build_feature_guide.mjs` renders static HTML through the fourth growth generator; reading and deep links require no JavaScript. The release source-label check reads a separately supplied app checkout and flags missing evidence strings; it does not validate device UI behavior. See `docs/seo/growth/FEATURE-GUIDE.md`.
+
+The guide adds a progressive contents filter and current-section indicator. Its optional handset dynamically imports the existing model-viewer and shared screen-texture initializer only on explicit activation. A reserved aperture prevents layout shifts; reduced-motion/data-saving preferences retain the poster. Static chapters and workflow links remain the source for readers and crawlers.
