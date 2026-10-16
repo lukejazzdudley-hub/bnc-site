@@ -33,7 +33,7 @@ class SearchPages(unittest.TestCase):
         for slug in SLUGS:
             html = (ROOT / 'cadence' / slug / 'index.html').read_text()
             self.assertIn('data-animated-mark', html)
-            self.assertIn('/assets/cadence/cadence-mark.webp', html)
+            self.assertIn('/assets/cadence/cadence-mark-nav.webp', html)
             self.assertIn('prefers-reduced-motion: reduce', html)
             self.assertIn('/cadence/media-policy.js', html)
             self.assertNotIn('<img src="/assets/cadence/app-icon.webp"', html)

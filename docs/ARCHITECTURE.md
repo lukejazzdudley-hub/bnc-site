@@ -81,3 +81,7 @@ See [rollout and evidence](seo/GLOBAL-SEARCH.md) and
 ## Audience-intent expansion
 
 `content/acquisition.mjs` owns four added English workflows; `content/locales.mjs` owns French/Spanish introductions. Existing generators render complete HTML and reciprocal language/region alternates. `scripts/audit_crawl.py` validates the static anchor graph, canonicals, local targets and sitemap indexability. Feedback stays noindex and outside the sitemap. No client routing or new tracking is added.
+
+## Public language tools and optional measurement
+
+French/Spanish public dictionaries load in a worker only when searched; size bounds, source hashes and separate licences preserve the app-source boundary. Static HTML owns methods, examples and internal discovery links. The optional measurement module collects only coarse aggregate route/source/store counts after consent. A dedicated Supabase function validates and rate-limits writes; RLS prevents public reads. See `seo/growth/MEASUREMENT.md`, `LANGUAGE-REVIEW.md` and `PERFORMANCE.md` in that directory for operational limits.

@@ -1,0 +1,7 @@
+query_family,intent,primary_route,language,geography,evidence_limit
+"dictionnaire de rimes; trouver des rimes",immediate functional dictionary,/cadence/fr/dictionnaire-rimes/,fr,"France-oriented pronunciation; accessible globally",France observed demand bands; native editorial acceptance pending
+"diccionario de rimas; rimas consonantes; rimas asonantes",immediate functional dictionary,/cadence/es/diccionario-rimas/,es,"Spain and Latin-American source variants",Country-specific volume not captured; do not infer from worldwide bands
+"application pour écrire des chansons",product evaluation,/cadence/fr/,fr,global,Product introduction does not imply translated app interface
+"aplicación para escribir canciones",product evaluation,/cadence/es/,es,global,Keep product and functional dictionary intents distinct
+"songwriting app android; lyric writing app android",platform evaluation,/cadence/songwriting-app-android/,en,global,Google Play account/device determine eligibility
+"write lyrics to type beats; type beat songwriting app",beat-first workflow,/cadence/type-beat-songwriting-app/,en,global,USP positioning requires real evidence; no objective best-app rating claimed

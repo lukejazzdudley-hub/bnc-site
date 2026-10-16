@@ -175,6 +175,7 @@ function mountScene(host) {
   poster.className = 'cadence-v3-poster';
   poster.alt = '';
   poster.decoding = 'async';
+  poster.loading = 'lazy';
   host.append(poster);
 
   let viewer;

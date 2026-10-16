@@ -139,3 +139,13 @@ Console exports or account identifiers belong in this public repository.
 Check the Search Console generative-AI inclusion state and dedicated performance
 report as well as Web results. Sitemaps, deployment, index requests, actual indexing
 and AI citations are distinct states. No custom AI file guarantees any of them.
+
+## Follow-up implementation
+
+The historical 109-query map above is retained as a dated research snapshot.
+French and Spanish dictionary intent now has independent functional browser tools
+at `/cadence/fr/dictionnaire-rimes/` and `/cadence/es/diccionario-rimas/`.
+See `growth/COMPETITIVE-ANALYSIS.md` for current intent decisions and remaining
+country-metric gaps, `growth/LANGUAGE-REVIEW.md` for source/quality scope,
+`growth/MEASUREMENT.md` for optional acquisition counts, and
+`growth/INDEXING.md` for actual Google indexing states.

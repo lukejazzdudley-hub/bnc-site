@@ -1,0 +1,60 @@
+{
+  "dictionaries": {
+    "fr": {
+      "url": "/cadence/search/public-fr.json",
+      "sha256": "cc6029ec7666b79c10ab785b06f246d8bb07ab8ee277a5485f5da9dc578df194",
+      "bytes": 2211890,
+      "entries": 44403,
+      "source": "Lexique 4.10; New, Pallier and collaborators",
+      "license": "CC-BY-SA-4.0"
+    },
+    "es": {
+      "url": "/cadence/search/public-es.json",
+      "sha256": "d90e941015bd3781009789e90f4bad8c40fdefa9c238766de2e1aeecf9d8ac5f",
+      "bytes": 8989135,
+      "entries": 151787,
+      "source": "Wiktionary contributors via WikiPron d282e848a211ea31cfd730f0ced8bc8cdab9e83d",
+      "license": "CC-BY-SA-4.0"
+    }
+  },
+  "inputs": {
+    "Lexique4.1.tsv": "f112ad487334c8ab702e6b95cf08110b2ac534d1896e1643f9c669f91a139a84",
+    "spa_latn_la_broad.tsv": "6e962eb2f51f9780a3648bd3fdebbd261c6d999d4902832abeeef14c71a033d9",
+    "spa_latn_ca_broad.tsv": "0438a76e2465cd94022d177d6be4385963b9d5e310359fe97d06a19f2bd92469"
+  },
+  "spanish_stress": "Derived from orthographic accent/default stress only when orthographic nuclei align with IPA vowels; ambiguous forms excluded. Separate source pronunciations from Latin America and Spain are retained; not dialect-universal.",
+  "spanish_additions": {
+    "emociones": {
+      "source": "https://es.wiktionary.org/w/index.php?title=emociones&oldid=5657214",
+      "readings": [
+        "emoˈsjones",
+        "emoˈθjones"
+      ],
+      "reason": "Common inflection absent from pinned WikiPron profiles; two attested standard readings retained."
+    },
+    "caminó": {
+      "source": "https://es.wiktionary.org/w/index.php?title=caminó&oldid=6023704",
+      "reading": "kamino",
+      "reason": "Attested verb inflection absent from pinned profiles; stress contrast must be tested with both words present."
+    },
+    "publicó": {
+      "source": "https://es.wiktionary.org/w/index.php?title=publicó&oldid=5973682",
+      "reading": "puβ̞liko",
+      "reason": "Attested verb inflection absent from pinned profiles; stress contrast must be tested with both words present."
+    },
+    "terminó": {
+      "source": "https://es.wiktionary.org/w/index.php?title=terminó&oldid=6022566",
+      "reading": "t̪eɾmino",
+      "reason": "Attested verb inflection absent from pinned profiles; stress contrast must be tested with both words present."
+    }
+  },
+  "french_corrections": {
+    "peur": {
+      "IPA": "pœʁ",
+      "source": "https://fr.wiktionary.org/wiki/peur",
+      "reason": "Lexique 4.10 source pøʁ differs from cited dictionary reading; only this explicit form corrected."
+    }
+  },
+  "french": "Lexique word pronunciations; no automatic liaison, optional poetic schwa or Québec coverage.",
+  "review": "Source and automated linguistic checks; independent native-speaker acceptance pending."
+}

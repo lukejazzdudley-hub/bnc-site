@@ -1,0 +1,28 @@
+{
+  "captureDate": "2026-10-16",
+  "song": "After the Last Bus",
+  "environment": "Isolated iOS 26.5 development simulator",
+  "sourceCaptures": [
+    {
+      "name": "continuous-workflow.mov",
+      "sha256": "6eecd9a47434a26157c37ea4f4c45774373c2e4c606b5d10bce3efa17fc8b7b8"
+    },
+    {
+      "name": "writing-loop-demo.mov",
+      "sha256": "00e149c00bccfd5835f8554d73aa2b5db8c4f033c815a2d92825b3b250c70d2b"
+    }
+  ],
+  "edit": "First source 165\u2013240s at 3x; second source 0\u201312s at 1x, 70\u2013140s at 2x, 140\u2013202s at 2x. Waits omitted. Same song, interrupted by development-server restart.",
+  "audio": "No audio track; original instrumental created locally for the UI demonstration. No vocal or finished demo claimed.",
+  "permissions": "Original demonstration lyric and instrumental. No user song or licensed third-party beat included.",
+  "limitations": [
+    "Different development UI snapshots across server restart",
+    "Pro arrangement/export not completed in this song; purchase was not made",
+    "Existing Springtime Showers arrangement evidence is a separately labeled song"
+  ],
+  "outputs": {
+    "beat-first-workflow.mp4": "9291fa7dc6b12cef38d55d90370f92d5f516c46a9165f60d463ffa6585f196de",
+    "beat-first-poster.jpg": "68e576fd6d36a17eab481f650bd9b0a2a51e0bf587540a6fc64888a3504eb6a0",
+    "beat-first-workflow.vtt": "eaf7d7da9d325cf1aea836dca6acb5257d83888c108aa7de873cb6781c800bd1"
+  }
+}

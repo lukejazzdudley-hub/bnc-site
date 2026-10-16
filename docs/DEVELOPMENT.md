@@ -81,8 +81,8 @@ The alias uses proxied redirect-only DNS records and a Cloudflare 301. Check DNS
 HTTP/HTTPS and apex/www separately. A public 200 or a submitted sitemap does not
 prove indexing; use Search Console page inspection and country/query reports.
 The rollout guide records observed Keyword Planner ranges separately from organic
-traffic and install attribution. No new tracking or consent behavior is included.
+traffic and install attribution. Optional website measurement is documented in `docs/seo/growth/MEASUREMENT.md` and the privacy policy.
 
 ## Search expansion validation
 
-Run `python3 scripts/audit_crawl.py` after the three generators. Edit added workflow copy in `content/acquisition.mjs` and localised copy in `content/locales.mjs`. Review language-pack and platform claims against current release evidence; locale is not a promise of translated UI. Keep private GSC exports outside the public repository. See `docs/seo/GLOBAL-SEARCH.md` and its 109-query map.
+Run `python3 scripts/audit_crawl.py` after the four generators. Edit added workflow copy in `content/acquisition.mjs` and localised copy in `content/locales.mjs`. Review language-pack and platform claims against current release evidence; locale is not a promise of translated UI. Keep private GSC exports outside the public repository. See `docs/seo/GLOBAL-SEARCH.md` and its 109-query map.

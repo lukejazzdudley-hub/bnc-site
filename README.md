@@ -65,6 +65,7 @@ sitemap produced by the first):
 node scripts/build_search_pages.mjs
 node scripts/build_resource_hub.mjs
 node scripts/build_international_pages.mjs
+node scripts/build_growth_pages.mjs
 ```
 
 ```bash
@@ -199,4 +200,15 @@ GitHub Pages publishes the default branch and uses the checked-in `CNAME`. Befor
 
 ### Search content
 
-The search architecture groups related queries around useful workflows, with type-beat and Android entry pages, French/Spanish introductions and regional download guidance. See `docs/seo/GLOBAL-SEARCH.md` for the query map and evidence limits. After all generators, run `python3 scripts/audit_crawl.py`; the sitemap contains 36 indexable URLs.
+The search architecture groups related queries around useful workflows, with type-beat and Android entry pages, French/Spanish introductions and regional download guidance. See `docs/seo/GLOBAL-SEARCH.md` for the query map and evidence limits. After all generators, run `python3 scripts/audit_crawl.py`; the sitemap contains 39 indexable URLs.
+
+### Language tools and acquisition counts
+
+Run `node scripts/build_growth_pages.mjs` after the three generators above.
+This adds the source-attributed French/Spanish browser tools to the sitemap.
+The independent data builder is `scripts/build_public_romance.py`; it requires
+the exact source files/revisions in `cadence/search/public-romance-provenance.json`.
+Do not substitute mobile-app packs. Run `node --test tests/public_romance.test.mjs`
+and `deno test supabase/functions/cadence-search-events/handler.test.ts` alongside
+the full suite. Operator guides are in `docs/seo/growth/`; private reports and
+outreach logs stay outside this public repository.

@@ -90,3 +90,9 @@
 - Find workflows for writing to type beats, songwriting on Android, arranging song sections and practising freestyle rap.
 - Read Cadence introductions in French and Spanish, with explicit app-pack and browser-tool support.
 - Follow connected guides and local download links; core pages now declare canonical URLs and the indexable sitemap excludes the feedback form.
+
+## Search tools and measurement
+
+- Find French and Spanish rhymes in dedicated free browser tools, with pronunciation, sources and explicit coverage limits.
+- Choose whether the website counts page views and store visits; lyrics and rhyme queries remain outside those counts.
+- Load smaller navigation and hero assets while retaining the existing brand animation and reduced-motion fallback.
