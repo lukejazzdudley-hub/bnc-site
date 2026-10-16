@@ -1,0 +1,37 @@
+url,primary_intent,content_owner
+https://brandnamechanges.com/,site information,existing static source
+https://brandnamechanges.com/cadence/,cadence,content/acquisition.mjs or scripts/build_search_pages.mjs
+https://brandnamechanges.com/privacy,site information,existing static source
+https://brandnamechanges.com/terms,site information,existing static source
+https://brandnamechanges.com/support,site information,existing static source
+https://brandnamechanges.com/delete-account,site information,existing static source
+https://brandnamechanges.com/cadence/songwriting-app/,songwriting-app,content/acquisition.mjs or scripts/build_search_pages.mjs
+https://brandnamechanges.com/cadence/rap-writing-app/,rap-writing-app,content/acquisition.mjs or scripts/build_search_pages.mjs
+https://brandnamechanges.com/cadence/voice-memos-to-lyrics/,voice-memos-to-lyrics,content/acquisition.mjs or scripts/build_search_pages.mjs
+https://brandnamechanges.com/cadence/springtime-showers/,springtime-showers,content/acquisition.mjs or scripts/build_search_pages.mjs
+https://brandnamechanges.com/cadence/rhyme-finder/,rhyme-finder,content/acquisition.mjs or scripts/build_search_pages.mjs
+https://brandnamechanges.com/cadence/type-beat-songwriting-app/,type-beat-songwriting-app,content/acquisition.mjs or scripts/build_search_pages.mjs
+https://brandnamechanges.com/cadence/songwriting-app-android/,songwriting-app-android,content/acquisition.mjs or scripts/build_search_pages.mjs
+https://brandnamechanges.com/cadence/song-structure/,song-structure,content/acquisition.mjs or scripts/build_search_pages.mjs
+https://brandnamechanges.com/cadence/freestyle-rap-practice/,freestyle-rap-practice,content/acquisition.mjs or scripts/build_search_pages.mjs
+https://brandnamechanges.com/cadence/resources/,task-specific editorial resource,content/resources/
+https://brandnamechanges.com/cadence/resources/writing-rap-lyrics-over-a-beat/,task-specific editorial resource,content/resources/
+https://brandnamechanges.com/cadence/resources/perfect-slant-multisyllabic-rhymes/,task-specific editorial resource,content/resources/
+https://brandnamechanges.com/cadence/resources/internal-rhymes-and-rhyme-schemes/,task-specific editorial resource,content/resources/
+https://brandnamechanges.com/cadence/resources/syllables-stress-and-flow/,task-specific editorial resource,content/resources/
+https://brandnamechanges.com/cadence/resources/organise-voice-memos-into-songs/,task-specific editorial resource,content/resources/
+https://brandnamechanges.com/cadence/resources/lyric-draft-to-recorded-demo/,task-specific editorial resource,content/resources/
+https://brandnamechanges.com/cadence/resources/choosing-a-songwriting-app/,task-specific editorial resource,content/resources/
+https://brandnamechanges.com/cadence/resources/cadence-vs-bandlab/,task-specific editorial resource,content/resources/
+https://brandnamechanges.com/cadence/resources/cadence-vs-garageband/,task-specific editorial resource,content/resources/
+https://brandnamechanges.com/cadence/resources/cadence-vs-song-cage/,task-specific editorial resource,content/resources/
+https://brandnamechanges.com/cadence/regions/,regional storefront guidance,content/regions.mjs
+https://brandnamechanges.com/cadence/regions/gb/,regional storefront guidance,content/regions.mjs
+https://brandnamechanges.com/cadence/regions/us/,regional storefront guidance,content/regions.mjs
+https://brandnamechanges.com/cadence/regions/ca/,regional storefront guidance,content/regions.mjs
+https://brandnamechanges.com/cadence/regions/au/,regional storefront guidance,content/regions.mjs
+https://brandnamechanges.com/cadence/regions/in/,regional storefront guidance,content/regions.mjs
+https://brandnamechanges.com/cadence/regions/za/,regional storefront guidance,content/regions.mjs
+https://brandnamechanges.com/cadence/languages/,localised product/language support,content/locales.mjs
+https://brandnamechanges.com/cadence/fr/,localised product/language support,content/locales.mjs
+https://brandnamechanges.com/cadence/es/,localised product/language support,content/locales.mjs

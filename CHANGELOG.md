@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-10-16
+
+- Find Cadence through six English regional download guides with local storefront links and practical writing exercises.
+- Read answers about free notes, supported platforms, recordings and rhyme-tool limits on the product and search pages.
+- Find the same app through the secondary name Flow by Cadence.
+
 ## Unreleased
 
 ### Added
@@ -78,3 +84,9 @@
 - Prevented duplicate responses when optional evidence verification is interrupted, and documented beta-feedback handling in the privacy policy.
 - Fixed the deployed feedback service's production identifier generation so valid submissions can be stored.
 - Routed signed evidence transfers through Supabase's dedicated resumable-upload endpoint.
+
+### Audience-intent search expansion
+
+- Find workflows for writing to type beats, songwriting on Android, arranging song sections and practising freestyle rap.
+- Read Cadence introductions in French and Spanish, with explicit app-pack and browser-tool support.
+- Follow connected guides and local download links; core pages now declare canonical URLs and the indexable sitemap excludes the feedback form.

@@ -9,7 +9,8 @@
 
 No frontend package install is required. Editorial source changes must be
 regenerated with `node scripts/build_search_pages.mjs` followed by
-`node scripts/build_resource_hub.mjs`; commit generated HTML and sitemap too.
+`node scripts/build_resource_hub.mjs` and finally
+`node scripts/build_international_pages.mjs`; commit generated HTML and sitemap too.
 
 Resource content lives in `content/resources/guides/` and
 `content/resources/comparisons/`. Keep source checks truthful and update their
@@ -63,3 +64,25 @@ screenshots; provenance is recorded in `docs/RESOURCE-HUB-REVIEW.md`.
 - If the form preserves answers but evidence fails, inspect TUS create/PATCH responses and then finalize status. Do not ask the tester to rewrite the response.
 - If an import reports duplicates, compare only counts or hash prefixes in logs; never print participant rows during routine verification.
 - If a price or plan changes, update the storefront. The website intentionally does not duplicate numerical pricing.
+
+## Regional content and SEO
+
+Edit `content/regions.mjs`, then run all three generators in the documented order.
+The third generator owns marked FAQ/alternate blocks on the product page and the
+seven country-directory routes. Edit search-page FAQs through `searchFaqs` in the
+same content module. Keep structured answers equal to visible answers.
+
+Check local storefront availability before adding a region; language metadata
+must not imply new app language packs. Test reciprocal alternates, self-canonicals,
+sitemap discoverability, local store links and keyboard-operable FAQ disclosures.
+If regional routes disappear from the sitemap, rerun the third generator.
+
+The alias uses proxied redirect-only DNS records and a Cloudflare 301. Check DNS,
+HTTP/HTTPS and apex/www separately. A public 200 or a submitted sitemap does not
+prove indexing; use Search Console page inspection and country/query reports.
+The rollout guide records observed Keyword Planner ranges separately from organic
+traffic and install attribution. No new tracking or consent behavior is included.
+
+## Search expansion validation
+
+Run `python3 scripts/audit_crawl.py` after the three generators. Edit added workflow copy in `content/acquisition.mjs` and localised copy in `content/locales.mjs`. Review language-pack and platform claims against current release evidence; locale is not a promise of translated UI. Keep private GSC exports outside the public repository. See `docs/seo/GLOBAL-SEARCH.md` and its 109-query map.

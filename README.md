@@ -2,6 +2,9 @@
 
 The public website for **Brand Name Changes Ltd** and **Cadence**. The frontend is plain HTML, CSS and JavaScript with no build step. Production is served from GitHub Pages at [brandnamechanges.com](https://brandnamechanges.com).
 
+See [global search and regional rollout](docs/seo/GLOBAL-SEARCH.md),
+[architecture](docs/ARCHITECTURE.md) and [development](docs/DEVELOPMENT.md).
+
 ## What is here
 
 The [organic-search guide](docs/SEARCH-GROWTH.md) covers the five Cadence search
@@ -55,12 +58,13 @@ Open `http://127.0.0.1:8000`. The development server supports the same clean rou
 
 ## Validation
 
-Regenerate editorial pages before validation (the second command extends the
+Regenerate editorial pages before validation (the second and third commands extend the
 sitemap produced by the first):
 
 ```bash
 node scripts/build_search_pages.mjs
 node scripts/build_resource_hub.mjs
+node scripts/build_international_pages.mjs
 ```
 
 ```bash
@@ -192,3 +196,7 @@ GitHub Pages publishes the default branch and uses the checked-in `CNAME`. Befor
 - `https://brandnamechanges.com/privacy`
 - `https://brandnamechanges.com/terms`
 - `https://brandnamechanges.com/delete-account`
+
+### Search content
+
+The search architecture groups related queries around useful workflows, with type-beat and Android entry pages, French/Spanish introductions and regional download guidance. See `docs/seo/GLOBAL-SEARCH.md` for the query map and evidence limits. After all generators, run `python3 scripts/audit_crawl.py`; the sitemap contains 36 indexable URLs.

@@ -45,6 +45,11 @@ const CATEGORY_PRESENTATION = {
 };
 
 const EXISTING_RESOURCES = [
+  {href: '/cadence/type-beat-songwriting-app/', title: 'Write to type beats', description: 'Loop your instrumental, write the verse and record a draft.'},
+  {href: '/cadence/songwriting-app-android/', title: 'Cadence for Android', description: 'Lyrics, beats and takes on your Android device.'},
+  {href: '/cadence/song-structure/', title: 'Song structure', description: 'Give verse, chorus and bridge a purpose.'},
+  {href: '/cadence/freestyle-rap-practice/', title: 'Freestyle rap practice', description: 'Exercises for pulse, space and delivery.'},
+  {href: '/cadence/languages/', title: 'Writing languages', description: 'App language packs and French/Spanish introductions.'},
   {
     href: '/cadence/songwriting-app/',
     title: 'Songwriting app guide',
@@ -210,6 +215,7 @@ function renderFooter() {
         <a href="/terms">Terms</a>
         <a href="/support">Support</a>
         <a href="/cadence/feedback/">Send feedback</a>
+        <a href="/cadence/regions/">Downloads by region</a><a href="/cadence/languages/">Languages · Français · Español</a>
       </nav>
     </div>
   </footer>`;

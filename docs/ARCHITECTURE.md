@@ -7,7 +7,7 @@ The resource hub is static HTML generated from authored ESM records in
 `scripts/build_resource_hub.mjs` owns rendering and sitemap extension. Existing
 search pages retain their URLs and link into `/cadence/resources/`.
 
-Build order is search-page generator, then resource-hub generator. Committed HTML
+Build order is search-page generator, resource-hub generator, then international-page generator. Committed HTML
 is served directly by Pages; readers and crawlers do not need JavaScript for
 article content. Optional browser enhancements must not fetch user queries,
 gate reading or introduce analytics consent changes. Citations and checked dates
@@ -60,3 +60,24 @@ when supported and motion is allowed, with a static fallback otherwise.
 - no public response browser or admin dashboard;
 - prices and availability remain storefront truth rather than hard-coded website data.
 - committed website media must be product-accurate, locally hosted and optimised for mobile delivery; source recordings and Blender working files remain in the controlled asset library rather than the public repository.
+
+## International search and brand alias
+
+`content/regions.mjs` holds six English regional storefront editions and shared
+FAQ content. `scripts/build_international_pages.mjs` renders the region directory,
+local product editions, product FAQ blocks and reciprocal hreflang, then extends
+the sitemap. Marked product-page blocks are regenerated; approved landing copy
+and media outside them stay directly authored. All editions have self-canonicals;
+the existing global product URL is English and x-default. The directory is not an
+alternate product edition. No locale detection or IP redirects are used.
+
+Flow by Cadence is a secondary brand; its domain redirects through Cloudflare to
+the BNC product URL. It is not a second content origin or a site migration. Keep
+the existing CNAME, store review URLs and mobile association unchanged.
+
+See [rollout and evidence](seo/GLOBAL-SEARCH.md) and
+[domain decision](decisions/0001-regional-cadence-seo.md).
+
+## Audience-intent expansion
+
+`content/acquisition.mjs` owns four added English workflows; `content/locales.mjs` owns French/Spanish introductions. Existing generators render complete HTML and reciprocal language/region alternates. `scripts/audit_crawl.py` validates the static anchor graph, canonicals, local targets and sitemap indexability. Feedback stays noindex and outside the sitemap. No client routing or new tracking is added.
