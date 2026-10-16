@@ -2,6 +2,8 @@
 
 ## 2026-10-16
 
+- Learn internal and multisyllabic rhyme through clearer definitions, original examples and comparisons. Springtime Showers now explains aligned WAV export with verified output details.
+
 - Settled navigation marks stay sharp on high-density screens.
 
 - Explore the feature guide through workflow shortcuts, quick tool lookup and an optional interactive 3D handset. New search pages use complete device illustrations; French and Spanish rhyme results have clearer cards and touch controls.
