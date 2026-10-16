@@ -10,7 +10,7 @@ export function sourceGroup(referrer,search=''){
 export function storeFor(raw){
  let url;try{url=new URL(raw);}catch{return null;}
  if(url.protocol!=='https:')return null;
- if(url.hostname==='apps.apple.com'&&url.pathname.includes('6778554520'))return 'apple';
+ if(url.hostname==='apps.apple.com'&&/\/id6778554520\/?$/.test(url.pathname))return 'apple';
  if(url.hostname==='play.google.com'&&url.pathname==='/store/apps/details'&&url.searchParams.get('id')==='io.cadenceapp.mobile')return 'google';
  return null;
 }
