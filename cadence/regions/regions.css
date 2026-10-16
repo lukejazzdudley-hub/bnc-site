@@ -1,0 +1,27 @@
+/* Reuse Cadence's established onyx/silver editorial material. */
+.region-hero { grid-template-columns: minmax(0, 1.5fr) minmax(180px, .65fr); }
+.region-hero h1 { font-size: clamp(42px, 6vw, 76px); }
+.region-phone { margin: 0; max-width: 245px; justify-self: center; }
+.region-phone img { width: 100%; height: auto; display: block; }
+.region-phone figcaption { text-align: center; }
+.region-directory { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 48px; }
+.region-directory article { border-top: 1px solid var(--line); padding-top: 12px; min-width: 0; }
+.region-directory h3 a { text-decoration-thickness: 1px; }
+.region-directory .actions { margin-top: 18px; }
+.region-directory .button { font-size: 15px; }
+.region-links { gap: 12px 24px; margin: 24px 0; }
+.region-links a { padding-block: 6px; text-decoration: underline; }
+.region-links [aria-current="page"] { color: #fff; text-decoration-thickness: 3px; }
+.region-faq details, .cadence-faq details { border-top: 1px solid #454750; padding: 20px 0; }
+.region-faq summary, .cadence-faq summary { cursor: pointer; font-size: 19px; font-weight: 600; line-height: 1.5; }
+.region-faq summary:focus-visible, .cadence-faq summary:focus-visible { outline: 3px solid #aebdeb; outline-offset: 5px; }
+.region-faq details p, .cadence-faq details p { color: #c7c9d0; font-size: 17px; line-height: 1.8; max-width: 70ch; }
+.cadence-faq { padding-block: 64px; }
+.cadence-faq > p { max-width: 70ch; margin-block: 22px; color: #c7c9d0; }
+.cadence-faq h2 { font-size: clamp(30px, 4vw, 48px); }
+@media (max-width: 750px) {
+  .region-hero { grid-template-columns: 1fr; gap: 26px; }
+  .region-phone { max-width: 190px; }
+  .region-directory { grid-template-columns: 1fr; }
+  .region-hero h1 { font-size: clamp(40px, 10vw, 64px); }
+}

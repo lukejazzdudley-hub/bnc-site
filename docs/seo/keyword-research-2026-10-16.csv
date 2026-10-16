@@ -1,0 +1,13 @@
+query,uk_avg_monthly_range,worldwide_avg_monthly_range,target,priority,intent_note
+songwriting app,100–1k,1k–10k,/cadence/songwriting-app/,P1,Commercial workflow
+rhyme finder,100–1k,1k–10k,/cadence/rhyme-finder/,P1,Interactive tool
+lyric writing app,10–100,100–1k,/cadence/songwriting-app/,P1,Secondary phrase on same page
+slant rhyme finder,10–100,10–100,/cadence/rhyme-finder/,P2,Existing match mode; no duplicate tool page
+rap writing app,10–100,10–100,/cadence/rap-writing-app/,P1,Commercial workflow
+rap recording app,10–100,10–100,/cadence/rap-writing-app/,P2,Secondary workflow
+songwriting app android,10–100,10–100,/cadence/songwriting-app/,P2,Device subsection; not a duplicate page
+songwriting app iphone,10–100,10–100,/cadence/songwriting-app/,P2,Device subsection; not a duplicate page
+multisyllabic rhyme finder,Unavailable,Unavailable,/cadence/rhyme-finder/,P2,Useful supported mode despite unavailable metrics
+voice memos to lyrics,Unavailable,Unavailable,/cadence/voice-memos-to-lyrics/,P2,Distinct task; no invented volume
+flow by cadence,Unavailable,Unavailable,/cadence/,Brand,Secondary brand alias
+cadence songwriting app,Unavailable,Unavailable,/cadence/,Brand,Product identity

@@ -45,7 +45,7 @@ class SearchPages(unittest.TestCase):
             self.assertIn(f'https://brandnamechanges.com/cadence/{slug}/', html)
             self.assertEqual(len(re.findall('<h1>', html)), 1)
             for raw in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html):
-                self.assertEqual(len(json.loads(raw)), 2)
+                self.assertEqual({node['@type'] for node in json.loads(raw)}, {'WebApplication' if slug == 'rhyme-finder' else 'WebPage', 'BreadcrumbList', 'FAQPage'})
             for url in re.findall(r'(?:href|src)="(/[^"#]*)"', html):
                 path = ROOT / url.lstrip('/')
                 self.assertTrue(path.exists() or path.with_suffix('.html').exists(), url)

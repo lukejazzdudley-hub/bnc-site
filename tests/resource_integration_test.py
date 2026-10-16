@@ -29,7 +29,9 @@ class ResourceIntegration(unittest.TestCase):
                 path = ROOT / url.lstrip('/')
                 self.assertTrue(path.exists() or path.with_suffix('.html').exists(), url)
         self.assertEqual(len(sitemap), len(set(sitemap)))
-        self.assertEqual(len(sitemap), 23)
+        self.assertEqual(len(sitemap), 36)
+        for code in ['', 'gb/', 'us/', 'ca/', 'au/', 'in/', 'za/']:
+            self.assertIn('https://brandnamechanges.com/cadence/regions/' + code, sitemap)
 
     def test_existing_entry_points_link_to_hub(self):
         for slug in ['', 'songwriting-app', 'rap-writing-app', 'rhyme-finder',
