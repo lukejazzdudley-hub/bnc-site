@@ -129,6 +129,12 @@ class SiteContentContractTest(unittest.TestCase):
         self.assertIn("three free notes", html)
         self.assertIn("quarterly", html)
 
+    def test_company_page_does_not_promise_recording_backup(self) -> None:
+        html = (ROOT / 'index.html').read_text(encoding='utf-8')
+        self.assertNotIn('automatic backup', html)
+        self.assertIn('Live · iOS &amp; Android', html)
+        self.assertIn('Export important recordings', html)
+
     def test_cadence_feature_copy_matches_the_current_catalogue(self) -> None:
         html = (ROOT / "cadence" / "index.html").read_text(encoding="utf-8").lower()
         self.assertIn("27 theme families", html)
