@@ -200,7 +200,7 @@ GitHub Pages publishes the default branch and uses the checked-in `CNAME`. Befor
 
 ### Search content
 
-The search architecture groups related queries around useful workflows, with type-beat and Android entry pages, French/Spanish introductions and regional download guidance. See `docs/seo/GLOBAL-SEARCH.md` for the query map and evidence limits. After all generators, run `python3 scripts/audit_crawl.py`; the sitemap contains 39 indexable URLs.
+The search architecture groups related queries around useful workflows, with type-beat and Android entry pages, French/Spanish introductions and regional download guidance. See `docs/seo/GLOBAL-SEARCH.md` for the query map and evidence limits. After all generators, run `python3 scripts/audit_crawl.py`; the sitemap contains 40 indexable URLs.
 
 ### Language tools and acquisition counts
 
@@ -212,3 +212,7 @@ Do not substitute mobile-app packs. Run `node --test tests/public_romance.test.m
 and `deno test supabase/functions/cadence-search-events/handler.test.ts` alongside
 the full suite. Operator guides are in `docs/seo/growth/`; private reports and
 outreach logs stay outside this public repository.
+
+### Feature walkthrough
+
+The public [Cadence guide](https://brandnamechanges.com/cadence/guide/) explains where to find and use 14 writing, recording, language and export workflows. Edit `content/feature-guide.mjs` and regenerate with the fourth generator. Follow `docs/seo/growth/FEATURE-GUIDE.md` when app controls change.

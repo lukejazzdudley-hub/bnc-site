@@ -2,6 +2,7 @@ import {readFileSync,writeFileSync,mkdirSync} from 'node:fs';
 import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 import {appendSitemap} from './build_resource_hub.mjs';
+import {writeFeatureGuide,featureGuideRoute} from './build_feature_guide.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const domain='https://brandnamechanges.com';
 const provenance=JSON.parse(readFileSync(path.join(root,'cadence/search/public-romance-provenance.json')));
@@ -19,5 +20,6 @@ for(const c of configs){
 const watchRoute='/cadence/type-beat-walkthrough/';
 mkdirSync(path.join(root,watchRoute),{recursive:true});
 writeFileSync(path.join(root,watchRoute,'index.html'),readFileSync(path.join(root,'content/type-beat-walkthrough.html'),'utf8'));
-const sitemap=path.join(root,'sitemap.xml');writeFileSync(sitemap,appendSitemap(readFileSync(sitemap,'utf8'),[...configs.map(c=>c.route),watchRoute]));
+writeFeatureGuide(root);
+const sitemap=path.join(root,'sitemap.xml');writeFileSync(sitemap,appendSitemap(readFileSync(sitemap,'utf8'),[...configs.map(c=>c.route),watchRoute,featureGuideRoute]));
 console.log('Built French and Spanish public rhyme tools.');

@@ -86,3 +86,7 @@ traffic and install attribution. Optional website measurement is documented in `
 ## Search expansion validation
 
 Run `python3 scripts/audit_crawl.py` after the four generators. Edit added workflow copy in `content/acquisition.mjs` and localised copy in `content/locales.mjs`. Review language-pack and platform claims against current release evidence; locale is not a promise of translated UI. Keep private GSC exports outside the public repository. See `docs/seo/GLOBAL-SEARCH.md` and its 109-query map.
+
+## Maintaining the app guide
+
+Edit `content/feature-guide.mjs`; the fourth generator publishes `/cadence/guide/`. Keep chapter anchors stable and review actual app controls with each release. Run `python3 scripts/check_feature_guide_sources.py --app-root /path/to/cadence` to catch changed source labels, then perform the separate UI review. See `docs/seo/growth/FEATURE-GUIDE.md` for the update and evidence procedure.
