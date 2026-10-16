@@ -36,3 +36,5 @@ Installs must come from supported App Store Connect/Play Console acquisition rep
 ## Release procedure
 
 Regenerate the route allowlist whenever a sitemap route changes, review the change, deploy the collector, and validate denied-origin, unknown-route, oversized and valid requests. No collector events should be sent by browser QA unless explicitly testing consent. Do not commit private exports or credentials.
+
+Outbound Apple matching requires the exact Cadence app-ID path suffix; regression cases reject lookalike longer app IDs and appended paths. Store visits remain aggregate click events, never install assertions.

@@ -12,3 +12,7 @@ Changes preserve the accepted visual design:
 - Self-hosted the existing Latin Geist, Geist Mono and Instrument Serif WOFF2 assets, with font-display swap and upstream OFL notices. Removed the external Google Fonts stylesheet chain; no new typeface/design change.
 
 After-release lab results must be measured against the deployed URL, recording the new report link and run conditions. Do not infer a new Lighthouse score from byte savings. Field data may remain unavailable until sufficient real visits accumulate.
+
+## Deployed comparison
+
+[Mobile report after publication](https://pagespeed.web.dev/analysis/https-brandnamechanges-com-cadence/hlkckbugyf?form_factor=mobile), captured 16 October 2026 04:03 BST, Lighthouse 13.5.0 emulated Moto G Power: **performance 99**, FCP **1.4 s**, LCP **1.9 s**, TBT **0 ms**, CLS **0**, speed index **2.6 s**. Relative to the baseline, LCP improved by 2.3 s (~55%) in this single lab comparison. This does not establish a field CWV pass or ranking improvement.

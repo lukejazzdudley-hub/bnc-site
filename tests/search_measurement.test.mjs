@@ -11,6 +11,8 @@ test('only exact known store destinations count',()=>{
  assert.equal(storeFor('https://apps.apple.com/gb/app/id6778554520'),'apple');
  assert.equal(storeFor('https://play.google.com/store/apps/details?id=io.cadenceapp.mobile'),'google');
  assert.equal(storeFor('https://apps.apple.com.evil/app/id6778554520'),null);
+ assert.equal(storeFor('https://apps.apple.com/app/id67785545209'),null);
+ assert.equal(storeFor('https://apps.apple.com/app/id6778554520/other'),null);
  assert.equal(storeFor('https://play.google.com/store/apps/details?id=other'),null);
 });
 test('payload has bounded aggregate dimensions only',()=>{

@@ -16,3 +16,11 @@ New language tools need post-publication live checks, sitemap reprocessing and U
 Google's [AI search guidance](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide) says indexing and snippet eligibility remain prerequisites, and neither crawling nor inclusion is guaranteed. Structured data must describe visible content. Extra hidden AI text, special AI schema or duplicating country pages does not establish inclusion.
 
 Search Console Core Web Vitals: insufficient mobile and desktop usage data for the last 90 days, report updated 14 October. Do not report a field pass/fail from the Lighthouse run.
+
+## Live release
+
+PR26 merged and GitHub Pages deployment succeeded at commit `11d289906318a816e10b0c2e88c0a3256a3f7d9f`. The public sitemap has 39 URLs; French/Spanish tools, watch page, collector module and optimized navigation asset returned HTTP200. Resubmission returned **Sitemap submitted successfully**. Google still displayed 36 discovered pages before reprocessing; no claim that the three new URLs are already indexed.
+
+New French dictionary inspection: **Discovered — currently not indexed**. Its live test returned **URL is available to Google / Page can be indexed**. This confirms live fetch eligibility, not index inclusion.
+
+French tool indexing request was accepted: **Indexing requested**, added to a priority crawl queue. This is not yet an indexed result.
