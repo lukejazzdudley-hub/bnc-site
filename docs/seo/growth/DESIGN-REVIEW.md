@@ -25,3 +25,7 @@
 93 Python +145 Node +42 Deno tests passed; guide/phone modules checked. Crawl audit:40URLs35Cadenceroutes0errors. Gitleaks: no leaks. Slop scan: same14findings as before, none in new guide code. Static manual remains complete without JavaScript; feature lookup and 3D are optional enhancements. Reduced-motion/data-save behavior has deterministic unit/source coverage, not a physical-device preference acceptance claim.
 
 The existing product’s authored 3D scenes and app media are preserved. No app interface or recording behavior changed. Existing app imagery remains illustrative, not proof of current-store-binary controls. Performance after deployment must be checked independently; no new field Core Web Vitals result is claimed here.
+
+## Published performance check
+
+PageSpeed mobile report: https://pagespeed.web.dev/analysis/https-brandnamechanges-com-cadence-guide/jwimnfvwq9?form_factor=mobile. Performance99, accessibility100, SEO100, best practices96; FCP0.9s, LCP1.2s, TBT0ms, CLS0. No field-user data available. The remaining image-quality finding identified the64px settled navigation mark displayed at44CSSpx. The final refinement switches reduced-motion/settled states to the existing256px mark while retaining the lightweight animated asset. No new imagery was generated.
