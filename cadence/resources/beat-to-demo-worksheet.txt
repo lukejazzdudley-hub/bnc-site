@@ -1,0 +1,34 @@
+BEAT-TO-DEMO WORKSHEET
+________________
+
+Beat / producer / permission reference: ________________
+What changes in the song: ________________
+Tempo: 90 BPM. Four beats per bar; constant tempo assumed.
+Intro: bars 1–4 (0.0–10.7 seconds)
+Verse: bars 5–12 (10.7–32.0 seconds)
+Hook: bars 13–16 (32.0–42.7 seconds)
+Outro: bars 17–20 (42.7–53.3 seconds)
+Total: 20 bars / 53.3 seconds.
+
+LYRICS / ENTRY POINTS / BREATHS
+________________
+
+TAKE A — entry, breath, words heard, image remembered
+________________
+
+TAKE B — same beat and level; change one thing
+________________
+
+DECISION — keep / revise / next take
+________________
+
+HANDOFF CHECK
+[ ] Beat permission checked separately for intended use
+[ ] Beat and vocal start from the same reference point
+[ ] Exported files opened and checked outside the writing app
+[ ] Tempo, version, producer credit and take choice written down
+
+This worksheet is not a beat licence. Check the producer's terms.
+Original exercise and worksheet: Cadence / Brand Name Changes.
+Copy for personal use or teaching with credit.
+https://brandnamechanges.com/cadence/resources/writing-rap-lyrics-over-a-beat/

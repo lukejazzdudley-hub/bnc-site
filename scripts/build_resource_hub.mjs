@@ -7,6 +7,7 @@ import {
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import {renders, visualGuides} from '../content/resources/visuals.mjs';
+import {worksheetText} from '../cadence/resources/beat-worksheet-model.mjs';
 
 const SCRIPT_DIR = path.dirname(fileURLToPath(import.meta.url));
 export const DEFAULT_ROOT = path.resolve(SCRIPT_DIR, '..');
@@ -421,7 +422,7 @@ export function renderArticle(article, allArticles = []) {
   return `<!doctype html>
 <html lang="en">
 <head>
-  ${renderHead({ title, description: article.description, canonical, schema, image: image.src })}
+  ${renderHead({ title, description: article.description, canonical, schema, image: image.src })}${article.slug === 'writing-rap-lyrics-over-a-beat' ? '\n  <link rel="stylesheet" href="/cadence/resources/beat-worksheet.css"><script type="module" src="/cadence/resources/beat-worksheet.mjs"></script>' : ''}
 </head>
 <body class="resource-page resource-article">
   <div class="reading-progress" aria-hidden="true"></div>
@@ -432,7 +433,7 @@ export function renderArticle(article, allArticles = []) {
         <p class="resource-breadcrumb"><a href="/cadence/">Cadence</a><span aria-hidden="true">/</span><a href="/cadence/resources/">Resources</a><span aria-hidden="true">/</span>${escapeHtml(article.category)}</p>
         <h1>${escapeHtml(article.title)}</h1>
         <p>${escapeHtml(article.intro)}</p>
-        <div class="resource-actions"><a href="#${article.sections[0].id}">Read the guide</a><span>${readingMinutes(article)} min read</span></div>
+        <div class="resource-actions"><a href="#${article.sections[0].id}">Read the guide</a>${article.slug === 'writing-rap-lyrics-over-a-beat' ? '<a href="#beat-to-demo-worksheet">Use the free worksheet</a>' : ''}<span>${readingMinutes(article)} min read</span></div>
       </div>
       <figure>
         <img src="${image.src}" alt="${escapeHtml(image.alt)}" width="900" height="1650">
@@ -483,6 +484,7 @@ export function writeResourcePages({ rootDir = DEFAULT_ROOT, articles }) {
   validateArticles(articles);
   const resourcesDir = path.join(rootDir, 'cadence/resources');
   mkdirSync(resourcesDir, { recursive: true });
+  writeFileSync(path.join(resourcesDir, 'beat-to-demo-worksheet.txt'), worksheetText({tempo: 90, bars: [4, 8, 4, 4]}));
   writeFileSync(path.join(resourcesDir, 'index.html'), renderHub(articles));
 
   for (const article of articles) {

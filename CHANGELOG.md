@@ -27,6 +27,10 @@
 
 ### Added
 
+- The beat-writing guide now includes an original verse revision, a 30-minute
+  beat-to-demo lesson and a free worksheet. Plan section timing, compare two
+  takes, download your notes or print them without creating an account.
+
 - Android listening links now have the website association needed for verified
   opening in the Play-signed Cadence app. The in-page Open in Cadence button
   remains available while the app update rolls out.

@@ -1,0 +1,59 @@
+.beat-lesson-steps li { margin-block: 1rem; }
+.beat-lesson-steps strong { display: block; color: var(--resource-silver); }
+.beat-map { display: grid; grid-template-columns: 1fr 2fr 1fr 1fr; margin-block: 2rem; border-block: 1px solid var(--resource-line-strong); }
+.beat-map > span { display: flex; flex-direction: column; gap: .6rem; padding: 1rem .7rem; border-inline-end: 1px solid var(--resource-line); }
+.beat-map > span:last-child { border: 0; }
+.beat-map strong { font: .75rem var(--resource-sans); letter-spacing: .12em; color: var(--resource-steel); }
+.beat-map small { font-size: .75rem; line-height: 1.5; color: var(--resource-steel); }
+.beat-worksheet { padding: clamp(16px, 4vw, 32px); border: 1px solid var(--resource-line-strong); background: linear-gradient(135deg, #151b22, #090d12); border-radius: 4px; }
+.beat-worksheet__heading { margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--resource-line); }
+.beat-worksheet__heading > span { display: block; font-size: .7rem; letter-spacing: .15em; color: var(--resource-steel); }
+.beat-worksheet__heading > strong { display: block; margin-top: .6rem; font: 1.7rem/1.2 var(--resource-serif); }
+.beat-worksheet__heading > p { margin-bottom: 0; color: var(--resource-steel); }
+.beat-field { display: block; margin-block: 1.3rem; font-size: .9rem; font-weight: 600; }
+.beat-worksheet textarea, .beat-worksheet input { display: block; width: 100%; min-width: 0; min-height: 44px; margin-top: .5rem; padding: .75rem; color: var(--resource-silver); background: #080c10; border: 1px solid #66717d; border-radius: 3px; font: 1rem/1.6 var(--resource-sans); }
+.beat-worksheet textarea { resize: vertical; }
+.beat-worksheet fieldset { margin: 2rem 0 1rem; padding: 0; border: 0; min-width: 0; }
+.beat-worksheet legend { margin-bottom: 1rem; font-weight: 600; }
+.beat-plan-inputs { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .7rem; }
+.beat-plan-inputs label { font-size: .8rem; }
+.beat-plan-status { font-size: .9rem; color: var(--resource-silver); }
+.beat-timeline { padding: 0; list-style: none; border-inline-start: 2px solid var(--resource-steel); }
+.beat-timeline li { margin: 0; padding: .6rem 1rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: .4rem 1rem; border-bottom: 1px solid var(--resource-line); }
+.beat-timeline span { color: var(--resource-steel); font-size: .85rem; }
+.beat-worksheet__actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.8rem; }
+.beat-worksheet [hidden] { display: none; }
+.beat-worksheet button { min-height: 48px; padding: .7rem 1rem; border: 1px solid var(--resource-silver); border-radius: 3px; background: var(--resource-silver); color: #07090c; font: 600 .9rem var(--resource-sans); cursor: pointer; }
+.beat-worksheet button + button { color: var(--resource-silver); background: transparent; }
+.beat-worksheet button:disabled { cursor: not-allowed; opacity: .55; }
+.beat-worksheet__credit { margin-bottom: 0; font-size: .8rem; color: var(--resource-steel); }
+.beat-print-field { display: none; }
+@media (max-width: 600px) {
+  .beat-plan-inputs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .beat-plan-inputs label:first-child { grid-column: 1 / -1; }
+  .beat-map { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .beat-map > span:nth-child(2) { border-inline-end: 0; }
+  .beat-map > span:nth-child(n+3) { border-top: 1px solid var(--resource-line); }
+  .beat-worksheet__actions button { width: 100%; }
+}
+@media print {
+  :root { --resource-silver: #000; --resource-steel: #333; }
+  body.resource-page { background: white; color: black; min-width: 0; font-size: 10pt; }
+  .resource-header, .resource-footer, .resource-skip, .reading-progress, .article-hero, .article-rail, .article-body > :not(#beat-to-demo-worksheet), .website-measurement { display: none !important; }
+  .article-layout, .article-body { display: block; width: 100%; margin: 0; padding: 0; }
+  #beat-to-demo-worksheet { margin: 0; padding: 0; }
+  #beat-to-demo-worksheet > p { display: none; }
+  .beat-worksheet { background: white; color: black; padding: 0; border: 0; }
+  #beat-to-demo-worksheet h2, .beat-worksheet p, .beat-worksheet li { color: black; }
+  .beat-worksheet__heading, .beat-worksheet legend, .beat-plan-status, .beat-worksheet__credit, .beat-timeline span { color: black; }
+  .beat-worksheet__heading { margin-bottom: 1rem; }
+  .beat-field { margin-block: .7rem; }
+  .beat-worksheet input, .beat-worksheet textarea { background: white; color: black; border-color: #555; padding: .25rem; }
+  .beat-worksheet.is-enhanced textarea { display: none; }
+  .is-enhanced .beat-print-field { display: block; white-space: pre-wrap; overflow-wrap: anywhere; font-weight: 400; padding: .4rem 0; border-bottom: 1px solid #aaa; min-height: 2rem; }
+  .beat-worksheet__actions { display: none; }
+  .beat-plan-inputs { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+  .beat-plan-inputs label:first-child { grid-column: auto; }
+  .beat-timeline li { break-inside: avoid; }
+  .beat-worksheet fieldset { margin-block: 1rem; }
+}

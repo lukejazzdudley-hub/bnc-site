@@ -49,6 +49,10 @@ provides the custom-scheme fallback until then.
 
 ## Local preview
 
+The [beat-writing lesson](cadence/resources/writing-rap-lyrics-over-a-beat/index.html)
+includes a free, device-local worksheet and a blank text download. See
+[lesson maintenance](docs/seo/BEAT-TO-DEMO-LESSON.md) for its content and evidence boundaries.
+
 ```bash
 cd /path/to/bnc-site
 python3 serve.py
