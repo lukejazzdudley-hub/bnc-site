@@ -10,7 +10,8 @@ export const languages = [
   ['pcm', 'Naijá'], ['pa', 'ਪੰਜਾਬੀ'], ['ur', 'اردو'],
   ['nl', 'Nederlands'], ['sv', 'Svenska'],
 ].map(([id, label]) => ({ id, label, available: id === 'en',
-  reason: id === 'en' ? '' : 'Not available on the website yet: source-clearance and language-quality checks are pending.' }));
+  publicToolURL: ({fr:'/cadence/fr/dictionnaire-rimes/',es:'/cadence/es/diccionario-rimas/'})[id],
+  reason: ['fr','es'].includes(id) ? 'Use the separate public dictionary linked below. It uses an independent engine.' : id === 'en' ? '' : 'Not available on the website yet: source-clearance and language-quality checks are pending.' }));
 
 export function languageById(id) {
   return languages.find(language => language.id === id);

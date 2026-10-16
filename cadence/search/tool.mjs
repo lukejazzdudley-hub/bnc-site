@@ -68,6 +68,12 @@ language.addEventListener('change', () => {
   field.dir = ['ar', 'he', 'ur'].includes(language.value) ? 'rtl' : 'ltr';
   field.lang = language.value;
   status.textContent = available ? 'Ready. This language downloads only when you search.' : selected?.reason || 'Unknown language';
+  if (selected?.publicToolURL) {
+    const link = document.createElement('a');
+    link.href = selected.publicToolURL;
+    link.textContent = ` Open ${selected.label} dictionary`;
+    status.append(link);
+  }
 });
 for (const button of document.querySelectorAll('[data-example]')) button.addEventListener('click', () => {
   field.value = button.dataset.example;

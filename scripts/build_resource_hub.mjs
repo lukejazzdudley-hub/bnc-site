@@ -182,6 +182,8 @@ function renderHead({ title, description, canonical, schema, image = '/assets/ca
   <link rel="icon" type="image/webp" sizes="256x256" href="/assets/cadence/cadence-mark-static.webp">
   <link rel="stylesheet" href="/cadence/resources/resource.css?v=20260918a">
   <script type="module" src="/cadence/resources/reading.mjs"></script>
+  <script type="module" src="/cadence/search/measurement.mjs"></script>
+  <link rel="stylesheet" href="/cadence/search/measurement.css">
   <script type="application/ld+json">${renderJsonLd(schema)}</script>
   <script type="module" src="/cadence/media-policy.js"></script>`;
 }

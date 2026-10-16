@@ -264,7 +264,8 @@ class SiteContentContractTest(unittest.TestCase):
 
         hero = html.split('class="cadence-hero-object cadence-hero-neutral"', 1)[1].split("</figure>", 1)[0]
         self.assertNotIn("hero-device.webp", hero)
-        self.assertEqual(hero.count("resources/01-library-neutral.webp"), 1)
+        self.assertEqual(hero.count("resources/01-library-neutral.webp"), 2)
+        self.assertIn("01-library-neutral-480.webp 480w", hero)
         self.assertNotIn(".glb", hero)
         head = html.split("</head>", 1)[0]
         self.assertNotIn("hero-device.webp", head)
@@ -297,8 +298,8 @@ class SiteContentContractTest(unittest.TestCase):
         nav = html.split('<header class="nav cadence-nav">', 1)[1].split("</header>", 1)[0]
 
         self.assertIn('class="cadence-mark"', nav)
-        self.assertIn("cadence-mark.webp", nav)
-        self.assertIn("cadence-mark-static.webp", nav)
+        self.assertIn("cadence-mark-nav.webp", nav)
+        self.assertIn("cadence-mark-nav-static.webp", nav)
         self.assertIn("data-animated-mark", nav)
         self.assertNotIn("app-icon.webp", nav)
 
