@@ -222,3 +222,7 @@ The guide includes workflow shortcuts, local feature lookup and an optional 3D h
 ## Web-design preferences
 
 Use Motion, Kokonut UI and Bklit UI for relevant animation, components and data visualisation. See `AGENTS.md` and `docs/WEB-DESIGN-STACK.md` for the integration and accessibility rules. This preference does not itself add frontend dependencies.
+
+### Search discovery follow-through
+
+Current Google/Bing inspection results, the dated query/country/device baseline, native-review requests and external dependencies are recorded in `docs/seo/growth/INDEXING.md`, `BING.md`, `QUERY-IMPROVEMENTS.md` and `EXECUTION.md`. Keep account exports and recording sources private. Search-console submission receipts are not ranking or indexing guarantees.

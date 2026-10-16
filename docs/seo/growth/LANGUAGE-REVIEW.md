@@ -25,3 +25,7 @@ Acceptance requires reviewed examples, explicit dialect scope, correction resolu
 ## Browser checks
 
 Real browser lookup returned French peur results including heure, cœur, docteur and sœur, with /œʁ/ endings. Spanish canción returned /on/ candidates. Full dictionaries load only on first search into a worker, with size bounds and SHA-256 integrity validation; failed loads expose a retry message. No query is transmitted to analytics. Native-page static methods, limits, sources and examples remain readable without JavaScript.
+
+## Regional review requests, 16 October 2026
+
+France and Mexico requests were followed by distinct Québec and Spain requests through verified songwriting-education contacts. The Québec request explicitly asks about France-derived pronunciation limits; the Spain request asks about stress, consonance/assonance and regional readings. Both include browser links and small concrete review exercises. No fee was agreed. Independent native editorial acceptance remains **pending**. A model-generated critique or automatic test result cannot close this gate.
