@@ -2,6 +2,8 @@
 
 ## 2026-10-17
 
+- Find all language introductions from the main navigation, the download-area language chooser and the regional directory.
+
 - Watch a continuous Springtime Showers section-to-DAW-to-export walkthrough with captions and verified six-stem file details.
 
 ## 2026-10-16

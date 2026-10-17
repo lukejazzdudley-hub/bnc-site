@@ -32,6 +32,8 @@ const localApple = region => `https://apps.apple.com/${region.code}/app/cadence-
 const localGoogle = region => `https://play.google.com/store/apps/details?id=io.cadenceapp.mobile&hl=en&gl=${region.code.toUpperCase()}`;
 const storeLinks = region => `<div class="actions"><a class="button primary" href="${localApple(region)}">${escape(region.shortName)} App Store</a><a class="button" href="${escape(localGoogle(region))}">Google Play · ${escape(region.shortName)}</a></div>`;
 const regionLinks = current => `<nav class="region-links" aria-label="Choose a country or region"><a href="/cadence/">Global English</a>${regions.map(region => `<a href="${regionPath(region)}" lang="${region.language}"${region.code === current ? ' aria-current="page"' : ''}>${escape(region.name)}</a>`).join('')}</nav>`;
+const nativeLanguageLinks = `<a href="/cadence/" lang="en">English</a>${languagePacks.map(pack => `<a href="/cadence/${pack.route}/" lang="${pack.locale}" dir="${pack.direction}">${escape(pack.name)}</a>`).join('')}`;
+const nativeLanguageSection = `<section class="content"><h2>Read in your language</h2><p>Choose a translated Cadence introduction. Language pages are separate from the English-language storefront guides below.</p><nav class="region-links language-links" aria-label="Product languages">${nativeLanguageLinks}</nav><p><a href="/cadence/languages/">All 21 writing languages and setup guides</a></p></section>`;
 const mark = `<picture aria-hidden="true"><source media="(prefers-reduced-motion: reduce)" srcset="/assets/cadence/cadence-mark-static.webp"><img src="/assets/cadence/cadence-mark-nav.webp" data-animated-mark data-static-src="/assets/cadence/cadence-mark-static.webp" alt="" width="36" height="36"></picture>`;
 
 function render({ title, description, canonical, language = 'en', body, schema, regional = false }) {
@@ -55,6 +57,7 @@ ${regional ? alternates : ''}
 }
 
 const hubBody = `<section class="hero region-hero"><div><p class="crumb"><a href="/cadence/">Cadence</a> / Downloads by region</p><h1>Your song.<br>Your storefront.</h1><p class="intro">Find Cadence on your local App Store or Google Play. Keep lyrics, rhyme ideas, beats and vocal takes together, from the first idea to a demo.</p><p>Flow by Cadence brings you to the same Cadence app. Choose a region for storefront links, currency guidance and practical writing notes.</p></div><figure class="region-phone"><img src="/assets/cadence/resources/01-library-neutral.webp" width="900" height="1650" alt="Cadence song library on a silver phone"><figcaption>The same songwriting workspace, wherever you start.</figcaption></figure></section>
+${nativeLanguageSection}
 <section class="content"><h2>Choose your country or region</h2><p>These six English-language guides link to local storefronts. They do not add separate app versions, language packs or regional rhyme dictionaries.</p><div class="region-directory">${regions.map(region => `<article><h3><a href="${regionPath(region)}">${escape(region.name)}</a></h3><p>${escape(region.focus)}</p><p class="note">${region.language} · ${region.currency}</p>${storeLinks(region)}</article>`).join('')}</div></section>
 <section class="content"><h2>Writing from somewhere else?</h2><p><a href="${productUrl}#download">Open the global Cadence download links.</a> Your store account and device determine the listing and plans you can access. This first set of guides is not a list of every country where Cadence is available.</p><p>For language support and system requirements, read the current store listing. The <a href="/cadence/rhyme-finder/">free web rhyme finder</a> currently uses American English pronunciations; its dictionary is separate from the app.</p></section>`;
 mkdirSync(path.join(root, 'cadence/regions'), { recursive: true });
@@ -129,6 +132,10 @@ const section = `<!-- product-faq:start -->\n<section class="cadence-faq wrap" a
 product = product.includes('<!-- product-faq:start -->')
   ? product.replace(/<!-- product-faq:start -->[\s\S]*?<!-- product-faq:end -->/, section)
   : product.replace('  </main>', `${section}\n  </main>`);
+const picker = `<!-- language-picker:start --><details class="cadence-language-picker locale-nav"><summary>Read in your language</summary><nav class="region-links language-links" aria-label="Product languages">${nativeLanguageLinks}</nav><a class="language-guide-link" href="/cadence/languages/">All writing languages &amp; setup guides</a></details><!-- language-picker:end -->`;
+product = product.includes('<!-- language-picker:start -->')
+  ? product.replace(/<!-- language-picker:start -->[\s\S]*?<!-- language-picker:end -->/, picker)
+  : product.replace('<p class="cadence-availability-note">Available now for iPhone, iPad and Android.</p>', `<p class="cadence-availability-note">Available now for iPhone, iPad and Android.</p>\n${picker}`);
 writeFileSync(productPath, product);
 const packRoutes = buildPackGuides(root, render);
 const sitemapPath = path.join(root, 'sitemap.xml');

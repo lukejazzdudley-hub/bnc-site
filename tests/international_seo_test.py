@@ -73,6 +73,24 @@ class InternationalSEO(unittest.TestCase):
         self.assertIn('does not mean every app screen is translated', html)
         self.assertNotIn('learn Spanish through music', html)
 
+    def test_product_and_region_entry_points_expose_native_languages(self):
+        product = (ROOT / 'cadence/index.html').read_text()
+        header = re.search(r'<nav class="nav-links".*?</nav>', product, re.S)[0]
+        self.assertIn('href="/cadence/languages/"', header)
+        chooser = re.search(r'<!-- language-picker:start -->(.*?)<!-- language-picker:end -->', product, re.S)[1]
+        self.assertIn('<summary>Read in your language</summary>', chooser)
+        routes = re.findall(r'href="(/cadence/[^"]*/)"', chooser)
+        self.assertEqual(len(set(routes)), 21)
+        for code in ['fr', 'es', 'de', 'ar', 'he', 'ja', 'ko', 'pcm']:
+            self.assertIn(f'href="/cadence/{code}/"', chooser)
+        self.assertLess(product.index('<!-- language-picker:start -->'), product.index('id="workflow"'))
+        hub = (ROOT / 'cadence/regions/index.html').read_text()
+        self.assertLess(hub.index('Read in your language'), hub.index('Choose your country or region'))
+        for route in routes:
+            self.assertIn(f'href="{route}"', hub)
+            self.assertTrue((ROOT / route.lstrip('/') / 'index.html').exists())
+        self.assertIn('English-language storefront guides', hub)
+
     def test_brand_alias_keeps_product_identity_and_store_urls(self):
         html = (ROOT / 'cadence/index.html').read_text()
         self.assertIn('Flow by Cadence', html)
