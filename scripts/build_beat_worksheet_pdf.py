@@ -1,5 +1,7 @@
 """Build the two-page printable lesson worksheet (requires ReportLab)."""
 import argparse
+import os
+from datetime import datetime, timezone
 from pathlib import Path
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
@@ -15,6 +17,8 @@ INK, MUTED, RULE = map(HexColor, ('#111820', '#46515c', '#c3cad0'))
 def build(output):
     output = Path(output)
     output.parent.mkdir(parents=True, exist_ok=True)
+    # Reproducible metadata uses the worksheet's actual editorial release date.
+    os.environ.setdefault('SOURCE_DATE_EPOCH', str(int(datetime(2026, 10, 17, tzinfo=timezone.utc).timestamp())))
     pdf = canvas.Canvas(str(output), pagesize=A4, invariant=1)
     pdf.setTitle('Beat-to-demo worksheet | Cadence')
     pdf.setAuthor('Cadence / Brand Name Changes')
