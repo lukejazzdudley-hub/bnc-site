@@ -1,8 +1,10 @@
 const origin = 'https://brandnamechanges.com';
-const watch = `${origin}/cadence/type-beat-walkthrough/`;
 const escapeXml = value => String(value).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&apos;');
 
-export function addWatchVideo(sitemap, html) {
+export function addWatchVideo(sitemap, html, route = '/cadence/type-beat-walkthrough/') {
+  const watchUrl = new URL(route, origin);
+  if (watchUrl.origin !== origin) throw new Error('Use a local watch URL.');
+  const watch = watchUrl.href;
   const schemas = [...html.matchAll(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)].flatMap(match => JSON.parse(match[1]));
   const video = schemas.find(schema => schema['@type'] === 'VideoObject');
   if (!video) throw new Error('Watch page requires visible video metadata.');

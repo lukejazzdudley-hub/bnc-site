@@ -1,0 +1,71 @@
+{
+  "capture_date": "2026-10-17",
+  "song": "Springtime Showers",
+  "platform": "iOS development simulator",
+  "installed_bundle_version": "86",
+  "source_basename": "springtime-final-export-20261017.mov",
+  "source_sha256": "38fcee8eb3d6e7971c5a1f55d5c221a7dd2e5c5654326a1b7e3e2115dda3b450",
+  "edit": "Continuous source segment starting at 190 seconds; opening idle removed; no internal cuts or speed changes; top status chrome cropped at source y164; silent.",
+  "video_dimensions": [
+    720,
+    1468
+  ],
+  "video_duration_seconds": 128.833333,
+  "derivatives": [
+    {
+      "file": "springtime-arrangement-export.mp4",
+      "sha256": "a728de3fb4118eda368e62ad6827636849b1dd0a88e23c3bb9d713b640cecb13"
+    },
+    {
+      "file": "springtime-export-poster.jpg",
+      "sha256": "2642abe31566184370bdf2e967919ee05d9749518ed2411f94f86ab879923b31"
+    },
+    {
+      "file": "springtime-arrangement-export.vtt",
+      "sha256": "f4648f9dcb0e436e89b9037b55a0b53a191174cce2e650600b142ef2e19f38c7"
+    }
+  ],
+  "export": {
+    "stem_count": 6,
+    "sample_rate": 48000,
+    "format": "32-bit floating-point WAV",
+    "duration_seconds": 206.797,
+    "files": [
+      {
+        "file": "Beat.wav",
+        "channels": 2,
+        "sha256": "cd3baec300254bd898da758cfdbb0a331d961f327c51188b0dd80601fea6ba76"
+      },
+      {
+        "file": "Hook.wav",
+        "channels": 1,
+        "sha256": "cf4fa0cffd5e31fa13d1932802dc7593216c05a8a197df06af5caf1ada25fe91"
+      },
+      {
+        "file": "Springtime_Showers_-_Harmony_Vocal.wav",
+        "channels": 1,
+        "sha256": "a3759046edbe0e7c08b2558ce9ebd0a0ddc77e9d5e4f2335fa610658b41f5919"
+      },
+      {
+        "file": "Springtime_Showers_-_Hook_Vocal.wav",
+        "channels": 1,
+        "sha256": "357f76404b14fb6fe3ae9db0844b0177edfcd5de9caca4bab127e16260c1ba0d"
+      },
+      {
+        "file": "Springtime_Showers_-_Lead_Vocal.wav",
+        "channels": 1,
+        "sha256": "5ec1bdb2c3d727f0efe7402c300bd42f39e266ce60560b92b5bb113972ca5160"
+      },
+      {
+        "file": "Verse.wav",
+        "channels": 1,
+        "sha256": "5ec1bdb2c3d727f0efe7402c300bd42f39e266ce60560b92b5bb113972ca5160"
+      }
+    ]
+  },
+  "limits": [
+    "Original take lanes and section lanes coexist; select or mute alternate versions before mixing.",
+    "Format, equal-duration and non-silence checks do not certify performance, clipping-free mix or desktop import.",
+    "Not the After the Last Bus song shown in the separate type-beat writing capture."
+  ]
+}

@@ -44,8 +44,14 @@ class SearchPages(unittest.TestCase):
             html = (ROOT / 'cadence' / slug / 'index.html').read_text()
             self.assertIn(f'https://brandnamechanges.com/cadence/{slug}/', html)
             self.assertEqual(len(re.findall('<h1>', html)), 1)
+            schemas = []
             for raw in re.findall(r'<script type="application/ld\+json">(.*?)</script>', html):
-                self.assertEqual({node['@type'] for node in json.loads(raw)}, {'WebApplication' if slug == 'rhyme-finder' else 'WebPage', 'BreadcrumbList', 'FAQPage'})
+                parsed = json.loads(raw)
+                schemas.extend(parsed if isinstance(parsed, list) else [parsed])
+            expected = {'WebApplication' if slug == 'rhyme-finder' else 'WebPage', 'BreadcrumbList', 'FAQPage'}
+            if slug == 'springtime-showers':
+                expected.add('VideoObject')
+            self.assertEqual({node['@type'] for node in schemas}, expected)
             for url in re.findall(r'(?:href|src)="(/[^"#]*)"', html):
                 path = ROOT / url.lstrip('/')
                 self.assertTrue(path.exists() or path.with_suffix('.html').exists(), url)
