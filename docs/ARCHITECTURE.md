@@ -96,6 +96,12 @@ for no-JavaScript readers. No new landing route, tracking dimension or server
 allowlist is required. Print mirrors use textContent so entered lyrics wrap
 without textarea clipping. See `seo/BEAT-TO-DEMO-LESSON.md`.
 
+A separate ReportLab script emits a two-page A4 worksheet for reliable paper use.
+It is a blank download, independent of browser entries. The fourth generator
+also adds the watch-page video's sitemap extension from its existing VideoObject;
+the same locally hosted media, title, description and publication date are reused.
+This improves discovery metadata without asserting video index inclusion.
+
 `content/feature-guide.mjs` stores the public app manual as workflow chapters with stable anchors. `scripts/build_feature_guide.mjs` renders static HTML through the fourth growth generator; reading and deep links require no JavaScript. The release source-label check reads a separately supplied app checkout and flags missing evidence strings; it does not validate device UI behavior. See `docs/seo/growth/FEATURE-GUIDE.md`.
 
 The guide adds a progressive contents filter and current-section indicator. Its optional handset dynamically imports the existing model-viewer and shared screen-texture initializer only on explicit activation. A reserved aperture prevents layout shifts; reduced-motion/data-saving preferences retain the poster. Static chapters and workflow links remain the source for readers and crawlers.

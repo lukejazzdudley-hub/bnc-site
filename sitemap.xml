@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://brandnamechanges.com/</loc></url>
   <url><loc>https://brandnamechanges.com/cadence/</loc></url>
   <url><loc>https://brandnamechanges.com/privacy</loc></url>
@@ -76,6 +76,6 @@
   <url><loc>https://brandnamechanges.com/cadence/languages/nigerian-pidgin/</loc></url>
   <url><loc>https://brandnamechanges.com/cadence/fr/dictionnaire-rimes/</loc></url>
   <url><loc>https://brandnamechanges.com/cadence/es/diccionario-rimas/</loc></url>
-  <url><loc>https://brandnamechanges.com/cadence/type-beat-walkthrough/</loc></url>
+  <url><loc>https://brandnamechanges.com/cadence/type-beat-walkthrough/</loc><video:video><video:thumbnail_loc>https://brandnamechanges.com/assets/cadence/type-beat/beat-first-poster.jpg</video:thumbnail_loc><video:title>Beat-first writing in Cadence: After the Last Bus</video:title><video:description>Edited silent iOS development-simulator demonstration of original beat import, a lyric draft, A–B looping and take recording. Not a finished performance or exported demo.</video:description><video:content_loc>https://brandnamechanges.com/assets/cadence/type-beat/beat-first-workflow.mp4</video:content_loc><video:publication_date>2026-10-16T03:57:00+01:00</video:publication_date></video:video></url>
   <url><loc>https://brandnamechanges.com/cadence/guide/</loc></url>
 </urlset>

@@ -22,6 +22,14 @@ least one bar is required. It accumulates unrounded time before formatting the
 display. It cannot detect a beat's structure, metre, pickup, offset or tempo map.
 The blank download is generated from the same model as filled downloads.
 
+The separate two-page A4 PDF is a paper worksheet: section plan, writing space,
+take notes and handoff checks. It does not contain the visitor's browser entries.
+Generate it with `python scripts/build_beat_worksheet_pdf.py` using ReportLab
+(available in the Codex bundled Python runtime). Its source is deterministic.
+Both pages were rendered with Poppler, inspected and independently accepted on
+17 October 2026; page count, A4 dimensions and extracted content were verified
+with pypdf. The accessible HTML/text alternatives remain available.
+
 Entries exist only in the current page. A UTF-8 text download preserves accents,
 non-Latin scripts and line breaks. Printing mirrors textarea values as plain
 wrapping text to prevent clipped lyrics. Download before navigating or reloading;

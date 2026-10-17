@@ -53,6 +53,6 @@ ${textField('decision', 'Decision · keep, revise and record next', 3)}
 <div class="beat-worksheet__actions" data-worksheet-actions hidden><button type="button" data-download-worksheet>Download my worksheet</button><button type="button" data-print-worksheet>Print worksheet</button></div>
 <p class="beat-worksheet__credit">Original exercise and worksheet by Cadence / Brand Name Changes. Copy for personal use or teaching with credit. This is not a beat licence.</p>
 </form>
-<p>Prefer paper? Print this page and select the worksheet pages, or use the worksheet’s Print button with JavaScript enabled. Browser print settings control headers, footers and paper size.</p>`
+<p>Prefer paper? <a href="/cadence/resources/beat-to-demo-worksheet.pdf" download>Download the two-page A4 worksheet PDF</a>. It has a blank section plan, lyric space, take-comparison notes and a handoff checklist. The browser Print button prints your entered notes; its pagination depends on your print settings.</p>`
   }
 ];

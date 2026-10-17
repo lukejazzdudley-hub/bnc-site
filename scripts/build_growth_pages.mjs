@@ -3,6 +3,7 @@ import {fileURLToPath} from 'node:url';
 import path from 'node:path';
 import {appendSitemap} from './build_resource_hub.mjs';
 import {writeFeatureGuide,featureGuideRoute} from './build_feature_guide.mjs';
+import {addWatchVideo} from './build_video_metadata.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const domain='https://brandnamechanges.com';
 const provenance=JSON.parse(readFileSync(path.join(root,'cadence/search/public-romance-provenance.json')));
@@ -21,7 +22,7 @@ const watchRoute='/cadence/type-beat-walkthrough/';
 mkdirSync(path.join(root,watchRoute),{recursive:true});
 writeFileSync(path.join(root,watchRoute,'index.html'),readFileSync(path.join(root,'content/type-beat-walkthrough.html'),'utf8'));
 writeFeatureGuide(root);
-const sitemap=path.join(root,'sitemap.xml');writeFileSync(sitemap,appendSitemap(readFileSync(sitemap,'utf8'),[...configs.map(c=>c.route),watchRoute,featureGuideRoute]));
+const sitemap=path.join(root,'sitemap.xml');writeFileSync(sitemap,addWatchVideo(appendSitemap(readFileSync(sitemap,'utf8'),[...configs.map(c=>c.route),watchRoute,featureGuideRoute]),readFileSync(path.join(root,'content/type-beat-walkthrough.html'),'utf8')));
 // Keep the server's optional-measurement allowlist aligned with published routes.
 const routes=[...new Set([...readFileSync(sitemap,'utf8').matchAll(/<loc>https:\/\/brandnamechanges\.com(\/cadence\/[^<]*)<\/loc>/g)].map(match=>match[1]))].sort();
 writeFileSync(path.join(root,'supabase/functions/cadence-search-events/routes.ts'),`// Generated from sitemap.xml; only public Cadence landing routes.\nexport const routes = new Set(${JSON.stringify(routes)});\n`);

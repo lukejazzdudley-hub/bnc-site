@@ -27,6 +27,10 @@
 
 ### Added
 
+- Download a two-page A4 version of the beat-to-demo worksheet for handwriting
+  and classroom use. The existing walkthrough also supplies video-specific
+  sitemap metadata so search engines can discover its hosted video.
+
 - The beat-writing guide now includes an original verse revision, a 30-minute
   beat-to-demo lesson and a free worksheet. Plan section timing, compare two
   takes, download your notes or print them without creating an account.
