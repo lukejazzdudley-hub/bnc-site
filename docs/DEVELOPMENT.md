@@ -123,3 +123,10 @@ and fresh six-stem file-format evidence. Original footage and exported audio
 stay private. Do not infer a finished mix or desktop import from silent footage.
 The fourth generator adds both watch-page video entries from their actual
 VideoObjects. Rerun the generators before the media/hash contract tests.
+
+
+The international generator owns the product page's marked language-picker block.
+It reads native names/routes from `content/language-packs.mjs`; preserve all 21
+links and the no-JavaScript details control. The main navigation links to the
+language hub; the regional hub shows native language choices before English
+storefront guides. Keep the hero's mobile grid order in sync with the picker.

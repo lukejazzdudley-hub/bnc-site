@@ -9,7 +9,7 @@
 .region-directory h3 a { text-decoration-thickness: 1px; }
 .region-directory .actions { margin-top: 18px; }
 .region-directory .button { font-size: 15px; }
-.region-links { gap: 12px 24px; margin: 24px 0; }
+.region-links { display: flex; flex-wrap: wrap; gap: 12px 24px; margin: 24px 0; }
 .region-links a { padding-block: 6px; text-decoration: underline; }
 .region-links [aria-current="page"] { color: #fff; text-decoration-thickness: 3px; }
 .region-faq details, .cadence-faq details { border-top: 1px solid #454750; padding: 20px 0; }
@@ -36,4 +36,15 @@ html:lang(ja) .hero h1, html:lang(ko) .hero h1 { word-break: normal; line-height
   .region-phone { max-width: 190px; }
   .region-directory { grid-template-columns: 1fr; }
   .region-hero h1 { font-size: clamp(40px, 10vw, 64px); }
+}
+
+/* Native names are readable links, available without JavaScript. */
+.language-links a { min-height: 44px; display: inline-flex; align-items: center; overflow-wrap: anywhere; }
+.cadence-language-picker { max-width: 100%; margin-top: 16px; border-top: 1px solid #454750; border-bottom: 1px solid #454750; }
+.cadence-language-picker summary { padding-block: 12px; font-size: 16px; font-weight: 500; }
+.cadence-language-picker .language-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 20px; margin: 10px 0; }
+.cadence-language-picker .language-guide-link { padding-block: 12px; font-size: 14px; }
+@media (max-width: 640px) {
+  .cadence-hero-copy .cadence-language-picker { grid-row: 6; margin-top: 0; }
+  .cadence-stage-grid .cadence-hero-object { grid-row: 7; }
 }
