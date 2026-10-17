@@ -104,12 +104,12 @@ human approved. Update the generated measurement route allowlist with sitemap
 routes before deploying the event function. Validate all links, locale/schema
 contracts, RTL layout, locked responsive widths and no-JavaScript content.
 
-## Research follow-through —17October2026
+## Research follow-through —17 October 2026
 
 The rate limit cleared and the remaining five Bing reports were completed:
 Filipino, Vietnamese, Yorùbá, Nigerian Pidgin and the English baseline. The public
-observations CSV now records21distinct language/pack query reports. All used
-All countries/languages/devices and the displayed3M period; these are Bing report
+observations CSV now records21 distinct language/pack query reports. All used
+All countries/languages/devices and the displayed 3 M period; these are Bing report
 results, not a Google country-specific top-ten audit.
 
 The four language reports showed insufficient trend data, not zero demand.
@@ -121,10 +121,10 @@ intent and honest pack support instead of claiming whole-song generation or
 creating language-learning pages. These are intent observations, not measured
 organic difficulty or proof of easy rankings.
 
-The English report showed176Bing keyword impressions for17July–14October2026.
-The visible country rows were United States94, United Kingdom11, India3 and
-Canada2; only the visible breakdown rows are quoted, not treated as the complete
-176total. Songcraft, LyricStudio, WriteHook and SongCage appeared alongside
+The English report showed 176 Bing keyword impressions for17July–14October2026.
+The visible country rows were United States 94, United Kingdom 11, India 3 and
+Canada 2; only the visible breakdown rows are quoted, not treated as the complete
+176 total. Songcraft, LyricStudio, WriteHook and SongCage appeared alongside
 comparison articles and other products. Do not convert this period figure to
 Google monthly volume, expected Cadence traffic or a website ranking result.
 Country-level Google demand and competition research remains incomplete pending
