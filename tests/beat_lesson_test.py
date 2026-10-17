@@ -45,6 +45,12 @@ class BeatLessonContract(unittest.TestCase):
         self.assertIn('53.3', text)
         self.assertIn('not a beat licence', text)
 
+    def test_printable_pdf_is_linked_and_has_pdf_header(self):
+        pdf = (ROOT / 'cadence/resources/beat-to-demo-worksheet.pdf').read_bytes()
+        self.assertTrue(pdf.startswith(b'%PDF-'))
+        html = (ROOT / 'cadence/resources/writing-rap-lyrics-over-a-beat/index.html').read_text()
+        self.assertIn('href="/cadence/resources/beat-to-demo-worksheet.pdf" download', html)
+
     def test_enhancement_has_no_network_or_persistent_storage(self):
         script = (ROOT / 'cadence/resources/beat-worksheet.mjs').read_text()
         for forbidden in ['fetch(', 'XMLHttpRequest', 'localStorage', 'sessionStorage', 'innerHTML', 'sendBeacon', 'indexedDB']:

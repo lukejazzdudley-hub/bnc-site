@@ -100,6 +100,13 @@ run `node --test tests/beat-worksheet.test.mjs` for timing and download edge cas
 Check invalid values, zero-bar sections, multilingual entries, actual text
 download and print layout. Do not add lyrics or worksheet fields to measurement.
 
+The blank PDF is authored by `scripts/build_beat_worksheet_pdf.py` (ReportLab).
+Regenerate with the bundled Python runtime when editing it, then run `pdfinfo`,
+extract text with pypdf and inspect both Poppler-rendered pages. It is separate
+from the browser's filled-note print action. `scripts/build_video_metadata.mjs`
+derives the video sitemap entry during the fourth generator; do not duplicate
+watch metadata manually or list decorative product scrub clips as watch videos.
+
 Edit `content/feature-guide.mjs`; the fourth generator publishes `/cadence/guide/`. Keep chapter anchors stable and review actual app controls with each release. Run `python3 scripts/check_feature_guide_sources.py --app-root /path/to/cadence` to catch changed source labels, then perform the separate UI review. See `docs/seo/growth/FEATURE-GUIDE.md` for the update and evidence procedure.
 
 ### Guide interaction and 3D checks
