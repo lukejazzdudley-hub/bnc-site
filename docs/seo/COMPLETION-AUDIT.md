@@ -13,8 +13,11 @@ search outcomes. This supersedes older 40-page discovery counts where noted.
   explicit pronunciation/scope limits. Other app packs are not fictional web tools.
 - Feature manual, original beat-writing lesson, device-local section/take
   worksheet, text downloads and now a visually inspected two-page A4 PDF.
-- Optional consent-based aggregate page/store-click measurement. Store clicks
-  are separate from installs; no query-to-person tracking is implied.
+- Optional consent-based aggregate page/store-click measurement. Read-only
+  Management API reporting succeeded through the existing linked Supabase CLI.
+  The only row is the previously recorded QA view; excluding it leaves no
+  non-QA events observed. This is not proof of zero visitors or installs. Store
+  clicks remain separate from installs; no query-to-person tracking is implied.
 - Previous deployed mobile lab audits: product99, guide99. Field CWV still has
   insufficient user samples; these are not universal performance guarantees.
 - Google sitemap rechecked: Success,78 discovered pages. Arabic introduction
@@ -35,7 +38,6 @@ search outcomes. This supersedes older 40-page discovery counts where noted.
 | Country-level demand and competitive prioritisation across the supported languages | The248-query map contains hypotheses, not measured traffic or organic difficulty. Existing historical UK/world and selected France data retain their stated scope. The available Google Ads session still redirects to billing signup; a working research-account session or its country exports is needed to close the demand gap. Free alternative-provider observations do not become Google monthly volume. The country/device Google result audit is still incomplete. |
 | Continuous arrangement-to-DAW-to-export demonstration | Populated Springtime Showers and earlier aligned stem files exist, but the files predate later section assignments. Native simulator control again failed before interaction on17October. Recover the control service, capture the actual final export and verify the fresh files. Do not splice another song into the outcome. |
 | Independent native editorial/linguistic acceptance | Existing French/Spanish regional requests remain unanswered. Other native introductions likewise have no independently documented human acceptance. Model critique and tests cannot supply this. Correct issues when qualified reviewers respond; do not describe these pages as natively approved. |
-| Fresh acquisition report from the aggregate database | Collector deployment and contracts are verified, but this session's Supabase dashboard is signed out and GitHub login is required. Access is needed to read the actual aggregate report. Do not invent counts or reuse QA events as organic outcomes. |
 
 ## Outcomes requiring observation
 

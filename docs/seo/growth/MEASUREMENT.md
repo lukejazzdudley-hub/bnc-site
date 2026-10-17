@@ -38,3 +38,15 @@ Installs must come from supported App Store Connect/Play Console acquisition rep
 Regenerate the route allowlist whenever a sitemap route changes, review the change, deploy the collector, and validate denied-origin, unknown-route, oversized and valid requests. No collector events should be sent by browser QA unless explicitly testing consent. Do not commit private exports or credentials.
 
 Outbound Apple matching requires the exact Cadence app-ID path suffix; regression cases reject lookalike longer app IDs and appended paths. Store visits remain aggregate click events, never install assertions.
+
+## Authenticated CLI reporting
+
+If the browser dashboard is signed out, the linked Supabase CLI can read the
+same aggregate table through the Management API without changing database
+privileges. Verify `supabase/.temp/project-ref` names the existing Cadence
+project, then use `supabase db query --linked --output json --file` with a
+read-only SELECT of `cadence_search_daily`; redirect output to a private path.
+No feedback-table dump or service credential export is needed. The17October
+check succeeded and returned only the known QA view from16October. Exclude that
+single documented test count from outcome reports, not all future direct views.
+No non-QA observations yet is not evidence that nobody visited.
