@@ -79,7 +79,8 @@ class InternationalSEO(unittest.TestCase):
         self.assertIn('href="/cadence/languages/"', header)
         chooser = re.search(r'<!-- language-picker:start -->(.*?)<!-- language-picker:end -->', product, re.S)[1]
         self.assertIn('<summary>Read in your language</summary>', chooser)
-        routes = re.findall(r'href="(/cadence/[^"]*/)"', chooser)
+        language_nav = re.search(r'<nav.*?</nav>', chooser, re.S)[0]
+        routes = re.findall(r'href="(/cadence/[^"]*)"', language_nav)
         self.assertEqual(len(set(routes)), 21)
         for code in ['fr', 'es', 'de', 'ar', 'he', 'ja', 'ko', 'pcm']:
             self.assertIn(f'href="/cadence/{code}/"', chooser)
