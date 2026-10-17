@@ -20,7 +20,7 @@ search outcomes. This supersedes older 40-page discovery counts where noted.
   clicks remain separate from installs; no query-to-person tracking is implied.
 - Previous deployed mobile lab audits: product99, guide99. Field CWV still has
   insufficient user samples; these are not universal performance guarantees.
-- Google sitemap rechecked: Success,78 discovered pages. Arabic introduction
+- Google and Bing sitemaps rechecked: Success,78 discovered pages each. Arabic introduction
   explicitly indexed; Brazilian Portuguese introduction unknown and one crawl
   request accepted. French/Spanish remain indexed. No all-78 indexed claim.
 - Type-beat watch page: successful fetch and indexing allowed, but still
@@ -54,3 +54,18 @@ ownership-key infrastructure or repeated unchanged-URL submission was added.
 
 The tested implementation is ready to publish; the project remains open for the
 specific blocked work above. Waiting for rankings alone does not close it.
+
+## Final verification for this pass
+
+PR37 merged881db7c6c22946279380e68bb839bf1c40337524; Pages38985072962
+succeeded. Live sitemap, PDF and updated lesson returned200 and matched local
+bytes. All78sitemap URLs also returned200 with no redirects or noindex response
+header. Product-page HTTP probes using Googlebot, bingbot, OAI-SearchBot and
+PerplexityBot names returned200; this is an access test, not authenticated proof
+of crawler visits. Google accepted the changed sitemap; Bing was resubmitted
+once for the video addition and changed from Success78 to Processing78.
+
+105Python,154Node and42Deno tests passed; crawl audit found no errors. Deno
+checks and Gitleaks passed; slop-scan retains14findings/54.23. Both PDF pages
+were independently accepted. The five previously rate-limited Bing reports were
+completed with evidence limits preserved; see ALL-LANGUAGE-COVERAGE.md.
