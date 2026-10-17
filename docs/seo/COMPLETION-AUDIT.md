@@ -18,25 +18,25 @@ search outcomes. This supersedes older 40-page discovery counts where noted.
   The only row is the previously recorded QA view; excluding it leaves no
   non-QA events observed. This is not proof of zero visitors or installs. Store
   clicks remain separate from installs; no query-to-person tracking is implied.
-- Previous deployed mobile lab audits: product99, guide99. Field CWV still has
+- Previous deployed mobile lab audits: product 99, guide 99. Field CWV still has
   insufficient user samples; these are not universal performance guarantees.
-- Google and Bing sitemaps rechecked: Success, 78 discovered pages each. Arabic introduction
-  explicitly indexed; Brazilian Portuguese introduction unknown and one crawl
+- Google and Bing sitemaps rechecked: Success, 78 discovered pages each. The
+  Arabic introduction is explicitly indexed; Brazilian Portuguese introduction unknown and one crawl
   request accepted. French/Spanish remain indexed. No all-78 indexed claim.
 - Type-beat watch page: successful fetch and indexing allowed, but still
   crawled/currently not indexed. The video sitemap extension now reuses the real
-  locally hosted103-second demonstration's metadata. It does not complete the
+  locally hosted 103-second demonstration's metadata. It does not complete the
   separate arrangement/export recording or guarantee video inclusion.
 - Thirteen relevant outreach requests dispatched by the prior campaigns. A
-  scoped reply search on17 October found no received responses. No new chasers,
+  scoped reply search on 17 October found no received responses. No new chasers,
   published reviews or earned links are claimed.
 
 ## Work that is still blocked, not completed
 
 | Remaining work | Current evidence / dependency |
 | --- | --- |
-| Country-level demand and competitive prioritisation across the supported languages | The248-query map contains hypotheses, not measured traffic or organic difficulty. Existing historical UK/world and selected France data retain their stated scope. The available Google Ads session still redirects to billing signup; a working research-account session or its country exports is needed to close the demand gap. Free alternative-provider observations do not become Google monthly volume. The country/device Google result audit is still incomplete. |
-| Continuous arrangement-to-DAW-to-export demonstration | Populated Springtime Showers and earlier aligned stem files exist, but the files predate later section assignments. Native simulator control again failed before interaction on17 October. Recover the control service, capture the actual final export and verify the fresh files. Do not splice another song into the outcome. |
+| Country-level demand and competitive prioritisation across the supported languages | The 248-query map contains hypotheses, not measured traffic or organic difficulty. Existing historical UK/world and selected France data retain their stated scope. The available Google Ads session still redirects to billing signup; a working research-account session or its country exports is needed to close the demand gap. Free alternative-provider observations do not become Google monthly volume. The country/device Google result audit is still incomplete. |
+| Continuous arrangement-to-DAW-to-export demonstration | Populated Springtime Showers and earlier aligned stem files exist, but the files predate later section assignments. Native simulator control again failed before interaction on 17 October. Recover the control service, capture the actual final export and verify the fresh files. Do not splice another song into the outcome. |
 | Independent native editorial/linguistic acceptance | Existing French/Spanish regional requests remain unanswered. Other native introductions likewise have no independently documented human acceptance. Model critique and tests cannot supply this. Correct issues when qualified reviewers respond; do not describe these pages as natively approved. |
 
 ## Outcomes requiring observation
@@ -52,20 +52,20 @@ IndexNow was reviewed but not required to fix a diagnosed crawl error: Google
 already processed the sitemap, and Bing's verified sitemap is available. No new
 ownership-key infrastructure or repeated unchanged-URL submission was added.
 
-The tested implementation is ready to publish; the project remains open for the
+The tested implementation is published; the project remains open for the
 specific blocked work above. Waiting for rankings alone does not close it.
 
 ## Final verification for this pass
 
 PR37 merged 881db7c6c22946279380e68bb839bf1c40337524; Pages 38985072962
-succeeded. Live sitemap, PDF and updated lesson returned200 and matched local
-bytes. All 78 sitemap URLs also returned200 with no redirects or noindex response
+succeeded. Live sitemap, PDF and updated lesson returned 200 and matched local
+bytes. All 78 sitemap URLs also returned 200 with no redirects or noindex response
 header. Product-page HTTP probes using Googlebot, bingbot, OAI-SearchBot and
-PerplexityBot names returned200; this is an access test, not authenticated proof
+PerplexityBot names returned 200; this is an access test, not authenticated proof
 of crawler visits. Google accepted the changed sitemap; Bing was resubmitted
 once for the video addition and changed from Success 78 to Processing 78.
 
-105 Python,154 Node and42 Deno tests passed; crawl audit found no errors. Deno
+105 Python, 154 Node and 42 Deno tests passed; crawl audit found no errors. Deno
 checks and Gitleaks passed; slop-scan retains 14 findings/54.23. Both PDF pages
 were independently accepted. The five previously rate-limited Bing reports were
 completed with evidence limits preserved; see ALL-LANGUAGE-COVERAGE.md.

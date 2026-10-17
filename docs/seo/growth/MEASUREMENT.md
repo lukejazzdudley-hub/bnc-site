@@ -46,7 +46,7 @@ same aggregate table through the Management API without changing database
 privileges. Verify `supabase/.temp/project-ref` names the existing Cadence
 project, then use `supabase db query --linked --output json --file` with a
 read-only SELECT of `cadence_search_daily`; redirect output to a private path.
-No feedback-table dump or service credential export is needed. The17 October
-check succeeded and returned only the known QA view from16 October. Exclude that
+No feedback-table dump or service credential export is needed. The 17 October
+check succeeded and returned only the known QA view from 16 October. Exclude that
 single documented test count from outcome reports, not all future direct views.
 No non-QA observations yet is not evidence that nobody visited.
