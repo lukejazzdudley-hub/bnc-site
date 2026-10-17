@@ -129,3 +129,10 @@ comparison articles and other products. Do not convert this period figure to
 Google monthly volume, expected Cadence traffic or a website ranking result.
 Country-level Google demand and competition research remains incomplete pending
 a usable research session.
+
+
+On 17 October, four country-filtered Google desktop snapshots (FR/MX/BR/DE) were
+added in `google-country-serp-observations.csv`, with intent analysis and
+primary competitor-page checks in `growth/COMPETITIVE-ANALYSIS.md`. They are a
+priority sample, not all-pack country coverage. The user declined further Ads
+setup; no new monthly demand estimates are claimed.
