@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-10-17
+
+- Watch a continuous Springtime Showers section-to-DAW-to-export walkthrough with captions and verified six-stem file details.
+
 ## 2026-10-16
 
 - Find all 20 downloadable rhyme packs plus built-in English from the language directory.

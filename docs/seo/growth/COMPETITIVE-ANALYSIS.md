@@ -40,3 +40,41 @@ Evaluate each intent by page-level GSC performance, then country/device filters,
 ## Current account access boundary
 
 The available authenticated browser is signed into the Brand Name Changes account. Opening the prior research plan redirected to an unfinished Ads account billing setup, not Keyword Planner. No terms, card authorization, account activation or campaign was submitted. The account switch offered a new login rather than an already authenticated research profile. Spain/Mexico/Canada-French metrics therefore remain unmeasured in this pass; completing billing is not a prerequisite we silently authorize for SEO. Existing UK/world historical data remains valid in its stated scope.
+
+
+## Country-filtered Google observations — 17 October 2026
+
+The user declined further research-account setup. No billing, terms acceptance,
+account creation or new spend was completed. Country-level Google monthly volume
+remains unknown; this is an evidence limit, not a request to buy access.
+
+Four direct Google desktop snapshots used explicit `gl` country, `hl` language
+and `pws=0`. Google showed personalization off; precise location was unknown.
+These are country-filtered observations, not local-IP rank tracking, mobile
+rankings, measured demand, organic-difficulty scores or all-language coverage.
+Raw result snapshots remain private. The auditable public summary is
+`../google-country-serp-observations.csv` (relative to this growth directory).
+
+| Country / query | Visible result pattern | Consequence |
+| --- | --- | --- |
+| France / application pour écrire des chansons Android | Suno and recording-app store results, Zoundroom's Android workflow, notation and music-production results | An unqualified composing term has mixed intent. Keep human lyric writing, beat import and recording visible together; the verified export is a useful proof point. |
+| Mexico / app para escribir canciones Android | Lyric Notepad/Bloc de Letras, Zoundroom comparison, Suno and video results; an AI Overview also appeared | A useful comparison explains lyric tools, audio context and free/paid limits. Overview presence is a format observation, not a Cadence citation. |
+| Brazil / app para compor músicas Android | Suno, Music Maker JAM, production videos and BandLab; Zoundroom's Android page also appeared | Broad composing intent overlaps production and generation. Test lyric-specific and beat-recording cohorts separately instead of treating every composition impression as a qualified install opportunity. |
+| Germany / App zum Songtexte schreiben Android | Recording-app listing, Zoundroom comparison, LANDR, musician discussions, Thomann and Canva | Direct Android compatibility plus concrete lyric/recording evidence is a stronger answer than translated claims alone. |
+
+Primary pages inspected: [French Android workflow](https://zoundroom.com/fr/application-composer-chansons-android),
+[Brazilian Android workflow](https://zoundroom.com/pt/app-compor-cancoes-android),
+[Spanish comparison](https://zoundroom.com/blog/las-5-mejores-apps-para-escribir-letras-de-canciones-en-2026),
+[German comparison](https://zoundroom.com/de/blog/songtext-apps-2026-vergleich).
+The workflow pages show import/record steps and screenshots. The comparisons
+state vendor-documentation methodology and publisher affiliation. These are
+vendor claims, not independent test findings; do not copy their claims as facts
+about competing installed apps. Search result order is not a backlink count.
+
+Action delivered here: the existing Springtime page now gives continuous actual
+section → DAW → six-stem export evidence, captions, static instructions and
+matching video sitemap metadata. Existing language product pages retain honest
+pack/platform scope. No thin country × language × platform pages were added on
+the strength of these four samples. The earlier 21 Bing reports retain their
+global scope. Other country/query cohorts and contemporary country volumes are
+still unmeasured; this sample does not close that wider research gap.

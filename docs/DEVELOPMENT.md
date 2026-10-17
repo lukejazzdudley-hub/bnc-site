@@ -112,3 +112,14 @@ Edit `content/feature-guide.mjs`; the fourth generator publishes `/cadence/guide
 ### Guide interaction and 3D checks
 
 `cadence/guide/guide.mjs` filters only the contents links; it never removes instructional chapters. Check empty search, no match and keyboard deep links. The 3D handset loads the existing pinned model-viewer only after Explore in 3D, shares `initialiseViewer` with the product page and retains the static poster until texture binding succeeds. Check rotation, Reset view, Use still image, failed renderer loading, reduced motion and data saving. Network-quality changes alone must not close the view. No search words are persisted or sent.
+
+
+### Verified arrangement export media
+
+The 17 October Springtime capture is published on the existing song page, with
+captions and static instructions. `assets/cadence/type-beat/springtime-export-evidence.json`
+records source/derivative hashes, the installed development build, edit scope
+and fresh six-stem file-format evidence. Original footage and exported audio
+stay private. Do not infer a finished mix or desktop import from silent footage.
+The fourth generator adds both watch-page video entries from their actual
+VideoObjects. Rerun the generators before the media/hash contract tests.

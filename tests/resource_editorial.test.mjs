@@ -72,10 +72,10 @@ test('search-intent answers distinguish rhyme placement from matching length', (
 });
 
 
-test('export walkthrough keeps verified output distinct from unfinished continuous footage', () => {
+test('export walkthrough presents verified continuous footage with explicit limits', () => {
   const source = readFileSync(new URL('../scripts/build_search_pages.mjs', import.meta.url), 'utf8');
   assert.match(source, /Export stems \(WAV · aligned at 0\)/);
-  assert.match(source, /clips above do not show the export screen/);
-  assert.match(source, /Export was checked separately/);
-  assert.match(source, /not a judgement of the performance or mix/);
+  assert.match(source, /One continuous recording segment/);
+  assert.match(source, /Fresh files from this final arrangement were checked/);
+  assert.match(source, /do not certify a finished performance or clipping-free mix/);
 });

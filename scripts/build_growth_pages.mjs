@@ -24,6 +24,7 @@ writeFileSync(path.join(root,watchRoute,'index.html'),readFileSync(path.join(roo
 writeFeatureGuide(root);
 const sitemap=path.join(root,'sitemap.xml');writeFileSync(sitemap,addWatchVideo(appendSitemap(readFileSync(sitemap,'utf8'),[...configs.map(c=>c.route),watchRoute,featureGuideRoute]),readFileSync(path.join(root,'content/type-beat-walkthrough.html'),'utf8')));
 // Keep the server's optional-measurement allowlist aligned with published routes.
+writeFileSync(sitemap,addWatchVideo(readFileSync(sitemap,'utf8'),readFileSync(path.join(root,'cadence/springtime-showers/index.html'),'utf8'),'/cadence/springtime-showers/'));
 const routes=[...new Set([...readFileSync(sitemap,'utf8').matchAll(/<loc>https:\/\/brandnamechanges\.com(\/cadence\/[^<]*)<\/loc>/g)].map(match=>match[1]))].sort();
 writeFileSync(path.join(root,'supabase/functions/cadence-search-events/routes.ts'),`// Generated from sitemap.xml; only public Cadence landing routes.\nexport const routes = new Set(${JSON.stringify(routes)});\n`);
 console.log('Built French and Spanish public rhyme tools.');

@@ -24,19 +24,18 @@ search outcomes. This supersedes older 40-page discovery counts where noted.
   Arabic introduction is explicitly indexed; Brazilian Portuguese introduction unknown and one crawl
   request accepted. French/Spanish remain indexed. No all-78 indexed claim.
 - Type-beat watch page: successful fetch and indexing allowed, but still
-  crawled/currently not indexed. The video sitemap extension now reuses the real
-  locally hosted 103-second demonstration's metadata. It does not complete the
-  separate arrangement/export recording or guarantee video inclusion.
+  crawled/currently not indexed. The video sitemap extension reuses the real locally hosted video metadata. The separate
+  arrangement/export recording is now completed and verified below; inclusion is not guaranteed.
 - Thirteen relevant outreach requests dispatched by the prior campaigns. A
   scoped reply search on 17 October found no received responses. No new chasers,
   published reviews or earned links are claimed.
 
-## Work that is still blocked, not completed
+## Remaining research/review and newly resolved demonstration
 
 | Remaining work | Current evidence / dependency |
 | --- | --- |
-| Country-level demand and competitive prioritisation across the supported languages | The 248-query map contains hypotheses, not measured traffic or organic difficulty. Existing historical UK/world and selected France data retain their stated scope. The available Google Ads session still redirects to billing signup; a working research-account session or its country exports is needed to close the demand gap. Free alternative-provider observations do not become Google monthly volume. The country/device Google result audit is still incomplete. |
-| Continuous arrangement-to-DAW-to-export demonstration | Populated Springtime Showers and earlier aligned stem files exist, but the files predate later section assignments. Native simulator control again failed before interaction on 17 October. Recover the control service, capture the actual final export and verify the fresh files. Do not splice another song into the outcome. |
+| Country-level demand and competitive prioritisation across the supported languages | The 248-query map contains hypotheses, not measured traffic or organic difficulty. Existing historical UK/world and selected France data retain their stated scope. The available Google Ads session still redirects to billing signup; the user declined further account setup on 17 October. Four country-filtered Google desktop result samples are now documented; contemporary monthly country volume remains unknown, not silently estimated. Free alternative-provider observations do not become Google monthly volume. The country/device Google result audit is still incomplete. |
+| Continuous arrangement-to-DAW-to-export demonstration | Completed 17 October: actual Springtime section assignments → Build in DAW → six-stem export success, captured continuously. Fresh WAVs include Verse and Hook, all 48 kHz/float32/206.797s and non-silent. Original take lanes remain; the published instructions explain duplicate-version selection. Silent UI footage does not certify a finished mix or demonstrate desktop DAW import. |
 | Independent native editorial/linguistic acceptance | Existing French/Spanish regional requests remain unanswered. Other native introductions likewise have no independently documented human acceptance. Model critique and tests cannot supply this. Correct issues when qualified reviewers respond; do not describe these pages as natively approved. |
 
 ## Outcomes requiring observation
@@ -69,3 +68,19 @@ once for the video addition and changed from Success 78 to Processing 78.
 checks and Gitleaks passed; slop-scan retains 14 findings/54.23. Both PDF pages
 were independently accepted. The five previously rate-limited Bing reports were
 completed with evidence limits preserved; see ALL-LANGUAGE-COVERAGE.md.
+
+
+## Arrangement/export follow-through — 17 October
+
+Simulator control was recovered by selecting the exact device window, restarting
+that device and relaunching the existing installed app. No reinstall, reseed,
+entitlement edit or take deletion. A continuous Springtime source segment now
+shows the saved assigned draft, Build in DAW, export selection and six-stem
+success. Independent visual acceptance passed after removing the complete status
+chrome; actual app text, Onyx theme, controls and proportions remain readable.
+Fresh output hashes and format checks are recorded in the public evidence file;
+private raw footage and WAVs are retained outside the public repository.
+Country-filtered desktop Google samples for FR/MX/BR/DE are recorded separately
+from the global Bing evidence. The user declined further Ads account setup.
+There is no new claim of measured country monthly volume, all-country completion,
+independent native review or achieved rankings.
