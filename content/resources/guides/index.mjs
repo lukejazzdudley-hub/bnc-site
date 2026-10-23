@@ -134,6 +134,14 @@ Four stops from nowhere, still KNOW who I am</p></blockquote>
 <p>In poetry, read the line aloud to hear what the pattern emphasises. In lyrics, try it over the beat as well: stress, pauses and delivery can strengthen or hide the same written rhyme. The examples below show how to combine the two placements without forcing the sentence.</p>`
       },
       {
+        id: 'internal-rhyme-examples',
+        heading: 'Three internal rhyme examples, with the sounds marked',
+        html: `<p>These original lines show three placements. The bold words are the rhyme; the rest of each line gives the sound a meaning.</p>
+<ol><li><strong>Inside one line:</strong> “The <strong>rain</strong> on the <strong>train</strong> kept time with my thoughts.” Rain/train matches before the line ends.</li><li><strong>Middle to end:</strong> “I kept a <strong>light</strong> for your return that <strong>night</strong>.” One word is internal and one ends the line, so the pair includes an internal rhyme.</li><li><strong>Across two lines:</strong> “The <strong>slow</strong> train pulled away.<br>I watched the <strong>snow</strong> settle on your coat.” Slow/snow connects the interiors of two lines; away/coat does not create an end-rhyme pair.</li></ol>
+<p>To try it in your own lyric, write the thought plainly, choose one stressed word, then use the <a href="/cadence/rhyme-finder/">free rhyme finder</a> for an alternative sound. Keep both words only if the sentence still says what you mean. The <a href="/cadence/guide/#rhyme-inspector">Cadence rhyme inspector</a> puts suggestions beside a draft; <a href="/cadence/type-beat-songwriting-app/">looping a type beat</a> lets you test where those sounds land.</p>
+<p><strong>Internal rhyme or alliteration?</strong> “Cold coffee” repeats an opening consonant sound: that is alliteration. “Light/night” matches the ending sound from the stressed vowel. A line can contain both, but repeating an initial letter alone does not make a rhyme.</p>`,
+      },
+      {
         id: 'map-the-end-rhymes',
         heading: 'Map the end rhymes first',
         html: String.raw`<p>Label each new end sound with a letter. Four lines ending in <em>street, rain, feet, train</em> form ABAB; <em>street, feet, rain, train</em> form AABB. The letters describe recurrence, not quality. The Poetry Foundation’s <a href="https://www.poetryfoundation.org/education/glossary/rhyme">rhyme glossary</a> uses the same letter convention and distinguishes end rhyme from rhyme within a line.</p>
