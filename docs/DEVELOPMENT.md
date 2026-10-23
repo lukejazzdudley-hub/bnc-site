@@ -94,6 +94,14 @@ allowed public paths; it does not change consent, collected dimensions or RLS.
 
 ## Maintaining the app guide
 
+Public French/Spanish rhyme examples are authored in `content/rhyme-examples.mjs`
+and rendered by the fourth generator. Each listed sound match must pass
+`tests/rhyme_examples.test.mjs` against the public dictionary. Keep examples and
+instructions in static HTML; example buttons progressively enhance that content
+by selecting the documented mode and moving focus back to the search. Interaction
+coverage lives in `tests/romance_example_actions.test.mjs`. Native editorial
+acceptance remains separate from dictionary and automated checks.
+
 For the beat-to-demo lesson, edit `content/resources/beat-lesson.mjs` and regenerate
 with the four commands above. The model is `cadence/resources/beat-worksheet-model.mjs`;
 run `node --test tests/beat-worksheet.test.mjs` for timing and download edge cases.

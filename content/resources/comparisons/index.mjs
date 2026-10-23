@@ -4,13 +4,22 @@ const checked = '2026-09-17';
 export const articles = [
   {
     slug: 'choosing-a-songwriting-app',
-    title: 'Best songwriting apps in 2026: what to buy for your workflow',
+    title: 'Best songwriting apps: 11 tools compared',
     description: 'Compare 11 songwriting apps, including Cadence, BandLab, GarageBand and Song Cage. Clear strengths, buying caveats and picks for lyrics, chords and production.',
-    heading: 'Choose the app that removes your next bottleneck',
+    heading: '11 songwriting apps: choose by how you write',
     intro: 'The best songwriting app is not the one with the longest feature list. It is the one that keeps your idea intact from the moment it arrives to the point where you need another tool.',
     category: 'Choose your tools',
     sections: [
-      ...buyingSections,
+      buyingSections[0],
+      {
+        id: 'choose-by-your-next-task',
+        heading: 'Which songwriting app fits your next task?',
+        html: `<p>For lyrics and vocals over an imported beat, start with <a href="/cadence/type-beat-songwriting-app/">Cadence’s type-beat workflow</a>. For a cloud studio, compare BandLab. For instruments and production on Apple devices, compare GarageBand. The shortlist below covers 11 tools and explains where each fits.</p>
+<p><strong>Writing on Android?</strong> Follow the <a href="/cadence/songwriting-app-android/">Android songwriting guide</a> for lyrics, beat loops, recording and offline setup. Check each alternative’s current platform listing before choosing; a desktop feature is not automatically a phone feature.</p>
+<p><strong>Need a free rhyme lookup first?</strong> Try the browser dictionaries in <a href="/cadence/rhyme-finder/">English</a>, <a href="/cadence/es/diccionario-rimas/" lang="es">español</a> or <a href="/cadence/fr/dictionnaire-rimes/" lang="fr">français</a>. They need no account. Cadence the app starts with three free notes; Pro unlocks unlimited new work and the complete Draft-to-DAW workflow.</p>
+<p>We make Cadence. This is a documented workflow comparison, not an independent ranking or a hands-on benchmark. <a href="#compare-apps">Jump to the 11-app comparison</a> or <a href="/cadence/springtime-showers/">watch the real arrangement and stem-export walkthrough</a>.</p>`,
+      },
+      ...buyingSections.slice(1),
       {
         id: 'start-with-your-real-workflow',
         heading: 'Start with your real workflow, not a feature grid',

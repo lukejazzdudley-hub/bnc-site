@@ -17,4 +17,12 @@ form.addEventListener('submit',event=>{
   worker.postMessage({id:++sequence,language:locale,word:form.elements.word.value,mode:form.elements.mode.value});timer=setTimeout(fail,30000);
  }catch{fail();}
 });
-for(const button of document.querySelectorAll('[data-romance-example]'))button.addEventListener('click',()=>{form.elements.word.value=button.dataset.romanceExample;form.requestSubmit();});
+for(const button of document.querySelectorAll('[data-romance-example]'))button.addEventListener('click',()=>{
+ form.elements.word.value=button.dataset.romanceExample;
+ if(button.dataset.romanceMode){
+  form.elements.mode.value=button.dataset.romanceMode;
+  form.scrollIntoView({block:'start',behavior:'instant'});
+  form.elements.word.focus({preventScroll:true});
+ }
+ form.requestSubmit();
+});
