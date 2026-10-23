@@ -2,6 +2,8 @@
 
 ## 2026-10-23
 
+- Explore Cadence as an artist’s complete writing and recording workspace, with direct paths from the product story to sample capture, writing activity, type beats, DAW export and offline listening.
+
 - Find dedicated workflows for production notes and sample export, offline music playback, writing activity and the mobile DAW.
 - Follow new feature-guide chapters to locate Production notes, Listen and Usage controls.
 
