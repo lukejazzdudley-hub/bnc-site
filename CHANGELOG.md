@@ -2,6 +2,9 @@
 
 ## 2026-10-23
 
+- Find dedicated workflows for production notes and sample export, offline music playback, writing activity and the mobile DAW.
+- Follow new feature-guide chapters to locate Production notes, Listen and Usage controls.
+
 - Read French and Spanish rhyme examples before searching, then open a matching lookup directly from each example.
 - Follow clearer Android first-song steps and links to beat loops, rhyme inspection and the recorded export walkthrough.
 - Compare songwriting tools by task and explore three annotated internal-rhyme placements, with links to the working dictionaries.
