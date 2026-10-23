@@ -1031,3 +1031,47 @@ html[data-phone-stage="poster"] .cadence-proof {
     opacity: 1;
   }
 }
+
+/* Anonymous artist feedback stays readable without scripts or motion. */
+.cadence-testimonials {
+  padding: clamp(64px, 8vw, 112px) 0;
+  border-top: 1px solid var(--cadence-line);
+}
+.cadence-testimonials-heading { max-width: 800px; }
+.cadence-testimonials-heading h2 {
+  margin: 20px 0 24px;
+  font-size: clamp(2.5rem, 5vw, 4.6rem);
+}
+.cadence-testimonials-heading > p:last-child,
+.cadence-testimonials-note {
+  color: var(--cadence-muted);
+  line-height: 1.7;
+}
+.cadence-testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(24px, 4vw, 56px);
+  margin-top: 48px;
+}
+.cadence-testimonial {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding-top: 24px;
+  border-top: 1px solid var(--cadence-line);
+}
+.cadence-testimonial blockquote { margin: 0 0 28px; flex: 1; }
+.cadence-testimonial blockquote p {
+  margin: 0;
+  color: var(--cadence-ink);
+  font-size: clamp(1.2rem, 1.8vw, 1.6rem);
+  line-height: 1.5;
+  letter-spacing: -.025em;
+}
+.cadence-testimonial figcaption { color: var(--cadence-ink); font-size: .95rem; line-height: 1.5; }
+.cadence-testimonial figcaption span { display: block; color: var(--cadence-muted); margin-top: 4px; }
+.cadence-testimonial > a { display: inline-flex; align-items: center; min-height: 44px; margin-top: 16px; text-underline-offset: 4px; }
+.cadence-testimonials-note { max-width: 85ch; margin: 36px 0 0; font-size: .875rem; }
+@media (max-width: 760px) {
+  .cadence-testimonials-grid { grid-template-columns: 1fr; gap: 32px; }
+}
