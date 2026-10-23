@@ -1,6 +1,8 @@
+import { featureSearchPages } from './feature-search.mjs';
 // Intent clusters, not one page per keyword. Product claims checked against
 // https://play.google.com/store/apps/details?id=io.cadenceapp.mobile on 2026-10-16.
 export const acquisitionPages = [
+  ...featureSearchPages,
   {
     slug: 'type-beat-songwriting-app',
     title: 'Write lyrics to type beats: songwriting app | Cadence',

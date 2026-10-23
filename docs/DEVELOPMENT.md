@@ -138,3 +138,10 @@ It reads native names/routes from `content/language-packs.mjs`; preserve all 21
 links and the no-JavaScript details control. The main navigation links to the
 language hub; the regional hub shows native language choices before English
 storefront guides. Keep the hero's mobile grid order in sync with the picker.
+
+Feature-led search pages live in `content/feature-search.mjs`, included by
+`content/acquisition.mjs`. Keep their version limits aligned with the matching
+manual chapters and update the source-evidence record in
+`docs/seo/growth/FEATURE-SEARCH-EXPANSION-2026-10-23.md` when controls change.
+Regenerate all four layers and deploy the measurement route allowlist when adding
+routes. The feature-search contract checks real destinations and FAQ/schema parity.
