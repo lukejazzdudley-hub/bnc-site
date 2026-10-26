@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased — client services
+
+- Explore the studio’s website, booking, payment, portal, automation and engineering services alongside its own products.
+- Try three clearly labelled fictional website concepts and start a project from a shared contact form.
+- Find the Bristol studio and its London/remote availability from the homepage.
+
+Enquiry delivery requires the separately reviewed backend activation documented in `docs/services/OPERATIONS.md`.
+
+
 ## 2026-10-26
 
 - Read resource guides on narrow screens without a page-wide horizontal scrollbar.

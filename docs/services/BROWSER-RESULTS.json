@@ -1,0 +1,247 @@
+{
+  "responsive": [
+    {
+      "name": "home",
+      "width": 320,
+      "scroll": 320
+    },
+    {
+      "name": "home",
+      "width": 375,
+      "scroll": 375
+    },
+    {
+      "name": "home",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "name": "home",
+      "width": 430,
+      "scroll": 430
+    },
+    {
+      "name": "home",
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "name": "home",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "name": "home",
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "name": "services",
+      "width": 320,
+      "scroll": 320
+    },
+    {
+      "name": "services",
+      "width": 375,
+      "scroll": 375
+    },
+    {
+      "name": "services",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "name": "services",
+      "width": 430,
+      "scroll": 430
+    },
+    {
+      "name": "services",
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "name": "services",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "name": "services",
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "name": "contact",
+      "width": 320,
+      "scroll": 320
+    },
+    {
+      "name": "contact",
+      "width": 375,
+      "scroll": 375
+    },
+    {
+      "name": "contact",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "name": "contact",
+      "width": 430,
+      "scroll": 430
+    },
+    {
+      "name": "contact",
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "name": "contact",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "name": "contact",
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "name": "harbour",
+      "width": 320,
+      "scroll": 320
+    },
+    {
+      "name": "harbour",
+      "width": 375,
+      "scroll": 375
+    },
+    {
+      "name": "harbour",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "name": "harbour",
+      "width": 430,
+      "scroll": 430
+    },
+    {
+      "name": "harbour",
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "name": "harbour",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "name": "harbour",
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "name": "volt",
+      "width": 320,
+      "scroll": 320
+    },
+    {
+      "name": "volt",
+      "width": 375,
+      "scroll": 375
+    },
+    {
+      "name": "volt",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "name": "volt",
+      "width": 430,
+      "scroll": 430
+    },
+    {
+      "name": "volt",
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "name": "volt",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "name": "volt",
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "name": "still-room",
+      "width": 320,
+      "scroll": 320
+    },
+    {
+      "name": "still-room",
+      "width": 375,
+      "scroll": 375
+    },
+    {
+      "name": "still-room",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "name": "still-room",
+      "width": 430,
+      "scroll": 430
+    },
+    {
+      "name": "still-room",
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "name": "still-room",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "name": "still-room",
+      "width": 1440,
+      "scroll": 1440
+    }
+  ],
+  "forms": [
+    "enhanced validation, fake-transport acceptance and reset passed",
+    "enhanced failure preserves entries",
+    "native no-JS POST and fixed success redirect passed"
+  ],
+  "concepts": [
+    "harbour-and-vine: complete flow, Escape, focus return",
+    "still-room: complete flow, Escape, focus return",
+    "volt: switch powers the circuit and updates accessible state",
+    "volt: quote matches visible mock table",
+    "still-room: keyboard focus updates the movement study"
+  ],
+  "reduced": [
+    "/work-with-us/",
+    "/work-with-us/concepts/still-room/",
+    "/work-with-us/concepts/volt-and-co/",
+    "/work-with-us/concepts/harbour-and-vine/"
+  ],
+  "screenshots": [
+    "docs/services/screenshots/home-390.webp",
+    "docs/services/screenshots/home-1440.webp",
+    "docs/services/screenshots/services-390.webp",
+    "docs/services/screenshots/services-1440.webp",
+    "docs/services/screenshots/contact-390.webp",
+    "docs/services/screenshots/contact-1440.webp",
+    "docs/services/screenshots/harbour-390.webp",
+    "docs/services/screenshots/harbour-1440.webp",
+    "docs/services/screenshots/volt-390.webp",
+    "docs/services/screenshots/volt-1440.webp",
+    "docs/services/screenshots/still-room-390.webp",
+    "docs/services/screenshots/still-room-1440.webp"
+  ],
+  "keyboard": "skip link and native dialog focus/escape passed; labelled form controls use native tab order"
+}
