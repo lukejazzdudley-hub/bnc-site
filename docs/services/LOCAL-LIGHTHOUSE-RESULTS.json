@@ -1,0 +1,26 @@
+[
+  {
+    "page": "bristol",
+    "scores": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcp_ms": 1529.8006,
+    "cls": 0.0001542815872402975,
+    "transferred_bytes": 158254
+  },
+  {
+    "page": "london",
+    "scores": {
+      "performance": 99,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcp_ms": 1677.03225,
+    "cls": 0.0001542815872402975,
+    "transferred_bytes": 158445
+  }
+]
