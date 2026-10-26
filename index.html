@@ -4,16 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Websites & software for your business | BNC Studio Bristol</title>
-  <meta name="description" content="Brand Name Changes is a software studio building focused tools for people who make things. Maker of Cadence, the songwriter's workspace." />
+  <meta name="description" content="We build websites, booking systems and the tools behind your business. A Bristol software studio working with Bristol, London and remote clients." />
   <meta name="theme-color" content="#0a0a0a" />
   <meta property="og:title" content="Brand Name Changes" />
   <meta property="og:description" content="We build websites, booking systems and the tools behind your business. A Bristol software studio making products and building for clients." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://brandnamechanges.com" />
+  <link rel="preload" href="/assets/fonts/9b6f5ff45b27.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="tactile.css" />
   <link rel="stylesheet" href="/work-with-us/studio.css" />
-  <link rel="preload" href="/assets/fonts/60c06664b5a9.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/work-with-us/experience.css" />
+  <script type="module" src="/work-with-us/experience.mjs"></script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A0A0A'/%3E%3Cpath d='M20.5 7 L11.5 25' stroke='%23F4F1EA' stroke-width='2.2' stroke-linecap='round'/%3E%3C/svg%3E" />
   <script>
     (function(){var d=document.documentElement;d.classList.add('js');
@@ -62,14 +64,11 @@
         </div>
       </div>
     </div>
-    <!-- roster ticker (the products, on quiet rotation) -->
-    <div class="ticker anim-in" aria-hidden="true">
-      <div class="ticker-track">
-        <span class="lead">Currently building</span><i>—</i><span>Cadence</span><i>·</i><span>SolarReach</span><i>·</i><span>Loom</span><i>·</i><span>Quantdesk</span><i>·</i><span>Propintel</span><i>·</i><span>Narrative Studio</span><i>·</i><span>CloMe</span><i>·</i>
-        <span class="lead">Currently building</span><i>—</i><span>Cadence</span><i>·</i><span>SolarReach</span><i>·</i><span>Loom</span><i>·</i><span>Quantdesk</span><i>·</i><span>Propintel</span><i>·</i><span>Narrative Studio</span><i>·</i><span>CloMe</span><i>·</i>
-      </div>
-    </div>
   </section>
+
+  <!-- STUDIO-SHOWCASE:START -->
+<section class="home-showcase" data-project-switcher data-active="wine" aria-labelledby="home-showcase-title"><div class="home-showcase-heading"><h2 id="home-showcase-title">Craft you can explore.</h2><p>Three fictional businesses.<br>Three different ways to make a first impression.</p></div><a class="home-showcase-link" data-project-link href="/work-with-us/concepts/harbour-and-vine/" aria-label="Harbour & Vine Explore concept for a fictional business"><div class="home-showcase-image" data-showcase-field><img src="/assets/studio/harbour-wine-768.webp" srcset="/assets/studio/harbour-wine-768.webp 768w, /assets/studio/harbour-wine.webp 1536w" sizes="(max-width:700px) calc(100vw - 40px), 90vw" alt="Original candlelit wine-bar imagery for the Harbour and Vine fictional concept" width="1536" height="1024" loading="eager" fetchpriority="high"></div><div class="home-showcase-caption"><span data-project-name>Harbour & Vine</span><span>Explore concept <span aria-hidden="true">↗</span></span></div></a><div class="home-showcase-tabs" aria-label="Choose a fictional website concept"><button type="button" data-project="wine" aria-pressed="true">Harbour & Vine<span>Hospitality / Table booking</span></button><button type="button" data-project="volt" aria-pressed="false">Volt & Co.<span>Electrical / Quote tool</span></button><button type="button" data-project="physio" aria-pressed="false">Still Room<span>Healthcare / Appointments</span></button></div><p class="home-concept-note">Self-initiated concepts, not client commissions. <a href="/work-with-us/#proof">See the work and how we approach it.</a></p></section>
+<!-- STUDIO-SHOWCASE:END -->
 
   <!-- (01) THE STUDIO -->
   <section id="studio">
@@ -144,7 +143,7 @@
   <section class="business-band" id="for-businesses">
     <div class="wrap">
       <div class="index-head"><span class="num">(03)</span><span class="lbl">For businesses</span></div>
-      <div class="business-inner"><h2>We also build<br>for other people.</h2><div><p>Websites, booking, ordering and the tools behind them, made with the same care as our own products.</p><a href="/work-with-us/">Work with us →</a></div></div>
+      <div class="business-inner"><h2>A useful first step.<br>At no cost.</h2><div><p>Tell us about your business. We’ll send a short video mock-up of what your site or tool could look like, at no cost and with no obligation.</p><a href="/work-with-us/#enquiry">Start with a free mock-up →</a></div></div>
     </div>
   </section>
   <!-- (04) PRACTICE -->
@@ -220,7 +219,6 @@
       </div>
     </div>
   </footer>
-  <script src="/assets/vendor/anime-3.2.2.min.js" defer></script>
   <script src="site.js" defer></script>
 </body>
 </html>

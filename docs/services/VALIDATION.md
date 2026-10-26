@@ -1,44 +1,34 @@
-# Client-services review evidence
+# Studio redesign verification
 
-26 October 2026. Local branch only; no production deployment. These checks establish technical behaviour, not Luke's visual acceptance. The first two concept passes were rejected and replaced with independent compositions.
+26 October 2026. These checks verify technical behaviour; they do not establish Luke's creative acceptance. The screenshot set shows the redesigned compositions, including the replacement for the rejected plug model.
 
-## Automated validation
+## Current checks
 
-- Four existing editorial generators, followed by `node scripts/build_studio_pages.mjs`: successful.
-- `python3 -m unittest discover -s tests -p '*test*.py'`: 107 passed.
-- `node --test tests/*.test.mjs`: 166 passed, including the new validation, shared-form and indexability contracts.
-- Deno endpoint suites for feedback, storage, measurement and enquiries: 47 passed.
-- Deno checks for existing feedback/media boundaries and the new enquiry entrypoint: passed.
-- `python3 scripts/audit_crawl.py`: 84 sitemap URLs, no broken crawl targets.
-- `git diff --check`: passed.
-- Gitleaks directory scan with redaction: no leaks found in approximately 40 MB scanned.
-- `npx slop-scan scan . --lint`: 18 findings across upstream vendored libraries and existing Cadence modules; no findings in the authored services implementation. New vendored anime.js and Motion carry upstream wrapper/catch findings. Their original distributions are retained with licences, rather than editing dependency internals to improve the score.
+- Static studio generator and crawl audit: 84 sitemap URLs, no broken targets.
+- Python suite: 107 passed. Node suite: 167 passed.
+- Deno feedback, storage, measurement and enquiry suites: 47 passed; documented checks passed.
+- Browser suite: 42 page/width combinations at 320, 375, 390, 430, 768, 1024 and 1440 px; no horizontal overflow.
+- Homepage visibility: both hero actions have visible ancestor opacity and fit above the fold at four widths, with JavaScript enabled and disabled. This catches the legacy html.js opacity regression.
+- Shared enquiry: native success redirect, enhanced validation/reset and preserved failed entries, using stubbed responses with no email delivery.
+- Concepts: complete booking flows, Escape and focus return; clinic treatment presets; electrical service/estimate agreement; populated menu; both complete comparison endpoints and keyboard range control.
+- Motion suite: visible rendered changes in all three concepts, no drawing off screen, and complete poster layouts with working dialogs for reduced-motion, save-data and unavailable-WebGL modes. Homepage motion starts on interaction. No uncaught page errors.
+- Gitleaks: no leaks found in approximately 45 MB scanned. Slop-scan: 18 findings in existing Cadence/vendor code; no authored studio findings. No dependency distributions were edited to change the score.
 
-## Browser acceptance
+Run the browser scripts through the installed Playwright runtime, as described in Development. `BROWSER-RESULTS.json` and `MOTION-RESULTS.json` hold their reports. Local videos and complete comparison endpoint screenshots are in ignored `.gstack/redesign-previews/`; selected responsive screenshots are checked in here.
 
-`node scripts/verify_studio_browser.cjs` launches its own headless Chrome. See `BROWSER-RESULTS.json` for the run output. It checks home, services, contact and all three concepts at 320, 375, 390, 430, 768, 1024 and 1440 px: 42 combinations, no horizontal overflow. Twelve desktop/mobile WebP screenshots are under `screenshots/`.
+## Mobile loading measurements
 
-Enhanced forms reject invalid fields, clear only after successful acceptance, and preserve entries on failure. Native no-JS forms POST successfully and follow the fixed success redirect. These requests are routed to the local fake mail transport with `example.test` identities. No real email is sent and no inbox delivery is claimed. Production function, database and sender setup remain prerequisites.
+Lighthouse 13.5.0, local static preview, simulated mobile Chrome. Current observations are recorded in `LIGHTHOUSE-RESULTS.json`.
 
-Wine/clinic demos complete their local booking flow, announce that nothing was booked, close with Escape and return focus. Electrical estimates match the visible mock table; the power switch updates its circuit state. The clinic's movement controls respond to keyboard focus. Reduced motion leaves no visible active canvas or running animation on the new primary pages. Skip links and the labelled native form controls remain keyboard-accessible.
-
-## Lighthouse mobile
-
-Lighthouse 13.5.0, local `serve.py`, default simulated mobile settings, Chrome headless. Results are observations of these runs, not guarantees for every device or production network. Full JSON is retained locally under `/tmp/bnc-lighthouse-*-final.json`; the checked-in summary is `LIGHTHOUSE-RESULTS.json`.
-
-| Page | Performance | Accessibility | Best Practices | SEO | LCP | CLS | Whole-page transferred bytes |
+| Page | Performance | Accessibility | Best Practices | SEO | LCP | CLS | Whole-page bytes |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| Home | 96 | 100 | 100 | 100 | 1.90 s | 0.0013 | 196,516 |
-| Work with us | 98 | 100 | 100 | 100 | 2.11 s | 0.0474 | 198,155 |
+| Home | 98 | 100 | 100 | 100 | 2.11 s | 0.0401 | 201,197 |
+| Work with us | 97 | 100 | 100 | 100 | 1.68 s | 0.0014 | 257,935 |
 
-Both runs meet the requested score, LCP, CLS and first-view transfer budgets; their whole-page transfers are also below 1 MB. The electrical concept lazily imports the existing Three.js runtime after first paint, caps DPR and stops rendering off screen/when hidden. Save-data, unavailable WebGL and reduced motion retain a poster. Fictional pages deliberately have noindex, so an SEO score of 100 is not sought for those previews.
+Both meet the requested score, LCP under 2.5 seconds, CLS under 0.05 and first-view transfer budget. The homepage uses a responsive original image and starts shader compilation only on interaction. Its old anime/cursor/magnetic layer is bypassed while shared navigation remains active. The services heading is immediately readable, without a staggered opacity entrance. Concept pages are deliberately noindex.
 
-## Production backend verification — 26 October 2026
+## Production boundary
 
-Luke authorised publication of the reviewed website. The additive migration and function are now deployed to the existing Supabase project; the verified-domain sender and three server-only secrets are configured. RLS and role privileges were checked live. A rollback-only SQL integration check confirmed the five-attempt limit and sixth-attempt rejection. Native and enhanced operational test messages both arrived in the studio Gmail inbox, confirmed through the connected Gmail account. Different caller-supplied forwarding headers did not split their server abuse bucket in this check.
+The enquiry backend was activated and independently verified earlier on 26 October: RLS/privileges, rollback-only five-attempt abuse limit, native/enhanced requests and actual Gmail inbox delivery. This presentation change does not modify the function, database, sender configuration or DNS. The browser acceptance above uses stubs and does not repeat real email delivery tests.
 
-Static publication and final live-page verification follow the master merge; see the deployment report for the outcome. No DNS change, application table change or business-listing change is part of this release.
-
-## Review notes
-
-The latest independently composed concepts remain available for visual review. Business Profile setup and owner verification remain separate work. Bristol is the confirmed base; London is a service area, and no additional office is claimed.
+Static releases follow the existing reviewed master merge and GitHub Pages deployment. Business Profile ownership and listing verification remain separate work; Bristol is the base and London a service area, without an invented London office.

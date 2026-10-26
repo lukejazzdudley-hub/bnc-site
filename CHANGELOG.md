@@ -1,5 +1,11 @@
 # Changelog
 
+## Studio website and concept experiences
+
+- Explore three distinct fictional business sites, with a wine menu and table journey, architectural lighting and estimate controls, and a movement study with appointment choices.
+- Compare two complete wine-bar designs without revealing an empty placeholder.
+- Preview the concepts directly from the homepage and reach the free mock-up enquiry.
+
 ## Homepage service discovery
 
 - Reach client services and start a project directly from the homepage hero; visitors no longer have to pass the product catalogue to understand the client-work offer.

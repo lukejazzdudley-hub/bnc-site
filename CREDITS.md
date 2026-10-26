@@ -16,8 +16,8 @@ Existing Cadence handset renderers retain their separate model-viewer and Three.
 
 ## Motion for concept interactions
 
-Motion 12.23.24, by Motion / Framer contributors, MIT. Pinned distribution: https://cdn.jsdelivr.net/npm/motion@12.23.24/dist/motion.js ; upstream https://github.com/motiondivision/motion/tree/v12.23.24 . Local file `assets/vendor/motion-12.23.24.js`, full licence `assets/vendor/motion-LICENSE.md`. Existing Three.js 0.185.0 runtime and its preserved MIT licence are reused for the authored electrical plug scene; no external renderer assets are fetched.
+Motion 12.23.24, by Motion / Framer contributors, MIT. Pinned distribution: https://cdn.jsdelivr.net/npm/motion@12.23.24/dist/motion.js ; upstream https://github.com/motiondivision/motion/tree/v12.23.24 . Local file `assets/vendor/motion-12.23.24.js`, full licence `assets/vendor/motion-LICENSE.md`. The redesigned concepts use original raw WebGL shaders; they do not import the existing Cadence Three.js runtime. No external renderer assets are fetched.
 
 ## Original imagery
 
-`harbour-wine.webp` and its smaller comparison derivative, plus `still-movement.webp`, are original images generated for these fictional studies with OpenAI image generation on 26 October 2026. They are not photographs of a real business, medical provider, client or customer. The electrical model and Canvas fields are authored in the repository. Concept thumbnail images are screenshots of the actual fictional pages. The Open Graph card is original authored SVG exported to PNG. No client relationship or real-world result is implied.
+`harbour-wine.webp`, `volt-architecture.webp` and `still-movement.webp` are original images generated for these fictional studies with OpenAI image generation on 26 October 2026. They are not photographs of a real business, medical provider, client or customer. The image-refraction, lighting and particle fields are authored in the repository. The rejected plug model has been removed. Concept thumbnail images are screenshots of the actual fictional pages. The Open Graph card is original authored SVG exported to PNG. No client relationship or real-world result is implied.

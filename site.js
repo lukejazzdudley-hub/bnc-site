@@ -55,6 +55,9 @@
   var y = document.querySelector('[data-year]');
   if (y) y.textContent = new Date().getFullYear();
 
+  // Client-work homepage owns its motion in experience.mjs; keep this shared UI only.
+  if (document.body.classList.contains('business-home')) return;
+
   /* ===== HOME MOTION: kinetic wordmark, cursor, magnetic, tilt ===== */
   var ticks = [], ticking = false;
   function startTicker() {

@@ -1,0 +1,29 @@
+import {imageField,movementField} from './field.mjs';
+const menus={plates:[['Charred leeks','Butter beans, hazelnut and a sharp green dressing.'],['Crab on toast','Brown crab, lemon and warm sourdough.'],['Chocolate & cherries','Dark chocolate crémeux, cherries and sea salt.']],wine:[['Albariño','Citrus, salt and a little Atlantic freshness.'],['Chenin Blanc','Orchard fruit, soft texture and a long finish.'],['Garnacha','Red cherry, gentle spice and a little warmth.']],table:[['Sourdough & cultured butter','Warm bread, whipped butter and flaky salt.'],['Burrata & roast tomatoes','Basil oil, warm tomatoes and a spoon for everyone.'],['A little cheese','A changing British selection with crackers and quince.']]};
+export function mountConceptMotion({openDemo}){
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ const surfaces=new Map();
+ const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(!entry.isIntersecting)continue;observer.unobserve(entry.target);imageField(entry.target,{mode:entry.target.dataset.imageField==='electric'?2:1}).then(control=>{surfaces.set(entry.target,control);if(entry.target.dataset.imageField==='electric')control?.setEnergy(Number(document.querySelector('#light-level').value)/100);});}},{rootMargin:'120px'});
+ document.querySelectorAll('[data-image-field]').forEach(host=>observer.observe(host));
+ const sequence=document.querySelector('.wine-sequence');
+ const updateWine=()=>{if(!sequence)return;const r=sequence.getBoundingClientRect(),progress=Math.max(0,Math.min(1,-r.top/Math.max(1,r.height-innerHeight)));sequence.style.setProperty('--chapter-progress',String(reduced.matches?0:progress));const chapter=Math.min(2,Math.floor(progress*3));sequence.dataset.chapter=String(chapter);document.querySelector('[data-wine-caption]').textContent=['Settle in.','Find your glass.','Take your time.'][chapter];};
+ if(sequence){addEventListener('scroll',updateWine,{passive:true});updateWine();}
+ document.querySelectorAll('[data-menu]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-menu]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));const host=document.querySelector('[data-menu-items]');host.replaceChildren(...menus[button.dataset.menu].map(([title,copy])=>{const article=document.createElement('article'),h=document.createElement('h3'),p=document.createElement('p');h.textContent=title;p.textContent=copy;article.append(h,p);return article;}));}));
+ const level=document.querySelector('#light-level');
+ level?.addEventListener('input',()=>{const value=Number(level.value)/100;document.querySelector('output[for=light-level]').textContent=level.value+'%';const host=document.querySelector('[data-image-field=electric]');host.style.setProperty('--light-level',String(.52+value*.5));surfaces.get(host)?.setEnergy(value);});
+ const electric={lighting:['Light that works with the room.','From a useful task light to the atmosphere of a whole space. Start with what you want the room to feel like.'],socket:['Power where you actually need it.','Small changes can make a space easier to use. Explore the example estimate for additional sockets and small works.'],rewire:['A plan for the whole picture.','For a larger project, a considered first conversation is a useful place to start. Try the clearly labelled example estimate.']};
+ document.querySelectorAll('[data-electrical-service]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-electrical-service]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));const key=button.dataset.electricalService;document.querySelector('[data-electric-title]').textContent=electric[key][0];document.querySelector('[data-electric-copy]').textContent=electric[key][1];const job=document.querySelector('#job');if(job)job.value=key;const host=document.querySelector('[data-image-field=electric]');surfaces.get(host)?.setEnergy(key==='lighting'?1:.65);}));
+ const route=document.querySelector('.electric-approach');
+ const updateRoute=()=>{if(!route)return;const r=route.getBoundingClientRect();route.style.setProperty('--route-progress',String(reduced.matches?1:Math.max(0,Math.min(1,(innerHeight-r.top)/innerHeight))));};
+ if(route){addEventListener('scroll',updateRoute,{passive:true});updateRoute();}
+ const particle=document.querySelector('[data-particle-field]');let particles=null,selectedMorph=.04;
+ if(particle){const observer=new IntersectionObserver(entries=>{if(!entries[0].isIntersecting)return;observer.disconnect();movementField(particle).then(control=>{particles=control;particles?.setMorph(selectedMorph);});});observer.observe(particle);}
+ const states={release:[.85,'Let a little tension go.'],align:[.04,'Find a little space.'],move:[.34,'Explore what movement can feel like.']};
+ document.querySelectorAll('[data-movement]').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('[data-movement]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));selectedMorph=states[button.dataset.movement][0];particle.dataset.pose=button.dataset.movement;particles?.setMorph(selectedMorph);document.querySelector('[data-movement-caption]').textContent=states[button.dataset.movement][1];}));
+ document.querySelectorAll('[data-treatment]').forEach(button=>button.addEventListener('click',()=>{const select=document.querySelector('#treatment');if(select)select.value=button.dataset.treatment;openDemo(button);}));
+ if(!reduced.matches&&window.Motion){
+  const {animate,inView}=window.Motion;
+  document.querySelectorAll('.wine-title h1,.electric-heading h1,.clinic-title').forEach(element=>animate(element,{transform:['translateY(18px)','translateY(0)']},{duration:1.1,ease:[.22,.9,.12,1]}));
+  inView('.wine-menu,.electric-service-list,.clinic-appointment-list',element=>{animate(element,{opacity:[.6,1]},{duration:.7,ease:[.22,.9,.12,1]});},{amount:.15});
+ }
+}

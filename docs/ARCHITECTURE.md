@@ -109,3 +109,7 @@ The guide adds a progressive contents filter and current-section indicator. Its 
 ## Client-services enquiries
 
 Static client-services and contact pages are rendered by `scripts/build_studio_pages.mjs` from `content/studio.mjs` and one shared form template. Both native HTML submissions and enhanced requests POST URL-encoded data to the public `studio-enquiry` Supabase function. It validates bounded input, discards honeypot hits, checks optional timing and claims an atomic hourly abuse counter before using server-side Resend credentials. It sends only to the studio inbox, with the visitor as Reply-To. No enquiry body is stored in Supabase. Native requests receive fixed same-site result redirects; enhanced requests receive JSON without echoes of personal data. Fictional previews use no APIs. See `services/OPERATIONS.md` for activation and retention responsibilities.
+
+## Studio presentation and motion
+
+`content/concept-layouts.mjs` owns the three independent fictional sites; `content/studio-experience.mjs` owns the populated comparison and marked homepage showcase. `scripts/build_studio_pages.mjs` renders their static HTML. Concepts load their own `concepts.css` and page controller, without the studio-wide header/footer or services CSS. `experience.mjs` enhances the homepage selector and services range. Original WebGL fields in `work-with-us/effects/` are optional, lazy and bounded by viewport, visibility and user preferences. The shared enquiry transport and Supabase boundary are unchanged by presentation work.
