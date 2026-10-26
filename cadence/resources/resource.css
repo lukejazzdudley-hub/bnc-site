@@ -26,7 +26,7 @@ html {
 }
 
 body.resource-page {
-  min-width: 320px;
+  min-width: 0;
   margin: 0;
   background: radial-gradient(ellipse at 90% 0%, #111820 0, transparent 650px), var(--resource-onyx);
   color: var(--resource-silver);

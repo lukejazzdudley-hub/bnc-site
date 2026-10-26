@@ -153,6 +153,11 @@ I miss my stop and ride the <strong>train</strong> (B)</p></blockquote>
 <p>The scheme creates expectation, but the images and action keep it from becoming a list of rhyming words. If you cannot state what changes across the four lines, the scheme may be disguising a static verse. Write the movement in prose first, then use the pattern to organise it.</p>`
       },
       {
+        id: 'identify-internal-rhyme',
+        heading: 'How to identify internal rhyme in a poem or lyric',
+        html: `<p>First mark the line endings. Then read aloud and look for repeated sounds before those endings. Internal rhyme describes where a rhyme appears; it does not mean that any repeated letter or consonant is a rhyme.</p><ol><li><strong>Find the sound:</strong> in “The bright light crossed the room”, bright/light shares a stressed vowel and the sounds that follow it.</li><li><strong>Check the position:</strong> both words occur before room, the end word, so the pair is internal.</li><li><strong>Compare a non-example:</strong> “The bright bird crossed the room” repeats an opening consonant, but bright/bird does not rhyme. That repetition is alliteration.</li><li><strong>Check across lines too:</strong> internal rhyme can connect words within different lines. Preserve the line breaks when explaining your example.</li></ol><p>For practice, write a plain sentence about an object, add one internal rhyme and read both versions aloud. Keep the rhyme only if the sentence still says what you intended. Then test it in the <a href="/cadence/freestyle-rap-practice/">ten-minute freestyle routine</a> or over your own <a href="/cadence/type-beat-songwriting-app/">type beat</a>.</p>`,
+      },
+      {
         id: 'place-internal-rhymes',
         heading: 'Place internal rhymes where they shape momentum',
         html: String.raw`<p>Internal rhyme connects sounds inside a line or connects an internal word with another rhyme position. It can accelerate a phrase, make a pivot memorable, or bind a long line together. In “The <strong>late</strong> bus waits while I <strong>pace</strong> by the gate,” the repeated long vowel creates a loose internal chain before the end word.</p>
