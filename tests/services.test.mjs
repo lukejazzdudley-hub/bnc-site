@@ -29,3 +29,12 @@ test('fictional previews are excluded from search and sitemap',()=>{
  }
  for(const path of ['/work-with-us/','/contact/']) assert.ok(sitemap.includes(`https://brandnamechanges.com${path}`));
 });
+
+test('the homepage immediately offers client work rather than a product-only hero',()=>{
+ const home=readFileSync('index.html','utf8');
+ const hero=home.match(/<section[^>]*class="[^"]*hero home[^"]*"[\s\S]*?<\/section>/)[0];
+ assert.match(hero,/We build the digital/);
+ assert.match(hero,/href="\/work-with-us\/"[^>]*>Work with us/);
+ assert.match(hero,/href="\/contact\/"[^>]*>Start a project/);
+ assert.doesNotMatch(hero,/wm-inner|Meet Cadence/);
+});

@@ -1,5 +1,10 @@
 # Changelog
 
+## Homepage service discovery
+
+- Reach client services and start a project directly from the homepage hero; visitors no longer have to pass the product catalogue to understand the client-work offer.
+
+
 ## Unreleased — client services
 
 - Explore the studio’s website, booking, payment, portal, automation and engineering services alongside its own products.

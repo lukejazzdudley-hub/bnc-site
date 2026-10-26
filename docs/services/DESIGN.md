@@ -31,3 +31,7 @@ No framework migration, production deployment, analytics addition, DNS change or
 Native scrolling is retained. Explicit anchor clicks use browser smooth scrolling; there is no wheel hijack. Exponential easing runs only while the comparison is moving and visible. Reduced motion leaves a static comparison and native interactions. Headline text and forms remain available without JS.
 
 The client timestamp is an optional timing signal, not proof of humanity. Native no-JS submissions omit it and still receive honeypot, validation and durable per-network hourly rate limits. Treating an empty timestamp as an error would break the required native form. Tokens or CAPTCHA would require a different host-rendered form architecture. Native error redirects contain no personal data; enhanced failures retain the filled form. No successful result is shown until the email provider accepts delivery, except deliberate honeypot discards.
+
+## Homepage correction after launch
+
+Luke reported that the domain landing page still behaved as a product-only funnel. Inspection confirmed a Cadence-only hero and a services section roughly 2,400 pixels below the top on desktop. The hero now uses the approved business-services offer and directly links Work with us and Start a project; both actions are visible without scrolling at 390 and 1440 px. A regression contract prevents the rotating product-name hero from returning. The broader visual/motion redesign remains separate work.
