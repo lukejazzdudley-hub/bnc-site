@@ -231,3 +231,11 @@ Use Motion, Kokonut UI and Bklit UI for relevant animation, components and data 
 ### Search discovery follow-through
 
 Current Google/Bing inspection results, the dated query/country/device baseline, native-review requests and external dependencies are recorded in `docs/seo/growth/INDEXING.md`, `BING.md`, `QUERY-IMPROVEMENTS.md` and `EXECUTION.md`. Keep account exports and recording sources private. Search-console submission receipts are not ranking or indexing guarantees.
+
+## Client projects
+
+`/work-with-us/` presents client services alongside the product studio. `/services/` is its canonical alias; `/contact/` uses the same generated enquiry form. Fictional concept previews under `/work-with-us/concepts/` are noindex demonstrations with local-only booking/quote interactions.
+
+Run `node scripts/build_studio_pages.mjs` after the existing editorial generators. The search generator preserves the two new indexable URLs; concept and native result pages stay outside the sitemap. Validate with `node --test tests/services.test.mjs`, `deno test supabase/functions/studio-enquiry/handler.test.ts` and `deno check supabase/functions/studio-enquiry/index.ts`, plus the full validation block above.
+
+**Activation dependency:** the enquiry function and abuse-counter migration need separate deployment and server-side mail configuration before these forms go live. See [operations](docs/services/OPERATIONS.md), [design](docs/services/DESIGN.md) and [credits](CREDITS.md). No change in this branch deploys automatically.

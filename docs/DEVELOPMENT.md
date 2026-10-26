@@ -145,3 +145,7 @@ manual chapters and update the source-evidence record in
 `docs/seo/growth/FEATURE-SEARCH-EXPANSION-2026-10-23.md` when controls change.
 Regenerate all four layers and deploy the measurement route allowlist when adding
 routes. The feature-search contract checks real destinations and FAQ/schema parity.
+
+## Client-services pages
+
+Edit `content/studio.mjs` and the shared form/page template in `scripts/build_studio_pages.mjs`, then run `node scripts/build_studio_pages.mjs` after the four editorial generators. Keep `/work-with-us/` and `/contact/` in the sitemap seed. Do not add fictional previews or result routes. Run the new enquiry handler tests and typecheck alongside the full suite. Native no-JS submission, preserved enhanced errors, disabled duplicate-submit button, fictional demo confirmations and reduced-motion comparison are required browser checks. See `services/OPERATIONS.md` for a local test transport and the undeployed backend dependency.

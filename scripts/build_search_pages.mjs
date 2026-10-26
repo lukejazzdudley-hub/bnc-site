@@ -56,6 +56,6 @@ for (const page of pages) {
  const enhanced = html.replace('<script type="module" src="/cadence/search/measurement.mjs"></script></head>', '<script type="module" src="/cadence/search/atmosphere.mjs"></script><script type="module" src="/cadence/search/measurement.mjs"></script></head>').replace('<body>', '<body><div class="atmosphere" aria-hidden="true"></div>').replace('<nav aria-label="Main"><a href="/cadence/guide/">Guide</a>', '<nav aria-label="Main"><a href="/cadence/guide/">Guide</a><a href="/cadence/resources/">Resources</a>');
  const directory=path.join(root,'cadence',page.slug); mkdirSync(directory,{recursive:true}); writeFileSync(path.join(directory,'index.html'),enhanced);
 }
-const routes=['/','/cadence/','/privacy','/terms','/support','/delete-account',...pages.map(p=>`/cadence/${p.slug}/`)];
+const routes=['/','/work-with-us/','/contact/','/cadence/','/privacy','/terms','/support','/delete-account',...pages.map(p=>`/cadence/${p.slug}/`)];
 writeFileSync(path.join(root,'sitemap.xml'),`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${routes.map(p=>`  <url><loc>${domain}${p}</loc></url>`).join('\n')}\n</urlset>\n`);
 console.log(`Built ${pages.length} search pages and ${routes.length} sitemap entries.`);

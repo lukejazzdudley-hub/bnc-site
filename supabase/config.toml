@@ -5,3 +5,6 @@ verify_jwt = false
 
 [functions.cadence-search-events]
 verify_jwt = false
+
+[functions.studio-enquiry]
+verify_jwt = false
