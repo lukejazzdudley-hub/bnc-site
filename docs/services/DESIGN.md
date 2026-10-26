@@ -45,3 +45,7 @@ The client timestamp is an optional timing signal, not proof of humanity. Native
 ## Homepage correction after launch
 
 Luke reported that the domain landing page still behaved as a product-only funnel. Inspection confirmed a Cadence-only hero and a services section roughly 2,400 pixels below the top on desktop. The hero now uses the approved business-services offer and directly links Work with us and Start a project; both actions are checked for actual ancestor opacity, rendered visibility and viewport placement at 320, 390, 768 and 1440 px with JavaScript enabled and disabled. The override must include html.js to beat the legacy animation selector. A regression contract prevents the rotating product-name hero from returning. The broader visual/motion redesign remains separate work.
+
+## Volt identity correction
+
+Luke preferred Volt's earlier lightning wordmark, lime-on-dark palette and oversized SWITCH ON heading. Restore that accepted direction without restoring the rejected plug. The architectural study is now paired with a separate electrical control panel: a real on/off switch, native dimmer, current graphic and the existing estimate journey. The service section reverses to lime. Its scoped identity stylesheet keeps it distinct from the studio. The clinic's earlier `( sr )` lockup and colour-matched credit return; each concept has its own favicon and sharing artwork rather than the BNC mark/card.

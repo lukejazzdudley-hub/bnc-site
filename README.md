@@ -240,4 +240,6 @@ Run `node scripts/build_studio_pages.mjs` after the existing editorial generator
 
 The homepage showcase and services comparison are authored in `content/studio-experience.mjs`. Each concept has its own composition in `content/concept-layouts.mjs` and loads `work-with-us/concepts.css`. Optional original shaders live in `work-with-us/effects/`; they preserve the static imagery and stop drawing off screen. Run the browser scripts documented in [Development](docs/DEVELOPMENT.md) for rendered visibility, responsive journeys and graphics fallbacks.
 
+Bristol and London have complete service/enquiry pages under `/work-with-us/`, with a consistent studio entity and city-specific service metadata. See [local SEO operations](docs/services/LOCAL-SEO.md) for profile and Search Console release steps.
+
 **Enquiry backend:** the function, additive abuse-counter migration and server-side mail configuration were activated on 26 October 2026; native and enhanced production test messages reached the studio inbox. Follow the operator checklist for subsequent deployments. See [operations](docs/services/OPERATIONS.md), [design](docs/services/DESIGN.md) and [credits](CREDITS.md). Publishing a reviewed merge to master deploys the static site through GitHub Pages.
