@@ -4,9 +4,19 @@ The supplied 26 October brief is the accepted implementation direction. It adds 
 
 ## Layout and visual contract
 
-Ink #0a0a0a, panel #101111, ivory #f4f1ea, secondary #aaa9a4, quiet accent #c9d6d2. Geist carries the main services page and Geist Mono carries short labels. Services use a twelve-column layout, 2vw gaps (4vw mobile), and max(6vw,24px) outer margins. The single signature interaction is a cursor/scroll-controlled clip-path repaint from a generic small-business layout into an original fictional wine-bar design. Everything around it is restrained. The wine bar uses original generated photographic artwork, a centred masthead and circular booking action. The electrician uses an authored three-pin plug/cable scene, an input-driven circuit and graphic utility layout. The clinic uses original generated sculptural artwork, a responsive contour field and a separate appointment composition. No stock assets, client logos or invented results.
+The studio homepage leads with the client-services offer, two visible enquiry links and a large selectable concept showcase. Products remain available in their existing catalogue. The services page presents the practical offer and process before a full-size comparison and distinct case studies.
 
-The reference sites informed restraint, input response and coherent art direction, not copied implementation or assets. Lusion's projects site and all seven reference URLs were consulted; some heavy client-rendered pages expose little readable content to the web reader. No claim of reproducing their WebGL or award-level quality is made. Motion, Kokonut and Bklit documentation was consulted as required by AGENTS.md. Pinned, locally hosted Motion 12.23.24 supplies concept entrances. The rest uses native clip-path, Web Animations, semantic details, form controls, authored Canvas2D and the existing Three.js runtime. No React integration or chart library is needed. Existing homepage anime.js 3.2.2 is self-hosted, retaining its MIT licence.
+Both sides of the wine comparison contain a complete rendered page: heading, photograph, supporting copy, booking action and footer. A labelled native range controls the reveal. It has no scroll-driven auto-reveal and never deliberately exposes an empty wireframe. The full concept remains a normal link.
+
+The concepts have independent navigation, composition, typography and customer journeys:
+
+- Harbour & Vine: a photographic opening, pointer-sensitive glass/heat refraction, a reversible desktop scroll chapter, a populated three-state menu and table-booking demo. Mobile uses normal flow for the chapter.
+- Volt & Co: a warm architectural lighting study, native dimmer, service selection and matching example estimate. The rejected plug model and renderer have been removed.
+- Still Room: an original sculptural image with a sampled particle field. Release, Align and Move change the field; appointment choices preselect the demo. The visual study makes no claim to simulate anatomy or treatment.
+
+`work-with-us/effects/field.mjs` implements original bounded WebGL shaders without an added renderer dependency. Motion 12.23.24 remains pinned locally for restrained entrances. Motion, Kokonut and Bklit documentation was consulted; no React runtime or chart library is introduced. Meaningful content remains static HTML; all decorative graphics have complete original-image fallbacks. Renderers start near the viewport, cap resolution, run around 30 fps and stop off screen, when hidden or under reduced motion. Initial reduced-motion, save-data and unavailable-WebGL states do not create a visible canvas.
+
+Original imagery and code are credited in CREDITS.md. Reference research informed media scale, pacing and input response; no reference studio's code, imagery or shaders were copied. Technical acceptance is distinct from Luke's assessment of creative quality.
 
 ## Architecture
 
@@ -26,7 +36,7 @@ REA 6.8.0 was run locally against an isolated Chrome page at `https://lusion.co/
 
 ## Deliberate boundaries
 
-No framework migration, production deployment, analytics addition, DNS change or business-listing change. Fictional concept pages are noindex and outside the sitemap. Their displayed quote figures are explicitly mock data, required for the requested interactive estimate; no studio prices are published.
+No framework migration, analytics addition, DNS change or business-listing change. Luke authorised live publication through the existing GitHub Pages deployment. Fictional concept pages are noindex and outside the sitemap. Their displayed quote figures are explicitly mock data, required for the requested interactive estimate; no studio prices are published.
 
 Native scrolling is retained. Explicit anchor clicks use browser smooth scrolling; there is no wheel hijack. Exponential easing runs only while the comparison is moving and visible. Reduced motion leaves a static comparison and native interactions. Headline text and forms remain available without JS.
 
@@ -34,4 +44,4 @@ The client timestamp is an optional timing signal, not proof of humanity. Native
 
 ## Homepage correction after launch
 
-Luke reported that the domain landing page still behaved as a product-only funnel. Inspection confirmed a Cadence-only hero and a services section roughly 2,400 pixels below the top on desktop. The hero now uses the approved business-services offer and directly links Work with us and Start a project; both actions are visible without scrolling at 390 and 1440 px. A regression contract prevents the rotating product-name hero from returning. The broader visual/motion redesign remains separate work.
+Luke reported that the domain landing page still behaved as a product-only funnel. Inspection confirmed a Cadence-only hero and a services section roughly 2,400 pixels below the top on desktop. The hero now uses the approved business-services offer and directly links Work with us and Start a project; both actions are checked for actual ancestor opacity, rendered visibility and viewport placement at 320, 390, 768 and 1440 px with JavaScript enabled and disabled. The override must include html.js to beat the legacy animation selector. A regression contract prevents the rotating product-name hero from returning. The broader visual/motion redesign remains separate work.
