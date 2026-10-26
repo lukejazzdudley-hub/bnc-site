@@ -1,6 +1,6 @@
 # Static client services and email intake
 
-Status: implemented for review; production activation pending.
+Status: accepted for publication by Luke on 26 October 2026. Backend activation and inbox receipt checks completed before the website merge.
 
 ## Context
 

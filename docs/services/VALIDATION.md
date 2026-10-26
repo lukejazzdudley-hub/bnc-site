@@ -33,10 +33,12 @@ Lighthouse 13.5.0, local `serve.py`, default simulated mobile settings, Chrome h
 
 Both runs meet the requested score, LCP, CLS and first-view transfer budgets; their whole-page transfers are also below 1 MB. The electrical concept lazily imports the existing Three.js runtime after first paint, caps DPR and stops rendering off screen/when hidden. Save-data, unavailable WebGL and reduced motion retain a poster. Fictional pages deliberately have noindex, so an SEO score of 100 is not sought for those previews.
 
-## Remaining activation and review work
+## Production backend verification — 26 October 2026
 
-- Luke's visual review of the latest independent concepts.
-- Public-repository push confirmation required by the supplied AGENTS.md pre-push rule; repository visibility was verified as PUBLIC.
-- Review the new abuse-counter migration, configure the three server-only secrets, verify the sender, deploy the function separately, and test actual inbox receipt before publishing forms.
-- Confirm the deployed edge gateway sanitises the network-address header used for rate limiting. No production database or rate-limit integration test was run in this task.
-- Business Profile setup and any owner verification are outside this no-deploy website PR. Bristol base, London service area, in-person and remote delivery are recorded; no extra office is claimed.
+Luke authorised publication of the reviewed website. The additive migration and function are now deployed to the existing Supabase project; the verified-domain sender and three server-only secrets are configured. RLS and role privileges were checked live. A rollback-only SQL integration check confirmed the five-attempt limit and sixth-attempt rejection. Native and enhanced operational test messages both arrived in the studio Gmail inbox, confirmed through the connected Gmail account. Different caller-supplied forwarding headers did not split their server abuse bucket in this check.
+
+Static publication and final live-page verification follow the master merge; see the deployment report for the outcome. No DNS change, application table change or business-listing change is part of this release.
+
+## Review notes
+
+The latest independently composed concepts remain available for visual review. Business Profile setup and owner verification remain separate work. Bristol is the confirmed base; London is a service area, and no additional office is claimed.

@@ -1,6 +1,6 @@
 # Project enquiries — operator setup
 
-Status: review branch only. No production functions, database, DNS or website have been deployed.
+Status: production enquiry backend activated on 26 October 2026 for the release in PR #45. Website publication follows the reviewed master-branch merge. DNS is unchanged.
 
 GitHub Pages serves the HTML. The existing Supabase project hosts the new `studio-enquiry` endpoint; Resend sends plain-text enquiries to `brandnamechanges@gmail.com`. The public project URL is already used by the existing feedback form. Public project references are not secrets.
 
@@ -13,7 +13,7 @@ GitHub Pages serves the HTML. The existing Supabase project hosts the new `studi
 5. After separate production approval, send one authorised operational test with JS enabled and one native submission without JS. Check the actual Gmail inbox, Reply-To, provider logs and spam folder. A provider acceptance receipt is not proof of inbox delivery. Remove test mail through the normal mailbox workflow if desired.
 6. The studio must enforce its stated deletion period: review enquiries monthly and delete non-client correspondence within 12 months of last contact. The endpoint does not retain enquiry bodies; normal mail-provider retention/backups are separate. Project and accounting correspondence follows applicable project obligations.
 
-Unconfigured or rejected delivery returns failure, never a success state. No API key placeholder is exposed to visitors. Until this endpoint is activated, direct email works but form delivery is unavailable; do not merge/publish the form ahead of its backend. No automatic receipt emails or marketing messages are sent to visitors.
+Unconfigured or rejected delivery returns failure, never a success state. No API key placeholder is exposed to visitors. The endpoint was activated before publishing the form. Enhanced and native production test submissions were both confirmed in the studio Gmail inbox. No automatic receipt emails or marketing messages are sent to visitors.
 
 ## Local verification
 
@@ -24,3 +24,7 @@ Run `node scripts/build_studio_pages.mjs`, `node --test tests/services.test.mjs`
 The timing field is optional for native no-JS forms. The server rejects implausible JS timestamps; honeypot and durable rate limiting cover all normal submissions. This is a spam-reduction mechanism, not a guarantee that a submission is human.
 
 Run browser acceptance with an installed Playwright package (or set `BNC_PLAYWRIGHT_PATH` to its absolute package directory): `node scripts/verify_studio_browser.cjs`. Start both local preview servers first. The script launches its own headless Chrome, uses only `example.test` test identities and a local fake mail transport, verifies 42 responsive combinations, and writes screenshot/evidence files under this directory. It does not send production enquiries.
+
+## Production activation evidence — 26 October 2026
+
+Migration `20261026160000` was applied alone, in a transaction, and recorded in migration history. The three enquiry secrets are set server-side and the sender domain is verified. `studio-enquiry` is deployed with public intake and server-side origin validation. RLS is enabled; anonymous table reads and RPC execution are denied; the service role can claim an attempt. A live rollback-only RPC test allowed the first five attempts and rejected the sixth. Two production submissions with distinct caller-supplied forwarding headers used one server abuse bucket, providing an observed check that changing those headers did not bypass the limiter in this deployment. Both native and enhanced operational test messages were confirmed with the INBOX label in `brandnamechanges@gmail.com`. No client messages were sent and no pre-existing application table was changed.
