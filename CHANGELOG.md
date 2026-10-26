@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-26
+
+- Read resource guides on narrow screens without a page-wide horizontal scrollbar.
+
+- Practise with a ten-minute freestyle routine, learn how chorus, hook and bridge connect, and identify internal rhyme with worked examples.
+- Find sample collection, offline listening and mobile DAW workflows from the songwriting-app comparison.
+
 ## 2026-10-23
 
 - Read anonymous first-hand feedback from three Cadence testers, with links to the writing workflows they describe.
