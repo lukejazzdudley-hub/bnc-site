@@ -1,0 +1,14 @@
+{
+  "motion": [
+    "home: static first paint; motion starts on interaction; project link follows selection",
+    "harbour-and-vine: rendered pixels change; offscreen drawing stops",
+    "volt-and-co: rendered pixels change; offscreen drawing stops",
+    "still-room: rendered pixels change; offscreen drawing stops"
+  ],
+  "fallbacks": [
+    "reduced: three complete poster layouts and working dialogs",
+    "no-webgl: three complete poster layouts and working dialogs",
+    "save-data: three complete poster layouts and working dialogs"
+  ],
+  "pageErrors": []
+}
