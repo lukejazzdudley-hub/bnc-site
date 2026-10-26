@@ -1,0 +1,30 @@
+[
+  {
+    "page": "/",
+    "lighthouseVersion": "13.5.0",
+    "fetchTime": "2026-10-26T16:28:58.039Z",
+    "categories": {
+      "performance": 96,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcpMs": 1900.32,
+    "cls": 0.001337214817319205,
+    "pageBytes": 196516
+  },
+  {
+    "page": "/work-with-us/",
+    "lighthouseVersion": "13.5.0",
+    "fetchTime": "2026-10-26T16:32:05.916Z",
+    "categories": {
+      "performance": 98,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "lcpMs": 2109.08,
+    "cls": 0.047408618634686525,
+    "pageBytes": 198155
+  }
+]
