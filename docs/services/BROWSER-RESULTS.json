@@ -106,6 +106,76 @@
       "scroll": 1440
     },
     {
+      "name": "bristol",
+      "width": 320,
+      "scroll": 320
+    },
+    {
+      "name": "bristol",
+      "width": 375,
+      "scroll": 375
+    },
+    {
+      "name": "bristol",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "name": "bristol",
+      "width": 430,
+      "scroll": 430
+    },
+    {
+      "name": "bristol",
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "name": "bristol",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "name": "bristol",
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
+      "name": "london",
+      "width": 320,
+      "scroll": 320
+    },
+    {
+      "name": "london",
+      "width": 375,
+      "scroll": 375
+    },
+    {
+      "name": "london",
+      "width": 390,
+      "scroll": 390
+    },
+    {
+      "name": "london",
+      "width": 430,
+      "scroll": 430
+    },
+    {
+      "name": "london",
+      "width": 768,
+      "scroll": 768
+    },
+    {
+      "name": "london",
+      "width": 1024,
+      "scroll": 1024
+    },
+    {
+      "name": "london",
+      "width": 1440,
+      "scroll": 1440
+    },
+    {
       "name": "harbour",
       "width": 320,
       "scroll": 320
@@ -237,6 +307,10 @@
     "docs/services/screenshots/services-1440.webp",
     "docs/services/screenshots/contact-390.webp",
     "docs/services/screenshots/contact-1440.webp",
+    "docs/services/screenshots/bristol-390.webp",
+    "docs/services/screenshots/bristol-1440.webp",
+    "docs/services/screenshots/london-390.webp",
+    "docs/services/screenshots/london-1440.webp",
     "docs/services/screenshots/harbour-390.webp",
     "docs/services/screenshots/harbour-1440.webp",
     "docs/services/screenshots/volt-390.webp",

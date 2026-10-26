@@ -5,9 +5,9 @@
 ## Current checks
 
 - Static studio generator and crawl audit: 84 sitemap URLs, no broken targets.
-- Python suite: 107 passed. Node suite: 167 passed.
+- Python suite: 107 passed. Node suite: 170 passed.
 - Deno feedback, storage, measurement and enquiry suites: 47 passed; documented checks passed.
-- Browser suite: 42 page/width combinations at 320, 375, 390, 430, 768, 1024 and 1440 px; no horizontal overflow.
+- Browser suite: 56 page/width combinations at 320, 375, 390, 430, 768, 1024 and 1440 px; no horizontal overflow.
 - Homepage visibility: both hero actions have visible ancestor opacity and fit above the fold at four widths, with JavaScript enabled and disabled. This catches the legacy html.js opacity regression.
 - Shared enquiry: native success redirect, enhanced validation/reset and preserved failed entries, using stubbed responses with no email delivery.
 - Concepts: complete booking flows, Escape and focus return; clinic treatment presets; electrical service/estimate agreement; populated menu; both complete comparison endpoints and keyboard range control.
@@ -31,4 +31,12 @@ Both meet the requested score, LCP under 2.5 seconds, CLS under 0.05 and first-v
 
 The enquiry backend was activated and independently verified earlier on 26 October: RLS/privileges, rollback-only five-attempt abuse limit, native/enhanced requests and actual Gmail inbox delivery. This presentation change does not modify the function, database, sender configuration or DNS. The browser acceptance above uses stubs and does not repeat real email delivery tests.
 
-Static releases follow the existing reviewed master merge and GitHub Pages deployment. Business Profile ownership and listing verification remain separate work; Bristol is the base and London a service area, without an invented London office.
+Static releases follow the existing reviewed master merge and GitHub Pages deployment. Business Profile Manager now confirms BNC Studio as Verified. The profile description was saved; category selection remains a separately tracked Google UI step. Bristol is the base and London a service area, without an invented London office.
+
+## Local-service and identity follow-up
+
+- Added Bristol and London service routes: 86 sitemap URLs; no crawl errors.
+- 170 Node, 107 Python and 47 Deno tests pass. The sitemap integration expectation now includes the two real service pages.
+- Expanded the browser grid to 56 page/width combinations and 16 selected screenshots, with working native/enhanced forms and circuit on/off restoration. Graphics/fallback checks continue to pass with no page errors.
+- Lighthouse mobile, local preview: Bristol 100/100/100/100, LCP1.53s, CLS0.00015,158KB; London99/100/100/100, LCP1.68s, CLS0.00015,158KB. These are observed technical measurements, not indexing or lead results.
+- Google Business Profile Manager independently showed the BNC Studio record as Verified. Its description was saved. The owner chose to keep the existing address and 24-hour weekday setting.

@@ -1,5 +1,11 @@
 # Changelog
 
+## Local services and concept identities
+
+- Find Bristol and London service details and enquire directly from either page.
+- Recognise Volt & Co by its lightning wordmark, lime palette and working circuit controls.
+- See distinct concept icons and sharing artwork instead of the studio identity.
+
 ## Studio website and concept experiences
 
 - Explore three distinct fictional business sites, with a wine menu and table journey, architectural lighting and estimate controls, and a movement study with appointment choices.

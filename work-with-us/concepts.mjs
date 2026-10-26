@@ -30,5 +30,5 @@ document.querySelector('[data-close-demo]')?.addEventListener('click',()=>dialog
 dialog?.addEventListener('close',()=>{document.documentElement.style.removeProperty('overflow');opener?.focus();});
 dialog?.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}});
 
-import {mountConceptMotion} from './effects/concept-motion.mjs';
+import {mountConceptMotion} from './effects/concept-motion.mjs?v=20261026-identities';
 mountConceptMotion({openDemo});
