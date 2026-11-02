@@ -183,3 +183,15 @@ Regenerate all four editorial layers and run the full suites.
 Workflow evidence is authored in `content/resources/workflow-evidence.mjs`.
 Quotes must continue to match the approved product-page text. The downloadable
 scorecard is a reader exercise, not a completed comparative benchmark.
+
+
+### Romance dictionary filters
+
+Optional starting-letter and ordering controls use the existing static form and
+native details disclosure. Filtering applies to the entire match set before
+pagination. The worker receives a query snapshot: changing a form field must not
+change subsequent pages until a new search is submitted. Reset restores common
+words first; example buttons reset filters to avoid misleading empty examples.
+Prefixes preserve accents and are not fuzzy phonetic matching. No grammatical
+or syllable metadata is inferred. Run filter/pagination tests and check both
+languages for empty matches, reset, alphabetical pages and accented prefixes.

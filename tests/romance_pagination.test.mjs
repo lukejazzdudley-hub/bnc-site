@@ -16,15 +16,15 @@ for(const locale of ['es','fr'])test(`${locale}: pagination counts, stale respon
  const elements={};const posts=[];let worker;
  const element=()=>({children:[],hidden:true,disabled:false,textContent:'',setAttribute(){},append(...items){this.children.push(...items);},replaceChildren(){this.children=[];},addEventListener(event,fn){this[event]=fn;}});
  for(const name of ['romance-form','romance-status','romance-results','romance-more'])elements[name]=element();
- const form=elements['romance-form'];form.elements={word:{value:'amor'},mode:{value:'assonance'}};
+ const form=elements['romance-form'];form.elements={word:{value:'amor'},mode:{value:'assonance'},prefix:{value:'re'},sort:{value:'alphabetical'}};
  vm.runInNewContext(readFileSync(new URL('../cadence/search/romance-tool.mjs',import.meta.url),'utf8'),{
  document:{documentElement:{lang:locale},querySelector:s=>elements[s.slice(1)],querySelectorAll:()=>[],createElement:element},
  Worker:class{constructor(){worker=this;}postMessage(data){posts.push(data);}terminate(){}},setTimeout:()=>1,clearTimeout(){}
  });
- form.submit({preventDefault(){}});assert.equal(posts[0].offset,0);
+ form.submit({preventDefault(){}});assert.equal(posts[0].offset,0);assert.equal(posts[0].options.prefix,'re');assert.equal(posts[0].options.sort,'alphabetical');form.elements.prefix.value='changed';
  const respond=(id,count,total=205)=>worker.onmessage({data:{id,state:'ready',total,results:Array.from({length:count},(_,i)=>({word:'word'+i,reading:'o'}))}});
  respond(1,100);assert.equal(elements['romance-more'].hidden,false);assert.match(elements['romance-status'].textContent,/100.*205/);
- elements['romance-more'].click();assert.equal(posts[1].offset,100);assert.equal(elements['romance-more'].disabled,true);
+ elements['romance-more'].click();assert.equal(posts[1].offset,100);assert.equal(posts[1].options.prefix,'re');assert.equal(elements['romance-more'].disabled,true);
  respond(1,100);assert.equal(elements['romance-results'].children.length,100);
  respond(2,100);assert.equal(elements['romance-results'].children.length,200);
  elements['romance-more'].click();respond(3,5);assert.equal(elements['romance-more'].hidden,true);assert.match(elements['romance-status'].textContent,/205.*205/);

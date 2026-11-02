@@ -1,4 +1,4 @@
-import {createRomanceIndex,searchRomance} from './romance.mjs?v=20261102-frequency';
+import {createRomanceIndex,searchRomance} from './romance.mjs?v=20261102-controls';
 let pending;
 let active;
 self.onmessage=async({data})=>{
@@ -17,6 +17,6 @@ self.onmessage=async({data})=>{
    if(hash!==d.sha256)throw new Error('Integrity mismatch');
    return createRomanceIndex(JSON.parse(new TextDecoder().decode(bytes)));
   }).catch(error=>{pending=null;throw error;});
-  self.postMessage({id:data.id,...searchRomance(await pending,data.word,data.mode,100,data.offset??0)});
+  self.postMessage({id:data.id,...searchRomance(await pending,data.word,data.mode,100,data.offset??0,data.options??{})});
  }catch{self.postMessage({id:data.id,state:'error',results:[]});}
 };

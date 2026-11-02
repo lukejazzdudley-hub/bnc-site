@@ -19,7 +19,12 @@ export function createRomanceIndex(pack) {
   }
   return {id:pack.id,words,perfect,assonance};
 }
-export function searchRomance(index,input,mode='perfect',limit=100,offset=0){
+export function searchRomance(index,input,mode='perfect',limit=100,offset=0,options={}){
+  if(!options||typeof options!=='object'||Array.isArray(options))return {state:'invalid',results:[]};
+  const {sort='frequency',prefix=''}=options;
+  if(!['frequency','alphabetical'].includes(sort)||typeof prefix!=='string'||prefix.length>60)return {state:'invalid',results:[]};
+  const starts=normalise(prefix);
+  if(starts&&!/^[\p{L}\p{M}]+(?:[-'][\p{L}\p{M}]*)*$/u.test(starts))return {state:'invalid',results:[]};
   if(!Number.isInteger(offset)||offset<0||!Number.isInteger(limit)||limit<1)return {state:'invalid',results:[]};
   if(typeof input!=='string'||input.length>60||!['perfect','assonance'].includes(mode))return {state:'invalid',results:[]};
   const word=normalise(input);
@@ -30,6 +35,6 @@ export function searchRomance(index,input,mode='perfect',limit=100,offset=0){
   for(const reading of readings)for(const item of index[mode].get(reading[mode])||[]){
     if(item.word!==word&&(!found.has(item.word)||found.get(item.word).frequency<item.frequency))found.set(item.word,item);
   }
-  const items=[...found.values()].sort((a,b)=>b.frequency-a.frequency||Math.abs(a.word.length-word.length)-Math.abs(b.word.length-word.length)||a.word.localeCompare(b.word,index.id));
+  const items=[...found.values()].filter(item=>item.word.startsWith(starts)).sort((a,b)=>sort==='alphabetical'?a.word.localeCompare(b.word,index.id):b.frequency-a.frequency||Math.abs(a.word.length-word.length)-Math.abs(b.word.length-word.length)||a.word.localeCompare(b.word,index.id));
   return {state:'ready',total:items.length,results:items.slice(offset,offset+Math.min(limit,10000)).map(({word,reading})=>({word,reading}))};
 }
