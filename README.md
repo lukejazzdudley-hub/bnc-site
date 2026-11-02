@@ -243,3 +243,9 @@ The homepage showcase and services comparison are authored in `content/studio-ex
 Bristol and London have complete service/enquiry pages under `/work-with-us/`, with a consistent studio entity and city-specific service metadata. See [local SEO operations](docs/services/LOCAL-SEO.md) for profile and Search Console release steps.
 
 **Enquiry backend:** the function, additive abuse-counter migration and server-side mail configuration were activated on 26 October 2026; native and enhanced production test messages reached the studio inbox. Follow the operator checklist for subsequent deployments. See [operations](docs/services/OPERATIONS.md), [design](docs/services/DESIGN.md) and [credits](CREDITS.md). Publishing a reviewed merge to master deploys the static site through GitHub Pages.
+
+
+Spanish dictionary ranking can be rebuilt with the pinned offline authoring
+dependency documented in [Development](docs/DEVELOPMENT.md). The buyer guide
+includes anonymised workflow experiences and a blank comparison scorecard; neither
+is presented as an independent controlled benchmark.
