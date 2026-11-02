@@ -1,4 +1,4 @@
-import {createRomanceIndex,searchRomance} from './romance.mjs';
+import {createRomanceIndex,searchRomance} from './romance.mjs?v=20261102-pagination';
 let pending;
 let active;
 self.onmessage=async({data})=>{

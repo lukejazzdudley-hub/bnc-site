@@ -12,7 +12,7 @@ function search(append=false){
  if(!append){loaded=0;results.replaceChildren();query={language:locale,word:form.elements.word.value,mode:form.elements.mode.value};}
  more.hidden=!append;more.disabled=true;status.textContent=messages.loading;results.setAttribute('aria-busy','true');
  try{
-  if(!worker){worker=new Worker('/cadence/search/romance-worker.mjs',{type:'module'});worker.onerror=fail;worker.onmessage=({data})=>{
+  if(!worker){worker=new Worker('/cadence/search/romance-worker.mjs?v=20261102-pagination',{type:'module'});worker.onerror=fail;worker.onmessage=({data})=>{
    if(data.id!==sequence)return;clearTimeout(timer);results.setAttribute('aria-busy','false');more.disabled=false;
    if(data.state!=='ready'){status.textContent=messages[data.state]||messages.error;more.hidden=true;return;}
    for(const match of data.results){const li=document.createElement('li'),word=document.createElement('span'),reading=document.createElement('small');word.textContent=match.word;reading.textContent=`/${match.reading}/`;li.append(word,reading);results.append(li);}
