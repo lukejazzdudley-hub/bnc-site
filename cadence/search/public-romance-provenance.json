@@ -10,8 +10,8 @@
     },
     "es": {
       "url": "/cadence/search/public-es.json",
-      "sha256": "d90e941015bd3781009789e90f4bad8c40fdefa9c238766de2e1aeecf9d8ac5f",
-      "bytes": 8989135,
+      "sha256": "16f5a78644f25f2fb11bfcc0b1f9a948f9c71460657773e23d3b8acad119a2b0",
+      "bytes": 9370042,
       "entries": 151787,
       "source": "Wiktionary contributors via WikiPron d282e848a211ea31cfd730f0ced8bc8cdab9e83d",
       "license": "CC-BY-SA-4.0"
@@ -56,5 +56,17 @@
     }
   },
   "french": "Lexique word pronunciations; no automatic liaison, optional poetic schwa or Québec coverage.",
-  "review": "Source and automated linguistic checks; independent native-speaker acceptance pending."
+  "review": "Source and automated linguistic checks; independent native-speaker acceptance pending.",
+  "spanish_ranking": {
+    "name": "wordfreq",
+    "version": "3.1.1",
+    "metric": "Zipf frequency",
+    "attribution": "Robyn Speer (2022), wordfreq; underlying corpus contributors credited in WORDFREQ-NOTICE.md.",
+    "source": "https://github.com/rspeer/wordfreq",
+    "citation": "https://doi.org/10.5281/zenodo.7199437",
+    "license": "CC-BY-SA-4.0",
+    "notice": "/cadence/search/licenses/WORDFREQ-NOTICE.md",
+    "changes": "Frequency estimates joined to existing Spanish pronunciation entries by word using the wordfreq API. Missing estimates remain zero; no entries removed.",
+    "limits": "General-language usage through about 2021, not song lyrics, search demand, dialect-specific popularity or native editorial acceptance."
+  }
 }

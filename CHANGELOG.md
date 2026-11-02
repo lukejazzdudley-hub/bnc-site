@@ -1,5 +1,8 @@
 # Changelog
 
+- Find common Spanish rhyme suggestions before less familiar words, with all pronunciation entries retained and source attribution available.
+- Explore anonymous artist experiences alongside workflow demonstrations and download a blank same-song comparison scorecard.
+
 - Compare Android songwriting workflows by capture, arrangement and export, with current source links and a practical selection checklist.
 
 - French and Spanish rhyme searches now show accurate visible-result counts and let you load further matches beyond the first 100.

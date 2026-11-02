@@ -36,3 +36,7 @@ https://es.wiktionary.org/w/index.php?title=caminó&oldid=6023704
 https://es.wiktionary.org/w/index.php?title=publicó&oldid=5973682
 https://es.wiktionary.org/w/index.php?title=terminó&oldid=6022566
 Source readings retained; explicit tonic-vowel positions.
+
+Spanish result ordering additionally uses wordfreq 3.1.1 by Robyn Speer.
+See [full frequency attribution](WORDFREQ-NOTICE.md). General-language Zipf estimates
+are added without changing pronunciation rows. The derived data remains CC BY-SA 4.0.

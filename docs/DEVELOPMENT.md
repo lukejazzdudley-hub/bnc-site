@@ -165,3 +165,21 @@ Run the reader tests and full validation. Check mobile contents, RTL, long steps
 and real rhyme results; see `docs/seo/READER-DESIGN.md` for visual contracts.
 
 French/Spanish dictionary results are paged in batches of 100. Keep worker offsets validated, query snapshots stable across additional pages and stale responses ignored. Run `tests/romance_pagination.test.mjs` when changing lookup or rendering. Counts describe displayed versus total matches.
+
+
+### Spanish dictionary frequency ordering
+
+Use an isolated Python environment with `wordfreq==3.1.1` to run
+`python scripts/enrich_spanish_frequency.py`. The full Romance source builder
+also requires that pinned authoring dependency. Browser users install nothing.
+The enrichment replaces only frequency values, retains every pronunciation row,
+and updates the public manifest hash. Keep the full wordfreq notice and embedded
+JSON attribution. General-language frequency is not lyric quality or search volume.
+Run `node scripts/evaluate_spanish_ranking.mjs /path/to/private/output` for the
+100-query engineering comparison and blank blind-review worksheet. Human ratings
+remain blank until reviewed; the fixture is not a search-demand sample.
+Regenerate all four editorial layers and run the full suites.
+
+Workflow evidence is authored in `content/resources/workflow-evidence.mjs`.
+Quotes must continue to match the approved product-page text. The downloadable
+scorecard is a reader exercise, not a completed comparative benchmark.

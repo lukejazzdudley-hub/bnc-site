@@ -119,3 +119,17 @@ Local client-service content and the shared studio identity live in `content/stu
 ## SEO reading presentation
 
 Search, locale, pack and regional generators share the author-time `scripts/reader-layout.mjs` decorator. It preserves content and anchors while adding a static contents rail and the studio-handbook reading surface. `cadence/search/reader.mjs` progressively marks the visible section and provides optional on-demand Motion feedback. See [design](seo/READER-DESIGN.md).
+
+
+## Attributed Spanish result ordering
+
+Spanish pronunciation rows retain their existing sound matching. An offline
+wordfreq 3.1.1 authoring step adds general-language Zipf frequency; the existing
+browser comparator then places common words first. Manifest fetching revalidates
+and dictionary requests include the content hash to prevent stale data after a
+release. No lookup query reaches a new service. Corpus licences and attribution
+travel with the public JSON and notices. See Development for rebuilding.
+
+The buyer guide renders the existing anonymised testimonials directly into HTML,
+with demonstration links and a blank downloadable workflow comparison worksheet.
+It adds no review rating schema, new testimonial identities or comparative scores.

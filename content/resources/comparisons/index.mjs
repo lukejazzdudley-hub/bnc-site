@@ -1,3 +1,4 @@
+import {workflowEvidence,workflowTrial} from '../workflow-evidence.mjs';
 import {buyingSections, buyingSources} from './buyers.mjs';
 const checked = '2026-09-17';
 
@@ -30,6 +31,8 @@ export const articles = [
 <p><a href="#run-a-one-song-trial">Use the same song fragment to test each candidate</a>. Verify that the exported file opens where you need it, rather than deciding from a feature count.</p>`,
       },
       ...buyingSections.slice(1),
+      workflowEvidence,
+      workflowTrial,
       {
         id: 'start-with-your-real-workflow',
         heading: 'Start with your real workflow, not a feature grid',

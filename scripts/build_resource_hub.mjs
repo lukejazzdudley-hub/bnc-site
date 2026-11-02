@@ -492,6 +492,7 @@ export function writeResourcePages({ rootDir = DEFAULT_ROOT, articles }) {
   const resourcesDir = path.join(rootDir, 'cadence/resources');
   mkdirSync(resourcesDir, { recursive: true });
   writeFileSync(path.join(resourcesDir, 'beat-to-demo-worksheet.txt'), worksheetText({tempo: 90, bars: [4, 8, 4, 4]}));
+  writeFileSync(path.join(resourcesDir, 'songwriting-workflow-scorecard.tsv'), ['app\tversion\tdevice\tplan\tprior_experience\tapp_order\ttask\tcompleted_yes_no_unavailable\tminutes_optional\tfriction\tevidence_file', ...['Import idea','Loop and write','Record two takes','Arrange sections','Export and reopen in DAW','Return offline'].map(task=>['','','','','','',task,'','','',''].join('\t'))].join('\n')+'\n');
   writeFileSync(path.join(resourcesDir, 'index.html'), renderHub(articles));
 
   for (const article of articles) {
