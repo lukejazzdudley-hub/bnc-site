@@ -48,3 +48,6 @@ header nav a,footer nav a{display:inline-flex;align-items:center;min-height:44px
 @media(min-width:1000px){body:has(#romance-form) main>.hero{padding-block:48px 28px}body:has(#romance-form) .hero h1{max-width:20ch;font-size:clamp(44px,5.2vw,68px)}}
 @media(max-width:750px){.hero .search-device{max-width:190px}.tool:has(#romance-form) form{grid-template-columns:1fr}.hero:has(.search-device){gap:24px;padding-bottom:36px}header nav{gap:4px 18px}}
 @media(prefers-reduced-motion:no-preference){.search-device img{transition:transform .35s ease}.search-device:hover img{transform:translateY(-6px) rotate(-1deg)}}
+
+/* Progressive dictionary controls retain native keyboard and touch behaviour. */
+.romance-filters{grid-column:1/-1;border:1px solid #3b4250;border-radius:16px;padding:12px 16px}.reader-page .tool .romance-filters summary{color:#f0f2f6;min-height:44px;display:list-item;align-content:center;cursor:pointer;font-weight:650}.romance-filter-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}.romance-filters p{font-size:14px;line-height:1.6;color:#c4c6ce}.romance-filters button{min-height:44px}.romance-filters :focus-visible{outline:2px solid #e7d7a5;outline-offset:4px}@media(max-width:750px){.romance-filter-fields{grid-template-columns:1fr}}

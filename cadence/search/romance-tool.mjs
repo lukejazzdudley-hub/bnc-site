@@ -9,23 +9,30 @@ function count(shown,total){return locale==='fr'?`${shown} résultats affichés 
 function fail(){clearTimeout(timer);worker?.terminate();worker=null;status.textContent=messages.error;results.setAttribute('aria-busy','false');more.hidden=true;more.disabled=false;}
 function search(append=false){
  clearTimeout(timer);
- if(!append){loaded=0;results.replaceChildren();query={language:locale,word:form.elements.word.value,mode:form.elements.mode.value};}
+ if(!append){loaded=0;results.replaceChildren();query={language:locale,word:form.elements.word.value,mode:form.elements.mode.value,options:{prefix:form.elements.prefix?.value??'',sort:form.elements.sort?.value??'frequency'}};}
  more.hidden=!append;more.disabled=true;status.textContent=messages.loading;results.setAttribute('aria-busy','true');
  try{
-  if(!worker){worker=new Worker('/cadence/search/romance-worker.mjs?v=20261102-frequency',{type:'module'});worker.onerror=fail;worker.onmessage=({data})=>{
+  if(!worker){worker=new Worker('/cadence/search/romance-worker.mjs?v=20261102-controls',{type:'module'});worker.onerror=fail;worker.onmessage=({data})=>{
    if(data.id!==sequence)return;clearTimeout(timer);results.setAttribute('aria-busy','false');more.disabled=false;
    if(data.state!=='ready'){status.textContent=messages[data.state]||messages.error;more.hidden=true;return;}
    for(const match of data.results){const li=document.createElement('li'),word=document.createElement('span'),reading=document.createElement('small');word.textContent=match.word;reading.textContent=`/${match.reading}/`;li.append(word,reading);results.append(li);}
-   loaded+=data.results.length;status.textContent=count(loaded,data.total);more.hidden=loaded>=data.total||!data.results.length;
+   loaded+=data.results.length;status.textContent=data.total===0?(locale==='fr'?'Aucune rime avec ces critères. Effacez le filtre ou essayez une autre correspondance.':'No hay rimas con estos criterios. Borra el filtro o prueba otra coincidencia.'):count(loaded,data.total);more.hidden=loaded>=data.total||!data.results.length;
   };}
   worker.postMessage({id:++sequence,...query,offset:loaded});timer=setTimeout(fail,30000);
  }catch{fail();}
 }
+document.querySelector('#romance-reset')?.addEventListener('click',()=>{
+ form.elements.prefix.value='';form.elements.sort.value='frequency';
+ if(form.elements.word.value.trim())form.requestSubmit();
+ form.elements.prefix.focus();
+});
 form.hidden=false;
 form.addEventListener('submit',event=>{event.preventDefault();search();});
 more?.addEventListener('click',()=>search(true));
 for(const button of document.querySelectorAll('[data-romance-example]'))button.addEventListener('click',()=>{
  form.elements.word.value=button.dataset.romanceExample;
+ if(form.elements.prefix)form.elements.prefix.value='';
+ if(form.elements.sort)form.elements.sort.value='frequency';
  if(button.dataset.romanceMode){
   form.elements.mode.value=button.dataset.romanceMode;
   form.scrollIntoView({block:'start',behavior:'instant'});

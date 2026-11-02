@@ -1,5 +1,8 @@
 # Changelog
 
+- Narrow French and Spanish rhymes by starting letters, switch to alphabetical order and reset filters without losing your search word.
+- Follow a short native-language rhyme-to-recording exercise with links to the existing English video demonstrations.
+
 - Find common Spanish rhyme suggestions before less familiar words, with all pronunciation entries retained and source attribution available.
 - Explore anonymous artist experiences alongside workflow demonstrations and download a blank same-song comparison scorecard.
 
