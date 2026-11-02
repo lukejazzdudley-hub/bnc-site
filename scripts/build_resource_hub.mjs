@@ -46,12 +46,19 @@ const CATEGORY_PRESENTATION = {
 };
 
 const EXISTING_RESOURCES = [
+  {href:'/cadence/languages/nigerian-pidgin/#write-a-pidgin-verse',title:'Write Nigerian Pidgin lyrics',description:'Build a verse and hook from a real scene, then test the delivery over a beat.'},
+  {href:'/cadence/fr/dictionnaire-rimes/',title:'French rhyme dictionary',description:'Find French sound matches in the free browser tool and try the listening examples.'},
+  {href:'/cadence/es/diccionario-rimas/',title:'Spanish rhyme dictionary',description:'Explore consonant and assonant rhyme matches with Spanish examples in your browser.'},
+  {href:'/cadence/production-notes-sample-library/',title:'Production notes and sample ideas',description:'Keep captured sounds and production ideas ready for a later session.'},
+  {href:'/cadence/offline-music-player/',title:'Listen to your music offline',description:'Review local beats, demos and finished tracks away from your writing session.'},
+  {href:'/cadence/songwriting-habit-tracker/',title:'Track your writing activity',description:'Understand the writing-activity view and use it to plan your next session.'},
+  {href:'/cadence/mobile-daw-songwriting/',title:'From songwriting to a mobile DAW',description:'Find the arrangement, recording and export walkthroughs, including plan limits.'},
   {href:'/cadence/guide/',title:'Cadence feature walkthrough',description:'Find and use voice memos, rhymes, language ordering, section recording and DAW exports.'},
   {href: '/cadence/type-beat-songwriting-app/', title: 'Write to type beats', description: 'Loop your instrumental, write the verse and record a draft.'},
   {href: '/cadence/songwriting-app-android/', title: 'Cadence for Android', description: 'Lyrics, beats and takes on your Android device.'},
   {href: '/cadence/song-structure/', title: 'Song structure', description: 'Give verse, chorus and bridge a purpose.'},
   {href: '/cadence/freestyle-rap-practice/', title: 'Freestyle rap practice', description: 'Exercises for pulse, space and delivery.'},
-  {href: '/cadence/languages/', title: 'Writing languages', description: 'App language packs and French/Spanish introductions.'},
+  {href: '/cadence/languages/', title: 'Writing languages', description: 'Explore all 20 downloadable rhyme packs, native-language introductions and writing exercises.'},
   {
     href: '/cadence/songwriting-app/',
     title: 'Songwriting app guide',

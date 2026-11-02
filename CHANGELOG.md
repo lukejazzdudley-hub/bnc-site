@@ -1,5 +1,10 @@
 # Changelog
 
+## 2 November 2026
+
+- Follow a six-step Nigerian Pidgin verse-and-hook exercise, with direct links to the relevant app controls.
+- Find French/Spanish rhyme tools, offline listening, production notes, writing activity and mobile DAW guides directly from Resources.
+
 ## Local services and concept identities
 
 - Find Bristol and London service details and enquire directly from either page.
