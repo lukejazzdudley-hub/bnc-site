@@ -1,4 +1,4 @@
-import {createRomanceIndex,searchRomance} from './romance.mjs?v=20261102-pagination';
+import {createRomanceIndex,searchRomance} from './romance.mjs?v=20261102-frequency';
 let pending;
 let active;
 self.onmessage=async({data})=>{
@@ -6,9 +6,9 @@ self.onmessage=async({data})=>{
   if(!['fr','es'].includes(data.language))throw new Error('Unsupported language');
   if(active&&active!==data.language)throw new Error('Restart worker for a language change');
   active=data.language;
-  pending ||= fetch('/cadence/search/public-romance-provenance.json').then(r=>{if(!r.ok)throw new Error('Manifest unavailable');return r.json();}).then(async manifest=>{
+  pending ||= fetch('/cadence/search/public-romance-provenance.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw new Error('Manifest unavailable');return r.json();}).then(async manifest=>{
    const d=manifest.dictionaries[data.language];
-   const response=await fetch(d.url,{signal:AbortSignal.timeout(20000)});
+   const response=await fetch(`${d.url}?v=${d.sha256}`,{signal:AbortSignal.timeout(20000)});
    if(!response.ok||Number(response.headers.get('content-length'))>12000000)throw new Error('Dictionary unavailable');
    const reader=response.body.getReader();let size=0;const chunks=[];
    try{while(true){const {done,value}=await reader.read();if(done)break;size+=value.length;if(size>12000000){await reader.cancel();throw new Error('Dictionary too large');}chunks.push(value);}}finally{reader.releaseLock();}
