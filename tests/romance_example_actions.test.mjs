@@ -15,7 +15,7 @@ test('editorial examples select their documented mode and bring the search into 
     scrollIntoView: options => {assert.equal(options.behavior, 'instant'); actions.push('scroll');},
   };
   const document = {
-    documentElement: {lang:'es'}, querySelector: selector => selector === '#romance-form' ? form : {},
+    documentElement: {lang:'es'}, querySelector: selector => selector === '#romance-form' ? form : {addEventListener() {}},
     querySelectorAll: () => buttons,
   };
   vm.runInNewContext(readFileSync(new URL('../cadence/search/romance-tool.mjs', import.meta.url), 'utf8'), {document});

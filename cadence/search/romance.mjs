@@ -19,7 +19,8 @@ export function createRomanceIndex(pack) {
   }
   return {id:pack.id,words,perfect,assonance};
 }
-export function searchRomance(index,input,mode='perfect',limit=100){
+export function searchRomance(index,input,mode='perfect',limit=100,offset=0){
+  if(!Number.isInteger(offset)||offset<0||!Number.isInteger(limit)||limit<1)return {state:'invalid',results:[]};
   if(typeof input!=='string'||input.length>60||!['perfect','assonance'].includes(mode))return {state:'invalid',results:[]};
   const word=normalise(input);
   if(!/^[\p{L}\p{M}]+(?:[-'][\p{L}\p{M}]+)*$/u.test(word))return {state:'invalid',results:[]};
@@ -30,5 +31,5 @@ export function searchRomance(index,input,mode='perfect',limit=100){
     if(item.word!==word&&(!found.has(item.word)||found.get(item.word).frequency<item.frequency))found.set(item.word,item);
   }
   const items=[...found.values()].sort((a,b)=>b.frequency-a.frequency||Math.abs(a.word.length-word.length)-Math.abs(b.word.length-word.length)||a.word.localeCompare(b.word,index.id));
-  return {state:'ready',total:items.length,results:items.slice(0,Math.max(1,Math.min(limit,10000))).map(({word,reading})=>({word,reading}))};
+  return {state:'ready',total:items.length,results:items.slice(offset,offset+Math.min(limit,10000)).map(({word,reading})=>({word,reading}))};
 }
