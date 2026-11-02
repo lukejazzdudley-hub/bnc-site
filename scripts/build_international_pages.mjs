@@ -1,3 +1,4 @@
+import { readerLayout } from './reader-layout.mjs';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -37,7 +38,7 @@ const nativeLanguageSection = `<section class="content"><h2>Read in your languag
 const mark = `<picture aria-hidden="true"><source media="(prefers-reduced-motion: reduce)" srcset="/assets/cadence/cadence-mark-static.webp"><img src="/assets/cadence/cadence-mark-nav.webp" data-animated-mark data-static-src="/assets/cadence/cadence-mark-static.webp" alt="" width="36" height="36"></picture>`;
 
 function render({ title, description, canonical, language = 'en', body, schema, regional = false }) {
-  return `<!doctype html>
+  return readerLayout(`<!doctype html>
 <html lang="${language}"${['ar','he'].includes(language) ? ' dir="rtl"' : ''}><head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>${escape(title)}</title><meta name="description" content="${escape(description)}">
@@ -53,7 +54,7 @@ ${regional ? alternates : ''}
   <header><div class="shell"><a class="brand" href="/cadence/">${mark}Cadence</a><nav aria-label="Main"><a href="/cadence/guide/">Guide (English)</a><a href="/cadence/resources/">Resources</a><a href="/cadence/rhyme-finder/">Rhyme finder</a><a href="/cadence/regions/">Downloads by region</a><a href="/cadence/languages/">Languages</a></nav></div></header>
   <main class="shell" id="main">${body}</main>
   <footer><div class="shell"><p>Flow by Cadence · Cadence by Brand Name Changes</p>${regionLinks()}<nav aria-label="Footer"><a href="/support">Support</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/delete-account">Delete account</a></nav></div></footer>
-</body></html>\n`;
+</body></html>\n`);
 }
 
 const hubBody = `<section class="hero region-hero"><div><p class="crumb"><a href="/cadence/">Cadence</a> / Downloads by region</p><h1>Your song.<br>Your storefront.</h1><p class="intro">Find Cadence on your local App Store or Google Play. Keep lyrics, rhyme ideas, beats and vocal takes together, from the first idea to a demo.</p><p>Flow by Cadence brings you to the same Cadence app. Choose a region for storefront links, currency guidance and practical writing notes.</p></div><figure class="region-phone"><img src="/assets/cadence/resources/01-library-neutral.webp" width="900" height="1650" alt="Cadence song library on a silver phone"><figcaption>The same songwriting workspace, wherever you start.</figcaption></figure></section>

@@ -1,5 +1,10 @@
 # Changelog
 
+## SEO reading experience
+
+- Read language and songwriting guides on a clear silver surface, jump directly to a section and follow numbered exercises.
+- See authentic Cadence imagery on language introductions and access rhyme-search controls through compact mobile headers.
+
 ## 2 November 2026
 
 - Follow a six-step Nigerian Pidgin verse-and-hook exercise, with direct links to the relevant app controls.

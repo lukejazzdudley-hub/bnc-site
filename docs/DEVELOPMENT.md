@@ -155,3 +155,11 @@ Edit `content/studio.mjs` and the shared form/page template in `scripts/build_st
 After regenerating the studio pages, run `scripts/verify_home_visibility.cjs`, `scripts/verify_studio_browser.cjs` and `scripts/verify_studio_motion.cjs` with an installed Playwright package supplied through `BNC_PLAYWRIGHT_PATH`. Use `BNC_PREVIEW_URL` to target a preview or live origin. The browser suite stubs enquiry responses and sends no mail. The motion suite saves local video and comparison endpoints under ignored `.gstack/redesign-previews/`. Inspect mobile compositions and both range endpoints; automated pixel changes alone do not establish creative quality. Test reduced-motion, save-data and unavailable-WebGL fallbacks. Do not infer visible CTAs from their bounding boxes: the homepage script checks computed opacity through their ancestors.
 
 Local services are authored in `content/studio-local.mjs`; regenerate with the studio builder after the editorial generators. Keep the homepage identity/local-link markers and sitemap seed in sync. Run `node --test tests/local-services.test.mjs` and the full suites; the browser grid now includes the two city pages. See `docs/services/LOCAL-SEO.md` for Google profile and Search Console release steps. Volt's scoped identity and working circuit/dimmer controls are separate from studio-page styling.
+
+### SEO reading layout
+
+Search, international and Romance-tool generators apply `scripts/reader-layout.mjs`.
+Edit that helper and `cadence/search/reader.css` / `reader.mjs`, then regenerate
+all editorial layers. Preserve authored section IDs, titles, canonicals and schema.
+Run the reader tests and full validation. Check mobile contents, RTL, long steps
+and real rhyme results; see `docs/seo/READER-DESIGN.md` for visual contracts.
