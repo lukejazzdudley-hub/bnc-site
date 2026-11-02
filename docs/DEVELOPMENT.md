@@ -163,3 +163,5 @@ Edit that helper and `cadence/search/reader.css` / `reader.mjs`, then regenerate
 all editorial layers. Preserve authored section IDs, titles, canonicals and schema.
 Run the reader tests and full validation. Check mobile contents, RTL, long steps
 and real rhyme results; see `docs/seo/READER-DESIGN.md` for visual contracts.
+
+French/Spanish dictionary results are paged in batches of 100. Keep worker offsets validated, query snapshots stable across additional pages and stale responses ignored. Run `tests/romance_pagination.test.mjs` when changing lookup or rendering. Counts describe displayed versus total matches.

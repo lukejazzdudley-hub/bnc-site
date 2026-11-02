@@ -1,5 +1,7 @@
 # Changelog
 
+- French and Spanish rhyme searches now show accurate visible-result counts and let you load further matches beyond the first 100.
+
 - Spanish rhyme dictionary: compare consonant and assonant examples and search directly from each assonant example.
 
 ## SEO reading experience
