@@ -31,3 +31,21 @@ test('new instructional links point to real guide chapters', () => {
     }
   }
 });
+
+
+test('Spanish assonant examples are distinct from consonant matches and published as crawlable HTML', () => {
+  const index=createRomanceIndex(JSON.parse(readFileSync(new URL('../cadence/search/public-es.json',import.meta.url))));
+  const html=readFileSync(new URL('../cadence/es/diccionario-rimas/index.html',import.meta.url),'utf8');
+  assert.ok(html.includes('id="assonant-examples"'));
+  for(const example of rhymeExamples.es.assonance.examples){
+    const assonant=searchRomance(index,example.word,'assonance',10000).results;
+    const consonant=searchRomance(index,example.word,'perfect',10000).results;
+    for(const word of example.matches){
+      assert.ok(assonant.some(row=>row.word===word),`${example.word}/${word}: assonant`);
+      assert.ok(!consonant.some(row=>row.word===word),`${example.word}/${word}: not consonant`);
+      assert.ok(html.includes(word));
+    }
+    assert.ok(html.includes(example.sentence));
+    assert.ok(html.includes(`data-romance-example="${example.word}" data-romance-mode="assonance"`));
+  }
+});

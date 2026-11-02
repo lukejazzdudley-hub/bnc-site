@@ -13,6 +13,17 @@ export const rhymeExamples = {
       {word: 'luna', matches: ['cuna'], sentence: 'La luna iluminaba la cuna.'},
       {word: 'alegría', matches: ['poesía'], sentence: 'Convertí aquella alegría en el comienzo de una poesía.'},
     ],
+    assonance: {
+      heading: 'Palabras que riman: consonantes y asonantes',
+      intro: 'Compara las dos opciones antes de cerrar el verso. En la consonante coinciden todos los sonidos desde la vocal tónica; en la asonante coinciden las vocales. Las parejas siguientes están comprobadas en los datos de este buscador: pronúncialas también con tu propio acento.',
+      action: 'Buscar rimas asonantes con',
+      examples: [
+        {word: 'amor', matches: ['sol', 'voz'], sentence: 'Amor y dolor mantienen la terminación completa. Amor y sol comparten la vocal tónica, pero cambian la consonante final.'},
+        {word: 'camino', matches: ['amigo', 'libro'], sentence: 'Camino y destino son consonantes. Camino y amigo conservan las vocales i–o y dejan otra forma de terminar la idea.'},
+        {word: 'vida', matches: ['risa', 'brisa'], sentence: 'Vida y herida son consonantes; vida y risa comparten las vocales i–a.'},
+        {word: 'luna', matches: ['duda'], sentence: 'Luna y cuna son consonantes. Luna y duda conservan las vocales u–a.'},
+      ],
+    },
     help: `<h2>Cómo buscar rimas consonantes y asonantes</h2><ol class="prose-list"><li>Escribe una palabra con su tilde: <em>canción</em>, por ejemplo.</li><li>Elige <strong>Rima consonante</strong> para comparar vocales y consonantes desde la vocal tónica, o <strong>Rima asonante</strong> para comparar las vocales desde ese punto.</li><li>Pulsa <strong>Buscar rimas</strong>. Escoge por significado y comprueba el sonido al leer tu verso.</li></ol><p><strong>Casa / masa</strong> es una rima consonante. <strong>Casa / cama</strong> comparte las vocales <em>a–a</em>: es asonante, pero no consonante. <strong>Camino / caminó</strong> cambia la sílaba tónica; no es la misma rima.</p><h2>¿Puedo usar el diccionario gratis y sin registrarme?</h2><p>Sí. La búsqueda funciona en el navegador y no necesita una cuenta ni instalar Cadence. La primera búsqueda descarga el diccionario. Si una palabra no aparece, comprueba la tilde y la escritura; no se inventan resultados.</p><p>Para guardar el verso junto a una instrumental y grabar tu interpretación, consulta <a href="/cadence/es/">Cadence para escribir canciones en español</a>. Para saber cómo se añaden los idiomas a la app, consulta la <a href="/cadence/guide/#languages" lang="en">guía de idiomas en inglés</a>.</p>`,
   },
   fr: {
