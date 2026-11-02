@@ -1,5 +1,7 @@
 # Changelog
 
+- Spanish rhyme dictionary: compare consonant and assonant examples and search directly from each assonant example.
+
 ## SEO reading experience
 
 - Read language and songwriting guides on a clear silver surface, jump directly to a section and follow numbered exercises.
