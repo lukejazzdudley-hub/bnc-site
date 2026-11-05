@@ -1,5 +1,8 @@
 # Changelog
 
+- See the upcoming cloud and multiple-device pricing direction clearly separated from the current app offer.
+- Published page updates can now be submitted to participating search engines through IndexNow.
+
 - Narrow French and Spanish rhymes by starting letters, switch to alphabetical order and reset filters without losing your search word.
 - Follow a short native-language rhyme-to-recording exercise with links to the existing English video demonstrations.
 
