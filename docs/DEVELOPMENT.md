@@ -195,3 +195,20 @@ words first; example buttons reset filters to avoid misleading empty examples.
 Prefixes preserve accents and are not fuzzy phonetic matching. No grammatical
 or syllable metadata is inferred. Run filter/pagination tests and check both
 languages for empty matches, reset, alphabetical pages and accented prefixes.
+
+
+### Search update notifications
+
+After Pages finishes, run `python3 scripts/notify_indexnow.py URL [URL ...]` to
+review the canonical sitemap allowlist, then repeat with `--submit` to notify
+participating IndexNow engines. It verifies the live public ownership token and
+200/no-redirect URL responses before sending. The token in indexnow.json and its
+root text file is public verification material, not a secret or account key.
+Do not send private preview URLs, queries, analytics or every unchanged page.
+A 200 means received, 202 means pending validation; neither proves indexing.
+Google discovery continues through the existing sitemap and internal links.
+
+The planned cloud/multiple-device pricing model was confirmed as UPCOMING on
+5 November 2026. Keep present three-note/Pro limits until release verification;
+do not publish future free creation as today's offer. Product FAQ data is in
+content/regions.mjs; visible FAQ and schema must agree.

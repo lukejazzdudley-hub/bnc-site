@@ -87,10 +87,11 @@ export const productFaqs = [
   { question: 'Is Cadence free to try?', answer: 'Start with three free notes. Cadence Pro unlocks unlimited new work and the complete Draft-to-DAW workflow, including vocal FX and exports. Your store shows the available plans, local currency and current price before purchase.' },
   { question: 'Does signing in back up all my recordings?', answer: 'No. Account sync is not a recording backup. Audio stays on your device unless you share it; keep exports of important recordings and finished work.' },
   { question: 'Does the free web rhyme finder support every language and accent?', answer: 'No. The free browser finder currently uses American English pronunciations and a limited original phrase bank. Check results aloud in your own accent. The website tool and the Cadence app use different rhyme engines.' },
+  { question: 'Will Cadence charge only for cloud storage and use across multiple devices?', answer: 'That is the planned pricing model, not the current release. We plan to make on-device creation free, with payment for cloud storage and use across multiple devices. A release date and prices have not been announced. Until it launches, the current three-note free start and Pro feature limits still apply. Check your installed version and store offer before purchasing.' },
 ];
 
 export const searchFaqs = {
-  'songwriting-app': [productFaqs[1], productFaqs[3]],
+  'songwriting-app': [productFaqs[1], productFaqs[3], productFaqs[6]],
   'rap-writing-app': [
     { question: 'Can I record a verse while writing to a beat?', answer: 'Yes. Bring a beat into Cadence, loop the section you are writing and record vocal takes beside your lyric. Use those takes to check timing, breath and delivery before arranging a demo.' },
     { question: 'Do syllable counts decide whether a rap line flows?', answer: 'No. Counts are a reference. Stress, pauses and delivery change how a line lands, so record the line over the beat and judge the performance.' },
