@@ -212,3 +212,14 @@ The planned cloud/multiple-device pricing model was confirmed as UPCOMING on
 5 November 2026. Keep present three-note/Pro limits until release verification;
 do not publish future free creation as today's offer. Product FAQ data is in
 content/regions.mjs; visible FAQ and schema must agree.
+
+
+### Query-led refinements, 6 November 2026
+
+Existing query intent maps to existing URLs: songwriting and draft organisation
+use /cadence/songwriting-app/; comparison intent uses the buyer guide; French
+and Spanish dictionary intent uses the matching tools. The main page's
+#for-ai-agents is a human-readable fact/reference section, not an MCP endpoint
+or a ranking guarantee. It preserves current versus upcoming pricing limits.
+International store icons are decorative inline SVG with visible translated
+labels; test all pack routes and Arabic/Hebrew responsive layouts.

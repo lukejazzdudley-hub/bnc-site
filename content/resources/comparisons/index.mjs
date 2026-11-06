@@ -5,8 +5,8 @@ const checked = '2026-09-17';
 export const articles = [
   {
     slug: 'choosing-a-songwriting-app',
-    title: 'Best songwriting apps: 11 tools compared',
-    description: 'Compare 11 songwriting apps, including Cadence, BandLab, GarageBand and Song Cage. Clear strengths, buying caveats and picks for lyrics, chords and production.',
+    title: 'Best songwriting apps: compare lyrics, beats & recording',
+    description: 'Compare 11 songwriting apps by lyrics, beats, recording and export. Find Android and iPhone options, free-plan limits and the workflow that fits your songs.',
     heading: '11 songwriting apps: choose by how you write',
     intro: 'The best songwriting app is not the one with the longest feature list. It is the one that keeps your idea intact from the moment it arrives to the point where you need another tool.',
     category: 'Choose your tools',

@@ -1,0 +1,4 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';import {languagePacks} from '../content/language-packs.mjs';
+const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
+test('every translated storefront has decorative store marks and readable labels',()=>{for(const p of languagePacks){const html=read(`cadence/${p.route}/index.html`);assert.ok((html.match(/class="locale-store-icon"/g)||[]).length>=2,p.route);assert.match(html,/aria-hidden="true" focusable="false"/);}});
+test('query-led content and AI reference stay visible with honest release limits',()=>{const html=read('cadence/index.html');assert.match(html,/id="for-ai-agents"/);assert.match(html,/planned and has no announced release date/);assert.match(read('cadence/songwriting-app/index.html'),/id="song-draft-organizer"/);assert.match(read('cadence/fr/dictionnaire-rimes/index.html'),/trouver des rimes facilement/);});

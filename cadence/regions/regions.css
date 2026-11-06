@@ -48,3 +48,5 @@ html:lang(ja) .hero h1, html:lang(ko) .hero h1 { word-break: normal; line-height
   .cadence-hero-copy .cadence-language-picker { grid-row: 6; margin-top: 0; }
   .cadence-stage-grid .cadence-hero-object { grid-row: 7; }
 }
+
+.actions .button:has(.locale-store-icon){display:inline-flex;align-items:center;gap:10px;text-align:start;min-height:48px}.locale-store-icon{width:24px;height:24px;flex:0 0 24px;fill:currentColor}.actions .button span{min-width:0;overflow-wrap:anywhere}

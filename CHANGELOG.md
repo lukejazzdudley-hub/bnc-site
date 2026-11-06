@@ -1,5 +1,8 @@
 # Changelog
 
+- Recognise App Store and Google Play download buttons across every translated storefront and regional guide.
+- Find a practical song-draft organisation workflow, clearer rhyme-tool descriptions and a linked product-facts reference for AI agents and researchers.
+
 - See the upcoming cloud and multiple-device pricing direction clearly separated from the current app offer.
 - Published page updates can now be submitted to participating search engines through IndexNow.
 
