@@ -1,5 +1,7 @@
 # Changelog
 
+- Use the French rhyme dictionary with a worked word-to-verse exercise and guidance for choosing sound matches in context.
+
 - Recognise App Store and Google Play download buttons across every translated storefront and regional guide.
 - Find a practical song-draft organisation workflow, clearer rhyme-tool descriptions and a linked product-facts reference for AI agents and researchers.
 
