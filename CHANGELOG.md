@@ -1,5 +1,7 @@
 # Changelog
 
+- Search engines can identify six substantially updated pages through verified publication dates in the sitemap.
+
 - Shortlist songwriting apps by device, workflow and free access, compare SongRight and Rhymer’s Block alongside the original eleven tools, and watch Cadence’s captioned arrangement/export evidence directly in the guide.
 
 - Compare free songwriting apps, limited free plans and desktop trials before choosing a tool for Android, iPhone or computer. Check Cadence’s current three-note and Pro limits beside the alternatives.

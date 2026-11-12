@@ -199,6 +199,14 @@ languages for empty matches, reset, alphabetical pages and accented prefixes.
 
 ### Search update notifications
 
+The final growth generator applies `content/published-page-updates.json` through
+`scripts/sitemap-updates.mjs`. Record a date only after a significant content
+change is confirmed live, linking its release. Rebuilds and minor navigation,
+footer or styling changes do not reset dates. Omit unknown dates. Run the full
+four-generator pipeline so the initial sitemap seed cannot erase the final
+metadata; later append-only generators preserve it. Test date validation,
+idempotence and preservation of existing video metadata.
+
 After Pages finishes, run `python3 scripts/notify_indexnow.py URL [URL ...]` to
 review the canonical sitemap allowlist, then repeat with `--submit` to notify
 participating IndexNow engines. It verifies the live public ownership token and
