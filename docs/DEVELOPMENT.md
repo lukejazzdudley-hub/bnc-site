@@ -243,3 +243,8 @@ content/resources/workflow-routes.mjs owns task-led links near the resource-hub
 introduction. Link to existing evidenced workflows and stable anchors; avoid
 duplicate acquisition pages. Buyer-guide direct comparison access is conditional
 on its existing slug. Verify destinations, no-JS access and responsive reading.
+
+
+### Free songwriting comparisons
+
+The buyer guide’s early free/paid comparison is authored in content/resources/comparisons/free-options.mjs. Verify offers against live vendor sources before changing check dates; free downloads, limited plans and timed trials are different offers. Keep the current three-note/Pro model separate from upcoming pricing. The existing buyer URL owns broad comparison intent; do not add a competing thin free-app route. Regenerate all four layers, run tests/free_songwriting.test.mjs and the full suites, and verify no-JS anchors and keyboard-scrollable tables.

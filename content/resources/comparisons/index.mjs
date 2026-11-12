@@ -1,16 +1,18 @@
 import {workflowEvidence,workflowTrial} from '../workflow-evidence.mjs';
 import {buyingSections, buyingSources} from './buyers.mjs';
+import {freeOptions, freeSources} from './free-options.mjs';
 const checked = '2026-09-17';
 
 export const articles = [
   {
     slug: 'choosing-a-songwriting-app',
-    title: 'Best songwriting apps: compare lyrics, beats & recording',
-    description: 'Compare 11 songwriting apps by lyrics, beats, recording and export. Find Android and iPhone options, free-plan limits and the workflow that fits your songs.',
+    title: 'Best songwriting apps: free & paid options compared',
+    description: 'Compare 11 songwriting apps for Android, iPhone and desktop. See free apps, plan limits, lyrics, beats, recording and export before choosing your workspace.',
     heading: '11 songwriting apps: choose by how you write',
-    intro: 'Compare 11 songwriting apps for lyrics, writing to beats, recording and production. Jump to the comparison, follow a workflow demonstration or test your shortlist with one song idea.',
+    intro: 'Find a songwriting app for the way you work: lyrics, beats, recording or composition. Compare 11 options, check what is actually free and test your shortlist with one song idea.',
     category: 'Choose your tools',
     sections: [
+      freeOptions,
       buyingSections[0],
       {
         id: 'choose-by-your-next-task',
@@ -77,6 +79,7 @@ export const articles = [
       },
     ],
     sources: [
+      ...freeSources,
       ...buyingSources,
       { title: 'Cadence songwriting app', url: 'https://brandnamechanges.com/cadence/songwriting-app/', checked },
       { title: 'Getting started with BandLab Studio', url: 'https://help.bandlab.com/hc/en-us/articles/115002945153-Getting-Started-with-the-BandLab-Studio', checked },

@@ -1,6 +1,6 @@
 // Existing evidence-led destinations; no additional thin acquisition routes.
 export const workflowRoutes = [
- {title:'Compare songwriting apps',description:'Choose by lyrics, beat writing, recording and export.',href:'/cadence/resources/choosing-a-songwriting-app/'},
+ {title:'Compare songwriting apps',description:'Compare free and paid options for lyrics, beat writing, recording and export.',href:'/cadence/resources/choosing-a-songwriting-app/'},
  {title:'Write lyrics over a beat',description:'Import an instrumental, loop a passage and test your delivery.',href:'/cadence/type-beat-songwriting-app/'},
  {title:'Organise unfinished song drafts',description:'Keep lyrics, beats and voice memos with the same song.',href:'/cadence/songwriting-app/#song-draft-organizer'},
  {title:'Find English rhymes',description:'Use the free browser rhyme finder and compare rhyme types.',href:'/cadence/rhyme-finder/'},
