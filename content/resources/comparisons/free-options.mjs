@@ -19,7 +19,7 @@ export const freeOptions = {
 <p>Use our free browser rhyme dictionaries in <a href="/cadence/rhyme-finder/">English</a>, <a href="/cadence/es/diccionario-rimas/" lang="es">Spanish</a> or <a href="/cadence/fr/dictionnaire-rimes/" lang="fr">French</a>. No account is needed. They help you find sound matches; you write the lyrics. These are separate browser tools, not the complete Cadence app or its full rhyme engine.</p>
 <h3>Is Cadence completely free?</h3>
 <p>No. The current app starts with three free notes; Pro unlocks unlimited new work and the complete Draft-to-DAW workflow. Paying only for cloud storage and use across multiple devices is an <strong>upcoming</strong> pricing direction, not today’s offer. No release date is promised here.</p>
-<p>Before paying for any app, make one disposable song fragment and test the export you actually need. A free download alone does not tell you whether you can finish or hand off a song. <a href="#run-a-one-song-trial">Use the five-step one-song trial</a>, or <a href="#compare-apps">compare all 11 apps by workflow</a>.</p>`,
+<p>Before paying for any app, make one disposable song fragment and test the export you actually need. A free download alone does not tell you whether you can finish or hand off a song. <a href="#run-a-one-song-trial">Use the five-step one-song trial</a>, or <a href="#compare-apps">compare all 13 apps by workflow</a>.</p>`,
 };
 
 export const freeSources = [

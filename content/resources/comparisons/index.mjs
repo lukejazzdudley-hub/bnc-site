@@ -1,15 +1,16 @@
 import {workflowEvidence,workflowTrial} from '../workflow-evidence.mjs';
 import {buyingSections, buyingSources} from './buyers.mjs';
 import {freeOptions, freeSources} from './free-options.mjs';
+import {lyricAlternatives} from './shortlist.mjs';
 const checked = '2026-09-17';
 
 export const articles = [
   {
     slug: 'choosing-a-songwriting-app',
     title: 'Best songwriting apps: free & paid options compared',
-    description: 'Compare 11 songwriting apps for Android, iPhone and desktop. See free apps, plan limits, lyrics, beats, recording and export before choosing your workspace.',
-    heading: '11 songwriting apps: choose by how you write',
-    intro: 'Find a songwriting app for the way you work: lyrics, beats, recording or composition. Compare 11 options, check what is actually free and test your shortlist with one song idea.',
+    description: 'Compare 13 songwriting apps for Android, iPhone and desktop. See free apps, plan limits, lyrics, beats, recording and export before choosing your workspace.',
+    heading: '13 songwriting apps: choose by how you write',
+    intro: 'Find a songwriting app for the way you work: lyrics, beats, recording or composition. Compare 13 options, check what is actually free and test your shortlist with one song idea.',
     category: 'Choose your tools',
     sections: [
       freeOptions,
@@ -17,11 +18,11 @@ export const articles = [
       {
         id: 'choose-by-your-next-task',
         heading: 'Which songwriting app fits your next task?',
-        html: `<p>For lyrics and vocals over an imported beat, start with <a href="/cadence/type-beat-songwriting-app/">Cadence’s type-beat workflow</a>. For a cloud studio, compare BandLab. For instruments and production on Apple devices, compare GarageBand. The shortlist below covers 11 tools and explains where each fits.</p>
+        html: `<p>For lyrics and vocals over an imported beat, start with <a href="/cadence/type-beat-songwriting-app/">Cadence’s type-beat workflow</a>. For a cloud studio, compare BandLab. For instruments and production on Apple devices, compare GarageBand. The shortlist below covers 13 tools and explains where each fits.</p>
 <p><strong>Writing on Android?</strong> Follow the <a href="/cadence/songwriting-app-android/">Android songwriting guide</a> for lyrics, beat loops, recording and offline setup. Check each alternative’s current platform listing before choosing; a desktop feature is not automatically a phone feature.</p>
 <p><strong>Collecting sounds for a production session?</strong> Explore <a href="/cadence/production-notes-sample-library/">Production notes and your personal sample library</a>. For listening to unreleased tracks with the screen locked, see <a href="/cadence/offline-music-player/">Cadence Listen</a>. For developing recorded ideas into a demo, follow the <a href="/cadence/mobile-daw-songwriting/">mobile DAW workflow</a>.</p>
 <p><strong>Need a free rhyme lookup first?</strong> Try the browser dictionaries in <a href="/cadence/rhyme-finder/">English</a>, <a href="/cadence/es/diccionario-rimas/" lang="es">español</a> or <a href="/cadence/fr/dictionnaire-rimes/" lang="fr">français</a>. They need no account. Cadence the app starts with three free notes; Pro unlocks unlimited new work and the complete Draft-to-DAW workflow.</p>
-<p>We make Cadence. This is a documented workflow comparison, not an independent ranking or a hands-on benchmark. <a href="#compare-apps">Jump to the 11-app comparison</a> or <a href="/cadence/springtime-showers/">watch the real arrangement and stem-export walkthrough</a>.</p>`,
+<p>We make Cadence. This is a documented workflow comparison, not an independent ranking or a hands-on benchmark. <a href="#compare-apps">Jump to the 13-app comparison</a> or <a href="/cadence/springtime-showers/">watch the real arrangement and stem-export walkthrough</a>.</p>`,
       },
       {
         id: 'best-songwriting-app-android',
@@ -32,6 +33,7 @@ export const articles = [
 <h3>Choose by the handoff you need</h3><p>For lyrics and vocal delivery over a beat, follow the <a href="/cadence/type-beat-songwriting-app/">type-beat songwriting workflow</a>. For a demo that a producer can continue, check <a href="/cadence/mobile-daw-songwriting/">mixdown versus aligned-stem export</a>. If you primarily build instrumentals, compare the dedicated production workflows in the table below. The words “songwriting app” cover all three jobs, but they are different purchases.</p>
 <p><a href="#run-a-one-song-trial">Use the same song fragment to test each candidate</a>. Verify that the exported file opens where you need it, rather than deciding from a feature count.</p>`,
       },
+      lyricAlternatives,
       ...buyingSections.slice(1),
       workflowEvidence,
       workflowTrial,

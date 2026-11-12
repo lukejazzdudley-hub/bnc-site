@@ -11,6 +11,8 @@ export const buyingTools = [
   ['Chordify', 'https://chordify.net/', 'Learning harmony from existing songs', 'Play along with chord charts to study a song’s harmonic movement.', 'Treat it as a harmony companion. Check any paid features you need rather than assuming it replaces a recording workspace.'],
   ['Notetracks', 'https://www.notetracks.com/', 'Feedback on recorded drafts', 'Timestamped audio/video comments, replies and collaboration; editing tools are also advertised in beta.', 'A strong shortlist for review and revision. Test beta editing before relying on it for a critical session.'],
   ['Autochords', 'https://autochords.com/', 'A starting chord progression', 'Explore progression ideas by feel and key when the blank page is really a blank harmonic canvas.', 'A focused starting tool, not the place to expect an entire lyric, vocal and production project.'],
+  ['SongRight', 'https://songrightapp.com/', 'Lyrics, rhyme tools and song sections', 'An iPhone/iPad app and web workspace with notes, sections and key/BPM details.', 'Plus advertises a three-day trial for eligible accounts, then subscription renewal. Check current platform and plan terms.'],
+  ['Rhymer’s Block', 'https://apps.apple.com/us/app/rhymers-block/id796584182', 'Rhyme assistance while writing', 'The iPhone/iPad listing describes near rhymes, colour highlighting and offline writing.', 'Free download with in-app purchases. Pro adds features such as ad removal and folders; test your own vocabulary.'],
 ];
 
 export const buyingSections = [
@@ -29,9 +31,9 @@ export const buyingSections = [
   },
   {
     id: 'compare-apps',
-    heading: '11 songwriting apps, compared by the job they do',
+    heading: '13 songwriting apps, compared by the job they do',
     html: `<p>Start with the second column. If it describes the part of writing you struggle with, read the capability and buying caveat together. Each product name links to its own documentation; missing features are not inferred from silence.</p>
-<div class="table-scroll" tabindex="0" role="region" aria-label="Compare 11 songwriting apps"><table><caption>Our shortlist for moving an idea towards a finished song</caption><thead><tr><th scope="col">App</th><th scope="col">Best fit</th><th scope="col">What you get</th><th scope="col">Before you commit</th></tr></thead><tbody>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Compare 13 songwriting apps"><table><caption>Our shortlist for moving an idea towards a finished song</caption><thead><tr><th scope="col">App</th><th scope="col">Best fit</th><th scope="col">What you get</th><th scope="col">Before you commit</th></tr></thead><tbody>
 ${buyingTools.map(([name, url, fit, strength, caveat], index) => `<tr${index === 0 ? ' class="buying-recommended"' : ''}><th scope="row"><span class="tool-monogram" aria-hidden="true">${name === 'Songwriter’s Pad' ? 'SP' : name.split(' ').map(word => word[0]).join('').slice(0, 2)}</span><a href="${url}">${name}</a>${index === 0 ? '<span class="buying-label">Our artist-workflow pick</span>' : ''}</th><td><span class="fit-label">${fit}</span></td><td>${strength}</td><td>${caveat}</td></tr>`).join('\n')}
 </tbody></table></div>`,
   },
@@ -45,5 +47,6 @@ ${buyingTools.map(([name, url, fit, strength, caveat], index) => `<tr${index ===
   },
 ];
 
-export const buyingSources = buyingTools.slice(1).filter(([, url]) => !url.includes('bandlab.com') && !url.includes('apple.com') && !url.includes('songcage.com')).map(([title, url]) => ({title, url, checked: '2026-09-17'}));
+export const buyingSources = buyingTools.slice(1).filter(([, url]) => !url.includes('bandlab.com') && !url.includes('apple.com') && !url.includes('songcage.com')).map(([title, url]) => ({title, url, checked: title === 'SongRight' ? '2026-11-12' : '2026-09-17'}));
+buyingSources.push({title: 'Rhymer’s Block iPhone/iPad listing', url: 'https://apps.apple.com/us/app/rhymers-block/id796584182', checked: '2026-11-12'}, {title: 'Rhymer’s Block Pro inclusions', url: 'https://rhymersblock.net/proDetails', checked: '2026-11-12'});
 buyingSources.push({title: 'Demo export options', url: 'https://madewithdemo.com/tutorials/save-or-export-your-song/', checked: '2026-09-17'});

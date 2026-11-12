@@ -247,4 +247,15 @@ on its existing slug. Verify destinations, no-JS access and responsive reading.
 
 ### Free songwriting comparisons
 
+The optional buyer shortlist uses `content/resources/comparisons/shortlist.mjs`
+and `cadence/resources/app-shortlist*`. Keep offer/device constraints explicit;
+do not imply desktop trials apply to mobile. Run both shortlist test files and
+`BNC_PLAYWRIGHT_PATH=/path/to/playwright node scripts/verify_app_shortlist.cjs`
+against serve.py (or BNC_PREVIEW_URL). It checks no-JS disclosure access, native
+reset ordering, empty results, device/trial combinations, keyboard operation,
+seven widths and no unsolicited media/analytics requests. Screenshots default
+to the system temporary directory; set BNC_SHORTLIST_OUTPUT for private artifacts. The original captioned export clip uses
+preload=none and its existing provenance; do not relabel it as a new build or
+cross-app benchmark. Guide source dates remain attached to individual checks.
+
 The buyer guide’s early free/paid comparison is authored in content/resources/comparisons/free-options.mjs. Verify offers against live vendor sources before changing check dates; free downloads, limited plans and timed trials are different offers. Keep the current three-note/Pro model separate from upcoming pricing. The existing buyer URL owns broad comparison intent; do not add a competing thin free-app route. Regenerate all four layers, run tests/free_songwriting.test.mjs and the full suites, and verify no-JS anchors and keyboard-scrollable tables.
