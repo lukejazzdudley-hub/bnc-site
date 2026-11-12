@@ -1,5 +1,7 @@
 # Changelog
 
+- Compare free songwriting apps, limited free plans and desktop trials before choosing a tool for Android, iPhone or computer. Check Cadence’s current three-note and Pro limits beside the alternatives.
+
 - Choose a songwriting task from Resources and jump directly to the matching tool, guide or demonstration.
 - Reach the 11-app comparison directly from the buyer-guide introduction.
 

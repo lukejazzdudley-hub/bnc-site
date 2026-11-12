@@ -446,7 +446,7 @@ export function renderArticle(article, allArticles = []) {
         <p class="resource-breadcrumb"><a href="/cadence/">Cadence</a><span aria-hidden="true">/</span><a href="/cadence/resources/">Resources</a><span aria-hidden="true">/</span>${escapeHtml(article.category)}</p>
         <h1>${escapeHtml(article.title)}</h1>
         <p>${escapeHtml(article.intro)}</p>
-        <div class="resource-actions"><a href="#${article.sections[0].id}">Read the guide</a>${article.slug === 'writing-rap-lyrics-over-a-beat' ? '<a href="#beat-to-demo-worksheet">Use the free worksheet</a>' : ''}${article.slug==='choosing-a-songwriting-app'?'<a href="#compare-apps">Compare the 11 apps</a>':''}<span>${readingMinutes(article)} min read</span></div>
+        <div class="resource-actions"><a href="#${article.sections[0].id}">Read the guide</a>${article.slug === 'writing-rap-lyrics-over-a-beat' ? '<a href="#beat-to-demo-worksheet">Use the free worksheet</a>' : ''}${article.slug==='choosing-a-songwriting-app'?'<a href="#compare-apps">Compare the 11 apps</a><a href="#free-songwriting-apps">Free apps &amp; plan limits</a>':''}<span>${readingMinutes(article)} min read</span></div>
       </div>
       <figure>
         <img src="${image.src}" alt="${escapeHtml(image.alt)}" width="900" height="1650">
