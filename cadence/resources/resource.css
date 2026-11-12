@@ -1042,3 +1042,5 @@ body.resource-page {
     border: 2px solid ButtonText;
   }
 }
+
+.workflow-routing .resource-existing__intro p:not(:first-child){font-size:16px;line-height:1.65;letter-spacing:0;font-weight:400;text-transform:none;color:var(--resource-silver);margin-top:18px}

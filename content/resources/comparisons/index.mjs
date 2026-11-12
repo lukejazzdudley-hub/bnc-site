@@ -8,7 +8,7 @@ export const articles = [
     title: 'Best songwriting apps: compare lyrics, beats & recording',
     description: 'Compare 11 songwriting apps by lyrics, beats, recording and export. Find Android and iPhone options, free-plan limits and the workflow that fits your songs.',
     heading: '11 songwriting apps: choose by how you write',
-    intro: 'The best songwriting app is not the one with the longest feature list. It is the one that keeps your idea intact from the moment it arrives to the point where you need another tool.',
+    intro: 'Compare 11 songwriting apps for lyrics, writing to beats, recording and production. Jump to the comparison, follow a workflow demonstration or test your shortlist with one song idea.',
     category: 'Choose your tools',
     sections: [
       buyingSections[0],

@@ -1,5 +1,8 @@
 # Changelog
 
+- Choose a songwriting task from Resources and jump directly to the matching tool, guide or demonstration.
+- Reach the 11-app comparison directly from the buyer-guide introduction.
+
 - Jump from Spanish rhyme results to clear Android/iPhone downloads and return with your search intact. See current app-plan limits before leaving for a store.
 
 - Use the French rhyme dictionary with a worked word-to-verse exercise and guidance for choosing sound matches in context.
