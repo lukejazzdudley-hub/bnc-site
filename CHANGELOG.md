@@ -1,5 +1,7 @@
 # Changelog
 
+- Jump from Spanish rhyme results to clear Android/iPhone downloads and return with your search intact. See current app-plan limits before leaving for a store.
+
 - Use the French rhyme dictionary with a worked word-to-verse exercise and guidance for choosing sound matches in context.
 
 - Recognise App Store and Google Play download buttons across every translated storefront and regional guide.

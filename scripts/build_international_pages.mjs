@@ -1,3 +1,4 @@
+import {storeIcon} from './store-icons.mjs';
 import { readerLayout } from './reader-layout.mjs';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
@@ -31,7 +32,7 @@ const faqSchema = faqs => ({
 const faqHtml = faqs => faqs.map(faq => `<details><summary>${escape(faq.question)}</summary><p>${escape(faq.answer)}</p></details>`).join('\n');
 const localApple = region => `https://apps.apple.com/${region.code}/app/cadence-lyrics-rhymes/id6778554520`;
 const localGoogle = region => `https://play.google.com/store/apps/details?id=io.cadenceapp.mobile&hl=en&gl=${region.code.toUpperCase()}`;
-const storeIcon = kind => `<svg class="locale-store-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="${kind==='apple'?'M17.1 12.3c0-2 1.6-3 1.7-3.1-1-1.5-2.6-1.7-3.2-1.7-1.4-.2-2.7.8-3.4.8-.7 0-1.8-.8-3-.8-1.6 0-3.1.9-3.9 2.3-1.7 2.9-.4 7.2 1.2 9.5.8 1.1 1.7 2.3 2.9 2.2 1.2 0 1.6-.7 3.1-.7s1.9.7 3.2.7 2.1-1.1 2.9-2.2c.9-1.3 1.3-2.6 1.3-2.7-.1 0-2.8-1.1-2.8-4.3ZM14.8 6c.6-.8 1.1-1.9 1-3-.9 0-2.1.6-2.8 1.4-.6.7-1.2 1.9-1 3 1 .1 2.1-.5 2.8-1.4Z':'m3.3 2.5 10.8 9.2-10.8 9.8a2 2 0 0 1-.3-1V3.6a2 2 0 0 1 .3-1.1Zm12.1 10.3 2.8 2.4-11.6 6.4 8.8-8.8Zm4.1-3.2c1.7.9 1.7 2.3.1 3.2l-2.2 1.2-2.9-2.5 2.8-2.7 2.2.8ZM6.4 2.2l11.7 6.4-2.9 2.6-8.8-9Z'}"/></svg>`;
+
 const storeLinks = region => `<div class="actions"><a class="button primary" href="${localApple(region)}">${storeIcon('apple')}<span>${escape(region.shortName)} App Store</span></a><a class="button" href="${escape(localGoogle(region))}">${storeIcon('google')}<span>Google Play · ${escape(region.shortName)}</span></a></div>`;
 const regionLinks = current => `<nav class="region-links" aria-label="Choose a country or region"><a href="/cadence/">Global English</a>${regions.map(region => `<a href="${regionPath(region)}" lang="${region.language}"${region.code === current ? ' aria-current="page"' : ''}>${escape(region.name)}</a>`).join('')}</nav>`;
 const nativeLanguageLinks = `<a href="/cadence/" lang="en">English</a>${languagePacks.map(pack => `<a href="/cadence/${pack.route}/" lang="${pack.locale}" dir="${pack.direction}">${escape(pack.name)}</a>`).join('')}`;
