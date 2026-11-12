@@ -2,6 +2,14 @@
 
 ## Resource publishing
 
+The buyer guide adds a static seven-option shortlist from
+`content/resources/comparisons/shortlist.mjs`. Its optional browser module filters
+existing HTML by device, workflow focus and access type. Device-specific offer
+constraints prevent a desktop trial being presented as a phone offer. Selection
+stays in memory; it is not sent, saved or placed in the URL. All seven entries
+remain available through a native disclosure without JavaScript. This is a
+documented-workflow filter, not a comparative scoring system.
+
 The resource hub is static HTML generated from authored ESM records in
 `content/resources/`. Guides and comparisons are separate editorial collections;
 `scripts/build_resource_hub.mjs` owns rendering and sitemap extension. Existing

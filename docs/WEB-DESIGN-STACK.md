@@ -15,3 +15,16 @@ Motion supports a direct JavaScript integration. Kokonut UI documents React, Tai
 Do not add unrelated animated decoration or fabricated chart data. Keep primary actions readable, focus visible, touch targets usable and reduced-motion/data-saving fallbacks complete. Record the selected component, dependency revision, bundle impact and browser/performance evidence with its actual implementation.
 
 This establishes a design preference. It does not claim the current pages have been rebuilt with these libraries or make new performance claims.
+
+## Buyer shortlist, 12 November 2026
+
+The current Motion, Kokonut input/navigation catalogue and Bklit documentation
+were reviewed for the device/workflow comparison. Native select and details
+controls preserve complete static HTML, keyboard support and the no-JS fallback
+without adding React/shadcn for three filters. This implementation is native;
+it is not an installed Kokonut component or a source port. No chart or numerical
+score is appropriate to this vendor-documentation shortlist. It adds only two
+small browser modules and scoped CSS to the buyer page, with no animation or
+framework dependency. The silver decision surface uses the existing reader
+palette inside the accepted Onyx identity. Verify actual bundle bytes and
+network behaviour with the release record.

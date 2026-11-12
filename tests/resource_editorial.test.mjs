@@ -5,9 +5,9 @@ import {articles as comparisons} from '../content/resources/comparisons/index.mj
 import {readFileSync} from 'node:fs';
 import {buyingTools} from '../content/resources/comparisons/buyers.mjs';
 
-test('buying guide compares eleven named tools with source links and a disclosed editorial recommendation', () => {
-  assert.equal(buyingTools.length, 11);
-  assert.equal(new Set(buyingTools.map(t => t[0])).size, 11);
+test('buying guide compares thirteen named tools with source links and a disclosed editorial recommendation', () => {
+  assert.equal(buyingTools.length, 13);
+  assert.equal(new Set(buyingTools.map(t => t[0])).size, 13);
   const guide = comparisons[0];
   const html = guide.sections.map(s => s.html).join(' ');
   for (const [name, url, fit, strength, caveat] of buyingTools) {
@@ -16,7 +16,7 @@ test('buying guide compares eleven named tools with source links and a disclosed
   }
   assert.match(html, /We make Cadence/);
   assert.match(html, /not a hands-on benchmark/);
-  assert.match(html, /aria-label="Compare 11 songwriting apps"/);
+  assert.match(html, /aria-label="Compare 13 songwriting apps"/);
   assert.equal(guide.sections.find(section => section.id === 'quick-picks').heading, 'Start with a beat, a bar or a freestyle.');
   assert.match(html, /Our artist-workflow pick/);
   assert.match(html, /Import beats/);
