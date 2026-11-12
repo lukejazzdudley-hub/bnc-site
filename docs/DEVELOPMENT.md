@@ -223,3 +223,15 @@ and Spanish dictionary intent uses the matching tools. The main page's
 or a ranking guarantee. It preserves current versus upcoming pricing limits.
 International store icons are decorative inline SVG with visible translated
 labels; test all pack routes and Arabic/Hebrew responsive layouts.
+
+
+### Spanish dictionary download journey
+
+The growth generator owns the Spanish #cadence-app panel and the compact jump
+before long rhyme results. Keep both store options visible on every device;
+no user-agent redirect, forced install or blocking overlay. Links retain destinations
+recognised by existing consent-based measurement; lookups remain uncollected.
+The browser dictionary is free; retain current versus upcoming app-plan limits.
+Shared decorative store SVGs live in scripts/store-icons.mjs. Test real lookup,
+jump/return preserving results, no-JS downloads, mobile targets and seven widths.
+Compare search CTR separately from opt-in store visits; neither establishes installs.
