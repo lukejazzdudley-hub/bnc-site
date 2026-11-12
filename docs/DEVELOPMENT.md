@@ -235,3 +235,11 @@ The browser dictionary is free; retain current versus upcoming app-plan limits.
 Shared decorative store SVGs live in scripts/store-icons.mjs. Test real lookup,
 jump/return preserving results, no-JS downloads, mobile targets and seven widths.
 Compare search CTR separately from opt-in store visits; neither establishes installs.
+
+
+### Workflow discovery paths
+
+content/resources/workflow-routes.mjs owns task-led links near the resource-hub
+introduction. Link to existing evidenced workflows and stable anchors; avoid
+duplicate acquisition pages. Buyer-guide direct comparison access is conditional
+on its existing slug. Verify destinations, no-JS access and responsive reading.
