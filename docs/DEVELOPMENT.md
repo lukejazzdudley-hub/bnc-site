@@ -292,3 +292,33 @@ must retain the original capture's limits. Do not imply that its saved take is
 the separate Springtime Showers arrangement/export. The growth builder copies
 this HTML and maintains its VideoObject/sitemap metadata. Run the video metadata
 tests and crawl audit after editing. A crawl request is not index inclusion.
+
+
+### Homepage loading and asset versions
+
+After changing styles.css, tactile.css, work-with-us/studio.css,
+work-with-us/experience.css, site.js, work-with-us/experience.mjs or the homepage
+showcase imagery, run `node scripts/build_home_performance.mjs`. The studio
+generator calls this automatically after updating homepage content. The builder
+inlines the full four-file CSS cascade (including no-JS/media/focus states),
+preloads only the three initially used fonts and writes content-hashed copies of
+the homepage's two script entries and two responsive image files. Original files
+remain shared with other pages. The experience module uses an absolute deferred
+effect import so the copied entry keeps its correct lazy dependency.
+
+Do not mutate or immediately remove a previously published assets/immutable file:
+cached HTML can still refer to it. Fonts are already SHA256-named and the builder
+checks their names against their actual bytes. content/home-assets.json records
+current hashes; it is not a claim that long cache headers are active.
+
+Run `node --test tests/home_performance.test.mjs`, the full suites and
+`BNC_PLAYWRIGHT_PATH=/path/to/playwright node scripts/verify_home_performance.cjs`.
+Optional BNC_HOME_REFERENCE compares layout and typography with the live baseline
+before release; BNC_PERF_OUTPUT keeps browser evidence outside the public repo.
+Use gzip-enabled previews for performance comparisons; serve.py intentionally
+uses no-store/uncompressed development responses. Repeat Lighthouse with the same
+version/settings against the published URL. Preserve interaction and no-JS
+acceptance rather than hiding content to change a score.
+
+Cache deployment requirements are in docs/services/STATIC-ASSET-CACHE.md.
+GitHub Pages currently sends max-age=600; HTML meta tags cannot override that.

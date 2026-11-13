@@ -1,5 +1,7 @@
 # Changelog
 
+- Load the homepage without four render-blocking stylesheet requests, discover its three visible fonts directly, and use content-versioned script and image URLs.
+
 - Follow the type-beat demonstration with caption-matched transcript timestamps and a four-line writing exercise linked to the feature guide.
 
 - Explore four English rhyme searches without JavaScript, compare their sound patterns, and switch from phrase examples back to normal word searches reliably.
