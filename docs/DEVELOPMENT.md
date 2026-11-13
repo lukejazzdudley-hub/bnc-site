@@ -284,3 +284,11 @@ Run `BNC_PLAYWRIGHT_PATH=/path/to/playwright node scripts/verify_english_rhyme.c
 against serve.py; optionally set BNC_PREVIEW_URL and BNC_RHYME_OUTPUT.
 This improves accessible content; it does not establish Google's reason for
 excluding the URL or guarantee inclusion.
+
+
+The type-beat watch page is authored in `content/type-beat-walkthrough.html`.
+Transcript timestamps must match the existing VTT, and the practice exercise
+must retain the original capture's limits. Do not imply that its saved take is
+the separate Springtime Showers arrangement/export. The growth builder copies
+this HTML and maintains its VideoObject/sitemap metadata. Run the video metadata
+tests and crawl audit after editing. A crawl request is not index inclusion.
