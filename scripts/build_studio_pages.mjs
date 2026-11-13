@@ -1,3 +1,4 @@
+import { buildHomePerformance } from './build_home_performance.mjs';
 import {mkdirSync, writeFileSync, readFileSync} from 'node:fs';
 import {localServices,studioSchema,localLinks} from '../content/studio-local.mjs';
 import {services, steps, faqs, concepts} from '../content/studio.mjs';
@@ -67,3 +68,6 @@ if(home.includes('<!-- STUDIO-IDENTITY:START -->'))home=home.replace(/<!-- STUDI
 const locations=`<!-- STUDIO-LOCAL:START -->${localLinks}<!-- STUDIO-LOCAL:END -->`;
 if(home.includes('<!-- STUDIO-LOCAL:START -->'))home=home.replace(/<!-- STUDIO-LOCAL:START -->[\s\S]*?<!-- STUDIO-LOCAL:END -->/,locations);else home=home.replace('  <!-- (04) PRACTICE -->',locations+'\n  <!-- (04) PRACTICE -->');
 writeFileSync('index.html',home);
+
+// Keep the homepage asset graph current after regenerating shared content.
+buildHomePerformance();

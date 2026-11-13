@@ -148,3 +148,14 @@ travel with the public JSON and notices. See Development for rebuilding.
 The buyer guide renders the existing anonymised testimonials directly into HTML,
 with demonstration links and a blank downloadable workflow comparison worksheet.
 It adds no review rating schema, new testimonial identities or comparative scores.
+
+
+## Homepage asset graph
+
+The homepage embeds the existing complete CSS cascade at build time rather than
+waiting for four external stylesheets. Font preloads remove CSS discovery
+dependencies. Its JavaScript remains deferred/optional, with lazy effects only
+on interaction. Content-hashed copies under assets/immutable keep public cache
+versions independent of mutable shared source filenames. Other pages continue
+using their existing shared files. See content/home-assets.json and the static
+cache deployment runbook; asset hashing does not itself change origin headers.

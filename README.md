@@ -249,3 +249,5 @@ Spanish dictionary ranking can be rebuilt with the pinned offline authoring
 dependency documented in [Development](docs/DEVELOPMENT.md). The buyer guide
 includes anonymised workflow experiences and a blank comparison scorecard; neither
 is presented as an independent controlled benchmark.
+
+Homepage performance assets: run `node scripts/build_home_performance.mjs` after shared CSS/script/image changes (also called by the studio builder). See [development instructions](docs/DEVELOPMENT.md#homepage-loading-and-asset-versions) and [cache deployment scope](docs/services/STATIC-ASSET-CACHE.md).
