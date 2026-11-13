@@ -77,7 +77,10 @@ language.addEventListener('change', () => {
 });
 for (const button of document.querySelectorAll('[data-example]')) button.addEventListener('click', () => {
   field.value = button.dataset.example;
-  if (button.dataset.mode) form.elements.mode.value = button.dataset.mode;
+  form.elements.mode.value = button.dataset.mode || 'perfect';
   form.requestSubmit();
+  field.focus();
 });
 document.querySelector('#tool-controls').hidden = false;
+
+for (const button of document.querySelectorAll('[data-worked-example]')) button.hidden = false;
