@@ -1,0 +1,53 @@
+{
+  "cssSha256": "ad44047978aafbb805484c930e566a78d57e1e1e53c1e9a0f743f7ff72979e5b",
+  "assets": [
+    {
+      "source": "site.js",
+      "url": "/assets/immutable/site.b66d6b892db6.js",
+      "sha256": "b66d6b892db698f6d4b47a841403f598608268650b6650e39d22b84c9dd3092a",
+      "bytes": 7688
+    },
+    {
+      "source": "work-with-us/experience.mjs",
+      "url": "/assets/immutable/experience.ef631de261a4.mjs",
+      "sha256": "ef631de261a47124601ff3acaa0452151e949289f76e2a5cc894fb30dbc2519c",
+      "bytes": 2076
+    },
+    {
+      "source": "assets/studio/harbour-wine-768.webp",
+      "url": "/assets/immutable/harbour-wine-768.a112fa58dc87.webp",
+      "sha256": "a112fa58dc8740484d26370aefe3921994904d481d6f45828103757d0bb2c9e3",
+      "bytes": 16766
+    },
+    {
+      "source": "assets/studio/harbour-wine.webp",
+      "url": "/assets/immutable/harbour-wine.483875d730f0.webp",
+      "sha256": "483875d730f0f5d5bcb40f4634928215ccb1b0780fd0b1643eb19f4d6a0da654",
+      "bytes": 70396
+    },
+    {
+      "source": "assets/fonts/9b6f5ff45b27.woff2",
+      "url": "/assets/fonts/9b6f5ff45b27.woff2",
+      "sha256": "9b6f5ff45b278c744b5f379a2c4ecbaf858a842b8eaf82ac8d21b699ca16c608",
+      "bytes": 29288
+    },
+    {
+      "source": "assets/fonts/5f3d6ad60f29.woff2",
+      "url": "/assets/fonts/5f3d6ad60f29.woff2",
+      "sha256": "5f3d6ad60f29d6cb708414ec6887163d63bf197377ef5417d2483ff31ace6c3b",
+      "bytes": 23108
+    },
+    {
+      "source": "assets/fonts/60c06664b5a9.woff2",
+      "url": "/assets/fonts/60c06664b5a9.woff2",
+      "sha256": "60c06664b5a95c7de6cc3e00d1f9034d78bd1e40b564016b241674449a067d4d",
+      "bytes": 15040
+    },
+    {
+      "source": "assets/fonts/6ee678c33f38.woff2",
+      "url": "/assets/fonts/6ee678c33f38.woff2",
+      "sha256": "6ee678c33f388dd7ba59700ebea635deb98821baafd817b09891f7927177f702",
+      "bytes": 15684
+    }
+  ]
+}
