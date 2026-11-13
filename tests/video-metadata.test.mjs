@@ -54,3 +54,16 @@ test('the arrangement export publication matches its verified six-stem evidence'
   const sitemap = readFileSync(new URL('sitemap.xml', root), 'utf8');
   assert.ok(sitemap.includes('https://brandnamechanges.com/assets/cadence/type-beat/springtime-arrangement-export.mp4'));
 });
+
+test('static walkthrough timestamps follow the actual captions and preserve capture limits', () => {
+  const captions = readFileSync(new URL('../assets/cadence/type-beat/beat-first-workflow.vtt', import.meta.url), 'utf8');
+  const starts = [...captions.matchAll(/^(\d\d):(\d\d)\.\d{3} -->/gm)].map(([, minutes, seconds]) => `${Number(minutes)}:${seconds}`);
+  const transcript = html.split('id="walkthrough-transcript"')[1].split('</section>')[0];
+  for (const time of starts) assert.ok(transcript.includes(`<strong>${time} ·`), `missing caption timestamp ${time}`);
+  assert.match(html, /id="practice-session"/);
+  assert.ok(html.includes('silent interface demonstration'));
+  assert.ok(html.includes('It is a different song'));
+  assert.ok(html.includes('not a rule for every beat'));
+  const published = readFileSync(new URL('../cadence/type-beat-walkthrough/index.html', import.meta.url), 'utf8');
+  assert.equal(published, html);
+});

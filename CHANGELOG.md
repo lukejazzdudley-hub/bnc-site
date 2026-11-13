@@ -1,5 +1,7 @@
 # Changelog
 
+- Follow the type-beat demonstration with caption-matched transcript timestamps and a four-line writing exercise linked to the feature guide.
+
 - Explore four English rhyme searches without JavaScript, compare their sound patterns, and switch from phrase examples back to normal word searches reliably.
 
 - Search engines can identify six substantially updated pages through verified publication dates in the sitemap.
