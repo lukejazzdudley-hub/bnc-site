@@ -1,0 +1,17 @@
+import { readFileSync } from 'node:fs';
+import { createIndex, findRhymes } from '../cadence/search/rhymes.mjs';
+
+// Build-time examples use the same public pack and matcher as the browser tool.
+// Nothing here imports the app's proprietary rhyme engine.
+const pack = JSON.parse(readFileSync(new URL('../cadence/search/pack-en.json', import.meta.url)));
+const index = createIndex(Object.fromEntries(pack.entries), { phrases: pack.phrases, frequencies: pack.frequencies });
+export const englishExamples = [
+  { word: 'light', mode: 'perfect', title: 'Perfect rhymes for light', explanation: 'Match the stressed vowel and every sound after it. Right and night rhyme with light even though their spellings differ.' },
+  { word: 'motion', mode: 'multi', title: 'Multisyllabic rhymes for motion', explanation: 'Carry the matching sound across at least two syllables. Motion and ocean share the stressed vowel and the following unstressed syllable.' },
+  { word: 'light', mode: 'slant', title: 'Slant rhymes for light', explanation: 'Keep the vowel connection while allowing a nearby consonant difference. Like and side are looser options; say them against your beat before choosing.' },
+  { word: 'ice cream', mode: 'phrase', title: 'Multi-word rhymes for ice cream', explanation: 'Compare sounds across word boundaries: ice cream and I scream. Nice dream is a close slant. These suggestions come from a small curated phrase bank, not every possible phrase.' },
+].map(example => ({ ...example, results: findRhymes(index, example.word, example.mode).results.slice(0, 8).map(match => match.word) }));
+const escape = value => value.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('"', '&quot;');
+export function renderEnglishExamples() {
+  return `<section class="content" id="english-rhyme-examples"><h2>Four ways to find an English rhyme</h2><p>These are real results from this tool’s public pronunciation dictionary. They remain available without JavaScript. Choose a sound, then test the meaning and delivery in your own line.</p><div class="rhyme-example-grid">${englishExamples.map(example => `<article class="rhyme-example"><p class="rhyme-example-mode">${escape(example.mode === 'multi' ? 'Multisyllabic' : example.mode === 'phrase' ? 'Multi-word' : example.mode === 'perfect' ? 'Perfect' : 'Slant')} match</p><h3>${escape(example.title)}</h3><ul aria-label="${escape(example.title)}">${example.results.map(word => `<li>${escape(word)}</li>`).join('')}</ul><p>${escape(example.explanation)}</p><button type="button" data-example="${escape(example.word)}" data-mode="${example.mode}" data-worked-example hidden>Search ${escape(example.word)} · ${example.mode === 'multi' ? 'multisyllabic' : example.mode === 'phrase' ? 'multi-word' : example.mode}</button></article>`).join('')}</div><h3>Try a rhyme without forcing the lyric</h3><p>Start with an original line: “I leave the window open to the night.” Use <em>light</em> in Perfect rhymes to explore endings such as <em>right</em> and <em>fight</em>. Write a second line that says something you mean, then speak both lines aloud. If the rhyme changes your message or makes the rhythm awkward, revise the line rather than keeping the first match.</p><p>For a longer sound pattern, switch to <em>motion</em> in Multisyllabic rhymes. Compare <em>ocean</em>, <em>emotion</em> and <em>devotion</em> in context. <a href="/cadence/resources/perfect-slant-multisyllabic-rhymes/">Read the guide to perfect, slant and multisyllabic rhymes</a>.</p></section>`;
+}

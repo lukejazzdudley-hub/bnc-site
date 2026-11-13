@@ -21,6 +21,13 @@ article content. Optional browser enhancements must not fetch user queries,
 gate reading or introduce analytics consent changes. Citations and checked dates
 are editorial evidence, not claims of hands-on comparative testing.
 
+## English public rhyme examples
+
+Worked searches are computed at authoring time from the existing public pack and
+matcher, then committed as static HTML alongside the optional browser tool. No
+app engine or server lookup is exposed. The browser dictionary still loads only
+on interaction; no-JavaScript and failed-worker readers retain the same examples.
+
 ## Boundaries
 
 - **GitHub Pages:** immutable static marketing, legal, support and feedback-form assets.

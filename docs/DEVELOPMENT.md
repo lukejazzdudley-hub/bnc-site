@@ -267,3 +267,20 @@ preload=none and its existing provenance; do not relabel it as a new build or
 cross-app benchmark. Guide source dates remain attached to individual checks.
 
 The buyer guide’s early free/paid comparison is authored in content/resources/comparisons/free-options.mjs. Verify offers against live vendor sources before changing check dates; free downloads, limited plans and timed trials are different offers. Keep the current three-note/Pro model separate from upcoming pricing. The existing buyer URL owns broad comparison intent; do not add a competing thin free-app route. Regenerate all four layers, run tests/free_songwriting.test.mjs and the full suites, and verify no-JS anchors and keyboard-scrollable tables.
+
+
+### English rhyme examples
+
+`content/english-rhyme-examples.mjs` builds worked searches from the public English
+pack and the same matcher used by the browser worker. The search-page generator
+renders these as HTML; they are readable without JavaScript or a dictionary
+download. Do not substitute hand-picked candidates while describing them as tool
+output. Run `tests/english_rhyme_examples.test.mjs` after pack or matcher changes.
+Example buttons progressively enhance the static cards; each selects its intended
+mode. A mode-less example resets to Perfect instead of retaining a previous
+phrase/slant mode. Browser verification must cover phrase → normal word, each
+worked search, no-JS content, a failed worker, keyboard access and mobile widths.
+Run `BNC_PLAYWRIGHT_PATH=/path/to/playwright node scripts/verify_english_rhyme.cjs`
+against serve.py; optionally set BNC_PREVIEW_URL and BNC_RHYME_OUTPUT.
+This improves accessible content; it does not establish Google's reason for
+excluding the URL or guarantee inclusion.

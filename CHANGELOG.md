@@ -1,5 +1,7 @@
 # Changelog
 
+- Explore four English rhyme searches without JavaScript, compare their sound patterns, and switch from phrase examples back to normal word searches reliably.
+
 - Search engines can identify six substantially updated pages through verified publication dates in the sitemap.
 
 - Shortlist songwriting apps by device, workflow and free access, compare SongRight and Rhymer’s Block alongside the original eleven tools, and watch Cadence’s captioned arrangement/export evidence directly in the guide.
