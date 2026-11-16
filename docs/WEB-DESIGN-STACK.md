@@ -28,3 +28,12 @@ small browser modules and scoped CSS to the buyer page, with no animation or
 framework dependency. The silver decision surface uses the existing reader
 palette inside the accepted Onyx identity. Verify actual bundle bytes and
 network behaviour with the release record.
+
+## Spanish dictionary, 16 November 2026
+
+Reviewed the current Motion quick-start, Kokonut input/navigation catalogue and
+Bklit component catalogue. This correction retains native form/details controls
+and the accepted graphite/silver reader materials: no new animation, chart or
+React runtime is warranted for a word lookup. It is not a Kokonut/Bklit port.
+The page-specific stylesheet and build-time word cards preserve static HTML,
+keyboard access and the existing lazy worker.

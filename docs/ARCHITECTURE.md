@@ -159,3 +159,11 @@ on interaction. Content-hashed copies under assets/immutable keep public cache
 versions independent of mutable shared source filenames. Other pages continue
 using their existing shared files. See content/home-assets.json and the static
 cache deployment runbook; asset hashing does not itself change origin headers.
+
+
+The Spanish public dictionary uses an opt-in tool-first reader layout. Its six
+static word cards are computed by the existing public matcher at authoring time;
+normal browser lookup remains lazy in the existing worker. Scoped CSS affects
+only this page. Examples precede the optional app-download panel, whose text is
+excluded from search snippets while remaining visible and crawlable. No new
+acquisition URL, runtime dependency, app engine or analytics event is added.

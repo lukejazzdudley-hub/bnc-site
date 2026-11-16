@@ -322,3 +322,25 @@ acceptance rather than hiding content to change a score.
 
 Cache deployment requirements are in docs/services/STATIC-ASSET-CACHE.md.
 GitHub Pages currently sends max-age=600; HTML meta tags cannot override that.
+
+
+### Spanish dictionary desktop workspace
+
+The Spanish dictionary opts into `readerLayout` with `toolFirst: true` and
+`illustration: false`. Other pages keep the default reading layout. Its scoped
+`spanish-dictionary.css` keeps the search before article navigation; desktop
+search controls must fit in a 1024×713 viewport or larger. Worked cards render
+the first six real frequency-ordered consonant results per authored word, using
+the public matcher at build time. No additional public engine or pack is shipped.
+
+Keep examples before the app promotion and preserve the app jump/return route.
+The promotion and technical-source section use `data-nosnippet`; this limits
+snippet selection, not crawling or indexing. Google still chooses the final
+title/description. Preserve the current app-plan qualifications.
+
+Run `node --test tests/spanish_dictionary_desktop.test.mjs` and the full suites.
+Use `BNC_PLAYWRIGHT_PATH=/path/to/playwright node scripts/verify_spanish_dictionary.cjs`
+with the existing preview. `BNC_SPANISH_OUTPUT` selects a private evidence folder;
+`BNC_PREVIEW_URL` selects the live origin. The browser checks both real modes,
+filter reset, return from downloads, no-JS examples and worker failure, eight
+widths and desktop fold/44px target bounds. No query or lyric tracking is added.
