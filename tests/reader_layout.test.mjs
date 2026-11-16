@@ -22,6 +22,16 @@ test('reader keeps tools before explanatory text and complete without scripts',(
  assert.ok(html.indexOf('id="rhyme-form"')<html.indexOf('<h2>Method'));
 });
 
+test('dictionary workspace can put the tool before navigation without altering the default layout',()=>{
+ const source=document('<section class="hero text-only"><div><h1>Search</h1></div></section><section class="tool"><form id="romance-form"></form></section><section class="content"><h2>Examples</h2></section>','es');
+ const html=readerLayout(source,{toolFirst:true,illustration:false});
+ assert.ok(html.indexOf('id="romance-form"')<html.indexOf('reader-layout'));
+ assert.doesNotMatch(html,/reader-art/);
+ assert.match(html,/class="reader-page dictionary-page"/);
+ assert.equal(readerLayout(html),html);
+ assert.match(readerLayout(source),/class="reader-art"/);
+});
+
 test('generated IDs cannot collide with authored IDs',()=>{
  const html=readerLayout(document('<section class="content" id="reading-1"><h2>First</h2></section><section class="content"><h2>Second</h2></section>'));
  assert.match(html,/href="#reading-2"/);
