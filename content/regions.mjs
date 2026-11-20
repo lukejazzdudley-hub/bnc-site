@@ -4,6 +4,7 @@ export const regions = [
     code: 'gb', language: 'en-GB', name: 'United Kingdom', shortName: 'UK', currency: 'GBP',
     description: 'Cadence for UK songwriters: UK App Store and Google Play links, local plan currency and a practical accent check for English rhyme suggestions.',
     heading: 'Keep the verse in your voice.',
+    workflowPath: '/cadence/type-beat-songwriting-app/', workflowLabel: 'Loop a type beat and record a verse',
     focus: 'Writing a UK verse with an English rhyme dictionary',
     paragraphs: [
       'A rhyme suggestion needs to survive your own pronunciation. If you write in a non-rhotic accent, an American dictionary may separate sounds you bring together or suggest a pairing you would never say. Scottish, Welsh, Northern Irish and English voices also differ; there is no single UK pronunciation setting that can decide the line for you.',
@@ -17,6 +18,7 @@ export const regions = [
     code: 'us', language: 'en-US', name: 'United States', shortName: 'US', currency: 'USD',
     description: 'Cadence for US songwriters: US download links, dollar storefront guidance and a writing exercise for checking rhyme stress against a beat.',
     heading: 'Find the rhyme. Keep the meaning.',
+    workflowPath: '/cadence/freestyle-rap-practice/', workflowLabel: 'Practise a freestyle over a loop',
     focus: 'Use American English results as a starting point',
     paragraphs: [
       'The free browser tool uses American English pronunciations, but that does not make every result a fit for a US verse. Regional vowels, slang, reduced syllables and the stress you put on a word can change the connection. A dictionary match is a candidate for your line, not a verdict on your delivery.',
@@ -30,6 +32,7 @@ export const regions = [
     code: 'ca', language: 'en-CA', name: 'Canada', shortName: 'Canada', currency: 'CAD',
     description: 'Cadence for Canadian songwriters: Canadian storefront links, CAD plan guidance and a workflow for keeping bilingual drafts and recorded ideas together.',
     heading: 'Keep both sides of the idea.',
+    workflowPath: '/cadence/fr/dictionnaire-rimes/', workflowLabel: 'Look up rhymes for a French verse',
     focus: 'Keep bilingual drafts clear about what the tools can do',
     paragraphs: [
       'If your song moves between English and French, keep the full thought in the lyric and make a reference take of each passage. This page is an English storefront guide, not a French edition of the website. The Canadian Apple listing currently declares English for the app interface; that is separate from what you choose to write.',
@@ -43,6 +46,7 @@ export const regions = [
     code: 'au', language: 'en-AU', name: 'Australia', shortName: 'Australia', currency: 'AUD',
     description: 'Cadence for Australian songwriters: Australian download links, AUD storefront guidance and an accent-led exercise for testing rhyme endings aloud.',
     heading: 'Let the take test the line.',
+    workflowPath: '/cadence/voice-memos-to-lyrics/', workflowLabel: 'Turn a recorded melody into a lyric draft',
     focus: 'Check a suggestion in the voice you perform with',
     paragraphs: [
       'An American English rhyme list can be useful while writing in an Australian voice, but a list cannot hear your vowels or phrasing. Some performers pronounce a final r differently from the dictionary reference; a word may also lose a syllable in a take. Do not change your voice just to make a suggested ending work.',
@@ -56,9 +60,10 @@ export const regions = [
     code: 'in', language: 'en-IN', name: 'India', shortName: 'India', currency: 'INR',
     description: 'Cadence for songwriters in India: Indian storefront links, rupee plan guidance and an English writing workflow that makes multilingual tool limits clear.',
     heading: 'Keep the words you perform.',
+    workflowPath: '/cadence/hi/', workflowLabel: 'Open the Hindi songwriting app guide',
     focus: 'Separate English rhyme support from multilingual writing',
     paragraphs: [
-      'A verse may move between English and another language, or use a romanised spelling that an English dictionary cannot recognise. The free website rhyme finder supports English only today. This regional page does not add Hindi, Punjabi, Tamil or other language dictionaries, and the Indian Apple listing currently declares an English app interface.',
+      'A verse may move between English and another language, or use a romanised spelling that an English dictionary cannot recognise. Use the English rhyme finder for English pronunciations. For a Hindi line, open the Hindi writing guide and check the rhyme against a reference take. This regional page does not add Hindi, Punjabi, Tamil or other language dictionaries, and the Indian Apple listing currently declares an English app interface.',
       'Keep the line as you intend to perform it and record a reference take. Check any transcription against that audio, especially where languages change or a word has been romanised. Search an English ending when that is useful, then return to the whole verse to judge the sound and meaning together.',
     ],
     exercise: 'Write a four-line verse with an intentional language switch if that is part of your writing. Mark the exact switch and record the verse before editing its spelling. Compare where your breath and stress fall on each side. Keep those performance notes beside the lyric instead of forcing both passages into English rhyme results.',
@@ -69,6 +74,7 @@ export const regions = [
     code: 'za', language: 'en-ZA', name: 'South Africa', shortName: 'South Africa', currency: 'ZAR',
     description: 'Cadence for South African songwriters: local storefront links, rand plan guidance and a recorded-reference workflow for accent and language changes.',
     heading: 'Keep the sound of your draft.',
+    workflowPath: '/cadence/languages/', workflowLabel: 'Explore writing and rhyme packs by language',
     focus: 'Let the recording carry accent and language changes',
     paragraphs: [
       'A South African verse may use English, another language or several in one performance. This page is an English-language download guide. The free browser rhyme finder uses American English dictionary pronunciations; it cannot validate an Afrikaans, isiZulu, isiXhosa or other non-English rhyme. The local Apple listing currently declares an English app interface.',

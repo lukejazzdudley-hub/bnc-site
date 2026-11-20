@@ -21,7 +21,7 @@
   <link rel="canonical" href="https://brandnamechanges.com/cadence/" />
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Cadence","alternateName":"Flow by Cadence","@id":"https://brandnamechanges.com/cadence/#app","applicationCategory":"MultimediaApplication","operatingSystem":"Android, iOS, iPadOS","url":"https://brandnamechanges.com/cadence/","description":"A songwriting workspace for lyrics, rhymes, beats, vocal takes and demos.","sameAs":["https://apps.apple.com/gb/app/cadence-lyrics-rhymes/id6778554520","https://play.google.com/store/apps/details?id=io.cadenceapp.mobile"]}</script>
   <link rel="stylesheet" href="../styles.css?v=3" />
-  <link rel="stylesheet" href="./cadence.css?v=2" />
+  <link rel="stylesheet" href="./cadence.css?v=3" />
   <link rel="icon" type="image/webp" sizes="256x256" href="../assets/cadence/cadence-mark-static.webp" />
   <script type="importmap">
     {
@@ -112,6 +112,13 @@
 
         <figure class="cadence-hero-object cadence-hero-neutral">
           <img src="../assets/cadence/resources/01-library-neutral.webp" srcset="../assets/cadence/resources/01-library-neutral-480.webp 480w, ../assets/cadence/resources/01-library-neutral.webp 900w" sizes="(max-width: 720px) 240px, 440px" width="900" height="1650" fetchpriority="high" decoding="async" alt="Cadence’s song library, beats and vocal takes on a silver phone" />
+          <figcaption class="studio-selector" hidden aria-label="Explore the Cadence workspace">
+            <button type="button" aria-pressed="true" data-view="01-library-neutral">Library</button>
+            <button type="button" aria-pressed="false" data-view="02-lyrics-rhyme-three-quarter" data-alt="Lyrics and rhyme suggestions in Cadence">Lyrics</button>
+            <button type="button" aria-pressed="false" data-view="03-beat-writing-opposite" data-alt="Writing lyrics alongside a beat in Cadence">Beat</button>
+            <button type="button" aria-pressed="false" data-view="04-arrangement-daw" data-alt="Audio tracks in the Cadence arrangement workspace">Arrange</button>
+          </figcaption>
+          <span class="studio-status" role="status"></span>
         </figure>
       </div>
 
@@ -360,6 +367,7 @@
 
   <script src="../site.js" defer></script>
   <script type="module" src="./media-policy.js"></script>
+  <script type="module" src="./studio-selector.js"></script>
   <script type="module" src="./phone-stage.js"></script>
   <script type="module" src="./v3-scenes.js"></script>
 </body>

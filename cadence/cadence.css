@@ -1075,3 +1075,46 @@ html[data-phone-stage="poster"] .cadence-proof {
 @media (max-width: 760px) {
   .cadence-testimonials-grid { grid-template-columns: 1fr; gap: 32px; }
 }
+
+/* Frame the real device like a studio monitor. Keep its native screen colours. */
+.cadence-hero-object.cadence-hero-neutral {
+  width: min(100%, 520px);
+  aspect-ratio: auto;
+  padding: clamp(14px, 2.2vw, 32px) 10px 14px;
+  overflow: hidden;
+  border: 1px solid #333840;
+  border-radius: 22px;
+  background: radial-gradient(ellipse at 50% 38%, #424853, #20242c 48%, #101216 84%);
+}
+.cadence-hero-neutral > img {
+  width: auto;
+  max-width: 100%;
+  height: clamp(265px, 38vw, 470px);
+  object-fit: contain;
+}
+.studio-selector:not([hidden]) {
+  display: inline-flex;
+  max-width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 3px;
+  background: #0d0e11;
+  border: 1px solid #454952;
+  border-radius: 15px;
+}
+.studio-selector button {
+  font: inherit;
+  font-size: .85rem;
+  min-height: 44px;
+  padding: 4px clamp(8px, 1.3vw, 18px);
+  border: 0;
+  border-radius: 11px;
+  background: transparent;
+  color: #cdd0d7;
+  cursor: pointer;
+}
+.studio-selector button[aria-pressed="true"] { background: #e3e4e8; color: #16181c; }
+.studio-selector button:focus-visible { outline: 2px solid #edbd6a; outline-offset: -3px; }
+
+.studio-status:empty { display: none; }
+.studio-status { color: #e3e4e8; text-align: center; font-size: .85rem; }

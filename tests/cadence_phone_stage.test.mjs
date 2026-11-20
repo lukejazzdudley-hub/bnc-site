@@ -110,3 +110,10 @@ test('late media events cannot overwrite the active chapter screen', () => {
   assert.equal(shouldCommitVideoFrame(library, rhyme), false);
   assert.equal(shouldCommitVideoFrame(library, null), false);
 });
+
+test('rapid scroll keeps the newest seek pending until the decoder finishes', async () => {
+  const { needsScreenSeek } = await import('../cadence/phone-stage.js');
+  assert.equal(needsScreenSeek({ seeking: true, currentTime: 1 }, 2), false);
+  assert.equal(needsScreenSeek({ seeking: false, currentTime: 1 }, 2), true);
+  assert.equal(needsScreenSeek({ seeking: false, currentTime: 2.01 }, 2), false);
+});

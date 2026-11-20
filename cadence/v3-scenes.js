@@ -104,6 +104,9 @@ async function createCadenceRenderer(canvas, variant, dimensions) {
   });
   const duration = Math.max(0, ...gltf.animations.map((clip) => clip.duration));
 
+  camera.aspect = dimensions.width / dimensions.height;
+  camera.updateProjectionMatrix();
+
   function render(progress) {
     const amount = Math.min(1, Math.max(0, progress));
     actions.forEach((action) => {
@@ -111,9 +114,6 @@ async function createCadenceRenderer(canvas, variant, dimensions) {
       action.paused = false;
     });
     mixer.setTime(Math.min(amount * duration, Math.max(0, duration - 0.000001)));
-    camera.aspect = dimensions.width / dimensions.height;
-    camera.updateProjectionMatrix();
-    scene.updateMatrixWorld(true);
     renderer.render(scene, camera);
   }
 
@@ -184,6 +184,7 @@ function mountScene(host) {
   let loading = false;
   let frame = 0;
   let generation = 0;
+  let releaseTimer;
 
   const variant = () => selectCadenceSceneVariant(scene, window.innerWidth);
   const mode = () => {
@@ -201,7 +202,7 @@ function mountScene(host) {
     viewer.render(progressAcrossScene(host.getBoundingClientRect(), window.innerHeight));
   };
   const schedule = () => {
-    if (!frame) frame = window.requestAnimationFrame(syncFrame);
+    if (viewer && visible && !document.hidden && !frame) frame = window.requestAnimationFrame(syncFrame);
   };
   const dispose = () => {
     generation += 1;
@@ -234,12 +235,12 @@ function mountScene(host) {
     host.append(canvas);
     try {
       const next = await createCadenceRenderer(canvas, selected, dimensions);
-      if (token !== generation || !visible || mode() !== 'live') {
+      if (token !== generation || mode() !== 'live') {
         next.dispose();
         return;
       }
       viewer = next;
-      syncFrame();
+      viewer.render(progressAcrossScene(host.getBoundingClientRect(), window.innerHeight));
       canvas.style.visibility = 'visible';
       poster.style.visibility = 'hidden';
       host.dataset.sceneReady = 'live';
@@ -264,8 +265,14 @@ function mountScene(host) {
   applyVariant();
   const observer = new IntersectionObserver(([entry]) => {
     visible = entry.isIntersecting;
-    if (visible) load();
-    else dispose();
+    window.clearTimeout(releaseTimer);
+    if (visible) {
+      load();
+      schedule();
+    } else if (viewer || loading) {
+      // Keep a short reverse scroll warm, then release GPU memory.
+      releaseTimer = window.setTimeout(dispose, 15000);
+    }
   }, { rootMargin: '120px 0px' });
   observer.observe(host);
   window.addEventListener('scroll', schedule, { passive: true });

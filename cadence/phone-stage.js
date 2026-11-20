@@ -115,8 +115,8 @@ function parseOrientation(chapter) {
   };
 }
 
-function progressForChapter(chapter) {
-  return progressAcrossBounds(chapter.getBoundingClientRect(), window.innerHeight);
+export function needsScreenSeek(video, target) {
+  return !video.seeking && Math.abs(video.currentTime - target) > 0.04;
 }
 
 function makeVideo(source) {
@@ -220,6 +220,8 @@ export async function initialiseViewer(viewer) {
   const images = new Map();
   let activeChapter = null;
   let activeVideo = null;
+  let targetTime = 0;
+  let onScreen = false;
   let frameRequested = false;
 
   const drawFrame = (video) => {
@@ -238,7 +240,6 @@ export async function initialiseViewer(viewer) {
     context.scale(1, -1);
     context.drawImage(video, destination.x, destination.y, destination.width, destination.height);
     context.restore();
-    setScreenTexture(canvasTexture);
     canvasTexture.source.update();
     viewer.dataset.screenFrame = `${video.currentSrc}@${video.currentTime.toFixed(2)}`;
   };
@@ -253,7 +254,11 @@ export async function initialiseViewer(viewer) {
     const video = makeVideo(chapter.dataset.screenVideo);
     video.addEventListener('loadedmetadata', requestUpdate, { once: true });
     video.addEventListener('loadeddata', () => drawFrame(video));
-    video.addEventListener('seeked', () => drawFrame(video));
+    video.addEventListener('seeked', () => {
+      if (video !== activeVideo || !onScreen || document.hidden) return;
+      drawFrame(video);
+      if (needsScreenSeek(video, targetTime)) video.currentTime = targetTime;
+    });
     video.addEventListener('error', () => {
       viewer.dataset.screenError = video.error?.message || 'screen video failed';
     });
@@ -264,6 +269,7 @@ export async function initialiseViewer(viewer) {
 
   const update = () => {
     frameRequested = false;
+    if (!onScreen || document.hidden) return;
     viewer.dataset.updateCount = String(Number(viewer.dataset.updateCount || 0) + 1);
     const candidates = chapters.map((chapter) => {
       const bounds = chapter.getBoundingClientRect();
@@ -272,7 +278,7 @@ export async function initialiseViewer(viewer) {
     const chapter = selectActiveChapter(candidates, window.innerHeight);
     if (!chapter) return;
 
-    const progress = progressForChapter(chapter);
+    const progress = progressAcrossBounds(candidates.find(item => item.chapter === chapter), window.innerHeight);
     const physicalProgress = story
       ? progressAcrossBounds(story.getBoundingClientRect(), window.innerHeight)
       : progress;
@@ -285,7 +291,8 @@ export async function initialiseViewer(viewer) {
     viewer.fieldOfView = `${(25 - motionProgress * 2).toFixed(2)}deg`;
     viewer.dataset.modelOrientation = viewer.orientation;
 
-    if (activeChapter !== chapter) {
+    const chapterChanged = activeChapter !== chapter;
+    if (chapterChanged) {
       activeChapter = chapter;
       story?.querySelectorAll('[data-phone-chapter]').forEach((item) => {
         item.classList.toggle('is-active', item === chapter);
@@ -296,6 +303,7 @@ export async function initialiseViewer(viewer) {
 
     const screenPlan = screenPlanForChapter(chapter.dataset);
     if (screenPlan?.kind === 'image') {
+      if (!chapterChanged) return;
       activeVideo = null;
       imageFor(chapter).then((texture) => {
         if (activeChapter !== chapter) return;
@@ -304,19 +312,20 @@ export async function initialiseViewer(viewer) {
       });
     } else if (screenPlan?.kind === 'video') {
       const video = videoFor(chapter);
+      if (chapterChanged) setScreenTexture(canvasTexture);
       activeVideo = video;
       viewer.dataset.screenRequested = video.src;
       if (Number.isFinite(video.duration) && video.duration > 0) {
-        const target = Math.min(video.duration - 0.04, video.duration * progress);
-        viewer.dataset.screenTarget = target.toFixed(2);
-        if (Math.abs(video.currentTime - target) > 0.04) video.currentTime = target;
-        else drawFrame(video);
+        targetTime = Math.max(0, Math.min(video.duration - 0.04, video.duration * progress));
+        viewer.dataset.screenTarget = targetTime.toFixed(2);
+        if (needsScreenSeek(video, targetTime)) video.currentTime = targetTime;
+        else if (chapterChanged && !video.seeking) drawFrame(video);
       }
     }
   };
 
   const requestUpdate = () => {
-    if (frameRequested) return;
+    if (!onScreen || document.hidden || frameRequested) return;
     frameRequested = true;
     window.requestAnimationFrame(update);
   };
@@ -324,9 +333,12 @@ export async function initialiseViewer(viewer) {
   window.addEventListener('scroll', requestUpdate, { passive: true });
   window.addEventListener('resize', requestUpdate, { passive: true });
   viewer.closest('.cadence-live-device')?.addEventListener('cadence-phone-ready', requestUpdate);
-  chapters.filter((chapter) => chapter.dataset.screenVideo).forEach(videoFor);
-  chapters.filter((chapter) => chapter.dataset.screenImage).forEach(imageFor);
-  requestUpdate();
+  const observer = new IntersectionObserver(([entry]) => {
+    onScreen = entry.isIntersecting;
+    requestUpdate();
+  });
+  observer.observe(story || viewer);
+  document.addEventListener('visibilitychange', requestUpdate);
   viewer.dataset.controllerReady = 'true';
 }
 
