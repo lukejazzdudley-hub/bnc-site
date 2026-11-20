@@ -37,3 +37,7 @@ and the accepted graphite/silver reader materials: no new animation, chart or
 React runtime is warranted for a word lookup. It is not a Kokonut/Bklit port.
 The page-specific stylesheet and build-time word cards preserve static HTML,
 keyboard access and the existing lazy worker.
+
+## Studio preview controls
+
+The product cards adapt the two-label vertical hover and focus transition from Kokonut UI Slide Text Button 1.0.0 (MIT, Kokonut Labs, https://kokonutui.com/r/slide-text-button.json). Native links provide navigation and touch activation. The selected gallery capture uses the existing pinned Motion 12.23.24 browser build, loaded on interaction. Reduced motion and data saving keep selection immediate. The dotted canvas is a CSS pattern; it represents no data.

@@ -46,7 +46,7 @@ function render({ title, description, canonical, language = 'en', body, schema, 
   <title>${escape(title)}</title><meta name="description" content="${escape(description)}">
   <link rel="canonical" href="${canonical}">
 ${regional ? alternates : ''}
-  <meta property="og:type" content="website"><meta property="og:title" content="${escape(title)}"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${canonical}"><meta property="og:site_name" content="Cadence"><meta property="og:image" content="${domain}/assets/cadence/studio-november/share.png"><meta property="og:image:alt" content="Cadence songwriting workspace"><meta name="twitter:card" content="summary_large_image">
+  <meta property="og:type" content="website"><meta property="og:title" content="${escape(title)}"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${canonical}"><meta property="og:site_name" content="Cadence"><meta property="og:image" content="${domain}/assets/cadence/studio-november/share-graphite.png"><meta property="og:image:alt" content="Cadence songwriting workspace"><meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#08090c"><meta name="apple-itunes-app" content="app-id=6778554520">
   <link rel="icon" type="image/webp" href="/assets/cadence/cadence-mark-static.webp">
   <link rel="stylesheet" href="/cadence/search/search.css"><link rel="stylesheet" href="/cadence/regions/regions.css">

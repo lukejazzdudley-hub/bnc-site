@@ -1119,24 +1119,21 @@ html[data-phone-stage="poster"] .cadence-proof {
 .studio-status:empty { display: none; }
 .studio-status { color: #e3e4e8; text-align: center; font-size: .85rem; }
 
-/* The landscape is the original Cobalt Hours cover used in the release study. */
+/* A light instrument surface keeps dark product screens readable. */
 .cadence-stage {
-  background: linear-gradient(90deg,#0b1427f5 4%,#131a2dc9 44%,#17203860 83%), url('../assets/cadence/studio-november/cobalt.webp') center 59% / cover;
+  background: #e9ecf0;
 }
 .cadence-stage-grid {grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr); gap:clamp(20px,4vw,64px); padding-block:32px;}
-.cadence-stage h1 {color:#fff; font-size:clamp(3.2rem,5.3vw,5.5rem); line-height:.96; letter-spacing:-.068em;}
-.cadence-stage .cadence-intro {color:#ebedf4;max-width:39ch;}
-.cadence-stage .cadence-kicker,.cadence-stage .cadence-availability-note {color:#e1e3ef;}
-.cadence-stage .cadence-proof-bar {background:#0b1429d9;border-radius:14px 14px 0 0;}
-.cadence-stage .cadence-proof-bar span {color:#bfc7d6;}
-.cadence-stage .cadence-proof-bar p:first-child {padding-inline-start:18px;}
+.cadence-stage h1 {color:#101820; font-size:clamp(3.2rem,5.3vw,5.5rem); line-height:.96; letter-spacing:-.068em;}
+.cadence-stage .cadence-intro {color:#363e48;max-width:39ch;}
+.cadence-stage .cadence-kicker,.cadence-stage .cadence-availability-note {color:#454d57;}
 .studio-spread {margin:0;min-width:0;}
 .studio-screens {display:grid;grid-template-rows:minmax(0,1fr);grid-template-columns:.77fr 1fr;align-items:center;gap:clamp(6px,1.4vw,24px);height:clamp(300px,34vw,475px);}
 .studio-screens img {display:block;max-height:100%;min-height:0;max-width:100%;width:auto;margin:auto;object-fit:contain;border:1px solid #ffffff4d;border-radius:clamp(12px,1.5vw,22px);box-shadow:0 12px 24px #03091155;}
 .studio-companion {transform:rotate(-4deg);max-height:84%;height:auto;}
 .studio-featured {height:auto;max-height:100%;}
 .studio-spread figcaption {display:grid;justify-items:center;gap:8px;margin-block:16px 0;}
-.studio-caption {font-size:.8rem;color:#fff;text-shadow:0 1px 4px #000;}
+.studio-caption {font-size:.8rem;color:#445161;}
 .listen-feature {background:#c9d5f2;color:#172039;padding-block:clamp(42px,7vw,100px);}
 .listen-feature .wrap {display:grid;grid-template-columns:minmax(130px,.65fr) minmax(0,1fr);align-items:center;gap:clamp(24px,7vw,110px);}
 .listen-feature img {justify-self:center;width:min(100%,232px);height:auto;border-radius:20px;}
@@ -1163,3 +1160,43 @@ html[data-phone-stage="poster"] .cadence-proof {
   .listen-feature .wrap {grid-template-columns:minmax(82px,.55fr) minmax(0,1fr);gap:18px;}
   .listen-feature h2 {font-size:2rem;}
 }
+
+.cadence-stage {color:#18212c;padding-bottom:clamp(24px,4vw,62px);}
+.cadence-stage .cadence-language-picker {border-color:#b9c1c9;color:#202939;}
+.cadence-stage .cadence-language-picker a {color:#19478a;}
+.cadence-stage .cadence-store-button {background:#fff;color:#141a22;border:1px solid #a9b1bd;}
+.cadence-stage .cadence-store-button--primary {background:#172332;color:#fff;border-color:#172332;}
+.cadence-stage .cadence-store-button small {color:inherit;}
+.studio-screens {background-image:radial-gradient(#a5aebb .8px,transparent .9px);background-size:14px 14px;}
+.studio-selector:not([hidden]) {background:transparent;border:0;gap:4px;padding:0;}
+.studio-selector button {background:transparent;color:#424c58;border-radius:7px;border:1px solid transparent;}
+.studio-selector button[aria-pressed="true"] {background:#fff;color:#101a27;border-color:#adb9c9;box-shadow:0 2px 5px #17233210;}
+.studio-selector button:hover {border-color:#b8c4d2;}
+.studio-status {color:#34445b;}
+.instrument-cards {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;}
+.instrument-card {display:grid;align-content:start;gap:8px;padding:clamp(17px,2.4vw,32px);background:#f9fafb;border:1px solid #b8c1cc;border-radius:14px;color:#162130;text-decoration:none;}
+.instrument-card strong {font-size:clamp(1.12rem,1.8vw,1.65rem);letter-spacing:-.035em;}
+.instrument-card > span {font-size:.94rem;line-height:1.45;color:#414c5b;}
+.instrument-card .slide-action {display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:12px;color:#214c87;font-size:.84rem;font-weight:650;}
+.slide-track {display:grid;overflow:hidden;}
+.slide-track > span {grid-area:1/1;}
+.slide-track > [aria-hidden] {transform:translateY(102%);}
+.instrument-card:focus-visible,.studio-selector button:focus-visible,.cadence-stage .cadence-store-button:focus-visible {outline:3px solid #2258af;outline-offset:3px;}
+.instrument-card:is(:hover,:focus-visible) {border-color:#7494bc;background:#fff;}
+@media(prefers-reduced-motion:no-preference){
+  .slide-track > span,.slide-action b,.instrument-card,.studio-selector button {transition:transform .2s ease,background-color .2s,border-color .2s;}
+  .instrument-card:is(:hover,:focus-visible) .slide-track > span:first-child {transform:translateY(-102%);}
+  .instrument-card:is(:hover,:focus-visible) .slide-track > [aria-hidden] {transform:translateY(0);}
+  .instrument-card:is(:hover,:focus-visible) .slide-action b {transform:translate(2px,-2px);}
+  .studio-selector button:active,.instrument-card:active,.cadence-stage .cadence-store-button:active {transform:scale(.98);}
+}
+@media(max-width:640px){.instrument-cards {grid-template-columns:1fr;gap:8px;}.instrument-card .slide-action {margin-top:2px;}}
+
+.cadence-page .cadence-nav,.cadence-page .cadence-nav.scrolled {
+  background:#f4f5f7;color:#17212c;border-bottom:1px solid #c8ced5;
+  --text:#17212c;--muted:#46515e;--faint:#536070;--line:#c8ced5;
+}
+.cadence-nav .cadence-mark {background:#19212c;border-radius:9px;padding:3px;}
+.cadence-nav .nav-links .nav-cta {background:#172332;color:#fff;}
+.cadence-nav :focus-visible {outline-color:#2258af;}
+@media(max-width:960px){.cadence-nav .nav-links {background:#f4f5f7;}}
