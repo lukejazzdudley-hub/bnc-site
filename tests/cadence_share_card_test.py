@@ -7,8 +7,8 @@ ROOT = Path(__file__).resolve().parents[1]
 class ShareCardTest(unittest.TestCase):
     def test_share_image_is_branded_landscape_png(self):
         page = (ROOT / 'cadence/index.html').read_text()
-        image = ROOT / 'assets/cadence/share-card-v1.png'
-        self.assertIn('https://brandnamechanges.com/assets/cadence/share-card-v1.png', page)
+        image = ROOT / 'assets/cadence/studio-november/share.png'
+        self.assertIn('https://brandnamechanges.com/assets/cadence/studio-november/share.png', page)
         self.assertNotIn('content="https://brandnamechanges.com/assets/cadence/screens/library.webp"', page)
         self.assertIn('name="twitter:image"', page)
         data = image.read_bytes()

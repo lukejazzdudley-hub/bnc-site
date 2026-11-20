@@ -1,9 +1,9 @@
-const root = '/assets/cadence/resources/';
+const root = '/assets/cadence/studio-november/';
 export const renders = {
-  library: {src: `${root}01-library-neutral.webp`, alt: 'Cadence song library displayed on a complete neutral graphite handset'},
-  rhyme: {src: `${root}02-lyrics-rhyme-three-quarter.webp`, alt: 'Cadence rhyme families and inspector on a complete angled handset'},
-  takes: {src: `${root}03-beat-writing-opposite.webp`, alt: 'Cadence vocal takes and beat loop controls on a complete angled handset'},
-  arrange: {src: `${root}04-arrangement-daw.webp`, alt: 'Cadence song map and beat alignment in the arrangement workspace'},
+  library: {src: root + 'write.webp', alt: 'The Afterglow verse and chorus open in the Cadence lyric editor'},
+  rhyme: {src: root + 'rhymes.webp', alt: 'Colour-coded lyrics and rhyme suggestions above the keyboard in Cadence'},
+  takes: {src: root + 'mix.webp', alt: 'An imported vocal take on the Cadence studio timeline'},
+  arrange: {src: root + 'studio.webp', alt: 'Keys, lead, bass and drums aligned on the Cadence studio timeline'},
 };
 
 // These are reading aids, not assertions that one capture depicts every stage.

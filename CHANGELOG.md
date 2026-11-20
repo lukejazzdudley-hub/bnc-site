@@ -1,5 +1,7 @@
 # Changelog
 
+- Explore the November Cadence studio, lyric editor, rhyme keyboard and vinyl player in the product preview. Regional pages and writing guides now show the newer native interface.
+
 - Explore four real Cadence workspaces from the product page. Scrolling the workflow loads each chapter recording as you reach it. Country guides now link directly to relevant writing tools and free-plan comparisons, and each pack guide links to its product introduction in the reader’s language.
 
 - Search the Spanish rhyme dictionary before scrolling through navigation or app promotion, and compare real rhyme examples without downloading the dictionary.

@@ -19,7 +19,7 @@ export function readerLayout(html, {toolFirst=false, illustration=true}={}) {
     return `<section${attrs}><h2${headingAttrs}>${heading}</h2>`;
   });
   if (!links.length) return html;
-  const art = `<figure class="reader-art"><img src="${renders.rhyme.src}" alt="${renders.rhyme.alt}" width="900" height="1650" decoding="async"><figcaption lang="en">Cadence workspace illustration · interface varies by version</figcaption></figure>`;
+  const art = `<figure class="reader-art"><img src="${renders.rhyme.src}" alt="${renders.rhyme.alt}" width="560" height="1218" decoding="async"><figcaption lang="en">Cadence development preview</figcaption></figure>`;
   if (illustration) html = html.replace(/(<section class="hero text-only">[\s\S]*?)<\/div><\/section>/, `$1</div>${art}</section>`);
   const start = html.search(toolFirst ? /<section\b[^>]*class="[^"]*\bcontent\b/ : /<section\b[^>]*class="[^"]*\b(?:content|tool)\b/);
   const end = html.indexOf('</main>', start);
