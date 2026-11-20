@@ -344,3 +344,5 @@ with the existing preview. `BNC_SPANISH_OUTPUT` selects a private evidence folde
 `BNC_PREVIEW_URL` selects the live origin. The browser checks both real modes,
 filter reset, return from downloads, no-JS examples and worker failure, eight
 widths and desktop fold/44px target bounds. No query or lyric tracking is added.
+
+For workflow media changes, run `scripts/verify_phone_scroll.cjs` with Node, an installed Playwright package in `BNC_PLAYWRIGHT_PATH`, and the preview origin in `BNC_PREVIEW_URL`. It checks initial recording requests, the four real screen textures, reverse scrolling and decoder activity after scrolling stops.

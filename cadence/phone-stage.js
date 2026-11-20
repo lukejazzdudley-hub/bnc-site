@@ -220,7 +220,7 @@ export async function initialiseViewer(viewer) {
   const images = new Map();
   let activeChapter = null;
   let activeVideo = null;
-  let targetTime = 0;
+  let pendingSeek = null;
   let onScreen = false;
   let frameRequested = false;
 
@@ -257,7 +257,9 @@ export async function initialiseViewer(viewer) {
     video.addEventListener('seeked', () => {
       if (video !== activeVideo || !onScreen || document.hidden) return;
       drawFrame(video);
-      if (needsScreenSeek(video, targetTime)) video.currentTime = targetTime;
+      const nextTime = pendingSeek;
+      pendingSeek = null;
+      if (nextTime !== null && needsScreenSeek(video, nextTime)) video.currentTime = nextTime;
     });
     video.addEventListener('error', () => {
       viewer.dataset.screenError = video.error?.message || 'screen video failed';
@@ -294,6 +296,7 @@ export async function initialiseViewer(viewer) {
     const chapterChanged = activeChapter !== chapter;
     if (chapterChanged) {
       activeChapter = chapter;
+      pendingSeek = null;
       story?.querySelectorAll('[data-phone-chapter]').forEach((item) => {
         item.classList.toggle('is-active', item === chapter);
       });
@@ -316,9 +319,10 @@ export async function initialiseViewer(viewer) {
       activeVideo = video;
       viewer.dataset.screenRequested = video.src;
       if (Number.isFinite(video.duration) && video.duration > 0) {
-        targetTime = Math.max(0, Math.min(video.duration - 0.04, video.duration * progress));
+        const targetTime = Math.max(0, Math.min(video.duration - 0.04, video.duration * progress));
         viewer.dataset.screenTarget = targetTime.toFixed(2);
-        if (needsScreenSeek(video, targetTime)) video.currentTime = targetTime;
+        if (video.seeking) pendingSeek = targetTime;
+        else if (needsScreenSeek(video, targetTime)) video.currentTime = targetTime;
         else if (chapterChanged && !video.seeking) drawFrame(video);
       }
     }
