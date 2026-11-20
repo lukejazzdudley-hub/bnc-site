@@ -31,7 +31,7 @@ const CATEGORY_PRESENTATION = {
     id: 'choose-your-tools',
     description: 'Pick the workspace that fits the way you write, record and finish.',
     image: renders.library.src,
-    imageAlt: 'Cadence song library showing projects and songs',
+    imageAlt: renders.library.alt,
   },
   'Improve your writing': {
     id: 'improve-your-writing',
@@ -383,7 +383,7 @@ function articleImage(category) {
   }
   return {
     src: renders.library.src,
-    alt: 'Cadence library showing songwriting projects and songs',
+    alt: renders.library.alt,
   };
 }
 

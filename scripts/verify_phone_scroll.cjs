@@ -13,28 +13,14 @@ async function verify() {
     });
     await page.goto(new URL('/cadence/', process.env.BNC_PREVIEW_URL || 'http://localhost:8000').href);
     const chapters = page.locator('[data-phone-chapter]');
-    let firstVisit = true;
     for (const index of [0, 1, 2, 3, 0]) {
       const chapter = chapters.nth(index);
       await chapter.scrollIntoViewIfNeeded();
-      const clip = (await chapter.getAttribute('data-screen-video')).split('/').pop();
+      const clip = (await chapter.getAttribute('data-screen-image')).split('/').pop();
       await page.waitForFunction(name => document.querySelector('[data-live-phone]').dataset.screenFrame?.includes(name), clip);
-      if (firstVisit) {
-        assert.equal(recordings.size, 1, 'load only the active chapter');
-        firstVisit = false;
-      }
     }
-    assert.equal(recordings.size, 4);
-    const idleSeeks = await page.evaluate(async () => {
-      let count = 0;
-      const observe = () => count++;
-      document.addEventListener('seeked', observe, true);
-      await new Promise(resolve => setTimeout(resolve, 500));
-      document.removeEventListener('seeked', observe, true);
-      return count;
-    });
-    assert.ok(idleSeeks <= 2, 'a stationary chapter must settle after the outstanding and queued seeks');
-    console.log('Forward and reverse chapters render. The stationary decoder settles.');
+    assert.equal(recordings.size, 0, 'the product story uses native stills');
+    console.log('All four native screens appear and reverse scrolling restores the first.');
   } finally {
     await browser.close();
   }

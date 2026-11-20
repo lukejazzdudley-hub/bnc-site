@@ -158,8 +158,8 @@ class SiteContentContractTest(unittest.TestCase):
         self.assertGreaterEqual(parser.proof_chapters, 4)
         html = page.read_text(encoding="utf-8")
         self.assertEqual(html.count("<model-viewer"), 1)
-        self.assertEqual(html.count("data-cadence-v3-scene"), 1)
-        self.assertEqual(html.count("data-screen-video"), 4)
+        self.assertEqual(html.count("data-cadence-v3-scene"), 0)
+        self.assertEqual(html.count("data-screen-image"), 4)
 
     def test_cadence_product_videos_are_scroll_scrubbed_not_looped(self) -> None:
         parser = CadenceExperienceParser()
@@ -187,23 +187,19 @@ class SiteContentContractTest(unittest.TestCase):
         self.assertNotIn("cadence-media-stage", html)
         self.assertIn("cadence-live-device", html)
         self.assertIn("<model-viewer", html)
-        self.assertIn("resources/01-library-neutral.webp", html)
+        self.assertIn("studio-november/studio.webp", html)
         self.assertIn("cadence-phone-workflow.glb", html)
         self.assertRegex(css, r"\.cadence-live-device\s*\{[^}]*position:\s*sticky")
         self.assertRegex(css, r"model-viewer[^}]*background:\s*transparent")
         self.assertRegex(css, r"\.cadence-v3-scene\s*\{[^}]*background:\s*transparent")
 
-    def test_neutral_hero_preserves_live_theme_scene(self) -> None:
-        html = (ROOT / "cadence" / "index.html").read_text(encoding="utf-8")
-
-        self.assertIn('cadence-hero-neutral', html)
-        self.assertIn('data-cadence-v3-scene="themes"', html)
-        self.assertNotIn("hero-desktop.web.glb", html)
-        self.assertNotIn("hero-mobile.web.glb", html)
-        self.assertIn("themes-desktop.web.glb", html)
-        self.assertIn("themes-mobile.web.glb", html)
-        self.assertNotIn("cadence-theme-phone", html)
-        self.assertIn("v3-scenes.js", html)
+    def test_gallery_exposes_four_current_workspaces(self) -> None:
+        html = (ROOT / "cadence/index.html").read_text()
+        for name in ("studio", "write", "rhymes", "listen"):
+            self.assertIn(f'data-view="{name}"', html)
+            self.assertTrue((ROOT / f"assets/cadence/studio-november/{name}.webp").is_file())
+        self.assertNotIn("01-library-neutral", html)
+        self.assertNotIn("themes-desktop.web.glb", html)
 
     def test_product_chapters_drive_one_persistent_live_phone(self) -> None:
         html = (ROOT / "cadence" / "index.html").read_text(encoding="utf-8")
@@ -211,15 +207,15 @@ class SiteContentContractTest(unittest.TestCase):
 
         self.assertEqual(story.count("<model-viewer"), 1)
         self.assertEqual(story.count("data-phone-chapter"), 4)
-        self.assertEqual(story.count("data-screen-video"), 4)
-        self.assertEqual(story.count("data-screen-image"), 0)
+        self.assertEqual(story.count("data-screen-video"), 0)
+        self.assertEqual(story.count("data-screen-image"), 4)
         self.assertIn("phone-stage.js", html)
         stage_script = (ROOT / "cadence" / "phone-stage.js").read_text(encoding="utf-8")
         self.assertIn("model-viewer.min.js", stage_script)
 
     def test_authored_hero_and_live_story_use_separate_scene_assets(self) -> None:
         html = (ROOT / "cadence" / "index.html").read_text(encoding="utf-8")
-        self.assertIn('resources/01-library-neutral.webp', html)
+        self.assertIn('studio-november/studio.webp', html)
         self.assertIn('fetchpriority="high"', html)
         self.assertIn('cadence-phone-workflow.glb', html)
 
@@ -252,32 +248,27 @@ class SiteContentContractTest(unittest.TestCase):
                 missing.append(source)
         self.assertEqual(missing, [])
 
-    def test_themes_use_a_dedicated_authored_scene_after_the_product_story(self) -> None:
-        html = (ROOT / "cadence" / "index.html").read_text(encoding="utf-8")
-        story = html.split('<section id="workflow"', 1)[1].split("</section>", 1)[0]
-        themes = html.split('<section class="cadence-themes"', 1)[1].split("</section>", 1)[0]
-
-        self.assertNotIn('data-cadence-v3-scene="themes"', story)
-        self.assertIn('data-cadence-v3-scene="themes"', themes)
-        self.assertIn("themes-desktop.web.glb", themes)
-        self.assertIn("themes-mobile.web.glb", themes)
-        self.assertNotIn("theme-card", themes)
+    def test_listen_section_uses_native_player_capture(self) -> None:
+        html = (ROOT / "cadence/index.html").read_text()
+        feature = html.split('class="listen-feature"', 1)[1].split('</section>', 1)[0]
+        self.assertIn('studio-november/listen.webp', feature)
+        self.assertIn('/cadence/offline-music-player/', feature)
 
     def test_live_phone_fallbacks_use_current_product_frames(self) -> None:
         html = (ROOT / "cadence" / "index.html").read_text(encoding="utf-8")
         css = (ROOT / "cadence" / "cadence.css").read_text(encoding="utf-8")
         script = (ROOT / "cadence" / "phone-stage.js").read_text(encoding="utf-8")
 
-        hero = html.split('class="cadence-hero-object cadence-hero-neutral"', 1)[1].split("</figure>", 1)[0]
+        hero = html.split('class="studio-spread"', 1)[1].split("</figure>", 1)[0]
         self.assertNotIn("hero-device.webp", hero)
-        self.assertEqual(hero.count("resources/01-library-neutral.webp"), 2)
-        self.assertIn("01-library-neutral-480.webp 480w", hero)
+        self.assertEqual(hero.count("studio-november/studio.webp"), 1)
+        self.assertIn("studio-november/rhymes.webp", hero)
         self.assertNotIn(".glb", hero)
         head = html.split("</head>", 1)[0]
         self.assertNotIn("hero-device.webp", head)
-        self.assertIn("assets/cadence/share-card-v1.png", head)
+        self.assertIn("assets/cadence/studio-november/share.png", head)
         primary = html.split('class="cadence-phone-model cadence-phone-model--primary"', 1)[1].split("</model-viewer>", 1)[0]
-        self.assertEqual(primary.count("transcribe.webp"), 2)
+        self.assertEqual(primary.count("studio-november/write.webp"), 2)
         self.assertIn('html[data-phone-stage="poster"] .cadence-proof', css)
         self.assertIn("startPosterStory", script)
         self.assertIn("cadence-phone-ready", script)

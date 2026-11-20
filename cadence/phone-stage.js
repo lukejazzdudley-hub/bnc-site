@@ -169,6 +169,8 @@ async function waitForModel(viewer) {
 
 export async function initialiseViewer(viewer) {
   viewer.dataset.initialising = 'true';
+  // Intersection has admitted this viewer. Load behind its current-screen poster.
+  if (viewer.getAttribute('reveal') === 'manual') viewer.loading = 'eager';
   await waitForModel(viewer);
   viewer.dataset.modelReady = 'true';
   const material = viewer.model?.getMaterialByName(SCREEN_MATERIAL);
@@ -205,7 +207,7 @@ export async function initialiseViewer(viewer) {
   if (imageChapter) {
     const imageTexture = await viewer.createTexture(imageChapter.dataset.screenImage);
     setScreenTexture(imageTexture);
-  } else {
+  } else if (chapters.some(chapter => chapter.dataset.screenVideo)) {
     canvasTexture = viewer.createCanvasTexture();
     canvas = canvasTexture.source.element;
     context = canvas.getContext('2d', { alpha: false });
@@ -312,6 +314,12 @@ export async function initialiseViewer(viewer) {
         if (activeChapter !== chapter) return;
         setScreenTexture(texture);
         viewer.dataset.screenFrame = screenPlan.source;
+        if (viewer.getAttribute('reveal') === 'manual') viewer.dismissPoster();
+      }).catch(error => {
+        images.delete(chapter);
+        if (activeChapter !== chapter) return;
+        viewer.dataset.screenError = error.message;
+        viewer.showPoster();
       });
     } else if (screenPlan?.kind === 'video') {
       const video = videoFor(chapter);
