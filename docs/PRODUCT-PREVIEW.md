@@ -10,6 +10,7 @@ The product page labels the gallery as a development preview. The four-track stu
 | listen.webp | pr17-review-20261113/screens/listen-vinyl/13-playing.png |
 | mix.webp | pr17-review-20261102/screens/build-140/13-daw-playing-imported-take.png |
 | cobalt.webp | store-launch-20261119/song-pages/cobalt-hours.jpg |
-| share.png | 1200 × 630 composition of the product hero |
+| listen-gallery.webp | pr17-review-20261113/screens/listen-vinyl/11-listen-gallery.png, cropped below system status chrome |
+| share-graphite.png | 1200 × 630 composition of the product hero |
 
-The background is the original fictional Cobalt Hours release cover. Keep the captures proportional, preserve native colours and verify each replacement against its source and depicted workflow. The English screens also illustrate translated pages. They do not demonstrate a localized app interface.
+The current product page uses a neutral instrument surface. The earlier Cobalt Hours artwork is retained as a historical asset. Keep the captures proportional, preserve native colours and verify each replacement against its source and depicted workflow. The English screens also illustrate translated pages. They do not demonstrate a localized app interface.

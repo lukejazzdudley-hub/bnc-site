@@ -251,7 +251,7 @@ class SiteContentContractTest(unittest.TestCase):
     def test_listen_section_uses_native_player_capture(self) -> None:
         html = (ROOT / "cadence/index.html").read_text()
         feature = html.split('class="listen-feature"', 1)[1].split('</section>', 1)[0]
-        self.assertIn('studio-november/listen.webp', feature)
+        self.assertIn('studio-november/listen-gallery.webp', feature)
         self.assertIn('/cadence/offline-music-player/', feature)
 
     def test_live_phone_fallbacks_use_current_product_frames(self) -> None:
@@ -266,7 +266,7 @@ class SiteContentContractTest(unittest.TestCase):
         self.assertNotIn(".glb", hero)
         head = html.split("</head>", 1)[0]
         self.assertNotIn("hero-device.webp", head)
-        self.assertIn("assets/cadence/studio-november/share.png", head)
+        self.assertIn("assets/cadence/studio-november/share-graphite.png", head)
         primary = html.split('class="cadence-phone-model cadence-phone-model--primary"', 1)[1].split("</model-viewer>", 1)[0]
         self.assertEqual(primary.count("studio-november/write.webp"), 2)
         self.assertIn('html[data-phone-stage="poster"] .cadence-proof', css)

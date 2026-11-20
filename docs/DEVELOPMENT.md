@@ -348,3 +348,5 @@ widths and desktop fold/44px target bounds. No query or lyric tracking is added.
 For workflow media changes, run `scripts/verify_phone_scroll.cjs` with Node, an installed Playwright package in `BNC_PLAYWRIGHT_PATH`, and the preview origin in `BNC_PREVIEW_URL`. It checks initial recording requests, the four real screen textures, reverse scrolling and decoder activity after scrolling stops.
 
 The November product-page visuals use the release captures documented in `docs/PRODUCT-PREVIEW.md`. The current story uses four still textures on the rotating phone. Verify forward and reverse chapter changes with `scripts/verify_phone_scroll.cjs`; this version should request zero chapter videos.
+
+Run `node scripts/verify_studio_controls.cjs` with the installed Playwright path in `BNC_PLAYWRIGHT_PATH` and product URL in `BNC_PRODUCT_URL` to verify keyboard and touch selection, reduced-motion loading and tool card destinations.
