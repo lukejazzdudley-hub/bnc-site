@@ -1,3 +1,4 @@
+import {adjacentWritingGuides} from './adjacent-writing.mjs';
 import {androidComparison} from './android-comparison.mjs';
 import {newGuides} from './rhyme-and-iphone.mjs';
 import {beatLessonSections} from '../beat-lesson.mjs';
@@ -7,6 +8,7 @@ const checked = '2026-09-17';
 export const articles = [
   ...newGuides,
   androidComparison,
+  ...adjacentWritingGuides,
   {
     slug: 'writing-rap-lyrics-over-a-beat',
     title: 'How to Write Rap Lyrics Over a Beat',
@@ -216,7 +218,7 @@ I <em>hold</em> to the wheel with the truth on my <strong>side</strong></p></blo
       {
         id: 'count-what-you-perform',
         heading: 'Count the syllables you actually perform',
-        html: String.raw`<p>A syllable is a beat of spoken sound, but performance can compress, extend, or divide what the page suggests. <em>Every</em> may be two syllables in one delivery and three in another. A singer may stretch a one-syllable word across several notes without turning it into several lexical syllables. Count by speaking the line naturally first, then count the version you intend to perform.</p>
+        html: String.raw`<p><a href="/cadence/syllable-counter/">Count syllables in your lyrics line by line</a>, then check them against the exercise below.</p><p>A syllable is a beat of spoken sound, but performance can compress, extend, or divide what the page suggests. <em>Every</em> may be two syllables in one delivery and three in another. A singer may stretch a one-syllable word across several notes without turning it into several lexical syllables. Count by speaking the line naturally first, then count the version you intend to perform.</p>
 <p>Mark each syllable with a dot:</p>
 <pre><code>The / win-dow / keeps / the / morn-ing / out
  1      2       1    1      2       1  = 8</code></pre>
@@ -276,7 +278,7 @@ Lyric: RAIN on the ROOF of the LAST night BUS</code></pre>
       {
         id: 'capture-with-context',
         heading: 'Give every useful memo enough context',
-        html: String.raw`<p>A default timestamp records when you captured an idea, not why it matters. Immediately after the melody or lyric, speak a short note: “slow pre-chorus, try after Paper Crown verse,” or “hook rhythm, needs words.” Ten seconds of context can save ten minutes of guessing later.</p>
+        html: String.raw`<p>If the audio and words are already scattered across different apps, start with the <a href="/cadence/resources/organize-song-drafts/">song draft organizer template</a>.</p><p>A default timestamp records when you captured an idea, not why it matters. Immediately after the melody or lyric, speak a short note: “slow pre-chorus, try after Paper Crown verse,” or “hook rhythm, needs words.” Ten seconds of context can save ten minutes of guessing later.</p>
 <p>Use a compact title pattern when your recorder allows renaming:</p>
 <pre><code>working-title — part — tempo/feel — date
 Paper Crown — hook — slow swing — 17 Sep</code></pre>

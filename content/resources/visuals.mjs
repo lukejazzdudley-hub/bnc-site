@@ -8,6 +8,8 @@ export const renders = {
 
 // These are reading aids, not assertions that one capture depicts every stage.
 export const visualGuides = {
+  'organize-song-drafts': {image: 'takes', title: 'Bring the draft and take together', steps: ['Name the song', 'Attach the recording', 'Write the next action'], takeaway: 'Keep the latest lyric and the take you want to hear beside it.', action: 'Import a voice memo', href: '/cadence/voice-memos-to-lyrics/'},
+  'how-to-write-a-song-hook': {image: 'rhyme', title: 'Hear the same line in two positions', steps: ['Loop four bars', 'Move the stressed word', 'Record both versions'], takeaway: 'Keep the same melody and tempo while you compare the two deliveries.', action: 'Watch the beat-first workflow', href: '/cadence/type-beat-walkthrough/'},
   'best-songwriting-apps-for-android': {image: 'arrange', title: 'Run the same session in Cadence', steps: ['Import an instrumental', 'Record two takes', 'Check the handoff'], takeaway: 'Use the same files when you compare apps on your Android phone.', action: 'Follow the beat-first walkthrough', href: '/cadence/type-beat-walkthrough/'},
   'types-of-rhyme': {image: 'rhyme', title: 'Try it in Cadence', steps: ['Hear the ending', 'Check the stress', 'Try a new landing'], takeaway: 'Check the result against the same lyric or loop before choosing what to keep.', action: 'Open the feature walkthrough', href: '/cadence/guide/'},
   'multi-word-rhymes': {image: 'rhyme', title: 'Try it in Cadence', steps: ['Mark the stresses', 'Match the phrase', 'Record both versions'], takeaway: 'Check the result against the same lyric or loop before choosing what to keep.', action: 'Open the feature walkthrough', href: '/cadence/guide/'},
