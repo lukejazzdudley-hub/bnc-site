@@ -1,0 +1,112 @@
+.article-hero.article-hero--opening {
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 1fr);
+  gap: clamp(24px, 5vw, 72px);
+}
+
+.guide-opening {
+  padding: clamp(18px, 3vw, 36px);
+  border: 1px solid #455063;
+  border-radius: 20px;
+  background: linear-gradient(145deg, #222936, #13171e 75%);
+  color: #e0e7f0;
+  font-size: .95rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.guide-opening h2 {
+  margin: 0 0 16px;
+  color: #fff;
+  font-size: clamp(1.25rem, 2vw, 1.7rem);
+  line-height: 1.2;
+  letter-spacing: -.02em;
+}
+
+.guide-opening :where(p, dl, ol, ul, table) { margin: 12px 0; }
+.guide-opening > :last-child { margin-bottom: 0; }
+.guide-opening a { color: #d4e5ff; text-decoration: underline; text-underline-offset: .18em; }
+.guide-opening :where(a, summary, input):focus-visible { outline: 2px solid #b9ddff; outline-offset: 4px; }
+.guide-opening :where(dt, summary) { color: #fff; font-weight: 650; }
+.guide-opening dd { margin: .2em 0 0; }
+.guide-opening summary { cursor: pointer; padding-block: 8px; min-block-size: 44px; }
+.guide-opening mark { background: #b9ddff; color: #162333; border-radius: .15em; }
+.guide-opening .opening-note { color: #c3cfdd; font-size: .875rem; }
+.guide-opening .opening-lyric { color: #fff; font-size: 1.25rem; font-weight: 650; }
+.opening-timeline { border-inline-start: 2px solid #7b98bd; padding-inline-start: 16px; }
+.opening-timeline div + div { margin-top: 14px; }
+.opening-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 122px), 1fr)); gap: 8px; }
+.opening-grid > div, .opening-project { background: #2a3546; border-radius: 10px; padding: 12px; }
+.opening-rows > div { border-block-start: 1px solid #455063; padding-block: 8px; }
+.opening-sounds dd { font-size: 1.15rem; }
+.opening-project > p { margin: 0; color: #fff; font-size: 1.1rem; font-weight: 650; }
+.opening-project span { display: block; color: #c3cfdd; font-size: .8rem; font-weight: 400; }
+.opening-project dl { margin-block-end: 0; }
+.opening-checks { list-style: none; padding: 0; }
+.opening-checks label { display: flex; align-items: center; gap: 10px; padding-block: 7px; min-height: 44px; cursor: pointer; }
+.opening-checks label:hover { color: #fff; }
+.opening-checks input { flex: none; width: 1.15rem; height: 1.15rem; margin: 0; accent-color: #b9ddff; }
+.opening-stress { width: 100%; border-collapse: collapse; text-align: left; }
+.opening-stress :where(th, td) { padding: 6px 10px; border: 1px solid #455063; }
+.opening-stress td { color: #fff; font-size: 1.15rem; font-weight: 650; letter-spacing: .02em; }
+.opening-bars { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 118px), 1fr)); gap: 6px; padding: 0; counter-reset: bar; list-style: none; }
+.opening-bars li { counter-increment: bar; background: #2b3545; border-block-start: 2px solid #7b98bd; padding: 8px; border-radius: 3px; }
+.opening-bars li::before { content: counter(bar); display: block; color: #c3cfdd; font-variant-numeric: tabular-nums; }
+
+@media (max-width: 790px) {
+  .article-hero.article-hero--opening { grid-template-columns: minmax(0, 1fr); }
+}
+
+.reader-page .hero.mobile-comparison-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 1fr);
+  gap: clamp(24px, 5vw, 64px);
+  align-items: center;
+  min-height: auto;
+  padding-block: clamp(26px, 5vw, 64px);
+}
+
+.reader-page .mobile-comparison-hero h1 {
+  font-size: clamp(2rem, 5vw, 3.65rem);
+  overflow-wrap: anywhere;
+}
+
+.comparison-jump a { text-decoration: underline; text-underline-offset: .2em; }
+
+@media (max-width: 790px) {
+  .reader-page .hero.mobile-comparison-hero { grid-template-columns: minmax(0, 1fr); }
+}
+
+.guide-opening--lesson {
+  color-scheme: light;
+  background: linear-gradient(145deg, #f9fafc, #e2e9f1);
+  color: #243449;
+  border-color: #c4cfdb;
+}
+.guide-opening--lesson :is(h2, dt, summary, .opening-lyric, .opening-stress td) { color: #16283f; }
+.guide-opening--lesson .opening-note { color: #384c64; }
+.guide-opening--lesson :is(.opening-grid > div, .opening-bars li) { background: #f6f9fd; }
+.guide-opening--lesson :is(.opening-rows > div, .opening-stress :where(th, td)) { border-color: #afbbc9; }
+.guide-opening--lesson .opening-bars li::before { color: #384c64; }
+.guide-opening--lesson mark { background: #c9e0f8; color: #142b46; }
+.guide-opening--lesson :where(a, summary, input):focus-visible { outline-color: #305e91; }
+
+.mobile-comparison-page header .region-links { margin-block: 0; }
+.mobile-app-choices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 190px), 1fr));
+  gap: 12px;
+}
+.mobile-app-choices > div {
+  padding: 18px;
+  border-radius: 10px;
+  border: 1px solid #ccd3dd;
+  background: #f8fafc;
+}
+.mobile-app-choices > div:first-child {
+  grid-column: 1 / -1;
+  background: #dfe8f3;
+  border-color: #b0c0d4;
+}
+.mobile-app-choices dt { font-size: 1.12rem; }
+.mobile-app-choices dd { margin: 0; }
+.mobile-app-choices dd p { margin: 8px 0 0; }

@@ -50,3 +50,26 @@ test('device art stays uncropped and scroll motion is opt-in to motion preferenc
   assert.match(css, /prefers-reduced-motion: no-preference[\s\S]*animation-timeline: view\(\)/);
   assert.match(css, /\.field-note img \{[^}]*object-fit: contain/s);
 });
+
+test('task-specific guides expose their worked openings and relevant jumps in source HTML', async () => {
+  const articles = await loadArticles();
+  const expected = {
+    'best-songwriting-app-ios-android': 'Follow a song through the workspace',
+    'best-songwriting-apps-for-iphone': 'Start with a Voice Memo',
+    'best-songwriting-apps-for-android': 'The Android offline check',
+    'types-of-rhyme': 'One rhyme can have two labels',
+    'multi-word-rhymes': 'Tap the two stressed sounds',
+    'assonance-vs-consonance': 'Keep one sound and change the rest',
+    'organize-song-drafts': 'Give a stalled song one next move',
+    'how-to-write-a-song-hook': 'Build a four-bar hook',
+  };
+  for (const [slug, title] of Object.entries(expected)) {
+    const article = articles.find(candidate => candidate.slug === slug);
+    assert.ok(article, slug);
+    const html = renderArticle(article, articles);
+    const hero = html.slice(html.indexOf('class="article-hero resource-shell'), html.indexOf('<div class="article-layout'));
+    assert.ok(hero.includes(`id="opening-title">${title}</h2>`), slug);
+    assert.doesNotMatch(hero, /<img|<video/);
+    assert.ok(article.sections.some(section => hero.includes(`href="#${section.id}"`)), slug);
+  }
+});

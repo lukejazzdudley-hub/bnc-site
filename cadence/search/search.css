@@ -62,3 +62,14 @@ header nav a,footer nav a{display:inline-flex;align-items:center;min-height:44px
 #syllable-results li {padding:12px 16px;margin-block:8px;border:1px solid #626d81;border-radius:10px;overflow-wrap:anywhere;}
 #syllable-results p {margin:.25rem 0;}
 #syllable-results p:empty,#syllable-results:empty,#syllable-status:empty {display:none;}
+
+.syllable-tool form[hidden] { display: none; }
+.syllable-tool button { min-height: 44px; }
+#syllable-results .syllable-count {
+  display: inline-block;
+  border-radius: 6px;
+  background: #d8e6f5;
+  color: #1b3f66;
+  padding: 2px 7px;
+  font-variant-numeric: tabular-nums;
+}
