@@ -1,5 +1,7 @@
 # Changelog
 
+- Compare Cadence with four other songwriting apps and see how a beat becomes a recorded demo on iOS and Android.
+
 - See why Cadence fits beat-led songwriting, watch the complete set of workflow demonstrations, and compare current competitor features and plan limits.
 
 - Count syllables line by line in a browser, organize unfinished songs with a reusable draft template, and practise writing a hook over four bars.
