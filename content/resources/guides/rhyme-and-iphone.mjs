@@ -6,7 +6,7 @@ const types = guide('types-of-rhyme');
 const phrase = guide('multi-word-rhymes');
 const sound = guide('assonance-vs-consonance');
 const source = (title, url) => ({ title, url, checked });
-const section = (id, heading, html) => ({ id, heading, html });
+const section = (id, heading, html) => ({ id, heading, html: html.trim() });
 
 export const newGuides = [
   {
