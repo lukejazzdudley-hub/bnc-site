@@ -5,7 +5,12 @@ export const mobileComparisons = [
     description: 'Compara Cadence, Song Cage, BandLab y GarageBand para escribir letras, buscar rimas, grabar sobre un beat o preparar una maqueta.',
     intro: 'Si ya tienes una base, busca una app que te deje repetir un fragmento, escribir encima y guardar varias tomas. Si empiezas con acordes o quieres producir la instrumental, te conviene probar otro flujo.',
     compare: 'Qué app elegir según cómo compones',
-    columns: ['Aplicación', 'Cuándo probarla'],
+    practice: {
+      title: 'De la base al estribillo',
+      html: `<p class="opening-lyric">«Tu mensaje sigue sonando en el <mark>andén</mark>»</p>
+      <dl class="opening-grid"><div><dt>En el tiempo</dt><dd>Canta «dén» en el primer tiempo del compás.</dd></div>
+      <div><dt>Después del silencio</dt><dd>Deja pasar ese tiempo y retrasa «dén». Escucha qué versión invita a cantar contigo.</dd></div></dl><p><a href="/cadence/es/diccionario-rimas/">Busca rimas para «andén»</a> y cambia solo el final del verso.</p>`,
+    },
     choices: [
       'Para escribir la letra sobre una base importada, buscar rimas y guardar las tomas junto a la canción. Ofrece 21 opciones de idioma para rimas, entre ellas el español. Marca el inicio del estribillo, repite un tramo con los puntos A–B y escucha archivos locales sin conexión. Las notas de producción permiten extraer audio de un vídeo. Con Pro puedes ordenar las tomas por secciones y exportar pistas WAV alineadas.',
       'Para apuntar letras, notas de voz y acordes sin conexión. El editor web o de escritorio sirve para continuar el arreglo.',
@@ -29,19 +34,23 @@ export const mobileComparisons = [
     description: 'Comparez Cadence, Song Cage, BandLab et GarageBand pour vos paroles, vos rimes, vos prises de voix et vos maquettes.',
     intro: 'Le bon choix dépend de votre point de départ. Pour écrire et enregistrer sur une instru, essayez Cadence. Pour chercher des accords ou partir d’instruments virtuels, comparez les autres méthodes ci-dessous.',
     compare: 'Choisir une application selon votre façon d’écrire',
-    columns: ['Application', 'Dans quel cas l’essayer'],
+    practice: {
+      title: 'Du mémo vocal à la mélodie',
+      html: `<p class="opening-lyric">« Je te laisse un message. »</p>
+      <details><summary>Essayer deux placements</summary><p>Chantez une fois « je te laisse », puis « j’te laisse » sur la même mélodie. La prononciation de ces e varie selon le phrasé et l’accent. Écoutez si la note tenue sur « laisse » tombe toujours au même endroit.</p></details>
+      <p>Gardez la première prise pour comparer le phrasé avant de chercher une rime.</p>`,
+    },
     choices: [
       'Pour écrire des paroles sur une instru importée, boucler un passage et conserver plusieurs prises. Cadence propose 21 options de langue pour les rimes, dont le français. Placez un repère au début du refrain, bouclez le passage avec les points A–B et écoutez vos fichiers locaux hors connexion. Les notes de production permettent d’extraire le son d’une vidéo. Avec Pro, assemblez les prises par section et exportez des pistes WAV alignées.',
       'Pour noter une mélodie, des paroles ou des accords hors connexion. L’arrangement se poursuit dans l’éditeur web ou sur ordinateur.',
       'Pour enregistrer plusieurs pistes dans une même maquette, sur Android ou iPhone. Vérifiez les limites de pistes et de durée avant une longue séance.',
       'Pour jouer des instruments virtuels et enregistrer sur iPhone ou iPad.',
     ],
-    exercise: 'Faites le même essai avec chaque application',
+    exercise: 'Vérifiez que le mémo et les paroles restent ensemble',
     steps: [
-      'Importez une instru que vous avez le droit d’utiliser et isolez quatre mesures.',
-      'Enregistrez deux versions de « Le dernier métro emporte ta voix ». Essayez de poser « voix » après le temps dans la deuxième prise.',
-      'Fermez puis rouvrez le projet. Retrouvez les paroles, l’instru et les deux prises.',
-      'Ouvrez un export dans le logiciel que vous comptez utiliser pour finir la maquette.',
+      'Fredonnez une mélodie et gardez ce premier enregistrement, même si les paroles ne sont pas prêtes.',
+      'Écrivez un refrain sur cette mélodie. Reprenez une seule ligne en changeant son phrasé.',
+      'Le lendemain, retrouvez le mémo et les deux prises. Identifiez la version que vous voulez garder sans avoir à rouvrir une autre application.',
     ],
     access: 'Ce que vous pouvez essayer gratuitement',
     limits: 'Cadence permet de commencer avec trois notes gratuites. Le parcours complet d’arrangement et d’export nécessite Pro. Cadence prévoit de rendre la création sur l’appareil gratuite et de facturer le stockage cloud et l’utilisation sur plusieurs appareils. Vérifiez l’offre actuelle de votre boutique. Ce guide est publié par Cadence et s’appuie sur les documentations publiques.',
@@ -53,19 +62,23 @@ export const mobileComparisons = [
     description: 'Compare Cadence, Song Cage, BandLab e GarageBand para escrever letras, encontrar rimas, gravar voz e montar uma demo no celular.',
     intro: 'Se você já tem uma batida, vale testar um app que deixa repetir o trecho, escrever a letra e guardar as gravações no mesmo projeto. Para começar pelos acordes ou produzir a base, veja as outras opções.',
     compare: 'Qual app combina com o jeito que você compõe?',
-    columns: ['Aplicativo', 'Quando vale testar'],
+    practice: {
+      title: 'Do refrão à sessão de produção',
+      html: `<dl class="opening-timeline"><div><dt>Saindo do celular</dt><dd>Exporte um teste com a batida e uma voz marcada com a palavra «vai» no início do refrão.</dd></div>
+      <div><dt>Chegando na DAW</dt><dd>Importe as duas faixas no mesmo ponto e confira se o «vai» entra no tempo esperado.</dd></div></dl>
+      <p class="opening-note">No Cadence, a exportação de faixas faz parte do Pro.</p>`,
+    },
     choices: [
       'Para escrever sobre uma batida importada, buscar rimas e gravar versões do mesmo verso. Há 21 opções de idioma para rimas, incluindo português do Brasil. Marque o início do refrão, repita o trecho com os pontos A–B e ouça arquivos locais sem internet. As notas de produção permitem extrair áudio de um vídeo. Com o Pro, organize as gravações por seção e exporte faixas WAV alinhadas.',
       'Para guardar letras, áudios e ideias de acordes sem internet. Para seguir com o arranjo, use o editor web ou para computador.',
       'Para montar uma demo com várias faixas no Android ou iPhone. Confira os limites de faixas e duração para o seu projeto.',
       'Para tocar instrumentos virtuais e gravar faixas no iPhone ou iPad.',
     ],
-    exercise: 'Teste o mesmo verso em dois aplicativos',
+    exercise: 'Prepare uma entrega que outra pessoa consiga abrir',
     steps: [
-      'Importe uma batida que você pode usar e repita quatro compassos.',
-      'Grave duas versões de “Deixei teu recado tocando no vão”. Na segunda, tente colocar “vão” depois do tempo.',
-      'Feche e abra o projeto. Veja se você encontra a letra, a batida e as duas gravações.',
-      'Se for terminar a faixa em outra DAW, abra um arquivo de teste e confira o alinhamento.',
+      'Escolha uma batida que você tem permissão para compartilhar. Anote o BPM e a ordem das seções.',
+      'Grave uma voz guia. Dê nomes diferentes à faixa de voz e à batida antes de exportar.',
+      'Para quem só vai ouvir, mande a mistura. Para quem vai produzir, confira se o app separa voz e batida e se as duas começam juntas ao abrir a sessão.',
     ],
     access: 'O que dá para testar de graça?',
     limits: 'No Cadence, você pode começar com três notas grátis. O fluxo completo de arranjo e exportação exige o Pro. O plano futuro é oferecer criação gratuita no aparelho e cobrar pelo armazenamento na nuvem e pelo uso em vários dispositivos. Confira a oferta atual na sua loja. O Cadence publica este guia com base na documentação pública dos aplicativos.',

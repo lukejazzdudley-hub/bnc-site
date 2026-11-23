@@ -1,3 +1,4 @@
+import { pageOpenings } from '../content/resources/page-openings.mjs';
 import {workflowRoutes} from '../content/resources/workflow-routes.mjs';
 import {renderShortlist} from '../content/resources/comparisons/shortlist.mjs';
 import {
@@ -402,6 +403,8 @@ export function renderArticle(article, allArticles = []) {
   const title = `${article.title} | Cadence`;
   const image = articleImage(article.category);
   const guide = visualGuides[article.slug];
+  const opening = pageOpenings[article.slug];
+  if (opening) assert(article.sections.some(section => section.id === opening.action[0]), `Missing opening destination for ${article.slug}`);
   const schema = [
     {
       '@context': 'https://schema.org',
@@ -436,23 +439,23 @@ export function renderArticle(article, allArticles = []) {
   return `<!doctype html>
 <html lang="en">
 <head>
-  ${renderHead({ title, description: article.description, canonical, schema, image: image.src })}${article.slug === 'writing-rap-lyrics-over-a-beat' ? '\n  <link rel="stylesheet" href="/cadence/resources/beat-worksheet.css"><script type="module" src="/cadence/resources/beat-worksheet.mjs"></script>' : ''}${article.slug === 'choosing-a-songwriting-app' ? '\n  <link rel="stylesheet" href="/cadence/resources/app-shortlist.css"><script type="module" src="/cadence/resources/app-shortlist.mjs"></script>' : ''}
+  ${renderHead({ title, description: article.description, canonical, schema, image: image.src })}${opening ? '<link rel="stylesheet" href="/cadence/resources/page-openings.css">' : ''}${article.slug === 'writing-rap-lyrics-over-a-beat' ? '\n  <link rel="stylesheet" href="/cadence/resources/beat-worksheet.css"><script type="module" src="/cadence/resources/beat-worksheet.mjs"></script>' : ''}${article.slug === 'choosing-a-songwriting-app' ? '\n  <link rel="stylesheet" href="/cadence/resources/app-shortlist.css"><script type="module" src="/cadence/resources/app-shortlist.mjs"></script>' : ''}
 </head>
 <body class="resource-page resource-article">
   <div class="reading-progress" aria-hidden="true"></div>
   ${renderHeader()}
   <main id="main">
-    <header class="article-hero resource-shell">
+    <header class="article-hero resource-shell${opening ? ' article-hero--opening' : ''}">
       <div class="article-hero__copy">
         <p class="resource-breadcrumb"><a href="/cadence/">Cadence</a><span aria-hidden="true">/</span><a href="/cadence/resources/">Resources</a><span aria-hidden="true">/</span>${escapeHtml(article.category)}</p>
         <h1>${escapeHtml(article.title)}</h1>
         <p>${escapeHtml(article.intro)}</p>
-        <div class="resource-actions"><a href="#${article.sections[0].id}">Read the guide</a>${article.slug === 'writing-rap-lyrics-over-a-beat' ? '<a href="#beat-to-demo-worksheet">Use the free worksheet</a>' : ''}${article.slug==='choosing-a-songwriting-app'?'<a href="#app-shortlist">Find your shortlist</a><a href="#compare-apps">Compare the 13 apps</a><a href="#free-songwriting-apps">Free apps &amp; plan limits</a>':''}<span>${readingMinutes(article)} min read</span></div>
+        <div class="resource-actions"><a href="#${opening?.action[0] ?? article.sections[0].id}">${escapeHtml(opening?.action[1] ?? 'Read the guide')}</a>${article.slug === 'writing-rap-lyrics-over-a-beat' ? '<a href="#beat-to-demo-worksheet">Use the free worksheet</a>' : ''}${article.slug==='choosing-a-songwriting-app'?'<a href="#app-shortlist">Find your shortlist</a><a href="#compare-apps">Compare the 13 apps</a><a href="#free-songwriting-apps">Free apps &amp; plan limits</a>':''}<span>${readingMinutes(article)} min read</span></div>
       </div>
-      <figure>
+      ${opening ? `<section class="guide-opening${article.category === 'Improve your writing' ? ' guide-opening--lesson' : ''}" aria-labelledby="opening-title"><h2 id="opening-title">${escapeHtml(opening.title)}</h2>${opening.html}</section>` : `<figure>
         <img src="${image.src}" alt="${escapeHtml(image.alt)}" width="900" height="1650">
         <figcaption>A complete workspace for the idea.</figcaption>
-      </figure>
+      </figure>`}
     </header>${article.slug === 'choosing-a-songwriting-app' ? `\n\n    ${renderShortlist()}` : ''}
 
     <div class="article-layout resource-shell">
@@ -467,12 +470,12 @@ export function renderArticle(article, allArticles = []) {
         ${sections}
         ${renderSources(article.sources)}
         ${related.length ? `<nav class="article-related" aria-label="Related guides"><h2>Keep exploring</h2>${related.map(candidate => `<a href="/cadence/resources/${candidate.slug}/">${escapeHtml(candidate.title)}</a>`).join('')}</nav>` : ''}
-        <aside class="article-next">
+        ${opening ? `<nav class="article-next" aria-label="Next step"><a href="${opening.next[0]}">${escapeHtml(opening.next[1])}</a></nav>` : `<aside class="article-next">
           <p>Keep the idea moving</p>
           <h2>Your next song can start anywhere.</h2>
           <p>A beat, a bar or a freestyle. Import, write or record first—then keep the takes, arrangement and demo connected in Cadence.</p>
           <a href="/cadence/">Explore Cadence</a>
-        </aside>
+        </aside>`}
       </article>
     </div>
   </main>

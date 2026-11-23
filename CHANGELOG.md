@@ -1,5 +1,7 @@
 # Changelog
 
+- Try a songwriting app with a device-specific checklist, practise a rhyme or a four-bar hook, and see how the syllable counter handles pronunciation ranges. Spanish, French and Brazilian Portuguese comparisons now open with different writing and recording exercises.
+
 - Compare Cadence’s beat cues, multilingual rhymes, local playback and video sampling across the app comparisons. See current access and the upcoming free on-device plan.
 
 - See how Cadence compares across the full songwriting workflow and how its 21 rhyme language options compare with SongRight’s documented coverage.

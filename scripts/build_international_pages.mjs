@@ -40,7 +40,7 @@ const nativeLanguageLinks = `<a href="/cadence/" lang="en">English</a>${language
 const nativeLanguageSection = `<section class="content"><h2>Read in your language</h2><p>Choose a translated Cadence introduction. Language pages are separate from the English-language storefront guides below.</p><nav class="region-links language-links" aria-label="Product languages">${nativeLanguageLinks}</nav><p><a href="/cadence/languages/">All 21 writing languages and setup guides</a></p></section>`;
 const mark = `<picture aria-hidden="true"><source media="(prefers-reduced-motion: reduce)" srcset="/assets/cadence/cadence-mark-static.webp"><img src="/assets/cadence/cadence-mark-nav.webp" data-animated-mark data-static-src="/assets/cadence/cadence-mark-static.webp" alt="" width="36" height="36"></picture>`;
 
-function render({ title, description, canonical, language = 'en', body, schema, regional = false, pageAlternates = regional ? alternates : '' }) {
+function render({ title, description, canonical, language = 'en', body, schema, regional = false, pageAlternates = regional ? alternates : '', comparison = false }) {
   return readerLayout(`<!doctype html>
 <html lang="${language}"${['ar','he'].includes(language) ? ' dir="rtl"' : ''}><head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -51,13 +51,13 @@ ${pageAlternates}
   <meta name="theme-color" content="#08090c"><meta name="apple-itunes-app" content="app-id=6778554520">
   <link rel="icon" type="image/webp" href="/assets/cadence/cadence-mark-static.webp">
   <link rel="stylesheet" href="/cadence/search/search.css"><link rel="stylesheet" href="/cadence/regions/regions.css">
-  <script type="application/ld+json">${json(schema)}</script>
+  ${comparison ? '<link rel="stylesheet" href="/cadence/resources/page-openings.css">\n  ' : ''}<script type="application/ld+json">${json(schema)}</script>
   <script type="module" src="/cadence/media-policy.js"></script>
 <script type="module" src="/cadence/search/measurement.mjs"></script></head><body><a class="skip" href="#main">Skip to content</a>
   <header><div class="shell"><a class="brand" href="/cadence/">${mark}Cadence</a><nav aria-label="Main"><a href="/cadence/guide/">Guide (English)</a><a href="/cadence/resources/">Resources</a><a href="/cadence/rhyme-finder/">Rhyme finder</a><a href="/cadence/regions/">Downloads by region</a><a href="/cadence/languages/">Languages</a></nav></div></header>
   <main class="shell" id="main">${body}</main>
   <footer><div class="shell"><p>Flow by Cadence · Cadence by Brand Name Changes</p>${regionLinks()}<nav aria-label="Footer"><a href="/support">Support</a><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/delete-account">Delete account</a></nav></div></footer>
-</body></html>\n`);
+</body></html>\n`, { illustration: !comparison });
 }
 
 const hubBody = `<section class="hero region-hero"><div><p class="crumb"><a href="/cadence/">Cadence</a> / Downloads by region</p><h1>Your song.<br>Your storefront.</h1><p class="intro">Find Cadence on your local App Store or Google Play. Keep lyrics, rhyme ideas, beats and vocal takes together, from the first idea to a demo.</p><p>Flow by Cadence brings you to the same Cadence app. Choose a region for storefront links, currency guidance and practical writing notes.</p></div><figure class="region-phone"><img src="/assets/cadence/studio-november/write.webp" width="560" height="1218" alt="The Afterglow lyric in the Cadence editor"><figcaption>The same songwriting workspace, wherever you start.</figcaption></figure></section>
@@ -137,16 +137,17 @@ for (const item of mobileComparisons) {
   ];
   const languages = `<nav class="region-links" aria-label="${escape(locale.languages)}">${mobileComparisons.map(other =>
     `<a href="${mobileComparisonPath(other)}" lang="${other.lang}"${other === item ? ' aria-current="page"' : ''}>${escape(other.name)}</a>`).join('')}</nav>`;
-  const body = `<section class="hero text-only"><div><h1>${escape(item.title)}</h1><p class="intro">${escape(item.intro)}</p></div></section>
-<section class="content" id="comparison"><h2>${escape(item.compare)}</h2><dl>${apps.map(([name, href], index) =>
-    `<dt><strong><a href="${escape(href)}">${name}</a></strong></dt><dd><p>${escape(item.choices[index])}</p></dd>`).join('')}</dl></section>
+  const body = `<section class="hero mobile-comparison-hero"><div><h1>${escape(item.title)}</h1><p class="intro">${escape(item.intro)}</p><p class="comparison-jump"><a href="#comparison">${escape(item.compare)}</a></p></div><section class="guide-opening" aria-labelledby="opening-title"><h2 id="opening-title">${escape(item.practice.title)}</h2>${item.practice.html}</section></section>
+<section class="content" id="comparison"><h2>${escape(item.compare)}</h2><dl class="mobile-app-choices">${apps.map(([name, href], index) =>
+    `<div><dt><strong><a href="${escape(href)}">${name}</a></strong></dt><dd><p>${escape(item.choices[index])}</p></dd></div>`).join('')}</dl></section>
 <section class="content" id="exercise"><h2>${escape(item.exercise)}</h2><ol>${item.steps.map(step => `<li>${escape(step)}</li>`).join('')}</ol><p><a href="${item.tool[0]}">${escape(item.tool[1])}</a></p></section>
 <section class="content" id="plans"><h2>${escape(item.access)}</h2><p>${escape(item.limits)}</p><div class="actions"><a class="button primary" href="${escape(google)}">${storeIcon('google')}<span>${escape(locale.playStore)}</span></a><a class="button" href="${apple}">${storeIcon('apple')}<span>${escape(locale.appStore)}</span></a></div></section>`;
   const html = render({
     title: `${item.title} | Cadence`, description: item.description, canonical, language: item.lang, body,
-    pageAlternates: comparisonAlternates,
+    pageAlternates: comparisonAlternates, comparison: true,
     schema: {'@context': 'https://schema.org', '@type': 'Article', headline: item.title, description: item.description, inLanguage: item.lang, mainEntityOfPage: canonical, publisher: {'@type': 'Organization', name: 'Brand Name Changes'}},
   }).replace('Skip to content', escape(locale.main))
+    .replace('<body class="reader-page">', '<body class="reader-page mobile-comparison-page">')
     .replace(/<nav aria-label="Main">[\s\S]*?<\/nav>/, languages)
     .replace(/<footer>[\s\S]*?<\/footer>/, `<footer><div class="shell"><a href="/cadence/${item.code}/">Cadence</a>${languages}</div></footer>`);
   const directory = path.join(root, route);

@@ -31,3 +31,9 @@ and the site suites. Check short/long guides, RTL, Japanese, mobile acquisition,
 and actual browser-tool results at the seven documented widths. Keep screenshots
 and acceptance observations private. A successful automated check does not mean
 Luke has accepted the aesthetic.
+
+## Guide openings and exercises
+
+Eight English resources use authored openings in `content/resources/page-openings.mjs`. The platform comparisons, worked sound examples and draft tools have task-specific opening links and next steps. Keep these activities readable in the source HTML. Native checkboxes and disclosures work without scripts or local storage. The in-article field note still shows the product context.
+
+Spanish, French and Brazilian Portuguese comparisons have distinct practice material in `content/mobile-comparisons.mjs`. Keep the reciprocal language links and local store destinations when updating a comparison. The web syllable counter examples are covered against its shipped pronunciation data in `tests/syllable_counter.test.mjs`.

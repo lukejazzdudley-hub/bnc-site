@@ -76,3 +76,21 @@
 
 .reader-page:has(.syllable-tool) .hero.text-only {display:block;min-height:0;padding-block:clamp(26px,5vw,62px);}
 .reader-page:has(.syllable-tool) .hero h1 {max-width:23ch;}
+
+.reader-page .syllable-worked {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 12px;
+}
+.syllable-worked > div {
+  background: #f8fafc;
+  border: 1px solid #ccd3dd;
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.syllable-worked dd {
+  margin: 4px 0 0;
+  color: #23456d;
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+}

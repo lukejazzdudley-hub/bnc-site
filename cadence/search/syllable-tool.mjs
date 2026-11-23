@@ -23,6 +23,7 @@ function receive({ data }) {
     text.textContent = `Line ${line.line} · ${line.text}`;
     count.textContent = `${line.low === line.high ? line.low : `${line.low}–${line.high}`} ${line.unknown.length ? 'known syllables' : 'syllables'}`;
     check.textContent = line.unknown.length ? `Check by ear: ${line.unknown.join(', ')}` : '';
+    count.className = 'syllable-count';
     item.append(text, count, check);
     results.append(item);
   }
@@ -55,8 +56,10 @@ form.addEventListener('submit', event => {
     finish('This browser could not start the syllable counter.');
   }
 });
-document.querySelector('#syllable-example').addEventListener('click', () => {
-  if (submit.disabled) return;
-  lyric.value = 'The last train left at midnight\nI heard the drums through the rain';
-  form.requestSubmit();
-});
+for (const example of form.querySelectorAll('[data-syllable-example]')) {
+  example.addEventListener('click', () => {
+    if (submit.disabled) return;
+    lyric.value = example.dataset.syllableExample;
+    form.requestSubmit();
+  });
+}
