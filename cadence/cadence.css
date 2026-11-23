@@ -330,7 +330,7 @@ model-viewer.cadence-phone-model > img[slot="poster"] {
 
 .fragmentation-grid {
   display: grid;
-  grid-template-columns: minmax(0, .84fr) minmax(0, 1.16fr);
+  grid-template-columns: minmax(0, 1.16fr) minmax(0, .84fr);
   align-items: center;
   gap: clamp(46px, 8vw, 130px);
 }
@@ -339,24 +339,28 @@ model-viewer.cadence-phone-model > img[slot="poster"] {
   display: grid;
 }
 
-.fragmentation-list span {
-  padding: 16px 0;
-  border-bottom: 1px solid rgba(13, 14, 17, 0.18);
-  color: #5e5c58;
-  font-family: var(--mono);
-  font-size: clamp(.72rem, 1vw, .88rem);
-  letter-spacing: .05em;
+.workflow-proof-links a {
+  display: grid;
+  gap: 4px;
+  padding: 18px 0;
+  border-bottom: 1px solid #b7b4ad;
+  color: #1d2a3a;
+  text-decoration: none;
 }
 
-.fragmentation-list span::after {
-  float: right;
-  color: #b03048;
-  content: "scattered";
-  text-decoration: line-through;
+.workflow-proof-links a:hover strong,
+.workflow-proof-links a:focus-visible strong {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
-.fragmentation-copy .cadence-label {
-  color: #706d66;
+.workflow-proof-links a:focus-visible {
+  outline-color: #214f86;
+}
+
+.workflow-proof-links span {
+  color: #464842;
+  font-size: .95rem;
 }
 
 .fragmentation-copy h2 {
@@ -947,9 +951,6 @@ html[data-phone-stage="poster"] .cadence-proof {
     padding-left: 0;
   }
 
-  .fragmentation-list span::after {
-    content: "";
-  }
 
   .fragmentation-copy h2,
   .cadence-story-head h2,
