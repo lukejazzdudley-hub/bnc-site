@@ -1,5 +1,7 @@
 # Changelog
 
+- Compare Android and iPhone songwriting apps with a repeatable recording and export test. Read the mobile comparison in Spanish, French or Brazilian Portuguese.
+
 - Compare five iPhone songwriting apps by workflow and practise rhyme types, multi-word rhymes, assonance and consonance with worked examples.
 
 - Switch between Cadence workspaces on a silver studio surface and open beat writing, rhyme search or arrangement directly from the interactive tool cards.

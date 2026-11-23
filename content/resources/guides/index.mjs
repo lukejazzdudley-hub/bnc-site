@@ -1,3 +1,4 @@
+import {androidComparison} from './android-comparison.mjs';
 import {newGuides} from './rhyme-and-iphone.mjs';
 import {beatLessonSections} from '../beat-lesson.mjs';
 
@@ -5,6 +6,7 @@ const checked = '2026-09-17';
 
 export const articles = [
   ...newGuides,
+  androidComparison,
   {
     slug: 'writing-rap-lyrics-over-a-beat',
     title: 'How to Write Rap Lyrics Over a Beat',

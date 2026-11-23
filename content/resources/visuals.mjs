@@ -8,6 +8,7 @@ export const renders = {
 
 // These are reading aids, not assertions that one capture depicts every stage.
 export const visualGuides = {
+  'best-songwriting-apps-for-android': {image: 'arrange', title: 'Run the same session in Cadence', steps: ['Import an instrumental', 'Record two takes', 'Check the handoff'], takeaway: 'Use the same files when you compare apps on your Android phone.', action: 'Follow the beat-first walkthrough', href: '/cadence/type-beat-walkthrough/'},
   'types-of-rhyme': {image: 'rhyme', title: 'Try it in Cadence', steps: ['Hear the ending', 'Check the stress', 'Try a new landing'], takeaway: 'Check the result against the same lyric or loop before choosing what to keep.', action: 'Open the feature walkthrough', href: '/cadence/guide/'},
   'multi-word-rhymes': {image: 'rhyme', title: 'Try it in Cadence', steps: ['Mark the stresses', 'Match the phrase', 'Record both versions'], takeaway: 'Check the result against the same lyric or loop before choosing what to keep.', action: 'Open the feature walkthrough', href: '/cadence/guide/'},
   'assonance-vs-consonance': {image: 'rhyme', title: 'Try it in Cadence', steps: ['Say the line', 'Listen for repetition', 'Try it on the beat'], takeaway: 'Check the result against the same lyric or loop before choosing what to keep.', action: 'Open the feature walkthrough', href: '/cadence/guide/'},
