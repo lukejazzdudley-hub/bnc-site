@@ -45,7 +45,7 @@ function makeArticle(index, overrides = {}) {
 }
 
 function makeArticles() {
-  return Array.from({ length: 17 }, (_, index) => makeArticle(index + 1));
+  return Array.from({ length: 18 }, (_, index) => makeArticle(index + 1));
 }
 
 function writeContentModule(directory, articles) {
@@ -116,7 +116,7 @@ test('content loader imports both named article arrays and enforces the final co
   const comparisons = writeContentModule(path.join(temporaryRoot, 'comparisons'), articles.slice(6));
 
   const loaded = await loadArticles([guides, comparisons]);
-  assert.equal(loaded.length, 17);
+  assert.equal(loaded.length, 18);
   assert.deepEqual(loaded.map(({ slug }) => slug), articles.map(({ slug }) => slug));
 });
 
@@ -161,12 +161,12 @@ test('article validation rejects duplicate routes and malformed content', () => 
   assert.doesNotThrow(() => validateArticles(firstPartyRelativeLink));
 });
 
-test('hub renders seventeen crawlable routes, progressive filters and existing resources', () => {
+test('hub renders eighteen crawlable routes, progressive filters and existing resources', () => {
   const html = renderHub(makeArticles());
   assert.match(html, /<meta property="og:type" content="website">/);
   assert.match(html, /"@type":"CollectionPage"/);
-  assert.match(html, /"numberOfItems":17/);
-  assert.equal((html.match(/class="resource-card"/g) || []).length, 17);
+  assert.match(html, /"numberOfItems":18/);
+  assert.equal((html.match(/class="resource-card"/g) || []).length, 18);
   assert.equal((html.match(/data-resource-filter=/g) || []).length, 4);
   assert.match(html, /href="#choose-your-tools" data-resource-filter="Choose your tools"/);
   assert.match(html, /href="\/cadence\/songwriting-app\/"/);
@@ -235,8 +235,8 @@ test('builder emits the hub and ten articles without replacing sitemap content',
   buildResourceHub({ rootDir: temporaryRoot, articles });
   const sitemapAfterSecondBuild = readFileSync(path.join(temporaryRoot, 'sitemap.xml'), 'utf8');
 
-  assert.equal(result.articleCount, 17);
-  assert.equal(result.routes.length, 18);
+  assert.equal(result.articleCount, 18);
+  assert.equal(result.routes.length, 19);
   assert.match(readFileSync(path.join(temporaryRoot, 'cadence/resources/index.html'), 'utf8'), /Start anywhere/);
   for (const article of articles) {
     assert.match(

@@ -5,6 +5,7 @@ import xml.etree.ElementTree as ET
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SLUGS = [
+    'best-songwriting-app-ios-android',
     'organize-song-drafts', 'how-to-write-a-song-hook',
     'types-of-rhyme', 'multi-word-rhymes', 'assonance-vs-consonance',
     'best-songwriting-apps-for-iphone', 'best-songwriting-apps-for-android',
@@ -32,7 +33,7 @@ class ResourceIntegration(unittest.TestCase):
                 path = ROOT / url.lstrip('/')
                 self.assertTrue(path.exists() or path.with_suffix('.html').exists(), url)
         self.assertEqual(len(sitemap), len(set(sitemap)))
-        self.assertEqual(len(sitemap), 97)
+        self.assertEqual(len(sitemap), 98)
         for code in ['', 'gb/', 'us/', 'ca/', 'au/', 'in/', 'za/']:
             self.assertIn('https://brandnamechanges.com/cadence/regions/' + code, sitemap)
 

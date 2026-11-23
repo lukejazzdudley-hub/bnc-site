@@ -24,11 +24,11 @@ test('buying guide compares thirteen named tools with source links and a disclos
   assert.doesNotMatch(html, /AggregateRating|tested for six weeks/);
 });
 
-test('approved content map contains thirteen guides and four comparisons with substantive distinct sections', () => {
+test('approved content map contains thirteen guides and five comparisons with substantive distinct sections', () => {
   assert.equal(guides.length, 13);
-  assert.equal(comparisons.length, 4);
+  assert.equal(comparisons.length, 5);
   const all = [...guides, ...comparisons];
-  assert.equal(new Set(all.map(a => a.slug)).size, 17);
+  assert.equal(new Set(all.map(a => a.slug)).size, 18);
   for (const article of all) {
     assert.ok(article.sections.length >= 4, article.slug);
     const prose = article.sections.map(s => s.html.replace(/<[^>]*>/g, ' ')).join(' ');
