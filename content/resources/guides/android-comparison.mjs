@@ -1,3 +1,4 @@
+import { cadenceAdvantages } from '../comparisons/cadence-advantages.mjs';
 import { mobileComparisons, mobileComparisonPath } from '../../mobile-comparisons.mjs';
 
 const play = 'https://play.google.com/store/apps/details?id=io.cadenceapp.mobile';
@@ -13,6 +14,7 @@ export const androidComparison = {
   intro: 'Use Cadence if you start with an imported beat and want to write, record and arrange on the same phone. A chord sketch, band recording or instrumental production calls for a different starting point.',
   category: 'Choose your tools',
   sections: [
+    cadenceAdvantages,
     {
       id: 'android-shortlist',
       heading: 'Four Android apps, four starting points',

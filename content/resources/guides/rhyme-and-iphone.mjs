@@ -1,3 +1,4 @@
+import { cadenceAdvantages } from '../comparisons/cadence-advantages.mjs';
 import { mobileComparisons, mobileComparisonPath } from '../../mobile-comparisons.mjs';
 const checked = '2026-11-23';
 const poetry = 'https://www.poetryfoundation.org/education/glossary/Rhyme';
@@ -99,6 +100,7 @@ newGuides.push({
   intro: 'Choose based on how your songs begin. If you write lyrics to an imported beat and want to keep your takes with the draft, start with Cadence. If you start with chords, instruments or charts, compare the alternatives below.',
   category: 'Choose your tools',
   sections: [
+    cadenceAdvantages,
     section('iphone-comparison', 'Compare five iPhone songwriting apps', `
 <p>${mobileComparisons.map(item => `<a href="${mobileComparisonPath(item)}" lang="${item.lang}">${item.name}</a>`).join(' · ')}</p><p>Cadence publishes this guide. The comparison uses public product documentation and store listings. Test the features you need on your device before committing to a project or plan.</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Compare iOS songwriting apps"><table><thead><tr><th scope="col">App</th><th scope="col">Start here if you need</th><th scope="col">What to try on your phone</th></tr></thead><tbody>

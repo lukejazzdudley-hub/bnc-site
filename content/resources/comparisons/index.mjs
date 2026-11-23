@@ -1,3 +1,4 @@
+import { cadenceAdvantages } from './cadence-advantages.mjs';
 import {bestSongwritingApp} from './best-songwriting-app.mjs';
 import {workflowEvidence,workflowTrial} from '../workflow-evidence.mjs';
 import {buyingSections, buyingSources} from './buyers.mjs';
@@ -15,6 +16,7 @@ export const articles = [
     category: 'Choose your tools',
     sections: [
       freeOptions,
+      cadenceAdvantages,
       buyingSections[0],
       {
         id: 'choose-by-your-next-task',
@@ -102,6 +104,7 @@ export const articles = [
     intro: 'Start in Cadence with an imported beat, a lyric or a freestyle, then develop the song in one workspace. BandLab offers a cloud recording studio and collaboration platform. Choose by the work you do most.',
     category: 'Choose your tools',
     sections: [
+      cadenceAdvantages,
       {
         id: 'short-answer',
         heading: 'The short answer',
@@ -164,6 +167,7 @@ export const articles = [
     intro: 'Cadence is organised around developing words into a performance. GarageBand is organised around recording and arranging sound. The right choice depends on which job slows you down.',
     category: 'Choose your tools',
     sections: [
+      cadenceAdvantages,
       {
         id: 'different-starting-points',
         heading: 'Start with lyrics or start with instruments?',
@@ -225,6 +229,7 @@ export const articles = [
     intro: 'Cadence connects lyrics to beats, vocal takes, arrangement and a demo. Song Cage connects lyrics to chords, melody, rhythm and music theory. Your missing connection decides the fit.',
     category: 'Choose your tools',
     sections: [
+      cadenceAdvantages,
       {
         id: 'short-answer',
         heading: 'The short answer',

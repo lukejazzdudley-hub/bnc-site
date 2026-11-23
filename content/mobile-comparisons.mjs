@@ -7,7 +7,7 @@ export const mobileComparisons = [
     compare: 'Qué app elegir según cómo compones',
     columns: ['Aplicación', 'Cuándo probarla'],
     choices: [
-      'Para escribir la letra sobre una base importada, buscar rimas y guardar las tomas junto a la canción. Incluye un paquete de rimas en español. Con Pro puedes ordenar las tomas por secciones y exportar pistas WAV alineadas.',
+      'Para escribir la letra sobre una base importada, buscar rimas y guardar las tomas junto a la canción. Ofrece 21 opciones de idioma para rimas, entre ellas el español. Marca el inicio del estribillo, repite un tramo con los puntos A–B y escucha archivos locales sin conexión. Las notas de producción permiten extraer audio de un vídeo. Con Pro puedes ordenar las tomas por secciones y exportar pistas WAV alineadas.',
       'Para apuntar letras, notas de voz y acordes sin conexión. El editor web o de escritorio sirve para continuar el arreglo.',
       'Para construir una maqueta multipista en Android o iPhone. Revisa el límite de pistas y la duración del proyecto antes de grabar.',
       'Para tocar instrumentos virtuales y grabar pistas en iPhone o iPad.',
@@ -20,7 +20,7 @@ export const mobileComparisons = [
       'Si vas a seguir en otro programa, abre una exportación de prueba y comprueba el inicio de las pistas.',
     ],
     access: 'Qué puedes probar gratis',
-    limits: 'Cadence permite empezar con tres notas gratuitas. El flujo completo de arreglo y exportación requiere Pro. Consulta la oferta vigente en tu tienda. Esta comparativa la publica Cadence y se basa en documentación pública.',
+    limits: 'Cadence permite empezar con tres notas gratuitas. El flujo completo de arreglo y exportación requiere Pro. El plan futuro es ofrecer la creación en el dispositivo gratis y cobrar por el almacenamiento en la nube y el uso en varios dispositivos. Consulta la oferta vigente en tu tienda. Esta comparativa la publica Cadence y se basa en documentación pública.',
     tool: ['/cadence/es/diccionario-rimas/', 'Probar el diccionario de rimas en español'],
   },
   {
@@ -31,7 +31,7 @@ export const mobileComparisons = [
     compare: 'Choisir une application selon votre façon d’écrire',
     columns: ['Application', 'Dans quel cas l’essayer'],
     choices: [
-      'Pour écrire des paroles sur une instru importée, boucler un passage et conserver plusieurs prises. Cadence propose un pack de rimes en français. Avec Pro, assemblez les prises par section et exportez des pistes WAV alignées.',
+      'Pour écrire des paroles sur une instru importée, boucler un passage et conserver plusieurs prises. Cadence propose 21 options de langue pour les rimes, dont le français. Placez un repère au début du refrain, bouclez le passage avec les points A–B et écoutez vos fichiers locaux hors connexion. Les notes de production permettent d’extraire le son d’une vidéo. Avec Pro, assemblez les prises par section et exportez des pistes WAV alignées.',
       'Pour noter une mélodie, des paroles ou des accords hors connexion. L’arrangement se poursuit dans l’éditeur web ou sur ordinateur.',
       'Pour enregistrer plusieurs pistes dans une même maquette, sur Android ou iPhone. Vérifiez les limites de pistes et de durée avant une longue séance.',
       'Pour jouer des instruments virtuels et enregistrer sur iPhone ou iPad.',
@@ -44,7 +44,7 @@ export const mobileComparisons = [
       'Ouvrez un export dans le logiciel que vous comptez utiliser pour finir la maquette.',
     ],
     access: 'Ce que vous pouvez essayer gratuitement',
-    limits: 'Cadence permet de commencer avec trois notes gratuites. Le parcours complet d’arrangement et d’export nécessite Pro. Vérifiez l’offre de votre boutique. Ce guide est publié par Cadence et s’appuie sur les documentations publiques.',
+    limits: 'Cadence permet de commencer avec trois notes gratuites. Le parcours complet d’arrangement et d’export nécessite Pro. Cadence prévoit de rendre la création sur l’appareil gratuite et de facturer le stockage cloud et l’utilisation sur plusieurs appareils. Vérifiez l’offre actuelle de votre boutique. Ce guide est publié par Cadence et s’appuie sur les documentations publiques.',
     tool: ['/cadence/fr/dictionnaire-rimes/', 'Essayer le dictionnaire de rimes en français'],
   },
   {
@@ -55,7 +55,7 @@ export const mobileComparisons = [
     compare: 'Qual app combina com o jeito que você compõe?',
     columns: ['Aplicativo', 'Quando vale testar'],
     choices: [
-      'Para escrever sobre uma batida importada, buscar rimas e gravar versões do mesmo verso. Há um pacote de rimas em português do Brasil. Com o Pro, organize as gravações por seção e exporte faixas WAV alinhadas.',
+      'Para escrever sobre uma batida importada, buscar rimas e gravar versões do mesmo verso. Há 21 opções de idioma para rimas, incluindo português do Brasil. Marque o início do refrão, repita o trecho com os pontos A–B e ouça arquivos locais sem internet. As notas de produção permitem extrair áudio de um vídeo. Com o Pro, organize as gravações por seção e exporte faixas WAV alinhadas.',
       'Para guardar letras, áudios e ideias de acordes sem internet. Para seguir com o arranjo, use o editor web ou para computador.',
       'Para montar uma demo com várias faixas no Android ou iPhone. Confira os limites de faixas e duração para o seu projeto.',
       'Para tocar instrumentos virtuais e gravar faixas no iPhone ou iPad.',
@@ -68,7 +68,7 @@ export const mobileComparisons = [
       'Se for terminar a faixa em outra DAW, abra um arquivo de teste e confira o alinhamento.',
     ],
     access: 'O que dá para testar de graça?',
-    limits: 'No Cadence, você pode começar com três notas grátis. O fluxo completo de arranjo e exportação exige o Pro. Confira a oferta atual na sua loja. O Cadence publica este guia com base na documentação pública dos aplicativos.',
+    limits: 'No Cadence, você pode começar com três notas grátis. O fluxo completo de arranjo e exportação exige o Pro. O plano futuro é oferecer criação gratuita no aparelho e cobrar pelo armazenamento na nuvem e pelo uso em vários dispositivos. Confira a oferta atual na sua loja. O Cadence publica este guia com base na documentação pública dos aplicativos.',
     tool: ['/cadence/languages/brazilian-portuguese/', 'Veja como configurar as rimas em português do Brasil'],
   },
 ];

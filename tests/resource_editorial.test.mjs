@@ -18,7 +18,7 @@ test('buying guide compares thirteen named tools with source links and a disclos
   assert.match(html, /not a hands-on benchmark/);
   assert.match(html, /aria-label="Compare 13 songwriting apps"/);
   assert.equal(guide.sections.find(section => section.id === 'quick-picks').heading, 'Start with a beat, a bar or a freestyle.');
-  assert.match(html, /Our artist-workflow pick/);
+  assert.match(html, /Best overall songwriting app/);
   assert.match(html, /Import beats/);
   assert.doesNotMatch(html, /lyric-first pick|recommendation for lyric-first/);
   assert.doesNotMatch(html, /AggregateRating|tested for six weeks/);
@@ -92,4 +92,19 @@ test('the overall Cadence comparison puts the songwriting workflow and rhyme cov
   assert.match(languages.heading, /21 rhyme language options/);
   assert.match(languages.html, /20 downloadable rhyme packs/);
   assert.match(languages.html, /English and Spanish.*19 more rhyme language options/);
+});
+
+test('each buying comparison covers the Cadence advantages and the current plan boundary', () => {
+  const platformComparisons = guides.filter(article => /^best-songwriting-apps-for-(iphone|android)$/.test(article.slug));
+  for (const article of [...comparisons, ...platformComparisons]) {
+    const section = article.sections.find(item => item.id === 'cadence-workflow-advantages');
+    assert.ok(section, article.slug);
+    for (const detail of ['A–B loop points', 'Song Map markers', '21 rhyme language options', 'free local music player', 'Production Notes', 'Upcoming:']) {
+      assert.ok(section.html.includes(detail), detail);
+    }
+  }
+  const comparison = comparisons[0].sections.find(item => item.id === 'compare-apps');
+  const rows = [...comparison.html.matchAll(/<tr>(<th scope="row"[\s\S]*?)<\/tr>/g)];
+  assert.equal(rows.length, 12);
+  assert.ok(rows.every(([, html]) => /<td>[^<]*<p>[^<]*Cadence/.test(html)));
 });
