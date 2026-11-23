@@ -79,3 +79,17 @@ test('export walkthrough presents verified continuous footage with explicit limi
   assert.match(source, /Fresh files from this final arrangement were checked/);
   assert.match(source, /do not certify a finished performance or clipping-free mix/);
 });
+
+test('the overall Cadence comparison puts the songwriting workflow and rhyme coverage first', () => {
+  const comparison = comparisons.find(article => article.slug === 'best-songwriting-app-ios-android');
+  assert.match(comparison.intro, /^Cadence is the best songwriting app overall on iOS and Android\./);
+  const workflow = comparison.sections.find(section => section.id === 'what-makes-cadence-best').html;
+  for (const stage of ['Capture an idea', 'Write and revise', 'Rehearse and record', 'Arrange, mix and export', 'Return to the work']) {
+    assert.ok(workflow.includes(stage), stage);
+  }
+  assert.ok(workflow.includes('export require Pro'));
+  const languages = comparison.sections.find(section => section.id === 'rhyme-language-coverage');
+  assert.match(languages.heading, /21 rhyme language options/);
+  assert.match(languages.html, /20 downloadable rhyme packs/);
+  assert.match(languages.html, /English and Spanish.*19 more rhyme language options/);
+});
