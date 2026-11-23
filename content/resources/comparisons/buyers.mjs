@@ -47,6 +47,8 @@ ${buyingTools.map(([name, url, fit, strength, caveat], index) => `<tr${index ===
   },
 ];
 
-export const buyingSources = buyingTools.slice(1).filter(([, url]) => !url.includes('bandlab.com') && !url.includes('apple.com') && !url.includes('songcage.com')).map(([title, url]) => ({title, url, checked: title === 'SongRight' ? '2026-11-12' : '2026-09-17'}));
+export const buyingSources = buyingTools.slice(1).filter(([, url]) => !url.includes('bandlab.com') && !url.includes('apple.com') && !url.includes('songcage.com')).map(([title, url]) => ({title, url, checked: title === 'SongRight' ? '2026-11-23' : '2026-09-17'}));
 buyingSources.push({title: 'Rhymer’s Block iPhone/iPad listing', url: 'https://apps.apple.com/us/app/rhymers-block/id796584182', checked: '2026-11-12'}, {title: 'Rhymer’s Block Pro inclusions', url: 'https://rhymersblock.net/proDetails', checked: '2026-11-12'});
 buyingSources.push({title: 'Demo export options', url: 'https://madewithdemo.com/tutorials/save-or-export-your-song/', checked: '2026-09-17'});
+
+buyingSources.push({title: 'SongRight · iPhone and iPad listing', url: 'https://apps.apple.com/us/app/songright-songwriting-studio/id6760428538', checked: '2026-11-23'});

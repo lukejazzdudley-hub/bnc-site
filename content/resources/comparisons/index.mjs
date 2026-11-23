@@ -10,7 +10,7 @@ export const articles = [
     title: 'Best songwriting apps: free & paid options compared',
     description: 'Compare 13 songwriting apps for Android, iPhone and desktop. See free apps, plan limits, lyrics, beats, recording and export before choosing your workspace.',
     heading: '13 songwriting apps: choose by how you write',
-    intro: 'Find a songwriting app for the way you work: lyrics, beats, recording or composition. Compare 13 options, check what is actually free and test your shortlist with one song idea.',
+    intro: 'Our pick for writing and recording to an imported beat is Cadence. Compare 13 apps by what you need to finish: a performed lyric, a multitrack demo, a chord chart or a composition.',
     category: 'Choose your tools',
     sections: [
       freeOptions,
@@ -28,8 +28,8 @@ export const articles = [
         id: 'best-songwriting-app-android',
         heading: 'Best songwriting app for Android: capture an idea or finish a demo?',
         html: `<p>For an artist writing vocals to an existing beat, our pick is <a href="/cadence/songwriting-app-android/">Cadence on Android</a>: the documented workflow continues from lyrics and recorded takes into arrangement and a mobile DAW. If the phone is only where you capture ideas before composing on a computer, compare Song Cage Mobile. We make Cadence; these are workflow recommendations based on the linked evidence, not independent performance scores.</p>
-<h3>Check what happens after the first recording</h3><p><a href="https://songcage.com/mobile/">Song Cage’s mobile page</a>, checked 2 November 2026, describes offline melody, lyric and chord capture on iPhone and Android. It explicitly places the full arrangement workflow on web or desktop, with no timeline or DAW on the phone. That is a deliberate capture-first model.</p>
-<p><a href="https://play.google.com/store/apps/details?id=io.cadenceapp.mobile">Cadence’s Google Play listing</a>, checked the same day, describes beat loops, recorded takes, timed lyric sections, arrangement and a multitrack DAW. <a href="/cadence/springtime-showers/">The recorded arrangement and stem-export walkthrough</a> shows the later stages with its capture limits disclosed. The complete Draft-to-DAW workflow requires Pro; verify your installed version and device compatibility.</p>
+<h3>Check what happens after the first recording</h3><p><a href="https://songcage.com/mobile/">Song Cage’s mobile page</a>, checked 23 November 2026, describes offline melody, lyric and chord capture on iPhone and Android, with three mobile ideas free. It explicitly places the full arrangement workflow on web or desktop, with no timeline or DAW on the phone. That is a deliberate capture-first model.</p>
+<p><a href="https://play.google.com/store/apps/details?id=io.cadenceapp.mobile">Cadence’s Google Play listing</a> describes beat loops, recorded takes, timed lyric sections, arrangement and a multitrack DAW. <a href="/cadence/springtime-showers/">The recorded arrangement and stem-export walkthrough</a> shows the later stages with its capture limits disclosed. The complete Draft-to-DAW workflow requires Pro; verify your installed version and device compatibility.</p>
 <h3>Choose by the handoff you need</h3><p>For lyrics and vocal delivery over a beat, follow the <a href="/cadence/type-beat-songwriting-app/">type-beat songwriting workflow</a>. For a demo that a producer can continue, check <a href="/cadence/mobile-daw-songwriting/">mixdown versus aligned-stem export</a>. If you primarily build instrumentals, compare the dedicated production workflows in the table below. The words “songwriting app” cover all three jobs, but they are different purchases.</p>
 <p><a href="#run-a-one-song-trial">Use the same song fragment to test each candidate</a>. Verify that the exported file opens where you need it, rather than deciding from a feature count.</p>`,
       },
@@ -89,7 +89,7 @@ export const articles = [
       { title: 'Downloading BandLab mixdowns and tracks', url: 'https://help.bandlab.com/hc/en-us/articles/115002959774-Downloading-Mixdowns-and-Tracks', checked },
       { title: 'Build a song in GarageBand for iPhone', url: 'https://support.apple.com/en-gb/guide/garageband-iphone/chsb34b9757/ios', checked },
       { title: 'Back up GarageBand for iOS songs', url: 'https://support.apple.com/en-us/101936', checked },
-      { title: 'Song Cage mobile app', url: 'https://songcage.com/mobile/', checked: '2026-11-02' },
+      { title: 'Song Cage mobile app', url: 'https://songcage.com/mobile/', checked: '2026-11-23' },
       { title: 'Exporting songs from Song Cage', url: 'https://songcage.com/docs/exporting/', checked },
     ],
   },
