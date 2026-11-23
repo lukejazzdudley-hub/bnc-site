@@ -53,3 +53,12 @@ header nav a,footer nav a{display:inline-flex;align-items:center;min-height:44px
 .romance-filters{grid-column:1/-1;border:1px solid #3b4250;border-radius:16px;padding:12px 16px}.reader-page .tool .romance-filters summary{color:#f0f2f6;min-height:44px;display:list-item;align-content:center;cursor:pointer;font-weight:650}.romance-filter-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:16px}.romance-filters p{font-size:14px;line-height:1.6;color:#c4c6ce}.romance-filters button{min-height:44px}.romance-filters :focus-visible{outline:2px solid #e7d7a5;outline-offset:4px}@media(max-width:750px){.romance-filter-fields{grid-template-columns:1fr}}
 
 .dictionary-app-jump{border-block:1px solid #545b68;padding:16px 0;font-size:14px;line-height:1.6}.dictionary-app-jump a{display:block;color:#f0f2f6;font-weight:650;min-height:44px;align-content:center}.dictionary-app-panel{scroll-margin-top:100px}.dictionary-app-heading{display:flex;align-items:center;gap:16px}.dictionary-app-heading img{border-radius:14px;flex:none}.dictionary-app-heading p{font-size:12px;letter-spacing:.12em;margin:0}.dictionary-store-links{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:24px 0}.dictionary-store-links a{display:flex;align-items:center;gap:12px;background:#111821;color:#fff!important;border-radius:14px;padding:16px;text-decoration:none;font-weight:650;min-height:64px}.dictionary-store-links small{display:block;font-weight:400;color:#d2d8e0;margin-top:3px}.dictionary-store-links svg{width:26px;height:26px;flex:0 0 26px;fill:currentColor}.dictionary-store-links a:focus-visible{outline:3px solid #8c6024;outline-offset:4px}.dictionary-app-panel .dictionary-plan-note{font-size:14px;line-height:1.65}@media(max-width:600px){.dictionary-store-links{grid-template-columns:1fr}}
+
+.syllable-tool form {display:block;}
+.syllable-tool textarea {display:block;width:100%;margin-top:8px;padding:14px;resize:vertical;font:inherit;color:#f4f6fa;background:#11151d;border:1px solid #778193;border-radius:10px;}
+.syllable-tool textarea:focus-visible {outline:3px solid #aebdeb;outline-offset:3px;}
+.syllable-tool .actions {margin-block:14px 0;}
+#syllable-results {padding:0;list-style:none;}
+#syllable-results li {padding:12px 16px;margin-block:8px;border:1px solid #626d81;border-radius:10px;overflow-wrap:anywhere;}
+#syllable-results p {margin:.25rem 0;}
+#syllable-results p:empty,#syllable-results:empty,#syllable-status:empty {display:none;}

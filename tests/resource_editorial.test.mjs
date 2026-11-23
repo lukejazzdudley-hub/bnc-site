@@ -24,15 +24,15 @@ test('buying guide compares thirteen named tools with source links and a disclos
   assert.doesNotMatch(html, /AggregateRating|tested for six weeks/);
 });
 
-test('approved content map contains eleven guides and four comparisons with substantive distinct sections', () => {
-  assert.equal(guides.length, 11);
+test('approved content map contains thirteen guides and four comparisons with substantive distinct sections', () => {
+  assert.equal(guides.length, 13);
   assert.equal(comparisons.length, 4);
   const all = [...guides, ...comparisons];
-  assert.equal(new Set(all.map(a => a.slug)).size, 15);
+  assert.equal(new Set(all.map(a => a.slug)).size, 17);
   for (const article of all) {
     assert.ok(article.sections.length >= 4, article.slug);
     const prose = article.sections.map(s => s.html.replace(/<[^>]*>/g, ' ')).join(' ');
-    assert.ok(prose.split(/\s+/).length >= (['types-of-rhyme', 'multi-word-rhymes', 'assonance-vs-consonance', 'best-songwriting-apps-for-iphone', 'best-songwriting-apps-for-android'].includes(article.slug) ? 250 : 700), article.slug);
+    assert.ok(prose.split(/\s+/).length >= (['types-of-rhyme', 'multi-word-rhymes', 'assonance-vs-consonance', 'best-songwriting-apps-for-iphone', 'best-songwriting-apps-for-android', 'organize-song-drafts', 'how-to-write-a-song-hook'].includes(article.slug) ? 250 : 700), article.slug);
     assert.doesNotMatch(prose, /lorem ipsum|TODO|TBD/);
     for (const section of article.sections) {
       const tables = (section.html.match(/<table>/g) || []).length;

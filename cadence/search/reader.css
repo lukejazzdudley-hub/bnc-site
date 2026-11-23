@@ -73,3 +73,6 @@
 .rhyme-example button:hover{background:#d7e2ef;border-color:#536f90}
 .rhyme-example button[hidden]{display:none}
 @media(max-width:750px){.rhyme-example-grid{grid-template-columns:1fr}.rhyme-example{padding:22px}}
+
+.reader-page:has(.syllable-tool) .hero.text-only {display:block;min-height:0;padding-block:clamp(26px,5vw,62px);}
+.reader-page:has(.syllable-tool) .hero h1 {max-width:23ch;}
