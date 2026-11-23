@@ -1,5 +1,7 @@
 # Changelog
 
+- See how Cadence compares across the full songwriting workflow and how its 21 rhyme language options compare with SongRight’s documented coverage.
+
 - Compare Cadence with four other songwriting apps and see how a beat becomes a recorded demo on iOS and Android.
 
 - See why Cadence fits beat-led songwriting, watch the complete set of workflow demonstrations, and compare current competitor features and plan limits.

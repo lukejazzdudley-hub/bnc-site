@@ -9,25 +9,36 @@ export const bestSongwritingApp = {
   slug: 'best-songwriting-app-ios-android',
   title: 'The Best Songwriting App for iOS and Android',
   heading: 'The best songwriting app for iOS and Android',
-  description: 'Cadence is the best songwriting app for iOS and Android for writing to your own beats. Compare the lyric, recording, arrangement and stem-export workflow.',
-  intro: 'Cadence is the best songwriting app for iOS and Android when you write to your own beats. Start with an instrumental or a lyric and carry it through rhyme, recording and arrangement to an editable set of WAV stems.',
+  description: 'Cadence is the best songwriting app overall on iOS and Android. Compare idea capture, rhymes in 21 language options, recording, arrangement and stem export.',
+  intro: 'Cadence is the best songwriting app overall on iOS and Android. Start with a lyric, a voice memo or a beat. Develop it with on-device rhyme tools, record your performance, arrange and mix the song, then export it or listen back offline.',
   category: 'Choose your tools',
   sections: [
     {
       id: 'what-makes-cadence-best',
-      heading: 'Keep the beat, the words and the take together',
-      html: `<p><a href="${apple}">Download Cadence for iPhone and iPad</a> or <a href="${android}">get Cadence for Android</a>. It’s built for artists who already have a sound in mind and want to hear their words become a performance.</p>
-<p>Load your instrumental, choose the passage you want to loop and revise the lyric while it plays. If you’re stuck on an ending, use on-device suggestions for perfect, slant, multisyllabic, multi-word or assonant rhymes. Turn on the syllable counter if you want to check the shape of the line.</p>
-<p>Record two deliveries and keep the stronger take with the song. With Pro, assign takes to timed sections, build the arrangement in the mobile DAW and share a mix or aligned WAV stems. The difference is the handoff from writing to recording: the take you made while finding the flow can stay useful when it’s time to arrange the demo.</p>
-<p>Start with three free notes. Check the current offer in your store before buying Pro.</p>`,
+      heading: 'From the first idea to a song you can share',
+      html: `<p><a href="${apple}">Download Cadence for iPhone and iPad</a> or <a href="${android}">get Cadence for Android</a>. The overall case for Cadence is how much of a song you can develop in the same workspace, wherever you start.</p>
+<ol>
+<li><strong>Capture an idea.</strong> Start with a line, import a beat or bring in a voice memo and <a href="/cadence/voice-memos-to-lyrics/">turn the recording into an editable lyric</a>. Use <a href="/cadence/production-notes-sample-library/">Production Notes</a> to collect sounds from audio or video for later sample export.</li>
+<li><strong>Write and revise.</strong> See rhyme patterns in the editor, check syllables and explore perfect, slant, multisyllabic, multi-word and assonance matches. Use built-in English or download one of 20 additional language packs.</li>
+<li><strong>Rehearse and record.</strong> Loop the part you’re working on, record two deliveries and keep the stronger take beside the lyric. Keep the alternate if you want to revisit the performance.</li>
+<li><strong>Arrange, mix and export.</strong> With Pro, assign takes to timed sections, build the draft in the <a href="/cadence/mobile-daw-songwriting/">mobile DAW</a>, use vocal FX and export a mix or aligned WAV stems for a producer.</li>
+<li><strong>Return to the work.</strong> Organize songs into projects, hear locally available demos in the <a href="/cadence/offline-music-player/">offline player</a> and use <a href="/cadence/songwriting-habit-tracker/">writing activity</a> to see when you’ve been returning to your ideas.</li>
+</ol>
+<p>Start with three free notes. The full Draft-to-DAW workflow and export require Pro. Check the current offer in your store.</p>`,
+    },
+    {
+      id: 'rhyme-language-coverage',
+      heading: 'Cadence offers 21 rhyme language options',
+      html: `<p><strong>Cadence:</strong> English is built in, with <a href="/cadence/languages/#all-language-packs">20 downloadable rhyme packs</a>, including Spanish, French, Brazilian Portuguese, Hindi, Arabic and Nigerian Pidgin. Reorder the enabled packs to give the language you want priority, then test the suggestions against the way you pronounce the line.</p>
+<p><strong>SongRight:</strong> Its <a href="${songRight}">iPhone and iPad listing</a> documents offline rhymes in English and Spanish. Cadence covers both and adds 19 more rhyme language options. These counts refer to rhyme support.</p>`,
     },
     {
       id: 'compare-the-workflows',
       heading: 'Cadence compared with SongRight, Song Cage, BandLab and GarageBand',
-      html: `<p>Compare the stage where you normally need help. If you already have a beat and need a recorded song, check how each option carries the lyric and its takes into the next edit. If you begin with a chord progression or want to produce a backing track from scratch, weigh instrument and harmony tools more heavily.</p>
+      html: `<p>Cadence comes first for the overall songwriting workflow. The table compares how each product takes an idea through writing, recording and the next edit.</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Compare five songwriting workflows"><table><thead><tr><th scope="col">App</th><th scope="col">Workflow to try</th><th scope="col">What decides the fit</th></tr></thead><tbody>
-<tr><th scope="row">Cadence</th><td>Loop an imported beat, revise the lyrics and record a verse and hook beside the draft.</td><td>Use Pro if you want to take the timed draft through a multitrack session and export aligned audio stems.</td></tr>
-<tr><th scope="row"><a href="${songRight}">SongRight</a></th><td>Build a song note, try its rhyme suggestions and record layers in its mobile studio.</td><td>The iPhone and iPad listing includes offline English and Spanish rhymes and a sampler. Test the beat loop and exact export you need.</td></tr>
+<tr><th scope="row">Cadence</th><td>Capture a lyric, voice memo or beat. Develop the words with on-device rhymes and keep recorded takes with the draft.</td><td>21 rhyme language options, timed sections, a mobile DAW and aligned WAV export with Pro.</td></tr>
+<tr><th scope="row"><a href="${songRight}">SongRight</a></th><td>Keep a song note and record layers in its mobile studio.</td><td>Documents English and Spanish rhyme support. The language comparison above gives both apps’ coverage.</td></tr>
 <tr><th scope="row"><a href="${songCage}">Song Cage</a></th><td>Capture a lyric, melody memo or chord sketch on a phone.</td><td>The vendor describes finishing the arrangement on web or desktop, which suits a workflow that moves back to a computer.</td></tr>
 <tr><th scope="row"><a href="${bandLab}">BandLab</a></th><td>Start a cloud Studio project, add an instrument or audio track and build up a recording.</td><td>Consider it when layered production, virtual instruments or working in a browser are central.</td></tr>
 <tr><th scope="row"><a href="${garageBand}">GarageBand</a></th><td>Play Touch Instruments and record a track-based demo on iPhone or iPad.</td><td>Consider it when the next job is playing and arranging instruments on Apple hardware.</td></tr>
@@ -49,9 +60,9 @@ export const bestSongwritingApp = {
     {
       id: 'put-it-to-work',
       heading: 'Put one of your own songs through the comparison',
-      html: `<ol><li>Bring one instrumental you have permission to use and four lines you’ve already written. Use the same material and device wherever you’re comparing a shared platform.</li><li>Loop one section. Try an alternative rhyme and record a second delivery with the same timing. Close the song, reopen it and find both takes.</li><li>Choose the delivery you want to keep. If finishing the arrangement on your phone matters, move the verse and hook into a timeline and test the output you’d actually send.</li></ol>
-<p>If you normally write to an imported beat and want the lyric, take and demo to stay connected, choose Cadence. For a wider shortlist, compare <a href="/cadence/resources/best-songwriting-apps-for-iphone/">iPhone and iPad songwriting apps</a> or <a href="/cadence/resources/best-songwriting-apps-for-android/">Android songwriting apps</a>.</p>
-<p>Brand Name Changes makes Cadence. This comparison evaluates documented workflows and links to Cadence’s recorded demonstrations. It reflects the priorities of artists who write to beats.</p>`,
+      html: `<ol><li>Bring a short voice memo, four lines you’ve already written or an instrumental you have permission to use. Use the same material and device wherever you’re comparing a shared platform.</li><li>Develop one section. Try an alternative rhyme and record a second delivery. Use a loop if your idea has a beat. Close the song, reopen it and find both takes.</li><li>Choose the delivery you want to keep. If finishing the arrangement on your phone matters, move the verse and hook into a timeline and test the output you’d actually send.</li></ol>
+<p>Choose Cadence when you want one place to develop the first idea, revise the lyric, record and finish the demo. For a wider shortlist, compare <a href="/cadence/resources/best-songwriting-apps-for-iphone/">iPhone and iPad songwriting apps</a> or <a href="/cadence/resources/best-songwriting-apps-for-android/">Android songwriting apps</a>.</p>
+<p>Brand Name Changes makes Cadence. This comparison evaluates documented workflows and links to Cadence’s recorded demonstrations. The overall recommendation weights how much of the songwriting process stays connected on a phone or tablet.</p>`,
     },
   ],
   sources: [
