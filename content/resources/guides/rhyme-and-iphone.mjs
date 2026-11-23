@@ -1,3 +1,4 @@
+import { mobileComparisons, mobileComparisonPath } from '../../mobile-comparisons.mjs';
 const checked = '2026-11-23';
 const poetry = 'https://www.poetryfoundation.org/education/glossary/Rhyme';
 const vowels = 'https://www.poetryfoundation.org/education/glossary/assonance';
@@ -99,7 +100,7 @@ newGuides.push({
   category: 'Choose your tools',
   sections: [
     section('iphone-comparison', 'Compare five iPhone songwriting apps', `
-<p>Cadence publishes this guide. The comparison uses public product documentation and store listings. Test the features you need on your device before committing to a project or plan.</p>
+<p>${mobileComparisons.map(item => `<a href="${mobileComparisonPath(item)}" lang="${item.lang}">${item.name}</a>`).join(' · ')}</p><p>Cadence publishes this guide. The comparison uses public product documentation and store listings. Test the features you need on your device before committing to a project or plan.</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Compare iOS songwriting apps"><table><thead><tr><th scope="col">App</th><th scope="col">Start here if you need</th><th scope="col">What to try on your phone</th></tr></thead><tbody>
 <tr><th scope="row"><a href="${cadence}">Cadence</a></th><td>Lyrics and rhymes beside an imported beat, with recorded takes and an arrangement path</td><td>Loop four bars, write over them, save two takes and compare them. Then inspect the <a href="/cadence/guide/#export-audio">mix and stems workflow</a>.</td></tr>
 <tr><th scope="row"><a href="${songRight}">SongRight</a></th><td>Song notes, lyric drafts, rhyme support and a project vault</td><td>Create a note and check how the sampler or MIDI keyboard fits around the lyric.</td></tr>
@@ -110,6 +111,9 @@ newGuides.push({
     section('write-on-iphone', 'How to write a song on iPhone', `
 <ol><li><strong>Bring one idea.</strong> Start a draft with four lines, a Voice Memo or an instrumental you have permission to use.</li><li><strong>Loop the section.</strong> In Cadence, load the beat and set two <a href="/cadence/guide/#beat-loop">loop points</a>. Try the line ending out loud and adjust it before recording.</li><li><strong>Keep two takes.</strong> Record a straight delivery and one with a different rhythmic landing. Listen back and save the strongest line with its take.</li><li><strong>Check the handoff.</strong> If you finish in another DAW, check whether you need a single demo or aligned stems. Open a test export before moving your main project.</li></ol>
 <p>See the <a href="/cadence/type-beat-walkthrough/">beat-first walkthrough with video and transcript</a>, or <a href="${cadence}">view Cadence on the App Store</a>.</p>`),
+    section('same-session', 'Compare the apps with one ten-minute session', `
+<p>Use the same four lines, spoken memo and instrumental in each app. Time how long it takes to have the words and the recording together. Record two deliveries, then reopen the project and find both versions. If your phone is often offline, save the project first and repeat the reopen test in airplane mode.</p>
+<p>Finish by testing your actual handoff: a producer may need aligned stems, while a bandmate might need a chord chart. Write down any extra app or plan you needed. Android users can run the same exercise with our <a href="/cadence/resources/best-songwriting-apps-for-android/">Android songwriting app comparison</a>.</p>`),
     section('what-to-test-on-ipad', 'Check the same session on iPad', `
 <p>If you write on iPhone and finish on iPad, use the same small project on both devices before relying on that workflow. Check whether you can view the words beside the audio, find an earlier take, and open a test export. Test project and audio transfer separately. A lyric appearing on a second device does not prove that the recordings arrived with it. If you mostly finish at a desk, verify the exported file in the DAW you use there.</p>`),
     section('free-ios-options', 'What can you do for free?', `

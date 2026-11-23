@@ -111,7 +111,7 @@ function assert(condition, message) {
   if (!condition) throw new Error(message);
 }
 
-export function validateArticles(articles, expectedCount = 14) {
+export function validateArticles(articles, expectedCount = 15) {
   assert(Array.isArray(articles), 'Resource articles must be an array.');
   assert(
     articles.length === expectedCount,

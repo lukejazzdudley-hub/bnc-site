@@ -1,3 +1,4 @@
+import { mobileComparisons, mobileComparisonPath } from '../content/mobile-comparisons.mjs';
 import {storeIcon} from './store-icons.mjs';
 import { readerLayout } from './reader-layout.mjs';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
@@ -39,13 +40,13 @@ const nativeLanguageLinks = `<a href="/cadence/" lang="en">English</a>${language
 const nativeLanguageSection = `<section class="content"><h2>Read in your language</h2><p>Choose a translated Cadence introduction. Language pages are separate from the English-language storefront guides below.</p><nav class="region-links language-links" aria-label="Product languages">${nativeLanguageLinks}</nav><p><a href="/cadence/languages/">All 21 writing languages and setup guides</a></p></section>`;
 const mark = `<picture aria-hidden="true"><source media="(prefers-reduced-motion: reduce)" srcset="/assets/cadence/cadence-mark-static.webp"><img src="/assets/cadence/cadence-mark-nav.webp" data-animated-mark data-static-src="/assets/cadence/cadence-mark-static.webp" alt="" width="36" height="36"></picture>`;
 
-function render({ title, description, canonical, language = 'en', body, schema, regional = false }) {
+function render({ title, description, canonical, language = 'en', body, schema, regional = false, pageAlternates = regional ? alternates : '' }) {
   return readerLayout(`<!doctype html>
 <html lang="${language}"${['ar','he'].includes(language) ? ' dir="rtl"' : ''}><head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
   <title>${escape(title)}</title><meta name="description" content="${escape(description)}">
   <link rel="canonical" href="${canonical}">
-${regional ? alternates : ''}
+${pageAlternates}
   <meta property="og:type" content="website"><meta property="og:title" content="${escape(title)}"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${canonical}"><meta property="og:site_name" content="Cadence"><meta property="og:image" content="${domain}/assets/cadence/studio-november/share-graphite.png"><meta property="og:image:alt" content="Cadence songwriting workspace"><meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#08090c"><meta name="apple-itunes-app" content="app-id=6778554520">
   <link rel="icon" type="image/webp" href="/assets/cadence/cadence-mark-static.webp">
@@ -110,11 +111,47 @@ for (const locale of locales) {
   const canonical = `${domain}/cadence/${locale.code}/`;
   const languageNav = `<a href="/cadence/" lang="en">English</a>${locales.map(item => `<a href="/cadence/${item.code}/" lang="${localeTag(item)}"${item.code === locale.code ? ' aria-current="page"' : ''}>${escape(item.name)}</a>`).join('')}`;
   const stores = `<div class="actions"><a class="button primary" href="https://play.google.com/store/apps/details?id=io.cadenceapp.mobile&amp;hl=${localeTag(locale)}">${storeIcon('google')}<span>${locale.playStore}</span></a><a class="button" href="https://apps.apple.com/app/id6778554520">${storeIcon('apple')}<span>${locale.appStore}</span></a></div>`;
-  const body = `<section class="hero text-only"><div><h1>${escape(locale.heading)}</h1><p class="intro">${escape(locale.intro)}</p>${stores}</div></section>${locale.sections.map((section,index) => `<section class="content"><h2>${escape(section.heading)}</h2>${section.html}${locale.guide && index < 2 ? `<p><a href="/cadence/guide/#${index === 0 ? 'languages' : 'beat-loop'}" lang="en">${locale.guide}</a> · <a href="/cadence/guide/#${index === 0 ? 'rhyme-inspector' : 'voice-memos'}" lang="en">${index === 0 ? 'Rhyme inspector (English)' : 'Recording (English)'}</a></p>` : ''}</section>`).join('')}<section class="content region-faq"><h2>${locale.questions}</h2>${faqHtml(locale.faqs)}${stores}</section><section class="content"><p><a href="/cadence/guide/#languages" lang="en">${locale.guide || 'Guide (English)'}</a></p><p><a href="/cadence/languages/${pack.slug}/" lang="en">${escape(pack.english)} setup &amp; writing guide (English)</a></p></section>`;
+  const comparison = mobileComparisons.find(item => item.code === locale.code);
+  const compareLink = comparison ? `<p><a href="${mobileComparisonPath(comparison)}">${escape(comparison.title)}</a></p>` : '';
+  const body = `<section class="hero text-only"><div><h1>${escape(locale.heading)}</h1><p class="intro">${escape(locale.intro)}</p>${stores}${compareLink}</div></section>${locale.sections.map((section,index) => `<section class="content"><h2>${escape(section.heading)}</h2>${section.html}${locale.guide && index < 2 ? `<p><a href="/cadence/guide/#${index === 0 ? 'languages' : 'beat-loop'}" lang="en">${locale.guide}</a> · <a href="/cadence/guide/#${index === 0 ? 'rhyme-inspector' : 'voice-memos'}" lang="en">${index === 0 ? 'Rhyme inspector (English)' : 'Recording (English)'}</a></p>` : ''}</section>`).join('')}<section class="content region-faq"><h2>${locale.questions}</h2>${faqHtml(locale.faqs)}${stores}</section><section class="content"><p><a href="/cadence/guide/#languages" lang="en">${locale.guide || 'Guide (English)'}</a></p><p><a href="/cadence/languages/${pack.slug}/" lang="en">${escape(pack.english)} setup &amp; writing guide (English)</a></p></section>`;
   let html = render({title:locale.title,description:locale.description,canonical,language:localeTag(locale),body,regional:locale.code !== 'pcm',schema:[{'@context':'https://schema.org','@type':'WebPage',name:locale.title,url:canonical,inLanguage:localeTag(locale),about:{'@id':`${productUrl}#app`}}, {'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Cadence',item:productUrl},{'@type':'ListItem',position:2,name:locale.name,item:canonical}]},faqSchema(locale.faqs)]});
   html = html.replace('Skip to content',locale.main).replace(/<nav aria-label="Main">[\s\S]*?<\/nav>/, `<nav aria-label="${locale.languages}" class="locale-nav"><details><summary>${locale.languages}</summary><div class="region-links">${languageNav}</div></details></nav>`).replace(/<footer>[\s\S]*?<\/footer>/, `<footer><div class="shell"><p>Flow by Cadence · Brand Name Changes</p><nav aria-label="${locale.languages}" class="locale-nav"><details><summary>${locale.languages}</summary><div class="region-links">${languageNav}</div></details></nav><nav aria-label="${locale.nav}"><a href="/cadence/guide/" lang="en">Guide (English)</a><a href="/support" lang="en">${locale.support} (English)</a><a href="/privacy" lang="en">${locale.privacy} (English)</a><a href="/terms" lang="en">${locale.terms} (English)</a></nav></div></footer>`);
   mkdirSync(path.join(root, 'cadence',locale.code), {recursive:true});
   writeFileSync(path.join(root,'cadence',locale.code,'index.html'),html);
+}
+
+const comparisonAlternates = mobileComparisons.map(item =>
+  `<link rel="alternate" hreflang="${item.lang}" href="${domain}${mobileComparisonPath(item)}">`).join('\n  ');
+
+for (const item of mobileComparisons) {
+  const locale = locales.find(entry => entry.code === item.code);
+  const route = mobileComparisonPath(item);
+  const canonical = domain + route;
+  const google = localGoogle({code: item.country}).replace('hl=en', `hl=${item.lang}`);
+  const apple = localApple({code: item.country.toLowerCase()});
+  const apps = [
+    ['Cadence', google],
+    ['Song Cage', 'https://songcage.com/mobile/'],
+    ['BandLab', 'https://help.bandlab.com/hc/en-us/articles/115002945433-Track-and-Project-Duration-Limits'],
+    ['GarageBand', 'https://apps.apple.com/' + item.country.toLowerCase() + '/app/garageband/id408709785'],
+  ];
+  const languages = `<nav class="region-links" aria-label="${escape(locale.languages)}">${mobileComparisons.map(other =>
+    `<a href="${mobileComparisonPath(other)}" lang="${other.lang}"${other === item ? ' aria-current="page"' : ''}>${escape(other.name)}</a>`).join('')}</nav>`;
+  const body = `<section class="hero text-only"><div><h1>${escape(item.title)}</h1><p class="intro">${escape(item.intro)}</p></div></section>
+<section class="content" id="comparison"><h2>${escape(item.compare)}</h2><dl>${apps.map(([name, href], index) =>
+    `<dt><strong><a href="${escape(href)}">${name}</a></strong></dt><dd><p>${escape(item.choices[index])}</p></dd>`).join('')}</dl></section>
+<section class="content" id="exercise"><h2>${escape(item.exercise)}</h2><ol>${item.steps.map(step => `<li>${escape(step)}</li>`).join('')}</ol><p><a href="${item.tool[0]}">${escape(item.tool[1])}</a></p></section>
+<section class="content" id="plans"><h2>${escape(item.access)}</h2><p>${escape(item.limits)}</p><div class="actions"><a class="button primary" href="${escape(google)}">${storeIcon('google')}<span>${escape(locale.playStore)}</span></a><a class="button" href="${apple}">${storeIcon('apple')}<span>${escape(locale.appStore)}</span></a></div></section>`;
+  const html = render({
+    title: `${item.title} | Cadence`, description: item.description, canonical, language: item.lang, body,
+    pageAlternates: comparisonAlternates,
+    schema: {'@context': 'https://schema.org', '@type': 'Article', headline: item.title, description: item.description, inLanguage: item.lang, mainEntityOfPage: canonical, publisher: {'@type': 'Organization', name: 'Brand Name Changes'}},
+  }).replace('Skip to content', escape(locale.main))
+    .replace(/<nav aria-label="Main">[\s\S]*?<\/nav>/, languages)
+    .replace(/<footer>[\s\S]*?<\/footer>/, `<footer><div class="shell"><a href="/cadence/${item.code}/">Cadence</a>${languages}</div></footer>`);
+  const directory = path.join(root, route);
+  mkdirSync(directory, { recursive: true });
+  writeFileSync(path.join(directory, 'index.html'), html);
 }
 
 // Replace only owned sections; preserve the accepted product copy and media.
@@ -142,5 +179,5 @@ product = product.includes('<!-- language-picker:start -->')
 writeFileSync(productPath, product);
 const packRoutes = buildPackGuides(root, render, locales);
 const sitemapPath = path.join(root, 'sitemap.xml');
-writeFileSync(sitemapPath, appendSitemap(readFileSync(sitemapPath, 'utf8'), ['/cadence/regions/', ...regions.map(regionPath), '/cadence/languages/', ...locales.map(locale => `/cadence/${locale.code}/`), ...packRoutes]));
+writeFileSync(sitemapPath, appendSitemap(readFileSync(sitemapPath, 'utf8'), ['/cadence/regions/', ...regions.map(regionPath), '/cadence/languages/', ...locales.map(locale => `/cadence/${locale.code}/`), ...packRoutes, ...mobileComparisons.map(mobileComparisonPath)]));
 console.log(`Built ${regions.length} regional editions, download directory, product FAQs and reciprocal hreflang.`);
