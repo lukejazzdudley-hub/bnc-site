@@ -1,3 +1,5 @@
+import { cadenceAdvantages } from './cadence-advantages.mjs';
+
 const apple = 'https://apps.apple.com/gb/app/cadence-lyrics-rhymes/id6778554520';
 const android = 'https://play.google.com/store/apps/details?id=io.cadenceapp.mobile';
 const songRight = 'https://apps.apple.com/us/app/songright-songwriting-studio/id6760428538';
@@ -26,6 +28,7 @@ export const bestSongwritingApp = {
 </ol>
 <p>Start with three free notes. The full Draft-to-DAW workflow and export require Pro. Check the current offer in your store.</p>`,
     },
+    cadenceAdvantages,
     {
       id: 'rhyme-language-coverage',
       heading: 'Cadence offers 21 rhyme language options',

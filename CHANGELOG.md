@@ -1,5 +1,7 @@
 # Changelog
 
+- Compare Cadence’s beat cues, multilingual rhymes, local playback and video sampling across the app comparisons. See current access and the upcoming free on-device plan.
+
 - See how Cadence compares across the full songwriting workflow and how its 21 rhyme language options compare with SongRight’s documented coverage.
 
 - Compare Cadence with four other songwriting apps and see how a beat becomes a recorded demo on iOS and Android.
