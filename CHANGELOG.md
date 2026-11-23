@@ -1,5 +1,7 @@
 # Changelog
 
+- Compare five iPhone songwriting apps by workflow and practise rhyme types, multi-word rhymes, assonance and consonance with worked examples.
+
 - Switch between Cadence workspaces on a silver studio surface and open beat writing, rhyme search or arrangement directly from the interactive tool cards.
 
 - Explore the November Cadence studio, lyric editor, rhyme keyboard and vinyl player in the product preview. Regional pages and writing guides now show the newer native interface.
