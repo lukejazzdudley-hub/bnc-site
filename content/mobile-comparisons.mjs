@@ -2,9 +2,10 @@ export const mobileComparisons = [
   {
     code: 'es', lang: 'es', name: 'Español', country: 'ES', slug: 'mejores-apps-para-escribir-canciones',
     title: 'Mejores apps para escribir canciones en Android y iPhone',
-    description: 'Compara Cadence, Song Cage, BandLab y GarageBand para escribir letras, buscar rimas, grabar sobre un beat o preparar una maqueta.',
-    intro: 'Si ya tienes una base, busca una app que te deje repetir un fragmento, escribir encima y guardar varias tomas. Si empiezas con acordes o quieres producir la instrumental, te conviene probar otro flujo.',
+    description: 'Compara cuatro apps para escribir letras de canciones en Android y iPhone. Elige según lo que necesites: rimas en español, grabación sobre una base o una maqueta.',
+    intro: 'Para escribir letras de canciones en español sobre una base, Cadence reúne el texto, las rimas y las tomas. Si lo primero es grabar varias pistas o tocar instrumentos, la comparativa te ayuda a elegir otra ruta. Prueba con el estribillo de una canción que ya tengas.',
     compare: 'Qué app elegir según cómo compones',
+    decision: 'Si ya tienes una base y un estribillo a medias, comprueba que puedes volver al inicio del estribillo, probar una rima en español y guardar dos tomas. Si la voz ya está lista y lo que falta es añadir instrumentos, empieza por las funciones de grabación multipista.',
     practice: {
       title: 'De la base al estribillo',
       html: `<p class="opening-lyric">«Tu mensaje sigue sonando en el <mark>andén</mark>»</p>
@@ -31,9 +32,10 @@ export const mobileComparisons = [
   {
     code: 'fr', lang: 'fr', name: 'Français', country: 'FR', slug: 'meilleures-applications-ecrire-chansons',
     title: 'Meilleures applications pour écrire des chansons sur iPhone et Android',
-    description: 'Comparez Cadence, Song Cage, BandLab et GarageBand pour vos paroles, vos rimes, vos prises de voix et vos maquettes.',
+    description: 'Comparez quatre applications pour écrire des paroles sur iPhone et Android. Essayez les rimes en français, l’enregistrement vocal ou la création d’une maquette.',
     intro: 'Le bon choix dépend de votre point de départ. Pour écrire et enregistrer sur une instru, essayez Cadence. Pour chercher des accords ou partir d’instruments virtuels, comparez les autres méthodes ci-dessous.',
     compare: 'Choisir une application selon votre façon d’écrire',
+    decision: 'Commencez avec le fichier que vous avez déjà. Si vous avez un mémo fredonné, vérifiez que vous pouvez le réécouter pendant que vous révisez les paroles. Si vous avez déjà un refrain et souhaitez enregistrer plusieurs instruments, cherchez en priorité un espace multipiste.',
     practice: {
       title: 'Du mémo vocal à la mélodie',
       html: `<p class="opening-lyric">« Je te laisse un message. »</p>
@@ -59,9 +61,10 @@ export const mobileComparisons = [
   {
     code: 'pt', lang: 'pt-BR', name: 'Português (Brasil)', country: 'BR', slug: 'melhores-apps-para-compor-musicas',
     title: 'Melhores apps para compor músicas no Android e iPhone',
-    description: 'Compare Cadence, Song Cage, BandLab e GarageBand para escrever letras, encontrar rimas, gravar voz e montar uma demo no celular.',
+    description: 'Compare quatro apps para escrever letras de música no celular. Veja opções para rimar em português do Brasil, gravar voz sobre a batida ou montar uma demo.',
     intro: 'Se você já tem uma batida, vale testar um app que deixa repetir o trecho, escrever a letra e guardar as gravações no mesmo projeto. Para começar pelos acordes ou produzir a base, veja as outras opções.',
     compare: 'Qual app combina com o jeito que você compõe?',
+    decision: 'Escolha pelo que você precisa entregar. Para mandar uma guia ao produtor, teste se a voz e a batida podem sair separadas e começar juntas na DAW. Se você quer escrever a letra e guardar duas versões do refrão, teste primeiro a importação da batida e a gravação no mesmo projeto.',
     practice: {
       title: 'Do refrão à sessão de produção',
       html: `<dl class="opening-timeline"><div><dt>Saindo do celular</dt><dd>Exporte um teste com a batida e uma voz marcada com a palavra «vai» no início do refrão.</dd></div>

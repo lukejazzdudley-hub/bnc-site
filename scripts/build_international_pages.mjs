@@ -138,7 +138,7 @@ for (const item of mobileComparisons) {
   const languages = `<nav class="region-links" aria-label="${escape(locale.languages)}">${mobileComparisons.map(other =>
     `<a href="${mobileComparisonPath(other)}" lang="${other.lang}"${other === item ? ' aria-current="page"' : ''}>${escape(other.name)}</a>`).join('')}</nav>`;
   const body = `<section class="hero mobile-comparison-hero"><div><h1>${escape(item.title)}</h1><p class="intro">${escape(item.intro)}</p><p class="comparison-jump"><a href="#comparison">${escape(item.compare)}</a></p></div><section class="guide-opening" aria-labelledby="opening-title"><h2 id="opening-title">${escape(item.practice.title)}</h2>${item.practice.html}</section></section>
-<section class="content" id="comparison"><h2>${escape(item.compare)}</h2><dl class="mobile-app-choices">${apps.map(([name, href], index) =>
+<section class="content" id="comparison"><h2>${escape(item.compare)}</h2><p>${escape(item.decision)}</p><dl class="mobile-app-choices">${apps.map(([name, href], index) =>
     `<div><dt><strong><a href="${escape(href)}">${name}</a></strong></dt><dd><p>${escape(item.choices[index])}</p></dd></div>`).join('')}</dl></section>
 <section class="content" id="exercise"><h2>${escape(item.exercise)}</h2><ol>${item.steps.map(step => `<li>${escape(step)}</li>`).join('')}</ol><p><a href="${item.tool[0]}">${escape(item.tool[1])}</a></p></section>
 <section class="content" id="plans"><h2>${escape(item.access)}</h2><p>${escape(item.limits)}</p><div class="actions"><a class="button primary" href="${escape(google)}">${storeIcon('google')}<span>${escape(locale.playStore)}</span></a><a class="button" href="${apple}">${storeIcon('apple')}<span>${escape(locale.appStore)}</span></a></div></section>`;

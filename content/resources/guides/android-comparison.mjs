@@ -10,15 +10,15 @@ export const androidComparison = {
   slug: 'best-songwriting-apps-for-android',
   title: 'Best Songwriting Apps for Android, from Lyrics to Demo',
   heading: 'Which Android songwriting app fits your song?',
-  description: 'Compare Cadence, Song Cage, BandLab and FL Studio Mobile for Android. Check beat looping, lyric writing, recording, offline capture and export before you choose.',
+  description: 'Compare four Android songwriting apps for lyrics, beat loops, voice recording and multitrack demos. See what you can try free and what to test offline.',
   intro: 'Use Cadence if you start with an imported beat and want to write, record and arrange on the same phone. A chord sketch, band recording or instrumental production calls for a different starting point.',
   category: 'Choose your tools',
   sections: [
-    cadenceAdvantages,
     {
       id: 'android-shortlist',
       heading: 'Four Android apps, four starting points',
       html: `<p>${mobileComparisons.map(item => `<a href="${mobileComparisonPath(item)}" lang="${item.lang}">${item.name}</a>`).join(' · ')}</p><p>Cadence publishes this guide. The shortlist uses vendor documentation and public listings. The exercise below is for your own device and project.</p>
+<p><strong>Pick by the file you already have.</strong> A beat in Downloads and an unfinished lyric point to Cadence. A memo and a chord idea point to Song Cage. For recording layers, try BandLab. To build the beat itself, start with FL Studio Mobile. <a href="#android-free">Check the free options</a> before committing.</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Compare four Android songwriting apps"><table><thead><tr><th scope="col">App</th><th scope="col">Choose it for</th><th scope="col">Check before you commit</th></tr></thead><tbody>
 <tr><th scope="row"><a href="${play}">Cadence</a></th><td>Lyrics, rhyme suggestions, an imported beat loop and takes attached to the song.</td><td>Start with three free notes. Check Pro access for full arrangement and export. Test the exact handoff in <a href="/cadence/guide/#export-audio">the stem-export guide</a>.</td></tr>
 <tr><th scope="row"><a href="${songCage}">Song Cage</a></th><td>Offline capture of voice memos, words and chord sketches.</td><td>The first three ideas are free. Its Android app is the capture stage. The vendor documents arrangement and export in the web or desktop editor.</td></tr>
@@ -26,6 +26,7 @@ export const androidComparison = {
 <tr><th scope="row"><a href="${flStudio}">FL Studio Mobile</a></th><td>Making a beat or building an instrumental with a piano roll, instruments and a mixer.</td><td>Check the local store offer and whether the export you need opens in your desktop setup.</td></tr>
 </tbody></table></div>`,
     },
+    cadenceAdvantages,
     {
       id: 'same-eight-bars',
       heading: 'A ten-minute test with the same eight bars',
