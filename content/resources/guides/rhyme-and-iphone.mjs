@@ -15,7 +15,7 @@ export const newGuides = [
     slug: 'types-of-rhyme',
     title: 'Types of Rhyme in Songs and Rap, With Examples',
     heading: 'Types of rhyme you can hear in a lyric',
-    description: 'Hear the difference between perfect, slant, eye, internal and phrase rhymes. Compare original examples and choose a rhyme that fits your lyric.',
+    description: 'Compare seven types of rhyme in rap and songs. Read a four-bar example, hear how internal and end rhymes differ, and choose a rhyme for your lyric.',
     intro: 'Light and night share a sound. Love and move share a spelling. Where you put the match and where you land the stress change what a listener hears.',
     category: 'Improve your writing',
     sections: [
@@ -30,6 +30,12 @@ export const newGuides = [
 <tr><th scope="row">Double or feminine</th><td>timing / climbing</td><td>A stressed rhyme followed by an unstressed syllable.</td></tr>
 <tr><th scope="row">Multi-word</th><td>night train / light rain</td><td>The sound pattern spans more than one word.</td></tr>
 </tbody></table></div>`),
+      section('four-bar-rap-example', 'Hear three kinds of rhyme in four rap bars', `
+<blockquote><p>I cut through the <strong>night</strong> with the dash <strong>light</strong> low<br>
+One hand on the wheel when the talk got <strong>slow</strong><br>
+A cough from the engine, my phone on the <strong>seat</strong><br>
+Rain on the glass and a hiss from the <strong>street</strong></p></blockquote>
+<p>“Night / light” is an internal perfect rhyme. “Low / slow” lands at the ends of bars one and two. “Seat / street” gives the second pair a different ending sound. Swap “street” for “step” and read the last two bars again. The ending changes from “eet” to “ep”, so the sound connecting those two bars is gone. Try “sit” against “seat” for a slant ending with a closer consonant match.</p>`),
       section('write-and-revise', 'Change one landing and hear what changes', `
 <blockquote><p>I saw your coat by the landing light<br>Still on the hook at the edge of night</p></blockquote>
 <p>Read that version, then replace the second line with “Still on the hook, just out of sight.” The tight sound match stays. The image moves from time of day to something the singer almost misses. For a looser ending, try “Still on the hook where the hallway hides.” Put each version over the same two bars. Listen for which ending makes the image clearest and where the last stressed vowel lands.</p>
@@ -46,13 +52,15 @@ export const newGuides = [
     slug: 'multi-word-rhymes',
     title: 'Multi-Word Rhymes: Phrase Examples for Rap and Lyrics',
     heading: 'How to write multi-word rhymes',
-    description: 'Build phrase rhymes across word boundaries with stressed-syllable examples, a two-bar revision exercise and a guide to checking your delivery.',
+    description: 'Try multi-word rhymes such as “deep end / sleep in”. Hear where both stresses land, then look up phrase candidates with Cadence’s English rhyme finder.',
     intro: 'In “night train” and “light rain,” both stressed vowels repeat. The words make different images, and the performance ties the two phrases together.',
     category: 'Improve your writing',
     sections: [
       section('phrases-and-stress', 'Follow the phrase across the word boundary', `
 <p>A multi-word rhyme uses more than one word on at least one side. Multisyllabic describes how many syllables participate. “Timing / climbing” has two matching syllables without needing a phrase. “Night train / light rain” spreads the match across words. Start with the stressed sounds, as described in the <a href="${poetry}">Poetry Foundation rhyme glossary</a>, and listen through the entire ending.</p>
 <ul><li><strong>Cold air / gold hair</strong> repeats the OH sound and the ending “air,” with a different onset on the last word. It is useful as an ear exercise even if you would never use both phrases in one song.</li><li><strong>Last call / cracked wall</strong> is looser. The first vowel and the final “all” connect, while the consonants between them differ. The first vowel can also vary by accent.</li><li><strong>Back seat / track meet</strong> aligns two stressed vowels and differs at the word onsets.</li></ul>`),
+      section('compare-phrase-pairs', 'Three phrase rhymes to try at writing speed', `
+<ul><li><strong>Deep end / sleep in.</strong> Both phrases open with the “eep” sound. The second vowel and ending shift, giving you a looser match.</li><li><strong>Cold feet / old beat.</strong> The first words share “old” and the second share “eet”. Try speaking each phrase over two taps.</li><li><strong>Daybreak / tape deck.</strong> The stressed first vowels connect in many English accents. The second vowels and consonants shift enough to be heard as a slant match.</li></ul><p>Try “ice cream” in the <a href="/cadence/rhyme-finder/">English phrase rhyme finder</a>. Its phrase examples come from a small curated bank, so use related one-word sounds when a phrase search comes back empty.</p>`),
       section('two-bar-exercise', 'Rewrite two bars without losing the scene', `
 <blockquote><p>I caught the last train with your keys in my hand<br>You said you’d call when you knew where you’d land</p></blockquote>
 <p>Move the first image to the end and see if the second line can answer it:</p>
@@ -69,7 +77,7 @@ export const newGuides = [
     slug: 'assonance-vs-consonance',
     title: 'Assonance vs Consonance in Songs: Examples and Exercises',
     heading: 'Hear assonance and consonance in your lyrics',
-    description: 'Compare repeated vowels and consonants with original lyric examples. Use sound repetition inside a bar and check it against a beat.',
+    description: 'Hear assonance in “slow boats roll home” and consonance in “a quick click in the lock”. Try both sounds in original bars and compare them over a beat.',
     intro: '“Wide white lights” repeats an eye vowel. “A stack of cracked clocks” repeats a K sound. You can carry a sound through a line even when the line endings do something else.',
     category: 'Improve your writing',
     sections: [
@@ -96,13 +104,13 @@ newGuides.push({
   slug: 'best-songwriting-apps-for-iphone',
   title: 'Best Songwriting Apps for iPhone and iPad, by Workflow',
   heading: 'Choose a songwriting app for your iPhone workflow',
-  description: 'Compare Cadence, SongRight, Demo, Song-Writer and GarageBand for writing lyrics, looping beats, charting chords, recording and exporting on iOS.',
+  description: 'Compare five iPhone songwriting apps for lyrics, Voice Memos, beat loops, chord charts and recording. Check what you can finish free on iPhone or iPad.',
   intro: 'Choose based on how your songs begin. If you write lyrics to an imported beat and want to keep your takes with the draft, start with Cadence. If you start with chords, instruments or charts, compare the alternatives below.',
   category: 'Choose your tools',
   sections: [
-    cadenceAdvantages,
     section('iphone-comparison', 'Compare five iPhone songwriting apps', `
 <p>${mobileComparisons.map(item => `<a href="${mobileComparisonPath(item)}" lang="${item.lang}">${item.name}</a>`).join(' · ')}</p><p>Cadence publishes this guide. The comparison uses public product documentation and store listings. Test the features you need on your device before committing to a project or plan.</p>
+<p><strong>Pick by what you want to leave the session with.</strong> For a lyric and vocal takes attached to one beat, try Cadence. To send a chord chart to a bandmate, start with Song-Writer. For a playable chord progression, try Demo. For an instrumental built from virtual instruments, start in GarageBand. <a href="#free-ios-options">Check what you can finish for free</a>.</p>
 <div class="table-scroll" tabindex="0" role="region" aria-label="Compare iOS songwriting apps"><table><thead><tr><th scope="col">App</th><th scope="col">Start here if you need</th><th scope="col">What to try on your phone</th></tr></thead><tbody>
 <tr><th scope="row"><a href="${cadence}">Cadence</a></th><td>Lyrics and rhymes beside an imported beat, with recorded takes and an arrangement path</td><td>Loop four bars, write over them, save two takes and compare them. Then inspect the <a href="/cadence/guide/#export-audio">mix and stems workflow</a>.</td></tr>
 <tr><th scope="row"><a href="${songRight}">SongRight</a></th><td>Song notes and mobile demo recording</td><td>For rhymes, its listing documents English and Spanish. <a href="/cadence/resources/best-songwriting-app-ios-android/#rhyme-language-coverage">Cadence supports both plus 19 more options</a>. Compare how each app takes a recorded idea through to export.</td></tr>
@@ -110,6 +118,7 @@ newGuides.push({
 <tr><th scope="row"><a href="${songWriter}">Song-Writer</a></th><td>Chords above lyrics, section recordings and Nashville numbers</td><td>Chart a verse and check how the chord picker, diagrams and printed chart fit your session.</td></tr>
 <tr><th scope="row"><a href="${garageBand}">GarageBand</a></th><td>Touch Instruments, audio recording and track-based production</td><td>Build an instrumental and record a vocal. Check how you want to keep the lyric within reach.</td></tr>
 </tbody></table></div><p>SongRight and Song-Writer are separate apps. Check each storefront for device compatibility, current pricing and export access.</p>`),
+    cadenceAdvantages,
     section('write-on-iphone', 'How to write a song on iPhone', `
 <ol><li><strong>Bring one idea.</strong> Start a draft with four lines, a Voice Memo or an instrumental you have permission to use.</li><li><strong>Loop the section.</strong> In Cadence, load the beat and set two <a href="/cadence/guide/#beat-loop">loop points</a>. Try the line ending out loud and adjust it before recording.</li><li><strong>Keep two takes.</strong> Record a straight delivery and one with a different rhythmic landing. Listen back and save the strongest line with its take.</li><li><strong>Check the handoff.</strong> If you finish in another DAW, check whether you need a single demo or aligned stems. Open a test export before moving your main project.</li></ol>
 <p>See the <a href="/cadence/type-beat-walkthrough/">beat-first walkthrough with video and transcript</a>, or <a href="${cadence}">view Cadence on the App Store</a>.</p>`),

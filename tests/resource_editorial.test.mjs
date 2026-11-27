@@ -108,3 +108,15 @@ test('each buying comparison covers the Cadence advantages and the current plan 
   assert.equal(rows.length, 12);
   assert.ok(rows.every(([, html]) => /<td>[^<]*<p>[^<]*Cadence/.test(html)));
 });
+
+test('platform comparisons put the shortlist first and retain free-plan links', () => {
+  for (const [slug, shortlist, free] of [
+    ['best-songwriting-apps-for-iphone', 'iphone-comparison', 'free-ios-options'],
+    ['best-songwriting-apps-for-android', 'android-shortlist', 'android-free'],
+  ]) {
+    const article = guides.find(guide => guide.slug === slug);
+    assert.equal(article.sections[0].id, shortlist);
+    assert.ok(article.sections[0].html.includes(`href="#${free}"`));
+    assert.ok(article.sections.some(section => section.id === free));
+  }
+});

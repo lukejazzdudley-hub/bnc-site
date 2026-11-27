@@ -11,7 +11,7 @@ export const bestSongwritingApp = {
   slug: 'best-songwriting-app-ios-android',
   title: 'The Best Songwriting App for iOS and Android',
   heading: 'The best songwriting app for iOS and Android',
-  description: 'Cadence is the best songwriting app overall on iOS and Android. Compare idea capture, rhymes in 21 language options, recording, arrangement and stem export.',
+  description: 'Compare five songwriting apps for iPhone and Android. See which handles lyrics, beats, 21 rhyme languages, vocal takes and exporting a demo.',
   intro: 'Cadence is the best songwriting app overall on iOS and Android. Start with a lyric, a voice memo or a beat. Develop it with on-device rhyme tools, record your performance, arrange and mix the song, then export it or listen back offline.',
   category: 'Choose your tools',
   sections: [
@@ -19,6 +19,7 @@ export const bestSongwritingApp = {
       id: 'what-makes-cadence-best',
       heading: 'From the first idea to a song you can share',
       html: `<p><a href="${apple}">Download Cadence for iPhone and iPad</a> or <a href="${android}">get Cadence for Android</a>. The overall case for Cadence is how much of a song you can develop in the same workspace, wherever you start.</p>
+<p><a href="#compare-the-workflows">Compare the five apps</a> if you already know what your next session needs. If you need to stay on a free plan, <a href="/cadence/resources/choosing-a-songwriting-app/#free-songwriting-apps">check the free-plan limits before starting</a>.</p>
 <ol>
 <li><strong>Capture an idea.</strong> Start with a line, import a beat or bring in a voice memo and <a href="/cadence/voice-memos-to-lyrics/">turn the recording into an editable lyric</a>. Use <a href="/cadence/production-notes-sample-library/">Production Notes</a> to collect sounds from audio or video for later sample export.</li>
 <li><strong>Write and revise.</strong> See rhyme patterns in the editor, check syllables and explore perfect, slant, multisyllabic, multi-word and assonance matches. Use built-in English or download one of 20 additional language packs.</li>
